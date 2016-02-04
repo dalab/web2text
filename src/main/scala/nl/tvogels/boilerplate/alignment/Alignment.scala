@@ -86,8 +86,8 @@ object Alignment {
   private def rawAlignment(a: String, b: String) = {
     val x = new Sequence(removeStrangeSymbols(a))
     val y = new Sequence(removeStrangeSymbols(b))
-    Util.save("/Users/thijs/Desktop/x.txt",a)
-    Util.save("/Users/thijs/Desktop/y.txt",b)
+    Util.save("/Users/thijs/Desktop/x.txt",removeStrangeSymbols(a))
+    Util.save("/Users/thijs/Desktop/y.txt",removeStrangeSymbols(b))
     SmithWatermanGotoh.align(x, y, alignmentMatrix, 0.5f, 0f)
   }
 
