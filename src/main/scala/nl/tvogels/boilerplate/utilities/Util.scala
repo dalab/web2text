@@ -9,15 +9,28 @@ import java.io.FileNotFoundException
 import java.nio.charset.CodingErrorAction
 import scala.io.Codec
 
-
+/** Miscelaneous utility functions
+  *
+  * @author Thijs Vogels <t.vogels@me.com>
+  */
 object Util {
 
-  implicit val codec = Codec("UTF-8")
+  /** Codec configured for loading non-UTF8 files */
+  private implicit val codec = Codec("UTF-8")
   codec.onMalformedInput(CodingErrorAction.REPLACE)
   codec.onUnmappableCharacter(CodingErrorAction.REPLACE)
 
-  // Median algorithm from StackOverflow
-  @tailrec private def findKMedian(arr: Array[Double], k: Int): Double = {
+  /** Find the K-Median of a list of numbers
+    *
+    * @param arr An array of Numbers
+    * @param k Search for k'th smallest number
+    * @return k'th smallest number
+    *
+    * @todo Make this general for any Numeric type
+    *
+    * @note Based on an answer from StackOverflow
+    */
+  @tailrec def findKMedian(arr: Seq[Double], k: Int): Double = {
     val a = arr(scala.util.Random.nextInt(arr.size))
     val (s, b) = arr partition (a >)
     if (s.size == k) a
@@ -30,8 +43,13 @@ object Util {
     else findKMedian(s, k)
   }
 
-  def median(arr: Array[Double]) = findKMedian(arr, (arr.size - 1) / 2)
+  /** Find the median in a list */
+  def median(arr: Seq[Double]) = findKMedian(arr, (arr.size - 1) / 2)
 
+  /** Time the execution of a block
+    *
+    * Prints the elapsed time
+    */
   def time[R](block: => R): R = {
     val t0 = System.nanoTime()
     val result = block // call-by-name
@@ -40,22 +58,41 @@ object Util {
     result
   }
 
-  def allSubstringOccurences(str1: String, substr: String): List[Int] = {
+  /** Finds all occurrences of a string `needle` in `haystack`
+    *
+    * @return A list of positions of the occurences
+    */
+  def allSubstringOccurences(haystack: String, needle: String): List[Int] = {
     @tailrec def count(pos: Int, c: List[Int]): List[Int] = {
-      val idx = str1 indexOf (substr, pos)
-      if (idx == -1) c else count(idx + substr.size, idx :: c)
+      val idx = haystack indexOf (needle, pos)
+      if (idx == -1) c else count(idx + needle.size, idx :: c)
     }
     count(0, List())
   }
 
-  def allSubstringOccurences(str1: String, substr: String, sourceStart: Int, sourceEnd: Int): List[Int] = {
+  /** Finds all occurrences of a string `needle` in `haystack` between bounds
+    *
+    * @param haystack
+    * @param needle
+    * @param searchFrom Find matches starting at index
+    * @param searchTo Stop finding matches at index
+    * @return A list of positions of the occurences
+    */
+  def allSubstringOccurences(haystack: String, needle: String, searchFrom: Int, searchTo: Int): List[Int] = {
     @tailrec def count(pos: Int, c: List[Int]): List[Int] = {
-      val idx = str1 indexOf (substr, pos)
-      if (idx == -1 || idx > sourceEnd) c else count(idx + substr.size, idx :: c)
+      val idx = haystack indexOf (needle, pos)
+      if (idx == -1 || idx > searchTo) c else count(idx + needle.size, idx :: c)
     }
-    count(sourceStart, List())
+    count(searchFrom, List())
   }
 
+  /** Load a file from disk
+    *
+    * @param path File path
+    * @param skipLines Skip the first `skipLines` lines
+    * @param isResource Boolean to specify whether to look in /src/main/resources/,
+    * or just at the path provided
+    */
   def loadFile(path: String, skipLines: Int = 0, isResource: Boolean = false) = {
 
     val source = {
@@ -69,6 +106,12 @@ object Util {
     source.getLines.drop(skipLines) mkString "\n"
   }
 
+  /** Randomly select an element from a sequence, with given probabilities
+    *
+    * @param elements List of elements, of which one will be picked
+    * @param weights Picking probabilities. Does not have to a valid PDF
+    * @return Selected element
+    */
   def randomSelectionWeighted[X](elements: Seq[X], weights: Seq[Double]): X = {
     assert(weights.length == elements.length)
     def normalize(l: Seq[Double]) = {
@@ -82,10 +125,12 @@ object Util {
     elements((cum.indexWhere { x => x > rand } - 1).max(0))
   }
 
+  /** Show the first `n` characters of a string `s`, if the string is longer */
   def preview(s: String, n: Int) =
     if (s.length <= n) s
     else s.take(s.lastIndexWhere(_.isSpaceChar, n)).trim
 
+  /** Save a file to disk */
   def save(filename: String, content: String): Unit = {
     val file = new java.io.File(filename)
     val out = new java.io.BufferedWriter(new java.io.FileWriter(file))
@@ -93,9 +138,11 @@ object Util {
     out.close
   }
 
+  /** Check if a file exists */
   def fileExists(path: String) =
     Files.exists(Paths.get(path))
 
+  /** Trim any whitespace from the ends of a string */
   def trim(s: String): String = s.replaceAll("(^\\h*)|(\\h*$)", "")
 
 }
