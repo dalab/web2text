@@ -2,6 +2,7 @@ package nl.tvogels.boilerplate.alignment
 
 import nl.tvogels.boilerplate.utilities.Util
 import jaligner.{Alignment => JAlignment,Sequence,SmithWatermanGotoh}
+import nl.tvogels.boilerplate.cdom.CDOM
 import jaligner.matrix.MatrixLoader
 import scala.util.Random
 
@@ -40,7 +41,7 @@ object Alignment {
   /** Alignment a source document with a cleaned document.
     *
     * @param source A string containing the source code
-    * @param clean A string containing the cleaned text.
+    * @param cleaned A string containing the cleaned text.
     *   It should not contain extra markup that was not in the
     *   original HTML document, and any spacing is best
     *   normalized to one space: ' '. See
@@ -50,9 +51,10 @@ object Alignment {
     * length as the input source, with `Alignment.GAPCHAR`
     * characters inserted where source-content has been removed.
     */
-  def alignment(source: String, clean: String): String = {
+  def alignment(source: String, cleaned: String): String = {
     val mask = maskTags(source)
     assert(mask.length == source.length)
+    val clean = cleaned.toUpperCase.replaceAll("""[\p{Z}\s]+"""," ").trim
 
     var open: Vector[OpenSegment] = Vector(OpenSegment(0,clean.length, 0, mask.length))
     var matches: Vector[MatchSegment] = Vector()
@@ -198,11 +200,26 @@ object Alignment {
     val htmlTags = """(?s)<(.*?)>"""r
     val fmTags = """(?s)(<HEAD[^>]*>.*?</HEAD[^>]*>|<SCRIPT[^>]*>.*?</SCRIPT[^>]*>|<STYLE[^>]*>.*?</STYLE[^>]*>|<!--.*?-->|&[A-Z]+;|<[^<>]*?>)"""r
 
-    val html2 = html.toUpperCase.replaceAll("""\s"""," ")
+    val html2 = html.toUpperCase.replaceAll("""[\p{Z}\s]"""," ")
     fmTags.replaceAllIn(html2, m => "#" * m.group(0).length)
           // .replaceAll("""[^\x00-\x7F]"""," ")
           //.replaceAll("""\W"""," ")
           .replaceAllLiterally(String.valueOf(JAlignment.GAP), " ")
+  }
+
+  /** Extract 'ground truth' labels from a cleaned file in which the characters are perfectly
+    * aligned with the source document */
+  def labelsFromAlignedString(cdom: CDOM, aligned: String): Vector[Int] =
+    cdom.leaves map {
+      node => labelFromAlignedString((node.properties.startPosition, node.properties.endPosition), aligned)
+    }
+
+  private def labelFromAlignedString(pair: (Int,Int), aligned: String) = pair match {
+    case (-1,_) =>                       println(Console.RED+s"-1 node.startPosition value"+Console.RESET); 0
+    case (_,-1) =>                       println(Console.RED+s"-1 node.endPosition value"+Console.RESET); 0
+    case (s,_) if s < 0 =>               println(Console.RED+s"negative node.startPosition value"+Console.RESET); 0
+    case (_,e) if e > aligned.length =>  println(Console.RED+s"node.endPosition $e falls outside document (${aligned.length})"+Console.RESET); 0
+    case (s,e) =>                        (if (aligned.substring(s, e).toString matches ".*[A-Za-z].*") 1 else 0)
   }
 
 }

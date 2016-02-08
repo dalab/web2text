@@ -25,3 +25,5 @@ debug/*
 data/debug/*
 checkpoint-files/
 debug-*.csv
+src/main/resources/.sass-cache
+src/main/resources/config.codekit

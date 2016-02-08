@@ -145,4 +145,31 @@ object Util {
   /** Trim any whitespace from the ends of a string */
   def trim(s: String): String = s.replaceAll("(^\\h*)|(\\h*$)", "")
 
+  /** Split a string into sentences.
+    *
+    * @todo Make this more reliable
+    * @note Changing the behaviour of this function will change generated features.
+    */
+  def splitSentences(s: String): Array[String] = {
+    s.split("""\?|\.|!|\||\(|\)| - | – | — """)
+  }
+
+
+  implicit class SeqExtensions[T](v: Seq[T]) {
+
+    def randomSplit(splits: Double*): Seq[Seq[T]]  = {
+      val n = v.length
+      val running = (splits.scanLeft(0.)(_ + _)).tail
+      val sumSplits = running.last
+      val splitIndices = running map { (x: Double) => (x * n / sumSplits).toInt }
+      assert(splitIndices.last == n)
+      val shuffled = Random.shuffle(v)
+      ((0+:splitIndices) zip splitIndices) map {
+        case (a, b) => shuffled.slice(a,b)
+      }
+
+    }
+
+  }
+
 }
