@@ -4,7 +4,7 @@ import nl.tvogels.boilerplate.features.PageFeatures
 
 trait Classifier {
 
-  def train(data: Vector[(PageFeatures,Vector[Int])]): Unit
+  def train(data: Seq[(PageFeatures,Seq[Int])]): Unit
 
   def saveWeights(filename: String): Unit
 
@@ -12,11 +12,11 @@ trait Classifier {
 
   def predict(features: PageFeatures): Vector[Int]
 
-  def predict(features: Vector[PageFeatures]): Vector[Vector[Int]] =
+  def predict(features: Seq[PageFeatures]): Seq[Vector[Int]] =
     features.map(predict)
 
-  def performanceStatistics(data: Vector[(PageFeatures,Vector[Int])]) = {
-    val results: Vector[(Int,Int)] = data flatMap {
+  def performanceStatistics(data: Seq[(PageFeatures,Vector[Int])]) = {
+    val results: Seq[(Int,Int)] = data flatMap {
       case (features, label) => (predict(features) zip label)
     }
     PerformanceStatistics.fromPairs(results)

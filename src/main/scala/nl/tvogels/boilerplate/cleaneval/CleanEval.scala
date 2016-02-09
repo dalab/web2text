@@ -4,6 +4,7 @@ import nl.tvogels.boilerplate.utilities.Util
 import nl.tvogels.boilerplate.alignment.Alignment
 import nl.tvogels.boilerplate.features.{FeatureExtractor,PageFeatures}
 import nl.tvogels.boilerplate.cdom.CDOM
+import nl.tvogels.boilerplate.classification.PerformanceStatistics
 import org.jsoup.Jsoup
 
 /** CleanEval related functionality
@@ -127,12 +128,39 @@ object CleanEval {
       aligned = loadAlignedFile(i)
     )}
 
-  /** Generate a dataset for training / testing a classifier */
-  def dataset(extractor: FeatureExtractor): Vector[(PageFeatures,Vector[Int])] =
-    (iterator map { (p: Page) => {
-      val body = Jsoup.parse(p.origWithoutTextTag).body
-      val cdom = CDOM.fromBody(body)
-      (extractor(cdom),Alignment.labelsFromAlignedString(cdom, p.aligned))
-    }}).toVector
+  /** Generate a dataset for training / testing a classifier
+    * @param take How many documents to use (-1 = all) */
+  def dataset(extractor: FeatureExtractor, take: Int = -1): Vector[(PageFeatures,Vector[Int])] = {
+      val it = if (take == -1) iterator
+               else iterator.take(take)
+      (it map { (p: Page) => {
+        val body = Jsoup.parse(p.origWithoutTextTag).body
+        val cdom = CDOM.fromBody(body)
+        (extractor(cdom),Alignment.labelsFromAlignedString(cdom, p.aligned))
+      }}).toVector
+  }
+
+  def evaluateOtherCleaner(alignedLocation: Int=>String): PerformanceStatistics = {
+
+    val pairs = iterator.flatMap( (p: Page) => {
+
+      val location = alignedLocation(p.id)
+      if (!Util.fileExists(location)) Vector()
+      else {
+        // Compute CDOM
+        val body = Jsoup.parse(p.origWithoutTextTag).body
+        val cdom = CDOM.fromBody(body)
+
+        val goldLabels = Alignment.labelsFromAlignedString(cdom, p.aligned)
+        val otherLabels = Alignment.labelsFromAlignedString(cdom, Util.loadFile(location))
+
+        (otherLabels zip goldLabels)
+      }
+    }).toVector
+
+    PerformanceStatistics.fromPairs(pairs)
+
+  }
+
 
 }

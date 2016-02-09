@@ -214,7 +214,9 @@ object Alignment {
       node => labelFromAlignedString((node.properties.startPosition, node.properties.endPosition), aligned)
     }
 
-  private def labelFromAlignedString(pair: (Int,Int), aligned: String) = pair match {
+  /** Get a label from an aligned string
+    * @param position start and end position pair */
+  private def labelFromAlignedString(position: (Int,Int), aligned: String) = position match {
     case (-1,_) =>                       println(Console.RED+s"-1 node.startPosition value"+Console.RESET); 0
     case (_,-1) =>                       println(Console.RED+s"-1 node.endPosition value"+Console.RESET); 0
     case (s,_) if s < 0 =>               println(Console.RED+s"negative node.startPosition value"+Console.RESET); 0
