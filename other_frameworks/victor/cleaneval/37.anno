@@ -1,0 +1,308 @@
+<html>
+<head>
+
+<title>CPS Magnet Program</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="description" content="CPS Magnet Program" />
+<meta name="generator" content="SchoolSitePro" />
+<link rel="icon" href="/favicon.ico" type="image/x-icon" />
+<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+<link rel="stylesheet" href="/apps/shared/main.css" type="text/css" />
+<link rel="stylesheet" href="/shared/main.css" type="text/css" />
+
+</head>
+<body onload="MM_preloadImages('/pics/topnav1f2.gif','/pics/topnav2f2.gif','/pics/topnav3f2.gif','/pics/topnav4f2.gif','/pics/topnav5f2.gif','/pics/topnav6f2.gif','/pics/topnav7f2.gif','/pics/topnav8f2.gif', '/pics/rightnav1f2.gif', '/pics/rightnav2f2.gif', '/pics/rightnav3f2.gif', '/pics/rightnav4f2.gif', '/pics/rightnav5f2.gif', '/pics/rightnav6f2.gif', '/pics/rightnav7f2.gif');">
+<table width="732" border="0" align="center" cellpadding="0" cellspacing="0">
+<tr>
+<td width="732" colspan="2">
+<table cellpadding="0" cellspacing="0" border="0" width="100%">
+<tr>
+<td valign="top" height="15" style="padding-left:10px;">
+<img src="/apps/pics/spacer.gif" width="15" height="1" border="0" /> 
+<select onchange="if(this.value != '') window.open(this.value,'_blank');" id="googleTranslate">
+
+
+
+
+
+
+
+
+
+</select></td>
+<td align="right" valign="bottom" style="padding-right:30px">
+<div id="topNav" style="position:absolute;text-align:right">
+<div id="cluster_menuSub" class="subNav" style="top:16px;">
+<ul class="list">
+<li style="height:40px;">
+<a href="/clusters/city_central.jsp" style="padding-right:8px;"><span id="victor_an0" class="victor_other">City Central Cluster</span></a>
+</li>
+</ul>
+</div>
+</div>
+<a href="javascript:;" onmouseover="P7_autoLayers(0,'menuCloser','cluster_menuSub')" onmouseout="MM_swapImgRestore()">
+<img src="/pics/cluster_menu.gif" name="cluster_menu" height="16" border="0" />
+</a>
+<img src="/apps/pics/spacer.gif" width="6" />
+<a onmouseover="P7_autoLayers(0,'menuCloser')" href="http://schoollocator.cps.k12.il.us" target="_blank">
+<img src="/pics/headernav1.gif" border="0" />
+</a>
+<img src="/apps/pics/spacer.gif" width="6" />
+<a onmouseover="P7_autoLayers(0,'menuCloser')" href="/maps">
+<img src="/pics/headernav2.gif" border="0" />
+</a>
+<img src="/apps/pics/spacer.gif" width="6" />
+<a onmouseover="P7_autoLayers(0,'menuCloser')" href="/schools/saved_schools.jsp">
+<img src="/pics/headernav3.gif" border="0" />
+</a>
+<img src="/apps/pics/spacer.gif" height="1" />
+</td>
+</tr>
+</table>
+<a href="/" onmouseover="P7_autoLayers(0,'menuCloser')">
+<img src="/pics/header.jpg" width="732" border="0" />
+</a>
+<br />
+</td>
+</tr>
+<tr style="background-image:url('/pics/topnav_bg.gif');">
+<td valign="top" align="left">
+<div id="topNav">
+<div id="topNavButtons">
+<div align="left">
+<a href="/index.jsp" onmouseover="MM_swapImage('topnav1','','/pics/topnav1f2.gif',1);P7_autoLayers(0,'menuCloser')" onmouseout="MM_swapImgRestore()">
+<img src="/pics/topnav1.gif" name="topnav1" height="25" border="0" id="topnav1" />
+</a>
+<a href="javascript:;" onmouseover="MM_swapImage('topnav2','','/pics/topnav2f2.gif',1);P7_autoLayers(0,'menuCloser','topNav2Sub')" onmouseout="MM_swapImgRestore()">
+<img src="/pics/topnav2.gif" name="topnav2" height="25" border="0" />
+</a>
+<a href="javascript:;" onmouseover="MM_swapImage('topnav3','','/pics/topnav3f2.gif',1);P7_autoLayers(0,'menuCloser','topNav3Sub')" onmouseout="MM_swapImgRestore()">
+<img src="/pics/topnav3.gif" name="topnav3" height="25" border="0" />
+</a>
+<a href="/minority_students.jsp" onmouseover="MM_swapImage('topnav4','','/pics/topnav4f2.gif',1);P7_autoLayers(0,'menuCloser')" onmouseout="MM_swapImgRestore()"></a>
+<a href="/schools/" onmouseover="MM_swapImage('topnav5','','/pics/topnav5f2.gif',1);P7_autoLayers(0,'menuCloser')" onmouseout="MM_swapImgRestore()">
+<img src="/pics/topnav5.gif" name="topnav5" height="25" border="0" />
+</a>
+<a href="/apps/contact/" onmouseover="MM_swapImage('topnav6','','/pics/topnav6f2.gif',1);P7_autoLayers(0,'menuCloser')" onmouseout="MM_swapImgRestore()">
+<img src="/pics/topnav6.gif" name="topnav6" height="25" border="0" />
+</a>
+<a href="/downloads.jsp" onmouseover="MM_swapImage('topnav7','','/pics/topnav7f2.gif',1);P7_autoLayers(0,'menuCloser')" onmouseout="MM_swapImgRestore()">
+<img src="/pics/topnav7.gif" name="topnav7" height="25" border="0" />
+</a>
+</div>
+</div>
+<div id="menuCloser">
+<a href="javascript:;" onmouseover="P7_autoLayers(0)">
+<img src="/apps/pics/spacer.gif" width="744" height="400" border="0" />
+</a>
+</div>
+<div id="topNav2Sub" class="subNav" onmouseover="MM_swapImage('topnav2','','/pics/topnav2f2.gif',1)" onmouseout="MM_swapImgRestore()">
+<ul class="list">
+<li>
+<a href="/faq.jsp"><span id="victor_an1" class="victor_other">FAQ</span></a>
+</li>
+<li>
+<a href="/program_descriptions/"><span id="victor_an2" class="victor_other">Application Procedures</span></a>
+</li>
+<li>
+<a href="/pdf/2007-2008%20Listing%20of%20Schools%20by%20Category.pdf" target="_blank"><span id="victor_an3" class="victor_other">Schools by Category</span></a>
+</li>
+<li>
+<a href="/es_program_desc.jsp"><span id="victor_an4" class="victor_other">Elementary Schools and Programs</span></a>
+</li>
+<li>
+<a href="/hs_program_desc.jsp"><span id="victor_an5" class="victor_other">High Schools and Programs</span></a>
+</li>
+<li>
+<a href="/academic_program_desc.jsp"><span id="victor_an6" class="victor_other">Academic Program Descriptions</span></a>
+</li>
+</ul>
+</div>
+<div id="topNav3Sub" class="subNav" onmouseover="MM_swapImage('topnav3','','/pics/topnav3f2.gif',1)" onmouseout="MM_swapImgRestore()">
+<ul class="list">
+<li>
+<a href="/welcome_message.jsp"><span id="victor_an7" class="victor_other">Welcome Message</span></a>
+</li>
+<li>
+<a href="/apps/temp.jsp"><span id="victor_an8" class="victor_other">Welcome Video</span></a>
+</li>
+</ul>
+</div>
+</div>
+</td>
+</tr>
+</table>
+<table width="732" border="0" align="center" cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top" width="732" class="contentIndex">
+<div style="border-left: 3px solid rgb(83, 0, 100);">
+<marquee id="marquee135" scrolldelay="100"><span id="victor_an9" class="victor_paragraph">The printed version of the Options for Knowledge guide is now available. The yellow GEAP application for Regional Gifted Centers, Classical Schools, Academic Centers, and IB Prep Programs cannot be downloaded from the Internet. This application, along with the white standard application, can be found in the Options for Knowledge guide. For a copy, call 773-553-2105.</span></marquee>
+</div>
+<table style="padding-top: 12px; background-image: url(/pics/index_bg.gif); background-repeat: no-repeat;" cellpadding="0" cellspacing="0" width="100%">
+<tbody>
+<tr>
+<td align="right" valign="top" width="257">
+<img src="/pics/main_pic1.jpg" height="157" width="193" />
+<br />
+<div style="width: 151px; background-color: rgb(210, 206, 206); margin-right: 21px; text-align: left; font-family: Arial,Helvetica,sans-serif;">
+<div style="padding-left: 8px; padding-right: 8px;">
+<span style="font-size: 12px; font-weight: bold; color: rgb(0, 0, 0);"><span id="victor_an10" class="victor_other">MAGNET PRESCHOOL
+</span><br /><span id="victor_an11" class="victor_other">PROGRAMS BY TYPE</span></span>
+<hr style="border-top: 1px solid rgb(0, 0, 0); height: 1px; border-bottom-width: 0px;" />
+<span style="font-size: 10px; color: rgb(29, 47, 95);"><span id="victor_an12" class="victor_other">-
+</span><a href="/pre_k.jsp"><span id="victor_an13" class="victor_other">Magnet Preschools</span></a>
+<br /></span>
+</div>
+<img src="/pics/main_pic1_bottom.gif" height="8" width="151" />
+</div>
+</td>
+<td style="padding-right: 19px;" align="right" valign="top" width="240">
+<img src="/pics/main_pic2.jpg" height="173" width="193" />
+<br />
+<div style="width: 151px; background-color: rgb(210, 206, 206); margin-right: 21px; text-align: left; font-family: Arial,Helvetica,sans-serif;">
+<div style="padding-left: 8px; padding-right: 8px;">
+<span style="font-size: 11px; font-weight: bold; color: rgb(0, 0, 0);"><span id="victor_an14" class="victor_other">K-8 PROGRAMS BY TYPE</span></span>
+<hr style="border-top: 1px solid rgb(0, 0, 0); height: 1px; border-bottom-width: 0px;" />
+<span style="font-size: 10px; color: rgb(29, 47, 95);"><span id="victor_an15" class="victor_other">-
+</span><a href="/schools/?dir=Academic%20Centers"><span id="victor_an16" class="victor_other">Academic Center</span></a>
+<br /><span id="victor_an17" class="victor_other">-
+</span><a href="/schools/?dir=Classical"><span id="victor_an18" class="victor_other">Classical</span></a>
+<br /><span id="victor_an19" class="victor_other">-
+</span><a href="/schools/?dir=Gifted%20Centers"><span id="victor_an20" class="victor_other">Gifted</span></a>
+<br /><span id="victor_an21" class="victor_other">-
+</span><a href="/schools/?dir=IB%20Prep%20Programme"><span id="victor_an22" class="victor_other">IB Prep Programme</span></a>
+<br /><span id="victor_an23" class="victor_other">-
+</span><a href="/schools/?dir=IB%20Middle%20Years%20Program"><span id="victor_an24" class="victor_other">IB Middle Years Program</span></a>
+<br /><span id="victor_an25" class="victor_other">-
+</span><a href="/schools/?dir=Magnet%20Elementary"><span id="victor_an26" class="victor_other">Magnet Elementary</span></a>
+<br /><span id="victor_an27" class="victor_other">-
+</span><a href="/schools/?dir=Magnet%20Cluster"><span id="victor_an28" class="victor_other">Magnet Cluster</span></a></span>
+</div>
+<img src="/pics/main_pic2_bottom.gif" height="8" width="151" />
+</div>
+</td>
+<td valign="top" width="235">
+<img src="/pics/main_pic3.jpg" height="166" width="193" />
+<br />
+<div style="width: 166px; background-color: rgb(210, 206, 206); margin-left: 15px; text-align: left; font-family: Arial,Helvetica,sans-serif;">
+<div style="padding-left: 8px; padding-right: 8px;">
+<span style="font-size: 11px; font-weight: bold; color: rgb(0, 0, 0);"><span id="victor_an29" class="victor_other">9-12 PROGRAMS BY TYPE</span></span>
+<hr style="border-top: 1px solid rgb(0, 0, 0); height: 1px; border-bottom-width: 0px;" />
+<span style="font-size: 10px; color: rgb(29, 47, 95);"><span id="victor_an30" class="victor_other">-
+</span><a href="/schools/?dir=Selective%20Enrollment"><span id="victor_an31" class="victor_other">Selective Enrollment</span></a>
+<br /><span id="victor_an32" class="victor_other">-
+</span><a href="/schools/?dir=Magnet%20HS"><span id="victor_an33" class="victor_other">Magnet High Schools</span></a>
+<br /><span id="victor_an34" class="victor_other">-
+</span><a href="/schools/?dir=IB%20Diploma%20Programme"><span id="victor_an35" class="victor_other">IB Diploma Programme</span></a></span>
+</div>
+<img src="/pics/main_pic3_bottom.gif" height="8" width="166" />
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+
+<br />
+<table cellpadding="0" cellspacing="0" width="100%">
+<tbody>
+<tr>
+<td align="right" valign="top" width="364">
+<a href="/apps/news/index.jsp?id=0">
+<img border="0" src="/pics/news_header.gif" />
+</a>
+<br />
+<table border="0" cellpadding="3" cellspacing="0" class="HPNews">
+<tr>
+<td width="15" align="right" valign="top" id="l">
+<img border="0" src="/pics/bullet_arrow.gif" vspace="1" />
+</td>
+<td id="r">
+<a href="/apps/news/show_news.jsp?REC_ID=16423&amp;id=0"><span id="victor_an36" class="victor_other">Welcome to the Options for Knowledge Website</span></a>
+<br />
+</td>
+</tr>
+<tr>
+<td width="15" align="right" valign="top" id="l">
+<img border="0" src="/pics/bullet_arrow.gif" vspace="1" />
+</td>
+<td id="r">
+<a href="/apps/news/show_news.jsp?REC_ID=18813&amp;id=0"><span id="victor_an37" class="victor_other">Fine Art Fridays</span></a>
+<br /><span id="victor_an38" class="victor_other">Fine and Performing Arts Magnet Cluster Program professional development for Magnet Cluster Lead Teachers (MCLT).
+</span><br /></td>
+</tr>
+<tr>
+<td width="15" align="right" valign="top" id="l">
+<img border="0" src="/pics/bullet_arrow.gif" vspace="1" />
+</td>
+<td id="r">
+<a href="/apps/news/show_news.jsp?REC_ID=16521&amp;id=0"><span id="victor_an39" class="victor_other">A note about translate functionality</span></a>
+<br />
+</td>
+</tr>
+<tr>
+<td width="15" id="l"><span id="victor_an40" class="victor_other">&nbsp;</span></td>
+<td id="r">
+<b>
+<a href="/apps/news/index.jsp?id=0"><span id="victor_an41" class="victor_other">Show All »</span></a>
+</b>
+<br />
+</td>
+</tr>
+</table>
+</td>
+<td valign="top" width="362">
+<a href="javascript:popup('/apps/events/view_calendar.jsp?id=0','CPSMAGcalendar','700','480');">
+<img border="0" src="/pics/events_header.gif" />
+</a>
+<br />
+<table border="0" cellpadding="3" cellspacing="0" class="HPEvents">
+<tr>
+<td width="15" align="right" valign="top" id="l">
+<img border="0" src="/pics/bullet_arrow.gif" vspace="1" />
+</td>
+<td id="r">
+<a href="/apps/events/show_event.jsp?REC_ID=85947&amp;id=0"><span id="victor_an42" class="victor_other">Application deadline for 2007-08 school year.</span></a>
+<br />
+<b><span id="victor_an43" class="victor_other">Date:</span></b><span id="victor_an44" class="victor_other"> 12/22/2006
+</span><br /></td>
+</tr>
+<tr>
+<td width="15" id="l"><span id="victor_an45" class="victor_other">&nbsp;</span></td>
+<td id="r">
+<b>
+<a href="javascript:popup('/apps/events/view_calendar.jsp?id=0',%20'CPSMAGcalendar',%20'700',%20'480');"><span id="victor_an46" class="victor_other">Show Calendar »</span></a>
+</b>
+</td>
+</tr>
+<tr>
+<td width="15" id="l"><span id="victor_an47" class="victor_other">&nbsp;</span></td>
+<td id="r">
+<b>
+<a href="/apps/events/index.jsp?id=0"><span id="victor_an48" class="victor_other">Show All »</span></a>
+</b>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+<div style="margin: 10px 0px; padding: 10px; font-size: 12px; text-align: justify;" class="dark"><span id="victor_an49" class="victor_paragraph">It is the policy of the Board of Education of the City of Chicago not to discriminate on the basis of race, color, creed, religion, sexual orientation, national origin, age, disability or sex. Inquiries concerning the application of Title IX of the Education Amendments of 1972 and the regulations promulgated thereunder concerning sex discrimination should be referred to the Title IX Officer, Chicago Public Schools, 125 South Clark, Chicago, IL 773-553-2688 (TTY-773-553-2699).</span></div>
+</td>
+</tr>
+<tr>
+<td align="center" style="background-image:url('/pics/footer_bg.gif');background-position:top;background-repeat:no-repeat;">
+<br />
+<br />
+<span style="font-family:Arial, Helvetica, sans-serif;font-size:11px;"><span id="victor_an50" class="victor_other">Copyright © 2006, Chicago Public Schools Gifted and Enriched Academic Program</span></span> 
+<img src="/apps/pics/spacer.gif" width="40" height="1" /> 
+<a href="http://www.educationalnetworks.net" target="_blank">
+<img src="/pics/edunet_logo.gif" style="vertical-align:bottom;" border="0" />
+</a></td>
+</tr>
+</table>
+<br />
+
+
+</body>
+</html>

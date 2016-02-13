@@ -1,0 +1,1177 @@
+<?xml version="1.0" encoding="utf-16"?>
+<html>
+<head>
+<link rel="STYLESHEET" type="text/css" href="/mainnn.css" />
+<title>Destination: New Brunswick Data Base Query Results</title>
+
+</head>
+<body topmargin="0" bottommargin="0" leftmargin="1" rightmargin="0" marginheight="0" marginwidth="0">
+<div id="overDiv" style="position:absolute; visibility:hide; z-index:1;"></div>
+
+
+<table width="770" border="0" cellspacing="0" cellpadding="0" align="center">
+<tr>
+<td>
+<table cellpadding="0" cellspacing="0" border="0" width="100%">
+<tr>
+<td width="273">
+<img src="/graphics/header_left.jpg" width="273" height="100" alt="" border="0" />
+</td>
+<td width="100%" background="/graphics/header_right.jpg" valign="top" align="right">
+<span id="mapidlink">
+<img src="/common/graphics/spacer.gif" width="468" height="60" />
+</span>
+<br />
+<div align="right">
+<font size="-2" color="#FFFFFF">
+<b><span id="victor_an0" class="victor_other">Tuesday, December 26</span></b><span id="victor_an1" class="victor_other"> | 7:56 pm AST&nbsp;&nbsp;</span></font>
+</div>
+</td>
+</tr>
+<tr>
+<td colspan="2" height="20" bgcolor="#990000" align="center">
+
+<div id="MasterTable">
+ 
+ 
+</div>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td>
+<div class="main">
+<form name="refine" action="dbreturn.asp?" method="post">
+<input type="hidden" name="startat" value="0" />
+<input type="hidden" name="listing" value="G" />
+<input type="hidden" name="CategoryID" value="G__" />
+<input type="hidden" name="AreaID" value="2_" />
+<input type="hidden" name="PlaceID" value="" />
+<input type="hidden" name="Amens" value="" />
+<input type="hidden" name="AmenType" value="" />
+<input type="hidden" name="DateStart" value="" />
+<input type="hidden" name="DateEnd" value="" />
+<input type="hidden" name="keywords" value="" />
+<input type="hidden" name="keysearchin" value="" />
+<input type="hidden" name="keysearchon" value="" />
+<input type="hidden" name="SQL" value="" />
+<input type="hidden" name="Fld" value="" />
+<input type="hidden" name="Compare" value="" />
+<input type="hidden" name="Keys" value="" />
+<input type="hidden" name="OrderBy" value="" />
+</form>
+<form action="#" name="pageline" id="pageline">
+<table width="100%" border="0" cellspacing="0" cellpadding="5">
+<tr>
+<td class="dbheader">
+<table width="500" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td class="darktitle" colspan="3">
+<img src="/graphics/design/titlearrow_topright.gif" width="5" height="5" alt="" border="0" align="right" />
+<b><span id="victor_an2" class="victor_other">Your Search:</span></b>
+</td>
+</tr>
+<tr>
+<td background="/graphics/design/corner_round_l.gif">
+<img src="/common/graphics/spacer.gif" width="1" height="1" border="0" alt="" />
+</td>
+<td width="486">
+<table width="486" cellpadding="0" cellspacing="0" border="0">
+<tr>
+<td class="offwhiteback" valign="top">
+<div class="legal">
+<b><span id="victor_an3" class="victor_other">Category:</span></b><span id="victor_an4" class="victor_other"> Golf
+</span><br />
+<b><span id="victor_an5" class="victor_other">Trail/Area:</span></b><span id="victor_an6" class="victor_other"> Fundy Coastal Drive - All Areas
+</span><br />
+<b><span id="victor_an7" class="victor_other">Produced:</span></b><span id="victor_an8" class="victor_other"> 22 matches
+</span><br /></div>
+</td>
+<td class="offwhiteback" nowrap="true" valign="top">
+<div class="legal" align="right"><span id="victor_an9" class="victor_other">[refine your search] 
+</span><a href="chooser.asp?AreaID=2_&amp;CategoryID=G__&amp;" onclick="">
+<img src="/graphics/design/go_button.gif" width="47" height="17" border="0" align="absmiddle" />
+</a></div>
+<div class="legal" align="right"><span id="victor_an10" class="victor_other">[icon legend] 
+</span><a href="/common/directory/iconlegend.asp?listing=G" onclick="">
+<img src="/graphics/design/go_button.gif" width="47" height="17" border="0" align="absmiddle" />
+</a></div>
+<div class="legal" align="right"><span id="victor_an11" class="victor_other">[map these results] 
+</span><a href="/common/map/?Dirids=%20%20177|599|900|1683|2736|169|1589|1194|310|1214|%20%20&amp;Layer=Query">
+<img src="/graphics/design/go_button.gif" width="47" height="17" border="0" align="absmiddle" />
+</a></div>
+</td>
+</tr>
+</table>
+</td>
+<td background="/graphics/design/corner_round_r.gif">
+<img src="/common/graphics/spacer.gif" width="1" height="1" border="0" alt="" />
+</td>
+</tr>
+<tr>
+<td background="/graphics/design/corner_round_l.gif">
+<img src="/common/graphics/spacer.gif" width="1" height="1" border="0" alt="" />
+</td>
+<td class="offwhiteback">
+<hr width="80%" />
+<table cellpadding="0" cellspacing="0" border="0" width="80%" align="center">
+<tr>
+<td align="center" class="legal"><span id="victor_an12" class="victor_other">Display Page #: 
+</span><select name="pickpage" onchange="document.forms['refine'].startat.value=this.options[this.selectedIndex].value;document.forms['refine'].submit()">
+
+
+
+</select></td>
+<td class="legal" valign="bottom">
+<a onmouseout="nd()" href="javascript:document.forms['refine'].startat.value='10';document.forms['refine'].submit()" onmouseover="ccalt('Memra - The R')">
+<b><span id="victor_an13" class="victor_other">Next &gt;&gt;</span></b>
+</a>
+</td>
+</tr>
+</table>
+</td>
+<td width="7" background="/graphics/design/corner_round_r.gif">
+<img src="/common/graphics/spacer.gif" width="1" height="1" border="0" alt="" />
+</td>
+</tr>
+<tr>
+<td>
+<img src="/graphics/design/corner_round_bl.gif" width="7" height="7" alt="" />
+</td>
+<td background="/graphics/design/corner_round_b.gif" height="7">
+<img src="/common/graphics/spacer.gif" width="1" height="1" border="0" alt="" />
+</td>
+<td>
+<img src="/graphics/design/corner_round_br.gif" width="7" height="7" alt="" />
+</td>
+</tr>
+</table>
+<br />
+</td>
+<td rowspan="3" align="center" width="50%">
+
+</td>
+</tr>
+</table>
+<table width="100%" border="0" cellspacing="0" cellpadding="0" align="right">
+<tr>
+<td colspan="3">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="tdname" style="padding: 0px;">
+<tr>
+<td style="font-size: 18px; padding-top: 2px; padding-bottom: 2px; padding-right: 0px; padding-left: 5px;">
+<b><span id="victor_an14" class="victor_header">Algonquin Golf Course and Academy</span></b>
+</td>
+<td></td>
+<td width="80px" align="center" style="padding: 0px">
+<a onmouseover="this.className='overbutton'" onmouseout="this.className='upbutton'" class="upbutton" style="width:70px" href="/common/property.asp?DirectoryID=177" onclick="">
+<b><span id="victor_an15" class="victor_other">Details</span></b>
+</a>
+</td>
+<td width="80px" align="center" style="padding: 0px">
+<a onmouseover="this.className='overbutton'" onmouseout="this.className='upbutton'" class="upbutton" style="width:70px" href="/common/itinerary/addtoitinerary.asp?DirectoryID=177" onclick="">
+<b><span id="victor_an16" class="victor_other">Itinerary</span></b>
+</a>
+</td>
+<td width="80px" align="center" style="padding: 0px">
+<a onmouseover="this.className='overbutton'" onmouseout="this.className='upbutton'" class="upbutton" style="width:70px" href="/common/addtoroute.asp?DirectoryID=177" onclick="">
+<b><span id="victor_an17" class="victor_other">Routing</span></b>
+</a>
+</td>
+<td width="80px" align="center" style="padding: 0px">
+<a onmouseover="this.className='overbutton'" onmouseout="this.className='upbutton'" class="upbutton" style="width:70px" href="#" onclick="openmap('zoomItem','177')">
+<b><span id="victor_an18" class="victor_other">Location</span></b>
+</a>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td colspan="3" class="offwhiteBack">
+<b><span id="victor_an19" class="victor_paragraph">Civic Address:</span></b><span id="victor_an20" class="victor_continuation"> 465 Brandy Cove Road, St. Andrews</span></td>
+</tr>
+<tr>
+<td colspan="3" style="padding-left: 50px;" class="offwhiteBack"><span id="victor_an21" class="victor_paragraph">Welcome to the Algonquin . . . for over 100 years, golfers have tested their skills at this charming seaside resort. Award winning architect Thomas McBroom has created a masterpiece in a spectacular seaside location that will enhance the Algonquin?s rich tradition of excellence. The new layout is full of surprises, great scenery, and will delight and challenge golfers of every level.For a memorable golf experience, you must visit the "new" Algonquin Golf Course &amp; Academy and enjoy your luxuriou 
+</span><i>
+<b><span id="victor_an22" class="victor_continuation">... 
+</span><a href="/common/property.asp?directoryid=177"><span id="victor_an23" class="victor_other">more</span></a></b>
+</i></td>
+</tr>
+<tr>
+<td colspan="3" class="offwhiteBack">
+<b><span id="victor_an24" class="victor_paragraph">Rates:</span></b><span id="victor_an25" class="victor_continuation"> $55.00 to $125.00</span></td>
+</tr>
+<tr>
+<td colspan="3" class="offwhiteBack">
+<b><span id="victor_an26" class="victor_paragraph">Season:</span></b><span id="victor_an27" class="victor_continuation"> April 1 to November 30</span></td>
+</tr>
+<tr>
+<td class="offwhiteBack">
+<img src="/graphics/spacer.gif" width="50" height="1" border="0" alt="" />
+</td>
+<td class="offwhiteBack">
+<img src="/graphics/spacer.gif" width="670" height="1" border="0" alt="" />
+</td>
+</tr>
+<tr>
+<td align="center" class="offwhiteBack">
+<a onmouseover="ccalt('Fundy Coastal Drive')" onmouseout="nd()" href="javascript:void(0)">
+<img width="16" border="0" src="/graphics/trails/fc-icon.gif" />
+</a>
+</td>
+<td colspan="2" align="left" class="offwhiteBack">
+<a onmouseover="ccalt('Driving Range / Net')" onmouseout="nd()" href="javascript:void(0)">
+<img height="20" border="0" hspace="1" src="/common/graphics/icons/gdr.gif" />
+</a>
+<a onmouseover="ccalt('Putting Green')" onmouseout="nd()" href="javascript:void(0)">
+<img height="20" border="0" hspace="1" src="/common/graphics/icons/gpg.gif" />
+</a>
+<a onmouseover="ccalt('Golf Cars')" onmouseout="nd()" href="javascript:void(0)">
+<img height="20" border="0" hspace="1" src="/common/graphics/icons/gc.gif" />
+</a>
+<a onmouseover="ccalt('Golf Club Rentals')" onmouseout="nd()" href="javascript:void(0)">
+<img height="20" border="0" hspace="1" src="/common/graphics/icons/gclb.gif" />
+</a>
+<a onmouseover="ccalt('Food Service Available')" onmouseout="nd()" href="javascript:void(0)">
+<img height="20" border="0" hspace="1" src="/common/graphics/icons/gfa.gif" />
+</a>
+<a onmouseover="ccalt('Lodging Available')" onmouseout="nd()" href="javascript:void(0)">
+<img height="20" border="0" hspace="1" src="/common/graphics/icons/gla.gif" />
+</a>
+<a onmouseover="ccalt('Showers &amp; Lockers Available')" onmouseout="nd()" href="javascript:void(0)">
+<img height="20" border="0" hspace="1" src="/common/graphics/icons/glk.gif" />
+</a>
+<a onmouseover="ccalt('Pull Cart')" onmouseout="nd()" href="javascript:void(0)">
+<img height="20" border="0" hspace="1" src="/common/graphics/icons/gpc.gif" />
+</a>
+<a onmouseover="ccalt('Pros and Lessons')" onmouseout="nd()" href="javascript:void(0)">
+<img height="20" border="0" hspace="1" src="/common/graphics/icons/gpl.gif" />
+</a>
+<a onmouseover="ccalt('Pro Shop')" onmouseout="nd()" href="javascript:void(0)">
+<img height="20" border="0" hspace="1" src="/common/graphics/icons/gps.gif" />
+</a>
+</td>
+</tr>
+</table>
+<br clear="all" />
+<table width="100%" border="0" cellspacing="0" cellpadding="0" align="right">
+<tr>
+<td colspan="3">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="tdname" style="padding: 0px;">
+<tr>
+<td style="font-size: 18px; padding-top: 2px; padding-bottom: 2px; padding-right: 0px; padding-left: 5px;">
+<b><span id="victor_an28" class="victor_header">Brookside Golf Club</span></b>
+</td>
+<td></td>
+<td width="80px" align="center" style="padding: 0px">
+<a onmouseover="this.className='overbutton'" onmouseout="this.className='upbutton'" class="upbutton" style="width:70px" href="/common/property.asp?DirectoryID=599" onclick="">
+<b><span id="victor_an29" class="victor_other">Details</span></b>
+</a>
+</td>
+<td width="80px" align="center" style="padding: 0px">
+<a onmouseover="this.className='overbutton'" onmouseout="this.className='upbutton'" class="upbutton" style="width:70px" href="/common/itinerary/addtoitinerary.asp?DirectoryID=599" onclick="">
+<b><span id="victor_an30" class="victor_other">Itinerary</span></b>
+</a>
+</td>
+<td width="80px" align="center" style="padding: 0px">
+<a onmouseover="this.className='overbutton'" onmouseout="this.className='upbutton'" class="upbutton" style="width:70px" href="/common/addtoroute.asp?DirectoryID=599" onclick="">
+<b><span id="victor_an31" class="victor_other">Routing</span></b>
+</a>
+</td>
+<td width="80px" align="center" style="padding: 0px">
+<a onmouseover="this.className='overbutton'" onmouseout="this.className='upbutton'" class="upbutton" style="width:70px" href="#" onclick="openmap('zoomItem','599')">
+<b><span id="victor_an32" class="victor_other">Location</span></b>
+</a>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td colspan="3" class="offwhiteBack">
+<b><span id="victor_an33" class="victor_paragraph">Civic Address:</span></b><span id="victor_an34" class="victor_continuation"> 14 Golf Course Road, Seal Cove</span></td>
+</tr>
+<tr>
+<td colspan="3" style="padding-left: 50px;" class="offwhiteBack"><span id="victor_an35" class="victor_paragraph">9 holes. Par 28, Daily Green FeesDirections: Seal Cove, Grand Manan Island.</span></td>
+</tr>
+<tr>
+<td colspan="3" class="offwhiteBack">
+<b><span id="victor_an36" class="victor_paragraph">Rates:</span></b><span id="victor_an37" class="victor_continuation"> Green fees is $15.00.</span></td>
+</tr>
+<tr>
+<td colspan="3" class="offwhiteBack">
+<b><span id="victor_an38" class="victor_paragraph">Season:</span></b><span id="victor_an39" class="victor_continuation"> May 1 to October 31</span></td>
+</tr>
+<tr>
+<td class="offwhiteBack">
+<img src="/graphics/spacer.gif" width="50" height="1" border="0" alt="" />
+</td>
+<td class="offwhiteBack">
+<img src="/graphics/spacer.gif" width="670" height="1" border="0" alt="" />
+</td>
+</tr>
+<tr>
+<td align="center" class="offwhiteBack">
+<a onmouseover="ccalt('Fundy Coastal Drive')" onmouseout="nd()" href="javascript:void(0)">
+<img width="16" border="0" src="/graphics/trails/fc-icon.gif" />
+</a>
+</td>
+<td colspan="2" align="left" class="offwhiteBack">
+<a onmouseover="ccalt('Golf Club Rentals')" onmouseout="nd()" href="javascript:void(0)">
+<img height="20" border="0" hspace="1" src="/common/graphics/icons/gclb.gif" />
+</a>
+<a onmouseover="ccalt('Pull Cart')" onmouseout="nd()" href="javascript:void(0)">
+<img height="20" border="0" hspace="1" src="/common/graphics/icons/gpc.gif" />
+</a>
+</td>
+</tr>
+</table>
+<br clear="all" />
+<table width="100%" border="0" cellspacing="0" cellpadding="0" align="right">
+<tr>
+<td colspan="3">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="tdname" style="padding: 0px;">
+<tr>
+<td style="font-size: 18px; padding-top: 2px; padding-bottom: 2px; padding-right: 0px; padding-left: 5px;">
+<b><span id="victor_an40" class="victor_header">Burro Hills Golf Course</span></b>
+</td>
+<td></td>
+<td width="80px" align="center" style="padding: 0px">
+<a onmouseover="this.className='overbutton'" onmouseout="this.className='upbutton'" class="upbutton" style="width:70px" href="/common/property.asp?DirectoryID=900" onclick="">
+<b><span id="victor_an41" class="victor_other">Details</span></b>
+</a>
+</td>
+<td width="80px" align="center" style="padding: 0px">
+<a onmouseover="this.className='overbutton'" onmouseout="this.className='upbutton'" class="upbutton" style="width:70px" href="/common/itinerary/addtoitinerary.asp?DirectoryID=900" onclick="">
+<b><span id="victor_an42" class="victor_other">Itinerary</span></b>
+</a>
+</td>
+<td width="80px" align="center" style="padding: 0px">
+<a onmouseover="this.className='overbutton'" onmouseout="this.className='upbutton'" class="upbutton" style="width:70px" href="/common/addtoroute.asp?DirectoryID=900" onclick="">
+<b><span id="victor_an43" class="victor_other">Routing</span></b>
+</a>
+</td>
+<td width="80px" align="center" style="padding: 0px">
+<a onmouseover="this.className='overbutton'" onmouseout="this.className='upbutton'" class="upbutton" style="width:70px" href="#" onclick="openmap('zoomItem','900')">
+<b><span id="victor_an44" class="victor_other">Location</span></b>
+</a>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td colspan="3" class="offwhiteBack">
+<b><span id="victor_an45" class="victor_paragraph">Civic Address:</span></b><span id="victor_an46" class="victor_continuation"> 443 Golf Course Road, Hillsborough</span></td>
+</tr>
+<tr>
+<td colspan="3" style="padding-left: 50px;" class="offwhiteBack"><span id="victor_an47" class="victor_paragraph">The Burro Hills name is derived from the village of Hillsborough where this golf course is located. Situated over old gypsum mines, you can see many sink holes and white gypsum rock. The signature hole, shows the tree boxes built over the entrance to such caves formerly used when mining was in production - which are mostly blockaded to due dangerous ceilings. However, local caving tours are still available in some sites. Burro Hills was completely cut out of forest making the course quite chal 
+</span><i>
+<b><span id="victor_an48" class="victor_continuation">... 
+</span><a href="/common/property.asp?directoryid=900"><span id="victor_an49" class="victor_other">more</span></a></b>
+</i></td>
+</tr>
+<tr>
+<td colspan="3" class="offwhiteBack">
+<b><span id="victor_an50" class="victor_paragraph">Rates:</span></b><span id="victor_an51" class="victor_continuation"> 9 holes $13.00 18 holes $20.00</span></td>
+</tr>
+<tr>
+<td colspan="3" class="offwhiteBack">
+<b><span id="victor_an52" class="victor_paragraph">Season:</span></b><span id="victor_an53" class="victor_continuation"> May 1 to October 31</span></td>
+</tr>
+<tr>
+<td class="offwhiteBack">
+<img src="/graphics/spacer.gif" width="50" height="1" border="0" alt="" />
+</td>
+<td class="offwhiteBack">
+<img src="/graphics/spacer.gif" width="670" height="1" border="0" alt="" />
+</td>
+</tr>
+<tr>
+<td align="center" class="offwhiteBack">
+<a onmouseover="ccalt('Fundy Coastal Drive')" onmouseout="nd()" href="javascript:void(0)">
+<img width="16" border="0" src="/graphics/trails/fc-icon.gif" />
+</a>
+</td>
+<td colspan="2" align="left" class="offwhiteBack">
+<a onmouseover="ccaltl('Visa')" onmouseout="nd()" href="javascript:void(0)">
+<img height="20" border="0" align="right" hspace="1" src="/common/graphics/icons/vs.gif" />
+</a>
+<a onmouseover="ccalt('Putting Green')" onmouseout="nd()" href="javascript:void(0)">
+<img height="20" border="0" hspace="1" src="/common/graphics/icons/gpg.gif" />
+</a>
+<a onmouseover="ccalt('Golf Cars')" onmouseout="nd()" href="javascript:void(0)">
+<img height="20" border="0" hspace="1" src="/common/graphics/icons/gc.gif" />
+</a>
+<a onmouseover="ccalt('Golf Club Rentals')" onmouseout="nd()" href="javascript:void(0)">
+<img height="20" border="0" hspace="1" src="/common/graphics/icons/gclb.gif" />
+</a>
+<a onmouseover="ccalt('Food Service Available')" onmouseout="nd()" href="javascript:void(0)">
+<img height="20" border="0" hspace="1" src="/common/graphics/icons/gfa.gif" />
+</a>
+<a onmouseover="ccalt('Showers &amp; Lockers Available')" onmouseout="nd()" href="javascript:void(0)">
+<img height="20" border="0" hspace="1" src="/common/graphics/icons/glk.gif" />
+</a>
+<a onmouseover="ccalt('Pull Cart')" onmouseout="nd()" href="javascript:void(0)">
+<img height="20" border="0" hspace="1" src="/common/graphics/icons/gpc.gif" />
+</a>
+<a onmouseover="ccalt('Pros and Lessons')" onmouseout="nd()" href="javascript:void(0)">
+<img height="20" border="0" hspace="1" src="/common/graphics/icons/gpl.gif" />
+</a>
+<a onmouseover="ccalt('Pro Shop')" onmouseout="nd()" href="javascript:void(0)">
+<img height="20" border="0" hspace="1" src="/common/graphics/icons/gps.gif" />
+</a>
+</td>
+</tr>
+</table>
+<br clear="all" />
+<table width="100%" border="0" cellspacing="0" cellpadding="0" align="right">
+<tr>
+<td colspan="3">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="tdname" style="padding: 0px;">
+<tr>
+<td style="font-size: 18px; padding-top: 2px; padding-bottom: 2px; padding-right: 0px; padding-left: 5px;">
+<b><span id="victor_an54" class="victor_header">Country Meadows Golf Club</span></b>
+</td>
+<td></td>
+<td width="80px" align="center" style="padding: 0px">
+<a onmouseover="this.className='overbutton'" onmouseout="this.className='upbutton'" class="upbutton" style="width:70px" href="/common/property.asp?DirectoryID=1683" onclick="">
+<b><span id="victor_an55" class="victor_other">Details</span></b>
+</a>
+</td>
+<td width="80px" align="center" style="padding: 0px">
+<a onmouseover="this.className='overbutton'" onmouseout="this.className='upbutton'" class="upbutton" style="width:70px" href="/common/itinerary/addtoitinerary.asp?DirectoryID=1683" onclick="">
+<b><span id="victor_an56" class="victor_other">Itinerary</span></b>
+</a>
+</td>
+<td width="80px" align="center" style="padding: 0px">
+<a onmouseover="this.className='overbutton'" onmouseout="this.className='upbutton'" class="upbutton" style="width:70px" href="/common/addtoroute.asp?DirectoryID=1683" onclick="">
+<b><span id="victor_an57" class="victor_other">Routing</span></b>
+</a>
+</td>
+<td width="80px" align="center" style="padding: 0px">
+<a onmouseover="this.className='overbutton'" onmouseout="this.className='upbutton'" class="upbutton" style="width:70px" href="#" onclick="openmap('zoomItem','1683')">
+<b><span id="victor_an58" class="victor_other">Location</span></b>
+</a>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td colspan="3" class="offwhiteBack">
+<b><span id="victor_an59" class="victor_paragraph">Civic Address:</span></b><span id="victor_an60" class="victor_continuation"> 149 Catamount Road, Indian Mountain</span></td>
+</tr>
+<tr>
+<td colspan="3" style="padding-left: 50px;" class="offwhiteBack"><span id="victor_an61" class="victor_paragraph">Our quiet countryside setting is friendly and inviting to all golfers. Located only minutes from Magnetic Hill on Catamount Road. We have become known for our development of a challenging course with friendly surroundings as well as our interest in the development of golfers and being home of the champs. The 18 hole layout has developed from a 9 hole, very open, course in the 1970's to the more complex style of pine tree lined fairways and island green 17th hole, complete layout which opened in 
+</span><i>
+<b><span id="victor_an62" class="victor_continuation">... 
+</span><a href="/common/property.asp?directoryid=1683"><span id="victor_an63" class="victor_other">more</span></a></b>
+</i></td>
+</tr>
+<tr>
+<td colspan="3" class="offwhiteBack">
+<b><span id="victor_an64" class="victor_paragraph">Rates:</span></b><span id="victor_an65" class="victor_continuation"> 18 Holes $25.00</span></td>
+</tr>
+<tr>
+<td class="offwhiteBack">
+<img src="/graphics/spacer.gif" width="50" height="1" border="0" alt="" />
+</td>
+<td class="offwhiteBack">
+<img src="/graphics/spacer.gif" width="670" height="1" border="0" alt="" />
+</td>
+</tr>
+<tr>
+<td align="center" class="offwhiteBack">
+<a onmouseover="ccalt('Fundy Coastal Drive')" onmouseout="nd()" href="javascript:void(0)">
+<img width="16" border="0" src="/graphics/trails/fc-icon.gif" />
+</a>
+</td>
+<td colspan="2" align="left" class="offwhiteBack">
+<a onmouseover="ccaltl('MasterCard')" onmouseout="nd()" href="javascript:void(0)">
+<img height="20" border="0" align="right" hspace="1" src="/common/graphics/icons/mc.gif" />
+</a>
+<a onmouseover="ccaltl('Visa')" onmouseout="nd()" href="javascript:void(0)">
+<img height="20" border="0" align="right" hspace="1" src="/common/graphics/icons/vs.gif" />
+</a>
+<a onmouseover="ccalt('Golf Cars')" onmouseout="nd()" href="javascript:void(0)">
+<img height="20" border="0" hspace="1" src="/common/graphics/icons/gc.gif" />
+</a>
+<a onmouseover="ccalt('Golf Club Rentals')" onmouseout="nd()" href="javascript:void(0)">
+<img height="20" border="0" hspace="1" src="/common/graphics/icons/gclb.gif" />
+</a>
+<a onmouseover="ccalt('Food Service Available')" onmouseout="nd()" href="javascript:void(0)">
+<img height="20" border="0" hspace="1" src="/common/graphics/icons/gfa.gif" />
+</a>
+<a onmouseover="ccalt('Pull Cart')" onmouseout="nd()" href="javascript:void(0)">
+<img height="20" border="0" hspace="1" src="/common/graphics/icons/gpc.gif" />
+</a>
+<a onmouseover="ccalt('Pros and Lessons')" onmouseout="nd()" href="javascript:void(0)">
+<img height="20" border="0" hspace="1" src="/common/graphics/icons/gpl.gif" />
+</a>
+<a onmouseover="ccalt('Pro Shop')" onmouseout="nd()" href="javascript:void(0)">
+<img height="20" border="0" hspace="1" src="/common/graphics/icons/gps.gif" />
+</a>
+</td>
+</tr>
+</table>
+<br clear="all" />
+<table width="100%" border="0" cellspacing="0" cellpadding="0" align="right">
+<tr>
+<td colspan="3">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="tdname" style="padding: 0px;">
+<tr>
+<td style="font-size: 18px; padding-top: 2px; padding-bottom: 2px; padding-right: 0px; padding-left: 5px;">
+<b><span id="victor_an66" class="victor_header">Fundy Golf Club</span></b>
+</td>
+<td></td>
+<td width="80px" align="center" style="padding: 0px">
+<a onmouseover="this.className='overbutton'" onmouseout="this.className='upbutton'" class="upbutton" style="width:70px" href="/common/property.asp?DirectoryID=2736" onclick="">
+<b><span id="victor_an67" class="victor_other">Details</span></b>
+</a>
+</td>
+<td width="80px" align="center" style="padding: 0px">
+<a onmouseover="this.className='overbutton'" onmouseout="this.className='upbutton'" class="upbutton" style="width:70px" href="/common/itinerary/addtoitinerary.asp?DirectoryID=2736" onclick="">
+<b><span id="victor_an68" class="victor_other">Itinerary</span></b>
+</a>
+</td>
+<td width="80px" align="center" style="padding: 0px">
+<a onmouseover="this.className='overbutton'" onmouseout="this.className='upbutton'" class="upbutton" style="width:70px" href="/common/addtoroute.asp?DirectoryID=2736" onclick="">
+<b><span id="victor_an69" class="victor_other">Routing</span></b>
+</a>
+</td>
+<td width="80px" align="center" style="padding: 0px">
+<a onmouseover="this.className='overbutton'" onmouseout="this.className='upbutton'" class="upbutton" style="width:70px" href="#" onclick="openmap('zoomItem','2736')">
+<b><span id="victor_an70" class="victor_other">Location</span></b>
+</a>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td colspan="3" class="offwhiteBack">
+<b><span id="victor_an71" class="victor_paragraph">Civic Address:</span></b><span id="victor_an72" class="victor_continuation"> 47 Fundy Park Chalet Road, Alma</span></td>
+</tr>
+<tr>
+<td colspan="3" style="padding-left: 50px;" class="offwhiteBack"><span id="victor_an73" class="victor_paragraph">Situated in beautiful Fundy National Park, this Stanley Thompson designed nine hole course offers a challenging yet enjoyable experience. Not only a pleasant and affordable golfing experience but also Fundy Park offers a great vacation destination. Fundy National Park provides a number of excellent hiking trails, both inland and along the coast as well as a guided nature walk and related program each day. In addition, tennis courts, lawn bowling, heated salt water swimming pool and a children?s 
+</span><i>
+<b><span id="victor_an74" class="victor_continuation">... 
+</span><a href="/common/property.asp?directoryid=2736"><span id="victor_an75" class="victor_other">more</span></a></b>
+</i></td>
+</tr>
+<tr>
+<td class="offwhiteBack">
+<img src="/graphics/spacer.gif" width="50" height="1" border="0" alt="" />
+</td>
+<td class="offwhiteBack">
+<img src="/graphics/spacer.gif" width="670" height="1" border="0" alt="" />
+</td>
+</tr>
+<tr>
+<td align="center" class="offwhiteBack">
+<a onmouseover="ccalt('Fundy Coastal Drive')" onmouseout="nd()" href="javascript:void(0)">
+<img width="16" border="0" src="/graphics/trails/fc-icon.gif" />
+</a>
+</td>
+<td colspan="2" align="left" class="offwhiteBack">
+<a onmouseover="ccaltl('Direct Debit')" onmouseout="nd()" href="javascript:void(0)">
+<img height="20" border="0" align="right" hspace="1" src="/common/graphics/icons/dd.gif" />
+</a>
+<a onmouseover="ccaltl('MasterCard')" onmouseout="nd()" href="javascript:void(0)">
+<img height="20" border="0" align="right" hspace="1" src="/common/graphics/icons/mc.gif" />
+</a>
+<a onmouseover="ccaltl('Visa')" onmouseout="nd()" href="javascript:void(0)">
+<img height="20" border="0" align="right" hspace="1" src="/common/graphics/icons/vs.gif" />
+</a>
+<a onmouseover="ccalt('Putting Green')" onmouseout="nd()" href="javascript:void(0)">
+<img height="20" border="0" hspace="1" src="/common/graphics/icons/gpg.gif" />
+</a>
+<a onmouseover="ccalt('Golf Cars')" onmouseout="nd()" href="javascript:void(0)">
+<img height="20" border="0" hspace="1" src="/common/graphics/icons/gc.gif" />
+</a>
+<a onmouseover="ccalt('Golf Club Rentals')" onmouseout="nd()" href="javascript:void(0)">
+<img height="20" border="0" hspace="1" src="/common/graphics/icons/gclb.gif" />
+</a>
+<a onmouseover="ccalt('Food Service Available')" onmouseout="nd()" href="javascript:void(0)">
+<img height="20" border="0" hspace="1" src="/common/graphics/icons/gfa.gif" />
+</a>
+<a onmouseover="ccalt('Showers &amp; Lockers Available')" onmouseout="nd()" href="javascript:void(0)">
+<img height="20" border="0" hspace="1" src="/common/graphics/icons/glk.gif" />
+</a>
+<a onmouseover="ccalt('Pull Cart')" onmouseout="nd()" href="javascript:void(0)">
+<img height="20" border="0" hspace="1" src="/common/graphics/icons/gpc.gif" />
+</a>
+<a onmouseover="ccalt('Pro Shop')" onmouseout="nd()" href="javascript:void(0)">
+<img height="20" border="0" hspace="1" src="/common/graphics/icons/gps.gif" />
+</a>
+</td>
+</tr>
+</table>
+<br clear="all" />
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td colspan="3" align="center">
+<br />
+<div align="center" style="border: 0px; width: 490">
+<img src="/ads/bannerad.gif" width="12" height="60" alt="" border="0" />
+
+</div>
+</td>
+</tr>
+</table>
+<br clear="all" />
+<br />
+<table width="100%" border="0" cellspacing="0" cellpadding="0" align="right">
+<tr>
+<td colspan="3">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="tdname" style="padding: 0px;">
+<tr>
+<td style="font-size: 18px; padding-top: 2px; padding-bottom: 2px; padding-right: 0px; padding-left: 5px;">
+<b><span id="victor_an76" class="victor_header">Hampton Golf &amp; Country Club</span></b>
+</td>
+<td></td>
+<td width="80px" align="center" style="padding: 0px">
+<a onmouseover="this.className='overbutton'" onmouseout="this.className='upbutton'" class="upbutton" style="width:70px" href="/common/property.asp?DirectoryID=169" onclick="">
+<b><span id="victor_an77" class="victor_other">Details</span></b>
+</a>
+</td>
+<td width="80px" align="center" style="padding: 0px">
+<a onmouseover="this.className='overbutton'" onmouseout="this.className='upbutton'" class="upbutton" style="width:70px" href="/common/itinerary/addtoitinerary.asp?DirectoryID=169" onclick="">
+<b><span id="victor_an78" class="victor_other">Itinerary</span></b>
+</a>
+</td>
+<td width="80px" align="center" style="padding: 0px">
+<a onmouseover="this.className='overbutton'" onmouseout="this.className='upbutton'" class="upbutton" style="width:70px" href="/common/addtoroute.asp?DirectoryID=169" onclick="">
+<b><span id="victor_an79" class="victor_other">Routing</span></b>
+</a>
+</td>
+<td width="80px" align="center" style="padding: 0px">
+<a onmouseover="this.className='overbutton'" onmouseout="this.className='upbutton'" class="upbutton" style="width:70px" href="#" onclick="openmap('zoomItem','169')">
+<b><span id="victor_an80" class="victor_other">Location</span></b>
+</a>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td colspan="3" class="offwhiteBack">
+<b><span id="victor_an81" class="victor_paragraph">Civic Address:</span></b><span id="victor_an82" class="victor_continuation"> 68 William Bell Drive, Hampton</span></td>
+</tr>
+<tr>
+<td colspan="3" style="padding-left: 50px;" class="offwhiteBack"><span id="victor_an83" class="victor_paragraph">Located in the picturesque Kennebecasis Valley in the Town of Hampton this 18-hole course offers a unique challenge to both the experienced and novice golfer. The course is situated so that it overlooks Darlings Lake and the Hampton Marsh. Hampton Golf Cub is a 6300 yard layout over a rolling terrain with plenty of trees, strategically placed bunkers, and water hazards that can create headaches for the best of golfers. When playing, good course management is a must. Hampton also has a unique 68 
+</span><i>
+<b><span id="victor_an84" class="victor_continuation">... 
+</span><a href="/common/property.asp?directoryid=169"><span id="victor_an85" class="victor_other">more</span></a></b>
+</i></td>
+</tr>
+<tr>
+<td class="offwhiteBack">
+<img src="/graphics/spacer.gif" width="50" height="1" border="0" alt="" />
+</td>
+<td class="offwhiteBack">
+<img src="/graphics/spacer.gif" width="670" height="1" border="0" alt="" />
+</td>
+</tr>
+<tr>
+<td align="center" class="offwhiteBack">
+<a onmouseover="ccalt('Fundy Coastal Drive')" onmouseout="nd()" href="javascript:void(0)">
+<img width="16" border="0" src="/graphics/trails/fc-icon.gif" />
+</a>
+</td>
+<td colspan="2" align="left" class="offwhiteBack">
+<a onmouseover="ccaltl('MasterCard')" onmouseout="nd()" href="javascript:void(0)">
+<img height="20" border="0" align="right" hspace="1" src="/common/graphics/icons/mc.gif" />
+</a>
+<a onmouseover="ccaltl('Visa')" onmouseout="nd()" href="javascript:void(0)">
+<img height="20" border="0" align="right" hspace="1" src="/common/graphics/icons/vs.gif" />
+</a>
+<a onmouseover="ccalt('Golf Club Rentals')" onmouseout="nd()" href="javascript:void(0)">
+<img height="20" border="0" hspace="1" src="/common/graphics/icons/gclb.gif" />
+</a>
+<a onmouseover="ccalt('Food Service Available')" onmouseout="nd()" href="javascript:void(0)">
+<img height="20" border="0" hspace="1" src="/common/graphics/icons/gfa.gif" />
+</a>
+<a onmouseover="ccalt('Showers &amp; Lockers Available')" onmouseout="nd()" href="javascript:void(0)">
+<img height="20" border="0" hspace="1" src="/common/graphics/icons/glk.gif" />
+</a>
+<a onmouseover="ccalt('Pull Cart')" onmouseout="nd()" href="javascript:void(0)">
+<img height="20" border="0" hspace="1" src="/common/graphics/icons/gpc.gif" />
+</a>
+<a onmouseover="ccalt('Pros and Lessons')" onmouseout="nd()" href="javascript:void(0)">
+<img height="20" border="0" hspace="1" src="/common/graphics/icons/gpl.gif" />
+</a>
+<a onmouseover="ccalt('Pro Shop')" onmouseout="nd()" href="javascript:void(0)">
+<img height="20" border="0" hspace="1" src="/common/graphics/icons/gps.gif" />
+</a>
+</td>
+</tr>
+</table>
+<br clear="all" />
+<table width="100%" border="0" cellspacing="0" cellpadding="0" align="right">
+<tr>
+<td colspan="3">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="tdname" style="padding: 0px;">
+<tr>
+<td style="font-size: 18px; padding-top: 2px; padding-bottom: 2px; padding-right: 0px; padding-left: 5px;">
+<b><span id="victor_an86" class="victor_header">Herring Cove Golf Club</span></b>
+</td>
+<td></td>
+<td width="80px" align="center" style="padding: 0px">
+<a onmouseover="this.className='overbutton'" onmouseout="this.className='upbutton'" class="upbutton" style="width:70px" href="/common/property.asp?DirectoryID=1589" onclick="">
+<b><span id="victor_an87" class="victor_other">Details</span></b>
+</a>
+</td>
+<td width="80px" align="center" style="padding: 0px">
+<a onmouseover="this.className='overbutton'" onmouseout="this.className='upbutton'" class="upbutton" style="width:70px" href="/common/itinerary/addtoitinerary.asp?DirectoryID=1589" onclick="">
+<b><span id="victor_an88" class="victor_other">Itinerary</span></b>
+</a>
+</td>
+<td width="80px" align="center" style="padding: 0px">
+<a onmouseover="this.className='overbutton'" onmouseout="this.className='upbutton'" class="upbutton" style="width:70px" href="/common/addtoroute.asp?DirectoryID=1589" onclick="">
+<b><span id="victor_an89" class="victor_other">Routing</span></b>
+</a>
+</td>
+<td width="80px" align="center" style="padding: 0px">
+<a onmouseover="this.className='overbutton'" onmouseout="this.className='upbutton'" class="upbutton" style="width:70px" href="#" onclick="openmap('zoomItem','1589')">
+<b><span id="victor_an90" class="victor_other">Location</span></b>
+</a>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td colspan="3" class="offwhiteBack">
+<b><span id="victor_an91" class="victor_paragraph">Civic Address:</span></b><span id="victor_an92" class="victor_continuation"> 136 Herring Cove Road, Welshpool</span></td>
+</tr>
+<tr>
+<td colspan="3" style="padding-left: 50px;" class="offwhiteBack"><span id="victor_an93" class="victor_paragraph">Golf on one of New Brunswick's island treasures at the Herring Cove Provincial Park Golf Course. Situated on Campobello Island, this 9-hole Geoffrey Cornish design offers many challenging holes while providing a spectacular view of the Bay of Fundy. Golfers aren't the only ones who have grown to love the plush landscape once enjoyed by the Roosevelt family. Bald eagles can be spotted flying overhead while moose and deer are often seen frolicking about as the morning mist rises from the fairways. 
+</span><i>
+<b><span id="victor_an94" class="victor_continuation">... 
+</span><a href="/common/property.asp?directoryid=1589"><span id="victor_an95" class="victor_other">more</span></a></b>
+</i></td>
+</tr>
+<tr>
+<td colspan="3" class="offwhiteBack">
+<b><span id="victor_an96" class="victor_paragraph">Rates:</span></b><span id="victor_an97" class="victor_continuation"> 9 holes $18.50 18 holes $27.25</span></td>
+</tr>
+<tr>
+<td colspan="3" class="offwhiteBack">
+<b><span id="victor_an98" class="victor_paragraph">Season:</span></b><span id="victor_an99" class="victor_continuation"> May 1 to October 31</span></td>
+</tr>
+<tr>
+<td class="offwhiteBack">
+<img src="/graphics/spacer.gif" width="50" height="1" border="0" alt="" />
+</td>
+<td class="offwhiteBack">
+<img src="/graphics/spacer.gif" width="670" height="1" border="0" alt="" />
+</td>
+</tr>
+<tr>
+<td align="center" class="offwhiteBack">
+<a onmouseover="ccalt('Fundy Coastal Drive')" onmouseout="nd()" href="javascript:void(0)">
+<img width="16" border="0" src="/graphics/trails/fc-icon.gif" />
+</a>
+</td>
+<td colspan="2" align="left" class="offwhiteBack">
+<a onmouseover="ccaltl('Direct Debit')" onmouseout="nd()" href="javascript:void(0)">
+<img height="20" border="0" align="right" hspace="1" src="/common/graphics/icons/dd.gif" />
+</a>
+<a onmouseover="ccaltl('MasterCard')" onmouseout="nd()" href="javascript:void(0)">
+<img height="20" border="0" align="right" hspace="1" src="/common/graphics/icons/mc.gif" />
+</a>
+<a onmouseover="ccaltl('Visa')" onmouseout="nd()" href="javascript:void(0)">
+<img height="20" border="0" align="right" hspace="1" src="/common/graphics/icons/vs.gif" />
+</a>
+<a onmouseover="ccalt('Driving Range / Net')" onmouseout="nd()" href="javascript:void(0)">
+<img height="20" border="0" hspace="1" src="/common/graphics/icons/gdr.gif" />
+</a>
+<a onmouseover="ccalt('Putting Green')" onmouseout="nd()" href="javascript:void(0)">
+<img height="20" border="0" hspace="1" src="/common/graphics/icons/gpg.gif" />
+</a>
+<a onmouseover="ccalt('Golf Cars')" onmouseout="nd()" href="javascript:void(0)">
+<img height="20" border="0" hspace="1" src="/common/graphics/icons/gc.gif" />
+</a>
+<a onmouseover="ccalt('Golf Club Rentals')" onmouseout="nd()" href="javascript:void(0)">
+<img height="20" border="0" hspace="1" src="/common/graphics/icons/gclb.gif" />
+</a>
+<a onmouseover="ccalt('Food Service Available')" onmouseout="nd()" href="javascript:void(0)">
+<img height="20" border="0" hspace="1" src="/common/graphics/icons/gfa.gif" />
+</a>
+<a onmouseover="ccalt('Showers &amp; Lockers Available')" onmouseout="nd()" href="javascript:void(0)">
+<img height="20" border="0" hspace="1" src="/common/graphics/icons/glk.gif" />
+</a>
+<a onmouseover="ccalt('Pull Cart')" onmouseout="nd()" href="javascript:void(0)">
+<img height="20" border="0" hspace="1" src="/common/graphics/icons/gpc.gif" />
+</a>
+<a onmouseover="ccalt('Pros and Lessons')" onmouseout="nd()" href="javascript:void(0)">
+<img height="20" border="0" hspace="1" src="/common/graphics/icons/gpl.gif" />
+</a>
+<a onmouseover="ccalt('Pro Shop')" onmouseout="nd()" href="javascript:void(0)">
+<img height="20" border="0" hspace="1" src="/common/graphics/icons/gps.gif" />
+</a>
+</td>
+</tr>
+</table>
+<br clear="all" />
+<table width="100%" border="0" cellspacing="0" cellpadding="0" align="right">
+<tr>
+<td colspan="3">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="tdname" style="padding: 0px;">
+<tr>
+<td style="font-size: 18px; padding-top: 2px; padding-bottom: 2px; padding-right: 0px; padding-left: 5px;">
+<b><span id="victor_an100" class="victor_header">Lakeside Golf Club</span></b>
+</td>
+<td></td>
+<td width="80px" align="center" style="padding: 0px">
+<a onmouseover="this.className='overbutton'" onmouseout="this.className='upbutton'" class="upbutton" style="width:70px" href="/common/property.asp?DirectoryID=1194" onclick="">
+<b><span id="victor_an101" class="victor_other">Details</span></b>
+</a>
+</td>
+<td width="80px" align="center" style="padding: 0px">
+<a onmouseover="this.className='overbutton'" onmouseout="this.className='upbutton'" class="upbutton" style="width:70px" href="/common/itinerary/addtoitinerary.asp?DirectoryID=1194" onclick="">
+<b><span id="victor_an102" class="victor_other">Itinerary</span></b>
+</a>
+</td>
+<td width="80px" align="center" style="padding: 0px">
+<a onmouseover="this.className='overbutton'" onmouseout="this.className='upbutton'" class="upbutton" style="width:70px" href="/common/addtoroute.asp?DirectoryID=1194" onclick="">
+<b><span id="victor_an103" class="victor_other">Routing</span></b>
+</a>
+</td>
+<td width="80px" align="center" style="padding: 0px">
+<a onmouseover="this.className='overbutton'" onmouseout="this.className='upbutton'" class="upbutton" style="width:70px" href="#" onclick="openmap('zoomItem','1194')">
+<b><span id="victor_an104" class="victor_other">Location</span></b>
+</a>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td colspan="3" class="offwhiteBack">
+<b><span id="victor_an105" class="victor_paragraph">Civic Address:</span></b><span id="victor_an106" class="victor_continuation"> 1896 Route 134, Lakeville</span></td>
+</tr>
+<tr>
+<td colspan="3" style="padding-left: 50px;" class="offwhiteBack"><span id="victor_an107" class="victor_paragraph">Lakeside Golf Club has a rich history where golfing and good times come together. Laid out on flat land, the par 70 layout can be easily walked. The front nine has remained virtually unchanged for the last 70 years. The back nine, put in play in the mid 80?s is cut in trees where water comes into play on several holes.Located just ten minutes from downtown Moncton, Lakeside?s friendly atmosphere will quickly put you at ease. The course is laid out on relatively flat land, making it a very walkab 
+</span><i>
+<b><span id="victor_an108" class="victor_continuation">... 
+</span><a href="/common/property.asp?directoryid=1194"><span id="victor_an109" class="victor_other">more</span></a></b>
+</i></td>
+</tr>
+<tr>
+<td colspan="3" class="offwhiteBack">
+<b><span id="victor_an110" class="victor_paragraph">Rates:</span></b><span id="victor_an111" class="victor_continuation"> 18 Holes $30.00</span></td>
+</tr>
+<tr>
+<td colspan="3" class="offwhiteBack">
+<b><span id="victor_an112" class="victor_paragraph">Season:</span></b><span id="victor_an113" class="victor_continuation"> April 15 to October 31</span></td>
+</tr>
+<tr>
+<td class="offwhiteBack">
+<img src="/graphics/spacer.gif" width="50" height="1" border="0" alt="" />
+</td>
+<td class="offwhiteBack">
+<img src="/graphics/spacer.gif" width="670" height="1" border="0" alt="" />
+</td>
+</tr>
+<tr>
+<td align="center" class="offwhiteBack">
+<a onmouseover="ccalt('Fundy Coastal Drive')" onmouseout="nd()" href="javascript:void(0)">
+<img width="16" border="0" src="/graphics/trails/fc-icon.gif" />
+</a>
+</td>
+<td colspan="2" align="left" class="offwhiteBack">
+<a onmouseover="ccalt('Tourism Industry Association of New Brunswick')" onmouseout="nd()" href="javascript:void(0)">
+<img height="20" border="0" hspace="1" src="/common/graphics/icons/tianb.gif" />
+</a>
+<a onmouseover="ccalt('Golf Cars')" onmouseout="nd()" href="javascript:void(0)">
+<img height="20" border="0" hspace="1" src="/common/graphics/icons/gc.gif" />
+</a>
+<a onmouseover="ccalt('Golf Club Rentals')" onmouseout="nd()" href="javascript:void(0)">
+<img height="20" border="0" hspace="1" src="/common/graphics/icons/gclb.gif" />
+</a>
+<a onmouseover="ccalt('Food Service Available')" onmouseout="nd()" href="javascript:void(0)">
+<img height="20" border="0" hspace="1" src="/common/graphics/icons/gfa.gif" />
+</a>
+<a onmouseover="ccalt('Showers &amp; Lockers Available')" onmouseout="nd()" href="javascript:void(0)">
+<img height="20" border="0" hspace="1" src="/common/graphics/icons/glk.gif" />
+</a>
+<a onmouseover="ccalt('Pull Cart')" onmouseout="nd()" href="javascript:void(0)">
+<img height="20" border="0" hspace="1" src="/common/graphics/icons/gpc.gif" />
+</a>
+<a onmouseover="ccalt('Pros and Lessons')" onmouseout="nd()" href="javascript:void(0)">
+<img height="20" border="0" hspace="1" src="/common/graphics/icons/gpl.gif" />
+</a>
+<a onmouseover="ccalt('Pro Shop')" onmouseout="nd()" href="javascript:void(0)">
+<img height="20" border="0" hspace="1" src="/common/graphics/icons/gps.gif" />
+</a>
+</td>
+</tr>
+</table>
+<br clear="all" />
+<table width="100%" border="0" cellspacing="0" cellpadding="0" align="right">
+<tr>
+<td colspan="3">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="tdname" style="padding: 0px;">
+<tr>
+<td style="font-size: 18px; padding-top: 2px; padding-bottom: 2px; padding-right: 0px; padding-left: 5px;">
+<b><span id="victor_an114" class="victor_header">Magnetic Hill Golf and Country Club</span></b>
+</td>
+<td></td>
+<td width="80px" align="center" style="padding: 0px">
+<a onmouseover="this.className='overbutton'" onmouseout="this.className='upbutton'" class="upbutton" style="width:70px" href="/common/property.asp?DirectoryID=310" onclick="">
+<b><span id="victor_an115" class="victor_other">Details</span></b>
+</a>
+</td>
+<td width="80px" align="center" style="padding: 0px">
+<a onmouseover="this.className='overbutton'" onmouseout="this.className='upbutton'" class="upbutton" style="width:70px" href="/common/itinerary/addtoitinerary.asp?DirectoryID=310" onclick="">
+<b><span id="victor_an116" class="victor_other">Itinerary</span></b>
+</a>
+</td>
+<td width="80px" align="center" style="padding: 0px">
+<a onmouseover="this.className='overbutton'" onmouseout="this.className='upbutton'" class="upbutton" style="width:70px" href="/common/addtoroute.asp?DirectoryID=310" onclick="">
+<b><span id="victor_an117" class="victor_other">Routing</span></b>
+</a>
+</td>
+<td width="80px" align="center" style="padding: 0px">
+<a onmouseover="this.className='overbutton'" onmouseout="this.className='upbutton'" class="upbutton" style="width:70px" href="#" onclick="openmap('zoomItem','310')">
+<b><span id="victor_an118" class="victor_other">Location</span></b>
+</a>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td colspan="3" class="offwhiteBack">
+<b><span id="victor_an119" class="victor_paragraph">Civic Address:</span></b><span id="victor_an120" class="victor_continuation"> 1 Teetime Drive, Moncton</span></td>
+</tr>
+<tr>
+<td colspan="3" style="padding-left: 50px;" class="offwhiteBack"><span id="victor_an121" class="victor_paragraph">Magnetic Hill Golf &amp; Country Club offers a challenging, picturesque, and friendly 18-hole course that is very enjoyable to play. The season generally runs from early May until late October as weather permits. Through the summer months (June - Sept), the course is open daily from 6:30 until dusk. Tee times are required and can be booked through the Pro Shop or by using the Automated TeleTee System.</span></td>
+</tr>
+<tr>
+<td colspan="3" class="offwhiteBack">
+<b><span id="victor_an122" class="victor_paragraph">Rates:</span></b><span id="victor_an123" class="victor_continuation"> 18 Holes $32.00</span></td>
+</tr>
+<tr>
+<td colspan="3" class="offwhiteBack">
+<b><span id="victor_an124" class="victor_paragraph">Season:</span></b><span id="victor_an125" class="victor_continuation"> May 1 to October 31</span></td>
+</tr>
+<tr>
+<td class="offwhiteBack">
+<img src="/graphics/spacer.gif" width="50" height="1" border="0" alt="" />
+</td>
+<td class="offwhiteBack">
+<img src="/graphics/spacer.gif" width="670" height="1" border="0" alt="" />
+</td>
+</tr>
+<tr>
+<td align="center" class="offwhiteBack">
+<a onmouseover="ccalt('Fundy Coastal Drive')" onmouseout="nd()" href="javascript:void(0)">
+<img width="16" border="0" src="/graphics/trails/fc-icon.gif" />
+</a>
+</td>
+<td colspan="2" align="left" class="offwhiteBack">
+<a onmouseover="ccaltl('Direct Debit')" onmouseout="nd()" href="javascript:void(0)">
+<img height="20" border="0" align="right" hspace="1" src="/common/graphics/icons/dd.gif" />
+</a>
+<a onmouseover="ccaltl('MasterCard')" onmouseout="nd()" href="javascript:void(0)">
+<img height="20" border="0" align="right" hspace="1" src="/common/graphics/icons/mc.gif" />
+</a>
+<a onmouseover="ccaltl('Visa')" onmouseout="nd()" href="javascript:void(0)">
+<img height="20" border="0" align="right" hspace="1" src="/common/graphics/icons/vs.gif" />
+</a>
+<a onmouseover="ccalt('Driving Range / Net')" onmouseout="nd()" href="javascript:void(0)">
+<img height="20" border="0" hspace="1" src="/common/graphics/icons/gdr.gif" />
+</a>
+<a onmouseover="ccalt('Putting Green')" onmouseout="nd()" href="javascript:void(0)">
+<img height="20" border="0" hspace="1" src="/common/graphics/icons/gpg.gif" />
+</a>
+<a onmouseover="ccalt('Golf Cars')" onmouseout="nd()" href="javascript:void(0)">
+<img height="20" border="0" hspace="1" src="/common/graphics/icons/gc.gif" />
+</a>
+<a onmouseover="ccalt('Golf Club Rentals')" onmouseout="nd()" href="javascript:void(0)">
+<img height="20" border="0" hspace="1" src="/common/graphics/icons/gclb.gif" />
+</a>
+<a onmouseover="ccalt('Food Service Available')" onmouseout="nd()" href="javascript:void(0)">
+<img height="20" border="0" hspace="1" src="/common/graphics/icons/gfa.gif" />
+</a>
+<a onmouseover="ccalt('Showers &amp; Lockers Available')" onmouseout="nd()" href="javascript:void(0)">
+<img height="20" border="0" hspace="1" src="/common/graphics/icons/glk.gif" />
+</a>
+<a onmouseover="ccalt('Pull Cart')" onmouseout="nd()" href="javascript:void(0)">
+<img height="20" border="0" hspace="1" src="/common/graphics/icons/gpc.gif" />
+</a>
+<a onmouseover="ccalt('Pros and Lessons')" onmouseout="nd()" href="javascript:void(0)">
+<img height="20" border="0" hspace="1" src="/common/graphics/icons/gpl.gif" />
+</a>
+<a onmouseover="ccalt('Pro Shop')" onmouseout="nd()" href="javascript:void(0)">
+<img height="20" border="0" hspace="1" src="/common/graphics/icons/gps.gif" />
+</a>
+</td>
+</tr>
+</table>
+<br clear="all" />
+<table width="100%" border="0" cellspacing="0" cellpadding="0" align="right">
+<tr>
+<td colspan="3">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="tdname" style="padding: 0px;">
+<tr>
+<td style="font-size: 18px; padding-top: 2px; padding-bottom: 2px; padding-right: 0px; padding-left: 5px;">
+<b><span id="victor_an126" class="victor_header">Maplewood Golf &amp; Country Club Ltd</span></b>
+</td>
+<td></td>
+<td width="80px" align="center" style="padding: 0px">
+<a onmouseover="this.className='overbutton'" onmouseout="this.className='upbutton'" class="upbutton" style="width:70px" href="/common/property.asp?DirectoryID=1214" onclick="">
+<b><span id="victor_an127" class="victor_other">Details</span></b>
+</a>
+</td>
+<td width="80px" align="center" style="padding: 0px">
+<a onmouseover="this.className='overbutton'" onmouseout="this.className='upbutton'" class="upbutton" style="width:70px" href="/common/itinerary/addtoitinerary.asp?DirectoryID=1214" onclick="">
+<b><span id="victor_an128" class="victor_other">Itinerary</span></b>
+</a>
+</td>
+<td width="80px" align="center" style="padding: 0px">
+<a onmouseover="this.className='overbutton'" onmouseout="this.className='upbutton'" class="upbutton" style="width:70px" href="/common/addtoroute.asp?DirectoryID=1214" onclick="">
+<b><span id="victor_an129" class="victor_other">Routing</span></b>
+</a>
+</td>
+<td width="80px" align="center" style="padding: 0px">
+<a onmouseover="this.className='overbutton'" onmouseout="this.className='upbutton'" class="upbutton" style="width:70px" href="#" onclick="openmap('zoomItem','1214')">
+<b><span id="victor_an130" class="victor_other">Location</span></b>
+</a>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td colspan="3" class="offwhiteBack">
+<b><span id="victor_an131" class="victor_paragraph">Civic Address:</span></b><span id="victor_an132" class="victor_continuation"> 2572 Route 115, Moncton</span></td>
+</tr>
+<tr>
+<td colspan="3" style="padding-left: 50px;" class="offwhiteBack"><span id="victor_an133" class="victor_paragraph">Maplewood features 18 unique holes that will require you to use every club in your bag. Three distinct tee areas offer a varied choice of length and difficulty to suit your game. The rolling tree lined landscape is easily walkable and located just 5.5 km north of Royal Oaks. We also offer a newly renovated clubhouse and great views from our deck.</span></td>
+</tr>
+<tr>
+<td colspan="3" class="offwhiteBack">
+<b><span id="victor_an134" class="victor_paragraph">Rates:</span></b><span id="victor_an135" class="victor_continuation"> 9 holes $15.00 18 holes $26.00</span></td>
+</tr>
+<tr>
+<td colspan="3" class="offwhiteBack">
+<b><span id="victor_an136" class="victor_paragraph">Season:</span></b><span id="victor_an137" class="victor_continuation"> May 1 to October 31</span></td>
+</tr>
+<tr>
+<td class="offwhiteBack">
+<img src="/graphics/spacer.gif" width="50" height="1" border="0" alt="" />
+</td>
+<td class="offwhiteBack">
+<img src="/graphics/spacer.gif" width="670" height="1" border="0" alt="" />
+</td>
+</tr>
+<tr>
+<td align="center" class="offwhiteBack">
+<a onmouseover="ccalt('Fundy Coastal Drive')" onmouseout="nd()" href="javascript:void(0)">
+<img width="16" border="0" src="/graphics/trails/fc-icon.gif" />
+</a>
+</td>
+<td colspan="2" align="left" class="offwhiteBack">
+<a onmouseover="ccaltl('Direct Debit')" onmouseout="nd()" href="javascript:void(0)">
+<img height="20" border="0" align="right" hspace="1" src="/common/graphics/icons/dd.gif" />
+</a>
+<a onmouseover="ccaltl('MasterCard')" onmouseout="nd()" href="javascript:void(0)">
+<img height="20" border="0" align="right" hspace="1" src="/common/graphics/icons/mc.gif" />
+</a>
+<a onmouseover="ccaltl('Visa')" onmouseout="nd()" href="javascript:void(0)">
+<img height="20" border="0" align="right" hspace="1" src="/common/graphics/icons/vs.gif" />
+</a>
+<a onmouseover="ccalt('Putting Green')" onmouseout="nd()" href="javascript:void(0)">
+<img height="20" border="0" hspace="1" src="/common/graphics/icons/gpg.gif" />
+</a>
+<a onmouseover="ccalt('Golf Cars')" onmouseout="nd()" href="javascript:void(0)">
+<img height="20" border="0" hspace="1" src="/common/graphics/icons/gc.gif" />
+</a>
+<a onmouseover="ccalt('Golf Club Rentals')" onmouseout="nd()" href="javascript:void(0)">
+<img height="20" border="0" hspace="1" src="/common/graphics/icons/gclb.gif" />
+</a>
+<a onmouseover="ccalt('Food Service Available')" onmouseout="nd()" href="javascript:void(0)">
+<img height="20" border="0" hspace="1" src="/common/graphics/icons/gfa.gif" />
+</a>
+<a onmouseover="ccalt('Showers &amp; Lockers Available')" onmouseout="nd()" href="javascript:void(0)">
+<img height="20" border="0" hspace="1" src="/common/graphics/icons/glk.gif" />
+</a>
+<a onmouseover="ccalt('Pull Cart')" onmouseout="nd()" href="javascript:void(0)">
+<img height="20" border="0" hspace="1" src="/common/graphics/icons/gpc.gif" />
+</a>
+<a onmouseover="ccalt('Pros and Lessons')" onmouseout="nd()" href="javascript:void(0)">
+<img height="20" border="0" hspace="1" src="/common/graphics/icons/gpl.gif" />
+</a>
+<a onmouseover="ccalt('Pro Shop')" onmouseout="nd()" href="javascript:void(0)">
+<img height="20" border="0" hspace="1" src="/common/graphics/icons/gps.gif" />
+</a>
+</td>
+</tr>
+</table>
+<br clear="all" />
+<hr width="80%" />
+<table cellpadding="0" cellspacing="0" border="0" width="80%" align="center">
+<tr>
+<td align="center" class="legal"><span id="victor_an138" class="victor_other">Display Page #: 
+</span><select name="pickpage" onchange="document.forms['refine'].startat.value=this.options[this.selectedIndex].value;document.forms['refine'].submit()">
+
+
+
+</select></td>
+<td class="legal" valign="bottom">
+<a onmouseout="nd()" href="javascript:document.forms['refine'].startat.value='10';document.forms['refine'].submit()" onmouseover="ccalt('Memra - The R')">
+<b><span id="victor_an139" class="victor_other">Next &gt;&gt;</span></b>
+</a>
+</td>
+</tr>
+</table>
+<br clear="all" />
+</form>
+</div>
+</td>
+</tr>
+</table>
+<table width="770" align="center">
+<tr>
+<td>
+<div align="center" class="legal">
+<a href="/forms/bugreport.asp"><span id="victor_an140" class="victor_other">Report an Error</span></a><span id="victor_an141" class="victor_other">&nbsp;&nbsp;|&nbsp;&nbsp; 
+</span><a href="/content/copyright.asp"><span id="victor_an142" class="victor_other">Copyright</span></a><span id="victor_an143" class="victor_other">&nbsp;&nbsp;|&nbsp;&nbsp; 
+</span><a href="/content/privacy.asp"><span id="victor_an144" class="victor_other">Privacy Policy</span></a><span id="victor_an145" class="victor_other">&nbsp;&nbsp;|&nbsp;&nbsp; 
+</span><a href="/content/disclaimer.asp"><span id="victor_an146" class="victor_other">Disclaimer</span></a><span id="victor_an147" class="victor_other">&nbsp;&nbsp;|&nbsp;&nbsp; 
+</span><a href="/content/credits.asp"><span id="victor_an148" class="victor_other">Credits</span></a><span id="victor_an149" class="victor_other">&nbsp;&nbsp;|&nbsp;&nbsp; 
+</span><a href="/common/sitemap.asp"><span id="victor_an150" class="victor_other">Site Map</span></a><span id="victor_an151" class="victor_other">&nbsp;&nbsp;|&nbsp;&nbsp; 
+</span><a href="/content/help"><span id="victor_an152" class="victor_other">Help</span></a>
+<table width="650" border="0" cellspacing="0" cellpadding="0" align="center">
+<tr>
+<td width="33%" align="center">
+<a href="http://newedge.net" target="_new">
+<img src="/graphics/lilnedge.gif" width="100" height="67" alt="Produced and maintained by NewEdge Technologies" border="0"><span id="victor_an153" class="victor_other">Produced and maintained by NewEdge Technologies</span></img>
+</a>
+</td>
+<td width="33%" align="center">
+<a href="http://destination-ns.com/common/property.asp?DirectoryID=1">
+<img src="/graphics/IOLName.gif" width="101" height="77" alt="Sponsored by Inn on the Lake" border="0"><span id="victor_an154" class="victor_other">Sponsored by Inn on the Lake</span></img>
+</a>
+</td>
+<td width="33%" align="center">
+<a href="http://mapeze.com">
+<img src="/common/graphics/mapeze_logo_offwhitetrans.gif" width="100" height="80" alt="Powered By Mapeze Technology" border="0"><span id="victor_an155" class="victor_other">Powered By Mapeze Technology</span></img>
+</a>
+</td>
+</tr>
+</table></div>
+</td>
+</tr>
+
+</table>
+
+</body>
+</html>

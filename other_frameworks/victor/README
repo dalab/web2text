@@ -1,0 +1,67 @@
+Victor, CRF-based web-page cleaner.
+
+Requirements
+============
+
+1) CRF++: http://www.chasen.org/~taku/software/CRF++/
+2) tidy (http://tidy.sourceforge.net/)
+3) Perl + these Perl modules:
+   * Curses (for the curses annotation tool)
+   * HTML::Entities
+   * HTML::Parser
+
+Run ./check_deps.pl script to check whether requirements are installed
+correctly.
+
+Running
+=======
+
+Make sure Perl modules, CRF and tidy binary is accessible (PERL5LIB, PATH).
+
+IMPORTANT: pass the same --config option (eg. "cleaneval") to all scripts!
+Config files are usually stored in configs/ directory.
+
+Annotating HTML files
+=====================
+
+- for now, text (curses-based) annotation tool is available
+- input HTML file should be pre-processed: markup cleaned and texts for
+  selection should be marked up using <span> element (e.g. <span
+  id="victor_anX">...text...</span>)
+
+./annotate.pl --config <config> file.html file.anno
+
+[FIXME: I am not sure how it deals with non-ascii characters]
+
+Result of annotation is the original HTML file, with attribute
+class added to marked <span> elements (e.g. <span id="victor_anX"
+class="victor_header">...text...</span>)
+
+Learning from annotated HTML files
+==================================
+
+./learn.pl --config <config> [-m model] *.anno
+
+Result of learning is the model file.
+
+Template and model files are usually defined in the config file.
+
+[FIXME: description of the template file (see crf++ docs for now)]
+
+Cleaning HTML files
+===================
+
+./clean.pl --config <config> [-m model] *.html
+
+There's already a set of annotated files in cleaneval/ and a model generated
+from these in models/cleaneval, so you can skip the first two steps and just
+do:
+
+./clean.pl --config cleaneval *.html
+
+Cross-evaluation
+================
+
+To run 10-fold cross-evalutation on the annotated files
+
+./xcheck.pl --config <config> -n 10 -d /tmp/output *.anno

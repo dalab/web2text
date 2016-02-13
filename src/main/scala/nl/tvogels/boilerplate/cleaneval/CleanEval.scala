@@ -52,6 +52,9 @@ object CleanEval {
     lazy val origWithoutTextTag = textTagFormat.replaceAllIn(orig, m => " " * m.group(0).length)
     assert(origWithoutTextTag.length == orig.length)
 
+    /** Unique ID across datasets */
+    lazy val docId = f"cleaneval_$id%03d"
+
   }
 
   /** Vector of indices of CleanEval items that are complete with source, cleaned and aligned versions. */

@@ -1,0 +1,139 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<title>Maine Business Search Engine - Over 70 000 Maine Businesses listed - Business Guide</title>
+<meta name="description" content="Maine Business Search Engine - Over 70 000 Maine Businesses listed - DowntownME.com" />
+<meta name="keywords" content="Maine Business Guide, maine business, maine business directory, maine search engine, Maine, directory, search engine, guide" />
+<meta http-equiv="pragma" content="no-cache" />
+<meta http-equiv="no-cache" content="no-cache" />
+<meta http-equiv="expires" content="-1" />
+<meta http-equiv="cache-control" content="no-cache" />
+<meta name="robots" content="index,follow" />
+<meta name="robots" content="all" />
+<meta name="distribution" content="global" />
+<meta name="resource-type" content="document" />
+<link rel="stylesheet" type="text/css" href="dtme.css" />
+</head>
+<body class="bg-2007" onload="self.focus();document.frmsearch.txtsearch.focus()">
+
+<table align="center" border="0" cellspacing="0" cellpadding="0" width="100%" height="100%">
+<tr>
+<td background="images/2007/top_repeat.jpg" height="24">
+<table align="right" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td background="images/2007/top_menu.jpg" align="right" valign="middle" width="220" height="24">
+<a class="menu-links" href="http://www.downtownme.com/login.asp?strGoBackTo=Main"><span id="victor_an0" class="victor_other">Login</span></a><span id="victor_an1" class="victor_other">&nbsp;&nbsp;|&nbsp;&nbsp;
+</span><a class="menu-links" href="http://www.downtownme.com/newuserform.asp"><span id="victor_an2" class="victor_other">Create an Account</span></a><span id="victor_an3" class="victor_other">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td>
+<td width="75"></td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td>
+<table align="center" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td align="center" valign="top" height="134">
+<img src="/images/2007/dtme_logo.jpg" width="590" height="132" />
+</td>
+</tr>
+<tr>
+<td width="630">
+<table border="0" cellspacing="0" cellpadding="0" width="238" height="26">
+<tr>
+<td class="search-maine" width="104" height="26" style="background-image: url(/images/2007/menu_search_maine.jpg); background-repeat: no-repeat; padding: 3px 0px 0px 8px;"><span id="victor_an4" class="victor_other">Search Maine</span></td>
+<td width="3"></td>
+<td width="125" height="26" style="background-image: url(/images/2007/menu_restaurant.jpg); background-repeat: no-repeat; padding: 3px 0px 0px 7px;">
+<a class="menu-links" href="http://www.downtownme.com/guides/maine_restaurants.asp"><span id="victor_an5" class="victor_other">Restaurant Guide</span></a>
+</td>
+</tr>
+</table>
+<form name="frmsearch" action="javascript:%20BuildLinkWithKeywords()" method="post">
+<table class="search-table" align="center" border="0" cellspacing="0" cellpadding="0" width="100%" height="80">
+<tr>
+<td>
+<table cellpadding="2" cellspacing="2" border="0">
+<tr>
+<td>
+<img src="images/2006/search_keyword.jpg" />
+</td>
+<td>
+<img src="images/2006/search_cityzip.jpg" />
+</td>
+</tr>
+<tr>
+<td>
+<input class="top-textbox" type="text" value="Keyword or Business Name" onkeypress="if (this.value=='Keyword or Business Name') { this.value='' };" name="txtsearch" id="txtsearch" tabindex="1" size="35" maxlength="49" />
+</td>
+<td>
+<input class="top-textbox" type="text" value="" name="txtcityzip" id="txtcityzip" tabindex="2" size="35" maxlength="20" />
+</td>
+</tr>
+</table>
+</td>
+<td width="100%" align="center">
+<table cellpadding="0" cellspacing="0" border="0">
+<tr>
+<td align="center">
+<input type="image" src="/images/2006/search_button.jpg" name="cmdsearch" value="Search" tabindex="3" />
+</td>
+</tr>
+<tr>
+<td align="center"><span id="victor_an6" class="victor_other">&nbsp;&nbsp;&nbsp;
+</span><a class="listyourbiz" href="/membership_benefit.asp"><span id="victor_an7" class="victor_other">List Your Business</span></a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</form>
+</td>
+</tr>
+<tr>
+<td align="center" valign="middle" height="35">
+<a class="menu-links2" href="http://www.downtownme.com/classified/classified.asp"><span id="victor_an8" class="victor_other">Classifieds</span></a><span id="victor_an9" class="victor_other"> &nbsp;|&nbsp; 
+</span><a class="menu-links2" href="http://www.downtownme.com/employment/employment.asp"><span id="victor_an10" class="victor_other">Job Listings</span></a><span id="victor_an11" class="victor_other"> &nbsp;|&nbsp; 
+</span><a class="menu-links2" href="http://www.downtownme.com/sports/sports.asp"><span id="victor_an12" class="victor_other">High School Sports</span></a><span id="victor_an13" class="victor_other"> &nbsp;|&nbsp; 
+</span><a class="menu-links2" href="http://www.downtownme.com/contactus.asp"><span id="victor_an14" class="victor_other">Contact Us</span></a><span id="victor_an15" class="victor_other"> &nbsp;|&nbsp; 
+</span><a class="menu-links2" href="http://www.downtownme.com/starrating.asp"><span id="victor_an16" class="victor_other">Star Rating System</span></a><span id="victor_an17" class="victor_other"> &nbsp;|&nbsp; 
+</span><a class="menu-links2" href="http://www.downtownme.com/guides/maine_sitemap.asp"><span id="victor_an18" class="victor_other">Sitemap</span></a></td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td background="images/2006/bottom_repeat.jpg" height="249" align="center">
+<table align="center" border="0" cellspacing="0" cellpadding="0" width="100%" height="100%">
+<tr>
+<td height="3"></td>
+</tr>
+<tr>
+<td class="feature-biz" align="center"><span id="victor_an19" class="victor_other">Visit our featured business</span></td>
+</tr>
+<tr>
+<td align="center">
+<table width="421" cellpadding="0" cellspacing="0" border="0">
+<tr>
+<td width="421" height="198">
+<a href="/usertracking.asp?strCode=WEB&amp;intCustId=1228&amp;strDescription=www.warebutler.com" target="_blank">
+<img class="ad" src="/featured/new/warebutler.jpg" width="421" height="198" border="0" alt="Full service lumber and building supply center. Located in 3 convenient locations."><span id="victor_an20" class="victor_other">Full service lumber and building supply center. Located in 3 convenient locations.</span></img>
+</a>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td class="copyright" align="center" valign="middle">
+<a class="copyright" href="http://www.phdconsulting.biz/default.asp?strInbound=DowntownME_2006"><span id="victor_an21" class="victor_other">Copyright � 2002-2006 PHD Consulting Inc.</span></a><span id="victor_an22" class="victor_other"> All rights reserved. 
+</span><a class="copyright" href="/disclaimer.asp"><span id="victor_an23" class="victor_other">Our Disclaimer.</span></a></td>
+</tr>
+<tr>
+<td height="6"></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</body>
+</html>

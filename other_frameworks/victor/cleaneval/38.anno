@@ -1,0 +1,259 @@
+<html>
+<head>
+<title></title>
+</head>
+<body>
+<div id="banner">
+<h1>
+<a href="http://cocoadevcentral.com/" accesskey="1"><span id="victor_an0" class="victor_header">Cocoa Dev Central</span></a>
+</h1>
+<span class="description"><span id="victor_an1" class="victor_other">Serving Cocoa Newbies since (++2000)</span></span>
+</div>
+
+<div id="content">
+<div class="blog">
+<h2 class="date"><span id="victor_an2" class="victor_header">« Advice on Learning C</span></h2>
+<div class="blogbody">
+<div class="posted" style="text-align:right; font-size:small;&gt; &lt;a href="><span id="victor_an3" class="victor_other">Posted by 
+</span><a href="/aboutus.php"><span id="victor_an4" class="victor_other">Submission</span></a><span id="victor_an5" class="victor_other"> on March 20, 2001 [
+</span><a href="http://cocoadevcentral.com/cgi-bin/mt-comments.cgi?entry_id=57" onclick="OpenComments(this.href); return false"><span id="victor_an6" class="victor_other">Feedback (3)</span></a><span id="victor_an7" class="victor_other"> &amp; 
+</span><a href="http://cocoadevcentral.com/cgi-bin/mt-tb.cgi?__mode=view&amp;entry_id=57" onclick="OpenTrackback(this.href); return false"><span id="victor_an8" class="victor_other">TrackBack (0)</span></a><span id="victor_an9" class="victor_other">]</span></div>
+<h4><span id="victor_an10" class="victor_header">by William Moss</span></h4>
+<p><span id="victor_an11" class="victor_other">[
+</span><em><span id="victor_an12" class="victor_other">Editor's note: this article is now largely superseded by 
+</span><a href="/articles/000081.php"><span id="victor_an13" class="victor_other">C Language Tutorial for Cocoa</span></a></em><span id="victor_an14" class="victor_other"> ]</span></p>
+<p><span id="victor_an15" class="victor_paragraph">When you first start playing around with Interface Builder and prototyping some cool interfaces, it's easy to get excited about Cocoa's potential. If you've ever read an old-school book on Mac programming like Scott Knaster's "How to Write Macintosh Software" you'll appreciate the power and simplicity of just drawing your user interface. (If you haven't played around with these tools yet, check out Erik J. Barzeski's "Two Lines of Code" article for a gentle introduction.)</span></p>
+<a name="more"></a>
+<p><span id="victor_an16" class="victor_paragraph">Cocoa's Interface Builder is even better than other "visual interface" toolkits like HyperCard, FaceSpan, and FileMaker's layout tools because what you create doesn't just try to imitate the feel of a Mac interface, it really is a Mac user interface. There are other toolkits on other platforms which offer this simplicity, but the Mac OS X developer tools will be the first time they have been freely available for all levels of Mac developers to use. In the past, I had tried unsuccessfully to master old-school Mac programming. Interface Builder was what convinced me that perhaps things were changing now and learning to program a Mac was an attainable goal for a scripter like me.</span></p>
+<p><span id="victor_an17" class="victor_paragraph">There was a big gap for me though. Apple provides some good documentation for learning Objective-C, but they didn't write anything about learning standard ANSI C. This omission is intentional and understandable. Apple doesn't provide developer documentation to teach you how to touch type, use the mouse, or perform other "basic" pre-requisites. So it looked like I was going to have to start out either learning C or Java before I could get to anything remotely Apple relevent like Cocoa.</span></p>
+<p><span id="victor_an18" class="victor_other">&nbsp;</span></p>
+<h3><span id="victor_an19" class="victor_header">// What About Java?</span></h3>
+<p><span id="victor_an20" class="victor_paragraph">When I started, I wanted to learn Java. It was a language with a lot of industry "buzz." It had huge class libraries already written. It had a syntax that was more understandable to my Hypercard and AppleScript roots than C did. And I really didn't fancy the idea of having to learn two languages (C and Objective-C) before moving on to what I was really interested in.</span></p>
+<p><span id="victor_an21" class="victor_paragraph">I spent a lot of time finding good references on Java. If you want to pursue this route I highly recommend Bruce Eckel's "Thinking In Java" Second Edition (
+</span><a href="http://www.bruceeckel.com/TIJ2/index.html"><span id="victor_an22" class="victor_other">http://www.bruceeckel.com/TIJ2/index.html</span></a><span id="victor_an23" class="victor_continuation">). It is one of the most readable and understandable introductions to Java, and ultimately it was why I gave up on the language for the time being. The book's CD-ROM includes a multimedia introduction to the C programming language and encourages the reader learn the basics of C from the tutorial before going very far into Java.</span></p>
+<p><span id="victor_an24" class="victor_paragraph">This seemed odd at first, but after moving through the C tutorial it really started to make sense. Learning C is a good foundation for Java (and Objective-C). The C language isn't terribly obscure or complex; it's a concise language that makes writing procedural code straightforward. And in both Objective-C and Java, when you get down to the level "inside" the objects you still must be able to program in a traditional procedural fashion that's vey similar to standard C.</span></p>
+<p><span id="victor_an25" class="victor_paragraph">What I discovered after learning some of the basics about C was that Objective-C was a very simple step beyond standard C. Java has some nice features and, one day, I will go back and try to learn it. Java's wide assortment of class libraries, industry-wide acceptance (including WebObjects), and garbage collection scheme make me curious about whether it would be a better language to use. But for my learning purposes, Objective-C was a very simple step forward. If you already know Java, your decision will likely be different, but if you are as new to "real" programming as I am, you may find that Objective-C is the simpler path.</span></p>
+<p><span id="victor_an26" class="victor_other">&nbsp;</span></p>
+<h3><span id="victor_an27" class="victor_header">// What You Need to Know</span></h3>
+<p><span id="victor_an28" class="victor_paragraph">At first, I resisted even writing this section. C isn't terribly complicated and if you try to learn it on a "need to know" basis you probably won't really be learning it but just checking items off on your list.</span></p>
+<p><span id="victor_an29" class="victor_paragraph">To start though, you should learn how to write C, don't try to learn C by reading other people's code. I learned lots of scripting languages by reading samples and scripts of others, but this didn't work well for C. After people get the hang of writing C, they start taking shortcuts to make typing easier. When I was just starting out, I found that I ended up doing more decoding of these examples than actual learning. What was worse was that sometimes my decoding was wrong and I'd end up very confused. You'll be much better off following a tutorial and writing out your own code that is clear and understandable.</span></p>
+<p><span id="victor_an30" class="victor_paragraph">As for the topics themselves: You should learn about the different types of variables and how to change one into another when needed. You should learn some of the basic string functions like printf, sscanf and strcopy, but Cocoa includes a lot of great string manipulation so there's not a need to get too in depth about string functions and techniques. You should learn how to read and use the order of operations table but it's probably not necessary to commit it to memory. You should learn about the various types of loops (while, for, and so on). You'll need to learn about some of the more advanced structures like enums and structs. And you will need to learn what a pointer is and how it's used is a good thing, though you probably don't need to learn a great deal of pointer arithmetic or pointer tricks.</span></p>
+<p><span id="victor_an31" class="victor_paragraph">One topic that you may not want to get into (that many introductory courses cover) are the bit operations. Twiddling bits isn't something that's you have to do in Cocoa (but you can if you want). But I found the subject really helped me understand C better. Nevertheless, if your goal is strictly Cocoa and calculating in base two makes your head hurt, you're probably safe skipping the subject.</span></p>
+<p><span id="victor_an32" class="victor_other">&nbsp;</span></p>
+<h3><span id="victor_an33" class="victor_header">// References for Learning C</span></h3>
+<p><span id="victor_an34" class="victor_paragraph">Learning C takes some patience and attention. There are many books on the shelves and there are a number of tutorials on the Web that will help you.</span></p>
+<p><span id="victor_an35" class="victor_paragraph">I recommend reading at least one of these books and doing the suggested exercises in it to learn C. Personally, I used all of them (in addition to some others I would not recommend), but that's mainly because I like reading different writing styles and perspectives.</span></p>
+<ul>
+<li><span id="victor_an36" class="victor_list">"The C Programming Language, 2nd Edition"
+</span><br /><span id="victor_an37" class="victor_continuation">By Brian W. Kernighan and Dennis M. Ritchie (Prentice Hall)
+</span><br /><span id="victor_an38" class="victor_continuation">ISBN: 0131103628 274 pages, $40.00</span></li>
+<li><span id="victor_an39" class="victor_list">"Practical C Programming, 3rd Edition"
+</span><br /><span id="victor_an40" class="victor_continuation">By Steve Oualline (O'Reilly Publishing)
+</span><br /><span id="victor_an41" class="victor_continuation">ISBN: 1-56592-306-5 451 pages, $34.95</span></li>
+<li><span id="victor_an42" class="victor_list">"The Waite Group's C Primer Plus"
+</span><br /><span id="victor_an43" class="victor_continuation">By Stephen Prata (Sams)
+</span><br /><span id="victor_an44" class="victor_continuation">ISBN: 1571691618 820 Pages, $29.99</span></li>
+</ul>
+<p><span id="victor_an45" class="victor_paragraph">Reviewing these books would be a huge undertaking itself, but here's an unjust summary of their use to me. "The C Programming Language" is the definitive guide to C but it can be a difficult introduction to the language; if I had to get only one book this would be it though. "Practical C Programming" gives some very good advice about C writing style and how to avoid writing "unreadable" programs. And the "The Waite Group's C Primer Plus" is very helpful if you aren't familiar with programming in any form (AppleScript, FileMaker, Basic, etc). I'd also suggest looking at some book review sites (like Amazon) for some opinions of what other readers thought.</span></p>
+<p><span id="victor_an46" class="victor_paragraph">I'd strongly recommend buying real books to learn from. There's something about the editing and review process that made them more useful and lucid to me than the tutorials available on the web. But if money is a concern or you just want the convenience of having an online reference, there are some tutorials available on the world wide web.</span></p>
+<ul>
+<li><span id="victor_an47" class="victor_list">Tom Torfs' "An Introduction to C"
+</span><br />
+<a href="http://members.nbci.com/tomtorfs/cintro.html"><span id="victor_an48" class="victor_other">http://members.nbci.com/tomtorfs/cintro.html</span></a></li>
+<li><span id="victor_an49" class="victor_list">Paul Sheer's "Trivial Introduction to C" on Source Forge
+</span><br />
+<a href="http://rute.sourceforge.net/node27.html"><span id="victor_an50" class="victor_other">http://rute.sourceforge.net/node27.html</span></a></li>
+<li><span id="victor_an51" class="victor_list">Daniel Thomasset's "An instantaneous introduction to C" at the University of Kansas
+</span><br />
+<a href="http://www.ukans.edu/acs/docs/other/intro-to-C.shtml"><span id="victor_an52" class="victor_other">http://www.ukans.edu/acs/docs/other/intro-to-C.shtml</span></a></li>
+<li><span id="victor_an53" class="victor_list">Marshall Brain's "How C Programming Works" on the How Stuff Works site
+</span><br />
+<a href="http://www.howstuffworks.com/c.htm"><span id="victor_an54" class="victor_other">http://www.howstuffworks.com/c.htm</span></a></li>
+<li><span id="victor_an55" class="victor_list">Dave Marshall's "Programming in C" on the Cardiff University site
+</span><br />
+<a href="http://www.cm.cf.ac.uk/Dave/C/CE.html"><span id="victor_an56" class="victor_other">http://www.cm.cf.ac.uk/Dave/C/CE.html</span></a></li>
+<li><span id="victor_an57" class="victor_list">Steve Summit's "C Programming" and "Notes to accompany K and R"
+</span><br />
+<a href="http://www.eskimo.com/~scs/cclass/cclass.html"><span id="victor_an58" class="victor_other">http://www.eskimo.com/~scs/cclass/cclass.html</span></a></li>
+<li><span id="victor_an59" class="victor_list">Anand Mehta's "A Crash Course in C"
+</span><br />
+<a href="http://www.mattababy.org/~belmonte/Teaching/CCC/CrashCourseC.html"><span id="victor_an60" class="victor_other">http://www.mattababy.org/~belmonte/Teaching/CCC/CrashCourseC.html</span></a></li>
+<li><span id="victor_an61" class="victor_list">Remy Saville's "C Tutorial" on the Programmer's Vault site
+</span><br />
+<a href="http://chesworth.com/pv/languages/c/c_tutorial.htm"><span id="victor_an62" class="victor_other">http://chesworth.com/pv/languages/c/c_tutorial.htm</span></a></li>
+</ul>
+<p><span id="victor_an63" class="victor_paragraph">A word of advice though, don't cheat by cutting and pasting code into your practice programs. Just like your fourth grade math teacher prohibited you from using a calculator to learn your multiplication tables, you will learn C better by typing all of your code from scratch for each and every exercise. It's a pain, but the mechanics of the process is just as important as learning the logic. When you start making programs over fifty or a hundred lines long, then you probably will want to start taking typing shortcuts.</span></p>
+<p><span id="victor_an64" class="victor_other">&nbsp;</span></p>
+<h3><span id="victor_an65" class="victor_header">// Differences from Scripting Languages</span></h3>
+<p><span id="victor_an66" class="victor_paragraph">Coming from the world of Mac scripting, some of the conventions of C were confusing for me. Here's a list of a few of them. They may or may not make sense to you yet, but if at some point you get flustered or confused someone else may have been there too.</span></p>
+<p><span id="victor_an67" class="victor_other">&nbsp;</span></p>
+<ol>
+<li>
+<b><span id="victor_an68" class="victor_list">Choosing Sizes for Variables</span></b>
+<br /><span id="victor_an69" class="victor_paragraph">Some scripting languages make the user choose a type of variable (number, text, date) but few require the user to pick how big to make the variables. In C you must decide whether your variables will hold small or big numbers, lengths of text, and other "sizing" considerations. This can be flustering to a new programmer, but don't overthink yourself when you're getting started. "I need to provide a variable to hold a name, but should it be able to hold Susan O'Donnel or Marguerite Elizabeth Wolverhampton-Morrell?". If in doubt, choose something longer than you need. When you get more adept at the language you can learn how choosing the right size will help speed up your program and not use as much memory. But learning how to optimize C is definitely something you need to learn after learning basic C programming.</span></li>
+<li>
+<b><span id="victor_an70" class="victor_list">There is no Symbol for Exponentiation</span></b>
+<br /><span id="victor_an71" class="victor_paragraph">If you look at a table of the order operations will be performed you will see the upper pointing caret '^' that's commonly used to denote exponentiation. Don't be fooled: the caret really represents a bit shifting operation (a very powerful but "machine level" sort of operation). If you want to use exponents you'll need to use a library such as math.h</span></li>
+<li>
+<b><span id="victor_an72" class="victor_list">White Space Almost Doesn't Matter</span></b>
+<br /><span id="victor_an73" class="victor_paragraph">Some langauges like Python actually pay attention to the way you indent your code. Some tools like FileMaker or Hypercard read your code and put in the indentation that it wants based on what you've written. The C compiler (as you will learn) doesn't care at all about your indentation. Inded one of the things that can mess you up is paying too much attention to the indentation and not enough to what your code is actually saying. But even though the C compiler doesn't care about your indentation, other things do. In particular, the C preprocessor requires that some of it's directives be written in certain places. If your #define macro appears anywhere other than the start of a new line, there will be an error.</span></li>
+<li>
+<b><span id="victor_an74" class="victor_list">Objects are not All the Same</span></b>
+<br /><span id="victor_an75" class="victor_paragraph">Since you probably will only learn C to the extent that you will start using it to learn other object-oriented programing langauges, you might see reference made to objects and get confused. Don't. In ANSI C the term object refers to the machine code that's generated from the compiler just before the linking stage. These files aren't readable by a human and they end in '.o' (dot oh). Additionally, when you start getting into Objective C, C++, and Java you may start reading things about objects that don't fit with each other. You may share programming principles between the different languages. You may even have different "langauge objects" in your project, but they should be treated as ghosts in their own planes of existence. But in general it's good to think of objects seperate to their own context.</span></li>
+<li>
+<b><span id="victor_an76" class="victor_list">Assignment is Just Another Operator</span></b>
+<br /><span id="victor_an77" class="victor_paragraph">Let X = X + 1 or Let Y = Y^Z + LOG (G) * SIN (T). In Applesoft Basic, Excel, Hypercard, FileMaker and many other scripting languages allow you to build very simple or elaborate assignment statements, but the last thing which will always happen is the assignment itself. In C, an assignment is just another operation with a precedence just like addition, division, or parentheses. This gives you the flexibility to do some crazy things with assignments. It lets you put multiple assignments in an expression. It lets you perform an assignment, perform more operations, and then assign things to yet another expression. You can even build a very elaborate set of operations and then forget to actually assign the result to anything. Be careful.</span></li>
+<li>
+<b><span id="victor_an78" class="victor_list">C Counts from Zero, not One</span></b>
+<br /><span id="victor_an79" class="victor_paragraph">The short snippet of text "Wretched" is eight characters long. If you want to take the first character of the string (in this case 'W') you would use an expression like =MID(A1,1,1) in Excel or Middle("Wretched",1,1) in FileMaker. In C, a similar expression would get you the character 'r' because C doesn't count things starting with one. In most cases it starts counting with 0. I asked a real C programmer why this was. "Isn't it more intuitive to start counting at 1?" "Why would you want to waste a number?" "Waste a number? isn't it arbitrary where the numbers start?" "Nope. All types, signs, and sizes of variables include zero in their range of acceptable values. If C started counting at one you would loose the use of a whole digit." There may be other reasons beyond what my friend told me, but generally C tries to do as little as possible that would artificially limit the machine even if it makes things a bit more complex for the programmer. That's a very different mentality from scripting languages which go to great ends to simplify the logic for the programmer. In truth, this isn't as big a deal as it seemed it would be when I first discovered this counting scheme, but it did take me a while to get into that mindset. It may take you some time to do so as well.</span></li>
+</ol>
+<p><span id="victor_an80" class="victor_paragraph">That about wraps up this topic. Be sure to look at some of the other tutorials for more information. In the meantime, get out there and learn C. Good Luck!</span></p>
+<br clear="all" />
+</div>
+<div class="comments-head">
+<a name="comments"></a><span id="victor_an81" class="victor_header">Comments</span></div>
+<div class="comments-body">
+<p><span id="victor_an82" class="victor_paragraph">Thank you for the information and guidance your article provides.</span></p>
+<span class="comments-post"><span id="victor_an83" class="victor_other">Posted by: 
+</span><a href="mailto:stoughs@mac.com"><span id="victor_an84" class="victor_other">Stuke</span></a><span id="victor_an85" class="victor_other"> on March 15, 2003 08:35 AM</span></span>
+</div>
+<div class="comments-body">
+<p><span id="victor_an86" class="victor_paragraph">C counts from zero rather than one because it's just an offset from the base address of the array. Since the first element of array foo begins at the base address, the offset is zero, so we write foo[0], or *(foo+0), or *foo.</span></p>
+<p><span id="victor_an87" class="victor_paragraph">The next element is one away from the base address, so it is referenced as foo[1], or *(foo+1).</span></p>
+<p><span id="victor_an88" class="victor_paragraph">Another excellent book on C is "Expert C Programming," by Peter van der Linden.</span></p>
+<p>
+<br /><span id="victor_an89" class="victor_paragraph">Incidentally, Mr. van der Linden's "Just Java" book is a nice gentle intro to Java, but it needs to be followed by the already-mentioned "Thinking In Java" from Bruce Eckel, or at least the O'Reilly book "Java In A Nutshell" by David Flanagan.</span></p>
+<p><span id="victor_an90" class="victor_paragraph">Java is such a great language (once one understands the whole CLASSPATH thing) because it's so easy to learn and to use (so it's great as a first language), and it's plenty powerful for real-world development.</span></p>
+<p><span id="victor_an91" class="victor_paragraph">That said, I use it only for server-side development. I never grokked the GUI side, and the Java GUI apps I've run were both slow and frustrating to use.</span></p>
+<span class="comments-post"><span id="victor_an92" class="victor_other">Posted by: 
+</span><a href="mailto:gcole@mac.com"><span id="victor_an93" class="victor_other">Glenn</span></a><span id="victor_an94" class="victor_other"> on May 6, 2003 04:24 AM</span></span>
+</div>
+<div class="comments-body">
+<p><span id="victor_an95" class="victor_paragraph">I wrote a few C tutorials ("Programming in C" and "Programming in ANSI C") many years ago. Next month (Dec. 2003), my Objective-C tutorial, "Programming in Objective-C" will be released.</span></p>
+<p><span id="victor_an96" class="victor_paragraph">I decided to teach the language from the ground up, that is, without having the reader learn C first. I did this so that the programmer can avoid learning procedural programming techniques before establishing a good foundation with object-oriented programming. Just because Objective-C is layered on C, it doesn't mean you have to learn C first!</span></p>
+<p><span id="victor_an97" class="victor_paragraph">After learning how to program in Objective-C and use the Foundation classes (which I teach in the book), then I recommend the reader go back and learn more of the details about C (such as arrays, functions, and pointers). These are covered in the book, but you really don't need to learn about them before you start writing Objective-C programs.</span></p>
+<p><span id="victor_an98" class="victor_paragraph">I will be curious to get feedback on whether my approach works.</span></p>
+<span class="comments-post"><span id="victor_an99" class="victor_other">Posted by: 
+</span><a href="http://www.kochan-wood.com"><span id="victor_an100" class="victor_other">Stephen Kochan</span></a><span id="victor_an101" class="victor_other"> on November 18, 2003 12:56 PM</span></span>
+</div>
+</div>
+</div>
+
+
+<div id="links">
+<div class="sidetitle" style="margin-top:0px;"><span id="victor_an102" class="victor_other">Navigation</span></div>
+<div class="side">
+<a href="http://cocoadevcentral.com/articles/000010.php"><span id="victor_an103" class="victor_other">« Previous</span></a><span id="victor_an104" class="victor_other"> | 
+</span><a href="http://cocoadevcentral.com/"><span id="victor_an105" class="victor_other">Main</span></a><span id="victor_an106" class="victor_other"> | 
+</span><a href="http://cocoadevcentral.com/articles/000058.php"><span id="victor_an107" class="victor_other">Next »</span></a></div>
+<div class="side"><span id="victor_an108" class="victor_other">Previous: 
+</span><a href="http://cocoadevcentral.com/articles/000010.php"><span id="victor_an109" class="victor_other">The Storage Series, Part Three</span></a>
+<br /><span id="victor_an110" class="victor_other">Next: 
+</span><a href="http://cocoadevcentral.com/articles/000058.php"><span id="victor_an111" class="victor_other">Packaging with Disk Images</span></a>
+<br />
+<div class="sidetitle"><span id="victor_an112" class="victor_other">Tutorials</span></div>
+<div class="side">
+<a href="http://cocoadevcentral.com/articles/cat_applescript_studio.php"><span id="victor_an113" class="victor_other">» AppleScript Studio</span></a><span id="victor_an114" class="victor_other"> (3 entries)
+</span><br />
+<a href="http://cocoadevcentral.com/articles/cat_java.php"><span id="victor_an115" class="victor_other">» Java</span></a><span id="victor_an116" class="victor_other"> (1 entries)
+</span><br />
+<a href="http://cocoadevcentral.com/articles/cat_q_a.php"><span id="victor_an117" class="victor_other">» Q &amp; A</span></a><span id="victor_an118" class="victor_other"> (12 entries)
+</span><br />
+<a href="http://cocoadevcentral.com/articles/cat_tutorials_bare_basics.php"><span id="victor_an119" class="victor_other">» Tutorials: Bare Basics</span></a><span id="victor_an120" class="victor_other"> (19 entries)
+</span><br />
+<a href="http://cocoadevcentral.com/articles/cat_tutorials_regular.php"><span id="victor_an121" class="victor_other">» Tutorials: Regular</span></a><span id="victor_an122" class="victor_other"> (41 entries)
+</span><br /></div>
+<div class="sidetitle"><span id="victor_an123" class="victor_other">Other Pages</span></div>
+<div class="side">
+<a href="/archives.php" title="Archives"><span id="victor_an124" class="victor_other">» All Articles</span></a>
+<br />
+<a href="/cocoa-pro.php" title="Cocoa-Pro Mailing List"><span id="victor_an125" class="victor_other">» Cocoa-Pro Mailing List</span></a>
+<br />
+<a href="/aboutus.php" title="About Us"><span id="victor_an126" class="victor_other">» About Us</span></a>
+<br />
+<a href="/madewithcocoa.php" title="Made With Cocoa"><span id="victor_an127" class="victor_other">» Made With Cocoa</span></a>
+<br />
+<a href="/privacy.php" title="Privacy Policy"><span id="victor_an128" class="victor_other">» Privacy Policy</span></a>
+<br />
+<a href="/submit.php" title="Submit an Article"><span id="victor_an129" class="victor_other">» Submit an Article</span></a>
+<br />
+</div>
+<div class="sidetitle"><span id="victor_an130" class="victor_other">Search</span></div>
+<div class="side"></div>
+<div class="sidetitle"><span id="victor_an131" class="victor_other">Last 15 Entries</span></div>
+<div class="side">
+<a href="http://cocoadevcentral.com/articles/000076.php"><span id="victor_an132" class="victor_other">» Cocoa and Perl ��There's More Than One Way to Do It</span></a>
+<br />
+<a href="http://cocoadevcentral.com/articles/000078.php"><span id="victor_an133" class="victor_other">» Building NSMenuExtra - A Small Tutorial</span></a>
+<br />
+<a href="http://cocoadevcentral.com/articles/000077.php"><span id="victor_an134" class="victor_other">» MyOneLineOfCodeBrowser using Cocoa and WebKit 1.0</span></a>
+<br />
+<a href="http://cocoadevcentral.com/articles/000075.php"><span id="victor_an135" class="victor_other">» Extend with Delegates</span></a>
+<br />
+<a href="http://cocoadevcentral.com/articles/000074.php"><span id="victor_an136" class="victor_other">» Create a PDF</span></a>
+<br />
+<a href="http://cocoadevcentral.com/articles/000073.php"><span id="victor_an137" class="victor_other">» Beginning AppleScript Studio</span></a>
+<br />
+<a href="http://cocoadevcentral.com/articles/000056.php"><span id="victor_an138" class="victor_other">» Drag and Drop Destinations</span></a>
+<br />
+<a href="http://cocoadevcentral.com/articles/000054.php"><span id="victor_an139" class="victor_other">» Learn C with Project Builder</span></a>
+<br />
+<a href="http://cocoadevcentral.com/articles/000055.php"><span id="victor_an140" class="victor_other">» Memory Management 101</span></a>
+<br />
+<a href="http://cocoadevcentral.com/articles/000052.php"><span id="victor_an141" class="victor_other">» Recent Tunes NSStatusItem</span></a>
+<br />
+<a href="http://cocoadevcentral.com/articles/000068.php"><span id="victor_an142" class="victor_other">» Making Other People's Software Work for You</span></a>
+<br />
+<a href="http://cocoadevcentral.com/articles/000053.php"><span id="victor_an143" class="victor_other">» Drop Shadows</span></a>
+<br />
+<a href="http://cocoadevcentral.com/articles/000067.php"><span id="victor_an144" class="victor_other">» Checking the User's Mac OS X Version</span></a>
+<br />
+<a href="http://cocoadevcentral.com/articles/000022.php"><span id="victor_an145" class="victor_other">» Q&amp;A: July 17, 2002</span></a>
+<br />
+<a href="http://cocoadevcentral.com/articles/000069.php"><span id="victor_an146" class="victor_other">» Using Foundation Collections in Interface Builder</span></a>
+<br />
+</div>
+<div class="sidetitle"><span id="victor_an147" class="victor_other">More Cocoa Help</span></div>
+<div class="side">
+<a href="http://www.google.com/" target="new"><span id="victor_an148" class="victor_other">» Google</span></a>
+<br />
+<a href="http://www.cocoadev.com/" target="new"><span id="victor_an149" class="victor_other">» Cocoa Dev .com</span></a>
+<br />
+<a href="http://cocoa.mamasam.com/" target="new"><span id="victor_an150" class="victor_other">» MamaSam's Cocoa Search</span></a>
+<br />
+<a href="http://www.stepwise.com/" target="new"><span id="victor_an151" class="victor_other">» Stepwise</span></a>
+<br />
+<a href="http://www.bignerdranch.com/" target="new"><span id="victor_an152" class="victor_other">» The Big Nerd Ranch</span></a>
+<br />
+<a href="http://www.macosxhints.com/" target="new"><span id="victor_an153" class="victor_other">» Mac OS X Hints</span></a>
+<br />
+<a href="http://developer.apple.com/techpubs/macosx/Cocoa/CocoaTopics.html" target="new"><span id="victor_an154" class="victor_other">» Cocoa Developer Documentation</span></a>
+<br />
+<a href="http://www.mactelligence.com/info/CocoaLinks.tpl" target="new"><span id="victor_an155" class="victor_other">» Cocoa Links</span></a>
+<br />
+<a href="http://developer.apple.com/techpubs/macosx/ReleaseNotes/index.html" target="new"><span id="victor_an156" class="victor_other">» Mac OS X Release Notes</span></a>
+<br />
+<a href="http://developer.apple.com/techpubs/macosx/DeveloperTools/devtools.html" target="new"><span id="victor_an157" class="victor_other">» Developer Tools</span></a>
+<br />
+<br />
+
+<a href="http://creativecommons.org/licenses/by-nc-sa/1.0">
+<img alt="Creative Commons License" src="http://creativecommons.org/images/public/somerights.gif" border="0"><span id="victor_an158" class="victor_other">Creative Commons License</span></img>
+</a>
+<br clear="all" /><span id="victor_an159" class="victor_other">This work is licensed under a 
+</span><a href="http://creativecommons.org/licenses/by-nc-sa/1.0"><span id="victor_an160" class="victor_other">Creative Commons License</span></a><span id="victor_an161" class="victor_other">. 
+</span></div>
+<div class="syndicate">
+<a href="http://freshlysqueezedsoftware.com/products/pulpfiction/">
+<img src="/fss_pulpfiction_button.gif" border="0" />
+</a>
+<br /><span id="victor_an162" class="victor_other">Get the site feed in 
+</span><a href="/index.rdf"><span id="victor_an163" class="victor_other">RSS 1.0</span></a><span id="victor_an164" class="victor_other"> or 
+</span><a href="/index.xml"><span id="victor_an165" class="victor_other">RSS 0.91</span></a><span id="victor_an166" class="victor_other">.
+</span><br />
+<br />
+</div></div>
+
+</div>
+</body>
+</html>

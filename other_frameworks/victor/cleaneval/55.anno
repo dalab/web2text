@@ -1,0 +1,283 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>EUROPA - Rapid - Error</title>
+<link rel="stylesheet" href="pages/about/about.css" type="text/css" />
+<link rel="stylesheet" href="stylesheet/commission.css" type="text/css" />
+<link rel="stylesheet" href="stylesheet/rapid.css" type="text/css" />
+
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta name="Reference" content="COMM/RAPID" />
+<meta name="Title" content="RAPID - PRESS RELEASES" />
+<meta name="Creator" content="COMM/PRESS/01" />
+<meta name="Language" content="en" />
+<meta name="Type" content="33" />
+<meta name="Classification" content="04" />
+<meta name="Keywords" content="press releases, european commission, institutions, eu, european union" />
+<meta name="Description" content="Rapid - the press releases database for main European Institutions" />
+</head>
+<body class="body" onload="null">
+<table class="mainHeaderTable">
+<tr>
+<td colspan="2">
+<form action="searchAction.do" name="headerForm">
+<table class="headerTable" cellspacing="0" cellpadding="0" border="0">
+<tr>
+<td bgcolor="#3399CC" align="left" valign="middle">
+<img src="images/pressReleases_en.gif;jsessionid=FR2Q05L59gDPxU2m4d6S1UVPi53sc2BZtIlPNv2x2IoX1e8onOoR!1366243763" border="0" title="Banner - Press Releases - Rapid" alt="Banner - Press Releases - Rapid"><span id="victor_an0" class="victor_other">Banner - Press Releases - Rapid</span></img>
+</td>
+<td valign="top" align="right" width="100%" height="50">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="50">
+<tr align="right" valign="top">
+<td class="backgroundnotice" id="legalnotice" title="Important legal notice" valign="top" align="right">
+
+ 
+<a href="http://europa.eu/geninfo/legal_notices_en.htm" class="backgroundnotice">
+<img class="resize" height="14" alt="Important legal notice" src="images/notice_en.gif" width="189" border="0"><span id="victor_an1" class="victor_other">Important legal notice</span></img>
+</a> 
+</td>
+</tr>
+<tr align="right" valign="bottom">
+<td width="100%" valign="center" height="28">
+ 
+<noscript>
+<p>
+<a class="language" href="setLanguage.do?language=en"><span id="victor_an2" class="victor_other">en</span></a><span id="victor_an3" class="victor_other"> &nbsp; 
+</span><a class="language" href="setLanguage.do?language=fr"><span id="victor_an4" class="victor_other">fr</span></a><span id="victor_an5" class="victor_other"> &nbsp;&nbsp;&nbsp;&nbsp;</span></p>
+</noscript></td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td colspan="2" height="4" bgcolor="#FFFF00" valign="bottom"></td>
+</tr>
+</table>
+<table class="headerEuropaLinksTable" cellspacing="0" cellpadding="0" width="100%" border="0">
+<tr>
+<td align="left" width="10" height="17">
+<table width="10" border="0" cellspacing="0" cellpadding="0" height="17">
+<tr>
+<td width="10" height="17"><span id="victor_an6" class="victor_other">&nbsp;</span></td>
+</tr>
+</table>
+</td>
+<td height="17" align="left" nowrap="true" class="navigationNew">
+<a href="http://europa.eu/index_en.htm" class="navigationNew"><span id="victor_an7" class="victor_other">EUROPA</span></a> 
+<span class="navigationNew"><span id="victor_an8" class="victor_other">&nbsp;&gt;&nbsp;</span></span> 
+<a href="http://ec.europa.eu/index_en.htm" class="navigationNew"><span id="victor_an9" class="victor_other">European Commission</span></a> 
+<span class="navigationNew"><span id="victor_an10" class="victor_other">&nbsp;&gt;&nbsp;</span></span> 
+<a href="http://europa.eu/press_room/index_en.htm" class="navigationNew"><span id="victor_an11" class="victor_other">Press Room</span></a> 
+<span class="navigationNew"><span id="victor_an12" class="victor_other">&nbsp;&gt;&nbsp;</span></span> 
+<a href="searchAction.do" class="navigationNew"><span id="victor_an13" class="victor_other">Press Releases</span></a></td>
+<td class="compulsorytools" id="comptools" title="Tools" valign="center" align="right" width="300" height="17">
+
+ 
+<a class="compulsorytools" id="tl_mbox" title="Contact" href="mailto:press-rapid-database@ec.europa.eu"><span id="victor_an14" class="victor_other">Contact</span></a><span id="victor_an15" class="victor_other"> &nbsp;|&nbsp; 
+</span><a class="compulsorytools" id="tl_search" title="Search on EUROPA" href="http://europa.eu/geninfo/query/search_en.html"><span id="victor_an16" class="victor_other">Search on EUROPA</span></a><span id="victor_an17" class="victor_other">&nbsp;&nbsp;</span></td>
+</tr>
+</table>
+<div>
+<table class="headerRapidLinksTable" align="right">
+<tr align="right" valign="middle">
+<td></td>
+</tr>
+<tr height="21">
+<td height="21">
+<a href="searchAction.do" target="_parent" class="toolslinks"><span id="victor_an18" class="victor_other">&nbsp;&nbsp;&nbsp;Search&nbsp;&nbsp;&nbsp;</span></a>
+</td>
+</tr>
+</table>
+<noscript>
+<table>
+<tr>
+<td bgcolor="#32CBFF" width="10" height="21" align="right">
+<img src="images/separator.gif" width="10" height="21" border="0" />
+</td>
+</tr>
+</table>
+<table align="right" cellspacing="0" cellpadding="0" border="0">
+<tr height="21">
+<td height="21" valign="top">
+<select name="selectedTopicValue" onchange="javascript:topicSelected(this.options[this.selectedIndex].value, 'en');">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</select>
+</td>
+</tr>
+</table>
+<table align="right" class="backgroundtoolslinks" cellspacing="0" cellpadding="0" border="0">
+<tr height="21">
+<td valign="bottom" bgcolor="#33CCFF" width="11" height="21">
+<img src="images/blueCorner.gif" width="16" height="21" border="0" />
+</td>
+<td height="21">
+<a href="syndication/setLanguage.do?language=en" target="_parent" class="toolslinks"><span id="victor_an19" class="victor_other">&nbsp;RSS&nbsp;</span></a>
+</td>
+<td bgcolor="#32CBFF" width="10" height="21">
+<img src="images/separator.gif" width="10" height="21" border="0" />
+</td>
+<td height="21">
+<a href="showInformation.do?pageName=middayExpress&amp;guiLanguage=en" target="_parent" class="toolslinks"><span id="victor_an20" class="victor_other">&nbsp;Midday Express&nbsp;</span></a>
+</td>
+<td bgcolor="#32CBFF" width="10" height="21">
+<img src="images/separator.gif" width="10" height="21" border="0" />
+</td>
+<td height="21">
+<a href="showInformation.do?pageName=recentPressReleases&amp;guiLanguage=en" target="_parent" class="toolslinks"><span id="victor_an21" class="victor_other">&nbsp;Recent Press Releases&nbsp;</span></a>
+</td>
+</tr>
+</table>
+</noscript>
+<table align="right" class="backgroundtoolslinks" cellspacing="0" cellpadding="0" border="0">
+<tr height="21">
+<td height="21" valign="bottom">
+<noscript>
+<input type="image" name="buttonTopicSearch" src="images/buttons/searchTopic_en.bmp;jsessionid=FR2Q05L59gDPxU2m4d6S1UVPi53sc2BZtIlPNv2x2IoX1e8onOoR!1366243763" border="0" title="Search by topic" alt="Search by topic" /><span id="victor_an22" class="victor_other"> &nbsp;</span></noscript>
+</td>
+</tr>
+</table>
+</div>
+</form>
+</td>
+</tr>
+</table>
+
+<table class="mainBodyTable">
+<tr>
+<td valign="top" width="20%">
+<table class="menuTable">
+<tr>
+<td>
+<img src="images/pictopressrel_en.gif;jsessionid=FR2Q05L59gDPxU2m4d6S1UVPi53sc2BZtIlPNv2x2IoX1e8onOoR!1366243763" border="0" title="Banner - Rapid" alt="Banner - Rapid"><span id="victor_an23" class="victor_other">Banner - Rapid</span></img>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td height="24">
+<table border="0" cellspacing="0" cellpadding="0" bgcolor="#006699">
+<tr valign="top">
+<td width="14" align="left">
+<img src="/rapid/images/arrow.gif;jsessionid=FR2Q05L59gDPxU2m4d6S1UVPi53sc2BZtIlPNv2x2IoX1e8onOoR!1366243763" title="arrow" alt="&gt;"><span id="victor_an24" class="victor_other">&gt;</span></img>
+</td>
+<td valign="middle" align="left" width="155">
+<a href="prepareLogin.do?login=OK" class="whitetoolslinks"><span id="victor_an25" class="victor_other">&nbsp;&nbsp;Login</span></a>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td height="24">
+<table border="0" cellspacing="0" cellpadding="0" bgcolor="#006699">
+<tr valign="top">
+<td width="14" align="left">
+<img src="/rapid/images/arrow.gif;jsessionid=FR2Q05L59gDPxU2m4d6S1UVPi53sc2BZtIlPNv2x2IoX1e8onOoR!1366243763" title="arrow" alt="&gt;"><span id="victor_an26" class="victor_other">&gt;</span></img>
+</td>
+<td valign="middle" align="left" width="155">
+<a href="http://europa.eu/cud/docs/guest_en.htm" class="whitetoolslinks"><span id="victor_an27" class="victor_other">&nbsp;&nbsp;Register</span></a>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td height="24">
+<table border="0" cellspacing="0" cellpadding="0" bgcolor="#006699">
+<tr valign="top">
+<td width="14" align="left">
+<img src="/rapid/images/arrow.gif;jsessionid=FR2Q05L59gDPxU2m4d6S1UVPi53sc2BZtIlPNv2x2IoX1e8onOoR!1366243763" title="arrow" alt="&gt;"><span id="victor_an28" class="victor_other">&gt;</span></img>
+</td>
+<td valign="middle" align="left" width="155">
+<a href="showInformation.do?pageName=documentation" class="whitetoolslinks"><span id="victor_an29" class="victor_other">&nbsp;&nbsp;Documentation</span></a>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td height="24">
+<table border="0" cellspacing="0" cellpadding="0" bgcolor="#006699">
+<tr valign="top">
+<td width="14" align="left">
+<img src="/rapid/images/arrow.gif;jsessionid=FR2Q05L59gDPxU2m4d6S1UVPi53sc2BZtIlPNv2x2IoX1e8onOoR!1366243763" title="arrow" alt="&gt;"><span id="victor_an30" class="victor_other">&gt;</span></img>
+</td>
+<td valign="middle" align="left" width="155">
+<a href="showInformation.do?pageName=whatsNew" class="whitetoolslinks"><span id="victor_an31" class="victor_other">&nbsp;&nbsp;What's New</span></a>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td height="25">
+<table border="0" cellspacing="0" cellpadding="0" height="25">
+<tr valign="middle" bgcolor="#006699">
+<td width="19" height="25" align="left">
+<img src="/rapid/images/arrow.gif" width="19" height="20" align="middle" title="arrow" alt="&gt;"><span id="victor_an32" class="victor_other">&gt;</span></img>
+</td>
+<td align="left" width="143">
+<a href="/rapid/showInformation.do;jsessionid=FR2Q05L59gDPxU2m4d6S1UVPi53sc2BZtIlPNv2x2IoX1e8onOoR!1366243763?pageName=about" class="whitetoolslinks"><span id="victor_an33" class="victor_other">&nbsp;&nbsp;About</span></a>
+</td>
+<td align="right" valign="top" width="12">
+<img src="/rapid/images/corner_1_006699.gif" />
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td class="td-default"></td>
+<td></td>
+</tr>
+</table>
+</td>
+<td valign="top" align="center">
+<table>
+<tr>
+<td align="center" class="bluetextbold11"><span id="victor_an34" class="victor_other">Selected document does not exist.</span></td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td colspan="2"></td>
+</tr>
+</table>
+</body>
+</html>

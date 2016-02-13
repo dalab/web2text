@@ -1,0 +1,90 @@
+body {
+  padding-top:51px;
+}
+.main-container {
+  overflow:auto;
+  position:absolute;
+  top:51px;left:0;right:0;bottom:0;
+  background-color:#444;
+}
+
+.iframe-wrapper {
+  position:absolute;
+  left:10px;
+  right:30%;
+  top:10px;
+  bottom:10px;
+  box-shadow:0px 2px 6px rgba(0,0,0,0.9);
+  background-color:#fff;
+}
+
+#page {
+  display:block;
+  width:100%;
+  height:100%;
+}
+
+.cleaned-gt {
+  width:30%;
+  right:0;top:0;bottom:0;
+  position:absolute;
+  overflow-y:auto;
+  overflow-x:hidden;
+  padding:1em;
+  white-space: pre-wrap;
+  color:#eee;
+  /*box-shadow:inset 1px 1px 4px rgba(0,0,0,0.2);*/
+}
+
+.main-content {
+  padding-top:1em;
+}
+.login-container {
+  width:20em;
+  margin:0 auto;
+  text-align:center;
+}
+.login-container h3 {
+  margin-bottom:1em;
+}
+
+a {
+  cursor:pointer;
+}
+
+.nav .breadcrumb {
+    float: left;
+    margin: 7px 10px;
+}
+
+.table {
+  width: auto;
+}
+
+
+
+
+
+
+.block {
+  background-color: rgba(255,255,0,0.5);
+  border:1px solid #bbb;
+}
+.block.keep {
+  background-color: #bada55 !important;
+  color: black !important
+}
+.block.remove{
+  background-color:red !important;
+  color:white !important;
+}
+.selection { background-color: rgba(186,218,85,.2) }
+.selection.remove { background-color: rgba(255,0,0,0.2)}
+#page, #page * {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+   -moz-user-select: none;
+   -ms-user-select: none;
+   user-select: none;
+}

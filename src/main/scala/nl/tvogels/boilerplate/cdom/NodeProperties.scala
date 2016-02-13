@@ -72,7 +72,7 @@ object NodeProperties {
         val sentences = Util.splitSentences(text)
 
         NodeProperties(
-          nCharacters           = text.length,
+          nCharacters           = scala.math.max(text.length,1),
           nWords                = words.length,
           nSentences            = sentences.length,
           nPunctuation          = text.count { x => s.punctuation.contains(x) },

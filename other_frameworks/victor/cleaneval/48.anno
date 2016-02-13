@@ -1,0 +1,803 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>IGN: Babylon 5: The Complete Fourth Season Review</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta name="Description" content="IGN is the ultimate resource for Babylon 5: The Complete Fourth Season reviews featuring in-depth reviews from our award-winning editorial staff along side thousands of user reviews." />
+<meta name="Keywords" content="Babylon 5: The Complete Fourth Season reviews, review" />
+<link rel="stylesheet" type="text/css" href="http://media.ign.com/ign/css/ign.css" />
+<link rel="stylesheet" type="text/css" href="http://media.ign.com/ign/css/ign_tmp_article.css" />
+<link rel="stylesheet" type="text/css" href="http://media.ign.com/ign/css/ign_grp_6.css" />
+<link rel="stylesheet" type="text/css" href="http://media.ign.com/ign/css/ign_chn_dvd.css" />
+<link rel="shortcut icon" href="http://media.ign.com/ign/favicon.ico" />
+
+
+
+<base target="_top" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+<body onload="onBodyLoad();">
+
+
+
+<div class="frame">
+<div id="mastheadNav">
+<div class="horizontalNavText"><a href="http://www.ign.com/" id="HeaderNav-www.ign.com" onclick="return trackclick(this.id);"><span id="victor_an0" class="victor_other">IGN.com</span></a><span id="victor_an1" class="victor_other"> | </span><a href="http://pc.ign.com/" id="HeaderNav-pc.ign.com" onclick="return trackclick(this.id);"><span id="victor_an2" class="victor_other">PC Games</span></a><span id="victor_an3" class="victor_other"> | </span><a href="http://ps2.ign.com/" id="HeaderNav-ps2.ign.com" onclick="return trackclick(this.id);"><span id="victor_an4" class="victor_other">PS2</span></a><span id="victor_an5" class="victor_other"> | </span><a href="http://ps3.ign.com/" id="HeaderNav-ps3.ign.com" onclick="return trackclick(this.id);"><span id="victor_an6" class="victor_other">PS3</span></a><span id="victor_an7" class="victor_other"> | </span><a href="http://psp.ign.com/" id="HeaderNav-psp.ign.com" onclick="return trackclick(this.id);"><span id="victor_an8" class="victor_other">PSP</span></a><span id="victor_an9" class="victor_other"> | </span><a href="http://xbox.ign.com/" id="HeaderNav-xbox.ign.com" onclick="return trackclick(this.id);"><span id="victor_an10" class="victor_other">Xbox</span></a><span id="victor_an11" class="victor_other"> | </span><a href="http://xbox360.ign.com/" id="HeaderNav-xbox360.ign.com" onclick="return trackclick(this.id);"><span id="victor_an12" class="victor_other">Xbox 360</span></a><span id="victor_an13" class="victor_other"> | </span><a href="http://cube.ign.com/" id="HeaderNav-cube.ign.com" onclick="return trackclick(this.id);"><span id="victor_an14" class="victor_other">GameCube</span></a><span id="victor_an15" class="victor_other"> | </span><a href="http://wii.ign.com/" id="HeaderNav-wii.ign.com" onclick="return trackclick(this.id);"><span id="victor_an16" class="victor_other">Wii</span></a><span id="victor_an17" class="victor_other"> | </span><a href="http://ds.ign.com/" id="HeaderNav-ds.ign.com" onclick="return trackclick(this.id);"><span id="victor_an18" class="victor_other">DS</span></a><span id="victor_an19" class="victor_other"> | </span><a href="http://gameboy.ign.com/" id="HeaderNav-gameboy.ign.com" onclick="return trackclick(this.id);"><span id="victor_an20" class="victor_other">GBA</span></a><span id="victor_an21" class="victor_other"> | </span><a href="http://wireless.ign.com/" id="HeaderNav-wireless.ign.com" onclick="return trackclick(this.id);"><span id="victor_an22" class="victor_other">Wireless</span></a><span id="victor_an23" class="victor_other"> | </span><a href="http://www.fileplanet.com/" id="HeaderNav-www.fileplanet.com" onclick="return trackclick(this.id);"><span id="victor_an24" class="victor_other">FilePlanet</span></a><span id="victor_an25" class="victor_other"> | </span><a href="http://cheats.ign.com/" id="HeaderNav-cheats.ign.com" onclick="return trackclick(this.id);"><span id="victor_an26" class="victor_other">Cheats</span></a><span id="victor_an27" class="victor_other"> | </span><a href="http://movies.ign.com/" id="HeaderNav-movies.ign.com" onclick="return trackclick(this.id);"><span id="victor_an28" class="victor_other">Movies</span></a><span id="victor_an29" class="victor_other"> | </span><a href="http://tv.ign.com/" id="HeaderNav-tv.ign.com" onclick="return trackclick(this.id);"><span id="victor_an30" class="victor_other">TV</span></a><span id="victor_an31" class="victor_other"> | </span><a href="http://dvd.ign.com/" id="HeaderNav-dvd.ign.com" onclick="return trackclick(this.id);"><span id="victor_an32" class="victor_other">DVD</span></a><span id="victor_an33" class="victor_other"> | </span><a href="http://music.ign.com/" id="HeaderNav-music.ign.com" onclick="return trackclick(this.id);"><span id="victor_an34" class="victor_other">Music</span></a><span id="victor_an35" class="victor_other"> | </span><a href="http://comics.ign.com/" id="HeaderNav-comics.ign.com" onclick="return trackclick(this.id);"><span id="victor_an36" class="victor_other">Comics</span></a><span id="victor_an37" class="victor_other"> | </span><a href="http://gear.ign.com/" id="HeaderNav-gear.ign.com" onclick="return trackclick(this.id);"><span id="victor_an38" class="victor_other">Gear</span></a><span id="victor_an39" class="victor_other"> | </span><a href="http://sports.ign.com/" id="HeaderNav-sports.ign.com" onclick="return trackclick(this.id);"><span id="victor_an40" class="victor_other">Sports</span></a><span id="victor_an41" class="victor_other"> | </span><a href="http://cars.ign.com/" id="HeaderNav-cars.ign.com" onclick="return trackclick(this.id);"><span id="victor_an42" class="victor_other">Cars</span></a><span id="victor_an43" class="victor_other"> | </span><a href="http://babes.entertainment.ign.com/" id="HeaderNav-babes.ign.com" onclick="return trackclick(this.id);"><span id="victor_an44" class="victor_other">Babes</span></a></div>
+</div>
+<map name="masthead_map">
+<area shape="poly" coords="97,2,86,42,74,42,65,73,79,73,74,90,148,90,151,80,160,80,164,64,155,64,170,2" alt="IGN.com" title="IGN.com" href="http://www.ign.com" target="_top" />
+<area shape="poly" coords="458,18, 477,18, 479,25, 485,18, 500,18, 504,21, 504,24, 503,26, 512,26, 517,32, 647,32, 650,34, 650,38, 647,41, 628,41, 627,47, 623,52, 620,56, 612,61, 605,65, 595,68, 585,71, 572,74, 555,77, 540,79, 525,80, 511,81, 451,81, 435,80, 417,78, 395,75, 381,72, 367,68, 356,65, 347,61, 339,56, 333,51, 331,48, 330,46, 330,41, 312,41, 310,41, 308,39, 308,35, 309,33, 312,31, 440,31, 445,26, 456,26" alt="IGN DVD" title="IGN DVD" href="http://dvd.ign.com" target="_top" /></map> <map name="masthead_expand_left_map">
+<area shape="poly" coords="97,2,86,42,74,42,65,73,79,73,74,90,148,90,151,80,160,80,164,64,155,64,170,2" alt="IGN.com" title="IGN.com" href="http://www.ign.com" target="_top" /></map> <map name="masthead_expand_center_map">
+<area shape="poly" coords="296,18, 315,18, 317,25, 323,18, 338,18, 342,21, 342,24, 341,26, 350,26, 355,32, 485,32, 488,34, 488,38, 485,41, 466,41, 465,47, 461,52, 458,56, 450,61, 443,65, 433,68, 423,71, 410,74, 393,77, 378,79, 363,80, 349,81, 289,81, 273,80, 255,78, 233,75, 219,72, 205,68, 194,65, 185,61, 177,56, 171,51, 169,48, 168,46, 168,41, 150,41, 148,41, 146,39, 146,35, 147,33, 150,31, 278,31, 283,26, 294,26" alt="IGN DVD" title="IGN DVD" href="http://dvd.ign.com" target="_top" /></map> <map name="masthead_expand_right_map"></map>
+<div id="mast"><img src="http://dvdmedia.ign.com/dvd/images/masthead.gif" border="0" usemap="#masthead_map" /></div>
+<div id="headerSearch">
+<form method="post" style="margin: 0px;" id="multiSiteSearchForm" name="multiSiteSearchForm" action="javascript:multiSiteSearchSubmit(document.multiSiteSearchForm);"><input type="hidden" name="objtName" value="dvd" />
+<table cellspacing="0" cellpadding="0" border="0" align="center">
+<tr align="left">
+<td id="searchRadios" width="50"><span id="victor_an45" class="victor_other">Search:</span></td>
+<td width="20" align="center"><input type="radio" class="searchRadio" name="domain" /></td>
+<td class="textBox" width="50"><span id="victor_an46" class="victor_other">The Web</span></td>
+<td width="20" align="center"><input class="searchRadio" type="radio" name="domain" checked="checked" /></td>
+<td class="textBox" width="50" align="center"><span id="victor_an47" class="victor_other">IGN.com</span></td>
+<td width="20" align="center"><input class="searchRadio" type="radio" name="domain" /></td>
+<td class="textBox" width="50" align="center"><span id="victor_an48" class="victor_other">IGN DVD</span></td>
+<td width="80"><input id="searchTextBox" type="text" size="60" height="100" maxlength="60" name="query" value="" /></td>
+<td width="10"><span id="victor_an49" class="victor_other">&nbsp;</span></td>
+<td width="70"><span class="buttonLSW" style="width: 70px" onclick="javascript:document.multiSiteSearchForm.submit();"><span id="victor_an50" class="victor_other">Search</span></span></td>
+<td width="10"><span id="victor_an51" class="victor_other">&nbsp;</span></td>
+<td width="80" id="googleLogo" align="right"><img src="http://media.ign.com/ign/images/header_search_google.gif" border="0" alt="" /></td>
+</tr>
+</table>
+</form>
+</div>
+
+<div id="leaderboardRow">
+<div id="leaderboardWelcome">
+<div style="padding-bottom:5px;"><noscript>
+<div id="loginBox"><b><a href="http://my.ign.com/my/sb?paction=relogin" class="login"><span id="victor_an52" class="victor_other">Log In</span></a></b><span id="victor_an53" class="victor_other"> | </span><b><a href="http://my.ign.com/my/sb?regAction=reg&amp;network=1"><span id="victor_an54" class="victor_other">Register</span></a></b><br />
+<a href="http://my.ign.com/my/sb?action=myProfile&amp;network=1"><span id="victor_an55" class="victor_other">My Account</span></a><span id="victor_an56" class="victor_other"> | </span><a href="http://users.ign.com/my/sb?action=editWatchlist&amp;objType=1"><span id="victor_an57" class="victor_other">My Email Alerts</span></a><br />
+<a href="http://my.ign.com/my/sb?action=viewUserGameList&amp;ownedGames=y"><span id="victor_an58" class="victor_other">My Collection</span></a><span id="victor_an59" class="victor_other"> (0 Games) | </span><a href="http://my.ign.com/my/sb?action=viewUserGameList&amp;ownedGames=n"><span id="victor_an60" class="victor_other">My Wishlist</span></a></div>
+</noscript></div>
+</div>
+<div id="hotButtons">
+<div id="hotButtonsText"><strong><a href="http://www.ign.com"><span id="victor_an61" class="victor_other">On Our Six</span><br /></a></strong><span id="victor_an62" class="victor_other"> Take a quick tour and browse today's big stories by clicking the images to the right:</span></div>
+<div class="hotButtonsBtn"><a href="http://bestof.ign.com/2006/"><img src="http://ps3media.ign.com/ps3/image/item/383/3838743/thumb.jpg" alt="" /><br /><span id="victor_an63" class="victor_other">
+Best 0f 2006</span></a></div>
+<div class="hotButtonsBtn"><a href="http://tv.ign.com/articles/751/751854p1.html"><img src="http://tvmedia.ign.com/tv/image/item/340/3405717/LOST_063006_thumb.jpg" alt="" /><br /><span id="victor_an64" class="victor_other">
+Lost Moments</span></a></div>
+<div class="hotButtonsBtn"><a href="http://movies.ign.com/articles/752/752209p1.html"><img src="http://moviesmedia.ign.com/movies/image/item/369/3691577/FF2_102306_thumb.jpg" alt="" /><br /><span id="victor_an65" class="victor_other">
+See Silver Surfer!</span></a></div>
+<div class="hotButtonsBtn"><a href="http://media.xbox360.ign.com/media/734/734817/vids_1.html"><img src="http://insidermedia.ign.com/insider/image/item/264/2642422/nside_halo2_071905_thumb.jpg" alt="" /><br /><span id="victor_an66" class="victor_other">
+Halo 3 Video Doc</span></a></div>
+<div class="hotButtonsBtn"><a href="http://guides.ign.com"><img src="http://cubemedia.ign.com/cube/image/item/238/2386419/cube_zelda_032905_thumb.jpg" alt="" /><br /><span id="victor_an67" class="victor_other">
+Free Guides</span></a></div>
+
+
+
+
+<img width="1" src="http://de.ign.com/event.ng/Type=count&amp;ClientType=2&amp;AdID=8398&amp;FlightID=7325&amp;TargetID=8275&amp;EntityDefResetFlag=0&amp;Segments=458,3943,5497,5527,5638,5650,5695,5718,5727,5736,5741,5792,6770,7615&amp;Targets=8275&amp;Values=34,46,51,82,91,100,110,150,204,225,227,235,236,256,451,1503,1594,2275,2683,2684,2721,3489,4295,4525,4662,4799,5628,5999&amp;RawValues=&amp;random=coyzlcn,bczdnuhomskWu" height="1" border="0" style="position: absolute; visibility: hidden;" /></div>
+</div>
+<div class="clear"></div>
+
+
+<div id="colLeft">
+<div id="navFrame">
+<div class="navCategory"><span id="victor_an68" class="victor_other">SECTIONS</span></div>
+<div class="navLink"><a href="http://bestof.ign.com/2006/"><span id="victor_an69" class="victor_other">· Best of 2006</span></a></div>
+<div class="navLink"><a href="http://dvd.ign.com/articles/751/751646p1.html"><span id="victor_an70" class="victor_other">· Year in Review</span></a></div>
+<div class="navLink"><a href="http://dvd.ign.com/index/dvd.html"><span id="victor_an71" class="victor_other">· DVDs</span></a></div>
+<div class="navLink"><a href="http://dvd.ign.com/index/reviews.html"><span id="victor_an72" class="victor_other">· Reviews</span></a></div>
+<div class="navLink"><a href="http://readerreviews.ign.com/rr/dvd/"><span id="victor_an73" class="victor_other">· Reader Reviews</span></a></div>
+<div class="navLink"><a href="http://dvd.ign.com/index/previews.html"><span id="victor_an74" class="victor_other">· Previews</span></a></div>
+<div class="navLink"><a href="http://dvd.ign.com/index/videos.html"><span id="victor_an75" class="victor_other">· Videos</span></a></div>
+<div class="navLink"><a href="http://dvd.ign.com/index/features.html"><span id="victor_an76" class="victor_other">· Features</span></a></div>
+<div class="navLink"><a href="http://dvd.ign.com/index/news.html"><span id="victor_an77" class="victor_other">· News</span></a></div>
+<div class="navLink"><a href="http://dvd.ign.com/index/choice.html"><span id="victor_an78" class="victor_other">· Editors' Choice</span></a></div>
+<div class="navLink"><a href="http://dvd.ign.com/index/release.html"><span id="victor_an79" class="victor_other">· Release Dates</span></a></div>
+<div class="navLink"><a href="http://dvd.ign.com/index/eggs.html"><span id="victor_an80" class="victor_other">· Easter Eggs</span></a></div>
+<div class="navLink"><a href="http://dvd.ign.com/mail/index.html"><span id="victor_an81" class="victor_other">· Mailbag</span></a></div>
+<div class="navLink"><a href="http://boards.ign.com/default.asp?cat=5012"><span id="victor_an82" class="victor_other">· Message Boards</span></a></div>
+<div class="navLink"><a href="http://ign.pricegrabber.com/home_movies.php"><span id="victor_an83" class="victor_other">· Compare Prices</span></a></div>
+<div class="navLink"><a href="http://www.direct2drive.com/buy-movies-download"><span id="victor_an84" class="victor_other">· Download Movies</span></a></div>
+<div class="navCategory"><span id="victor_an85" class="victor_other">CHANNELS</span></div>
+<div class="navArrowedLink"><a href="http://insider.ign.com" id="LeftNav_Insider_members-insider.ign.com" title="" onclick="return trackclick(this.id);"><span id="victor_an86" class="victor_other">Insider Members</span></a></div>
+<div class="navLink"><a href="http://insider.ign.com" id="LeftNav_Insider-insider.ign.com" title="" onclick="return trackclick(this.id);"><span id="victor_an87" class="victor_other">· Insider Channel</span></a></div>
+<div class="navLink"><a href="http://insider.ign.com/features/hires.html" id="LeftNav_Insider-insider.ign.com_highres" title="Hi-Res Movies" onclick="return trackclick(this.id);"><span id="victor_an88" class="victor_other">· Hi-Res Movies</span></a></div>
+<div class="navLink"><a href="http://guides.ign.com" id="LeftNav_Insider-guides.ign.com" title="" onclick="return trackclick(this.id);"><span id="victor_an89" class="victor_other">· Strategy Guides</span></a></div>
+
+<div class="navLink"><span id="victor_an90" class="victor_other">· </span><a href="http://www.ignfoundersclub.com/" id="LeftNav_Insider-www.ignfoundersclub.com" title="" onclick="return trackclick(this.id);"><span id="victor_an91" class="victor_other">Founders' Club</span></a></div>
+<div class="navArrowedLink"><a href="http://games.ign.com" id="LeftNav_Games-games.ign.com" title="Games" onclick="return trackclick(this.id);"><span id="victor_an92" class="victor_other">Games</span></a></div>
+<div class="navLink"><a href="http://pc.ign.com" id="LeftNav_Games-pc.ign.com" title="PC Games" onclick="return trackclick(this.id);"><span id="victor_an93" class="victor_other">· PC Games</span></a></div>
+<div class="navLink"><a href="http://ps2.ign.com" id="LeftNav_Games-ps2.ign.com" title="PS2 Games" onclick="return trackclick(this.id);"><span id="victor_an94" class="victor_other">· PlayStation 2</span></a></div>
+<div class="navLink"><a href="http://ps3.ign.com" id="LeftNav_Games-ps3.ign.com" title="PS3 Games" onclick="return trackclick(this.id);"><span id="victor_an95" class="victor_other">· PlayStation 3</span></a></div>
+<div class="navLink"><a href="http://psp.ign.com" id="LeftNav_Games-psp.ign.com" title="Sony PSP Games" onclick="return trackclick(this.id);"><span id="victor_an96" class="victor_other">· Sony PSP</span></a></div>
+<div class="navLink"><a href="http://xbox.ign.com" id="LeftNav_Games-xbox.ign.com" title="Xbox Games" onclick="return trackclick(this.id);"><span id="victor_an97" class="victor_other">· Xbox</span></a></div>
+<div class="navLink"><a href="http://xbox360.ign.com" id="LeftNav_Games-xbox360.ign.com" title="Xbox 360 Games" onclick="return trackclick(this.id);"><span id="victor_an98" class="victor_other">· Xbox 360</span></a></div>
+<div class="navLink"><a href="http://cube.ign.com" id="LeftNav_Games-cube.ign.com" title="Gamecube Games" onclick="return trackclick(this.id);"><span id="victor_an99" class="victor_other">· GameCube</span></a></div>
+<div class="navLink"><a href="http://wii.ign.com" id="LeftNav_Games-wii.ign.com" title="Wii Games" onclick="return trackclick(this.id);"><span id="victor_an100" class="victor_other">· Nintendo Wii</span></a></div>
+<div class="navLink"><a href="http://ds.ign.com" id="LeftNav_Games-ds.ign.com" title="Nintendo DS Games" onclick="return trackclick(this.id);"><span id="victor_an101" class="victor_other">· Nintendo DS</span></a></div>
+<div class="navLink"><a href="http://gameboy.ign.com" id="LeftNav_Games-gameboy.ign.com" title="GameBoy Games" onclick="return trackclick(this.id);"><span id="victor_an102" class="victor_other">· Game Boy</span></a></div>
+<div class="navLink"><a href="http://wireless.ign.com" id="LeftNav_Games-wireless.ign.com" title="Wireless Games" onclick="return trackclick(this.id);"><span id="victor_an103" class="victor_other">· Wireless</span></a></div>
+<div class="navLink"><a href="http://ngage.ign.com" id="LeftNav_Games-ngage.ign.com" title="N-Gage Games" onclick="return trackclick(this.id);"><span id="victor_an104" class="victor_other">· N-Gage</span></a></div>
+<div class="navLink"><a href="http://psx.ign.com" id="LeftNav_Games-psx.ign.com" title="PlayStation Games" onclick="return trackclick(this.id);"><span id="victor_an105" class="victor_other">· PlayStation</span></a></div>
+<div class="navLink"><a href="http://ign64.ign.com" id="LeftNav_Games-ign64.ign.com" title="N64 Games" onclick="return trackclick(this.id);"><span id="victor_an106" class="victor_other">· N64</span></a></div>
+<div class="navLink"><a href="http://dreamcast.ign.com" id="LeftNav_Games-dreamcast.ign.com" title="Dreamcast Games" onclick="return trackclick(this.id);"><span id="victor_an107" class="victor_other">· Dreamcast</span></a></div>
+<div class="navLink"><a href="http://www.fileplanet.com" id="LeftNav_Games-www.fileplanet.com" title="Game Downloads" onclick="return trackclick(this.id);"><span id="victor_an108" class="victor_other">· PC Downloads</span></a></div>
+<div class="navLink"><a href="http://games.ign.com/topgames" id="LeftNav_Games-games.ign.com_topgames" title="Top Games" onclick="return trackclick(this.id);"><span id="victor_an109" class="victor_other">· Top Games</span></a></div>
+<div class="navLink"><a href="http://ve3d.ign.com/" id="LeftNav_Games-ve3d.ign.com" title="VE3D" onclick="return trackclick(this.id);"><span id="victor_an110" class="victor_other">· VE3D</span></a></div>
+<div class="navLink"><a href="http://vault.ign.com/" id="LeftNav_Games-vault.ign.com" title="Vault Network" onclick="return trackclick(this.id);"><span id="victor_an111" class="victor_other">· Vault Network</span></a></div>
+<div class="navArrowedLink"><a href="http://entertainment.ign.com" id="LeftNav_Entertainment-entertainment.ign.com" title="Entertainment" onclick="return trackclick(this.id);"><span id="victor_an112" class="victor_other">Entertainment</span></a></div>
+<div class="navLink"><a href="http://movies.ign.com" id="LeftNav_Entertainment-movies.ign.com" title="Movies" onclick="return trackclick(this.id);"><span id="victor_an113" class="victor_other">· Movies</span></a></div>
+<div class="navLink"><a href="http://tv.ign.com" id="LeftNav_Entertainment-tv.ign.com" title="TV" onclick="return trackclick(this.id);"><span id="victor_an114" class="victor_other">· TV</span></a></div>
+<div class="navLink"><a href="http://dvd.ign.com" id="LeftNav_Entertainment-dvd.ign.com" title="DVD" onclick="return trackclick(this.id);"><span id="victor_an115" class="victor_other">· DVD</span></a></div>
+<div class="navLink"><a href="http://music.ign.com" id="LeftNav_Entertainment-music.ign.com" title="Music" onclick="return trackclick(this.id);"><span id="victor_an116" class="victor_other">· Music</span></a></div>
+<div class="navLink"><a href="http://comics.ign.com" id="LeftNav_Entertainment-comics.ign.com" title="Comics" onclick="return trackclick(this.id);"><span id="victor_an117" class="victor_other">· Comics</span></a></div>
+<div class="navLink"><a href="http://gear.ign.com" id="LeftNav_Entertainment-gear.ign.com" title="Gear" onclick="return trackclick(this.id);"><span id="victor_an118" class="victor_other">· Gear</span></a></div>
+<div class="navLink"><a href="http://sports.ign.com" id="LeftNav_Entertainment-sports.ign.com" title="Sports" onclick="return trackclick(this.id);"><span id="victor_an119" class="victor_other">· Sports</span></a></div>
+<div class="navLink"><a href="http://cars.ign.com" id="LeftNav_Entertainment-cars.ign.com" title="Cars" onclick="return trackclick(this.id);"><span id="victor_an120" class="victor_other">· Cars</span></a></div>
+<div class="navLink"><a href="http://babes.entertainment.ign.com" id="LeftNav_Entertainment-babes.ign.com" title="Babes" onclick="return trackclick(this.id);"><span id="victor_an121" class="victor_other">· Babes</span></a></div>
+<div class="navLink"><a href="http://blogs.ign.com/SCI-FI-BRAIN/" id="LeftNav_Entertainment-scifibrain.ign.com" title="Sci-Fi Brain" onclick="return trackclick(this.id);"><span id="victor_an122" class="victor_other">· Sci-Fi Brain</span></a></div>
+<div class="navLink"><a href="http://horrorbrain.ign.com/" id="LeftNav_Entertainment-horrorbrain.ign.com" title="Horror Brain" onclick="return trackclick(this.id);"><span id="victor_an123" class="victor_other">· Horror Brain</span></a></div>
+<div class="navArrowedLink"><a href="http://cheats.ign.com/" id="LeftNav_Cheats-cheats.ign.com" title="Cheat Codes" onclick="return trackclick(this.id);"><span id="victor_an124" class="victor_other">Cheats &amp; Codes</span></a></div>
+<div class="navLink"><a href="http://cheats.ign.com/index/pc-cheats.html" id="LeftNav_Cheats-cheats.ign.com_pc" title="PC Game Cheats" onclick="return trackclick(this.id);"><span id="victor_an125" class="victor_other">· PC Cheats</span></a></div>
+<div class="navLink"><a href="http://cheats.ign.com/index/playstation-2-cheats.html" id="LeftNav_Cheats-cheats.ign.com_ps2" title="PS2 Cheats" onclick="return trackclick(this.id);"><span id="victor_an126" class="victor_other">· PS2 Cheats</span></a></div>
+<div class="navLink"><a href="http://cheats.ign.com/index/playstation-3-cheats.html" id="LeftNav_Cheats-cheats.ign.com_ps3" title="PS3 Cheats" onclick="return trackclick(this.id);"><span id="victor_an127" class="victor_other">· PS3 Cheats</span></a></div>
+<div class="navLink"><a href="http://cheats.ign.com/index/xbox-360-cheats.html" id="LeftNav_Cheats-cheats.ign.com_xbox360" title="Xbox 360 Cheats" onclick="return trackclick(this.id);"><span id="victor_an128" class="victor_other">· Xbox 360 Cheats</span></a></div>
+<div class="navLink"><a href="http://cheats.ign.com/index/wii-cheats.html" id="LeftNav_Cheats-cheats.ign.com_wii" title="Wii Cheats" onclick="return trackclick(this.id);"><span id="victor_an129" class="victor_other">· Wii Cheats</span></a></div>
+<div class="navLink"><a href="http://cheats.ign.com/index/nintendo-ds-cheats.html" id="LeftNav_Cheats-cheats.ign.com_ds" title="Nintendo DS Cheats" onclick="return trackclick(this.id);"><span id="victor_an130" class="victor_other">· DS Cheats</span></a></div>
+<div class="navLink"><a href="http://cheats.ign.com/topcheats/index.html" id="LeftNav_Cheats-cheats.ign.com_topcheats" title="Top Cheats" onclick="return trackclick(this.id);"><span id="victor_an131" class="victor_other">· Top Cheats</span></a></div>
+<div class="navLink"><a href="http://faqs.ign.com" id="LeftNav_Cheats-faqs.ign.com" title="Faqs &amp; Walkthroughs" onclick="return trackclick(this.id);"><span id="victor_an132" class="victor_other">· FAQs</span></a></div>
+<div class="navLink"><a href="http://guides.ign.com" id="LeftNav_Cheats-guides.ign.com" title="Guides" onclick="return trackclick(this.id);"><span id="victor_an133" class="victor_other">· Game Guides</span></a></div>
+<div class="navArrowedLink"><a href="http://club.ign.com/" id="LeftNav_Club-club.ign.com" title="Club IGN" onclick="return trackclick(this.id);"><span id="victor_an134" class="victor_other">Club.IGN</span></a></div>
+<div class="navLink"><a href="http://boards.ign.com/" id="LeftNav_Club-boards.ign.com" title="Message Boards" onclick="return trackclick(this.id);"><span id="victor_an135" class="victor_other">· Message Boards</span></a></div>
+<div class="navLink"><a href="http://blogs.ign.com/" id="LeftNav_Club-blogs.ign.com" title="Blogs" onclick="return trackclick(this.id);"><span id="victor_an136" class="victor_other">· Blogs</span></a></div>
+<div class="navLink"><a href="http://club.ign.com/b/list/custom?lid=100105" id="LeftNav_Club-club.ign.com_lists" title="" onclick="return trackclick(this.id);"><span id="victor_an137" class="victor_other">· Lists</span></a></div>
+
+<div class="navLink"><a href="https://login.ign.com/index.aspx" id="LeftNav_Club-login.ign.com_account" title="" onclick="return trackclick(this.id);"><span id="victor_an138" class="victor_other">· My Account</span></a></div>
+<div class="navCategory"><span id="victor_an139" class="victor_other">GET GAMES</span></div>
+<div class="navArrowedLink"><a href="http://www.direct2drive.com/?camp=ignlwr" id="LeftNav_Direct2Drive-www.direct2drive.com" title="Direct2Drive" onclick="return trackclick(this.id);"><span id="victor_an140" class="victor_other">Direct2Drive</span></a></div>
+<div class="navArrowedLink"><a href="http://ign.pricegrabber.com/home_games.php" id="LeftNav_ComparePrices-ign.pricegrabber.com" rel="nofollow" onclick="return trackclick(this.id);"><span id="victor_an141" class="victor_other">Compare Prices</span></a></div>
+<div class="navLink"><a href="http://ign.pricegrabber.com/search_attrib.php/page_id=177" id="LeftNav_ComparePrices-ign.pricegrabber.com_pc" title="PC Games" rel="nofollow" onclick="return trackclick(this.id);"><span id="victor_an142" class="victor_other">· PC Games</span></a></div>
+<div class="navLink"><a href="http://ign.pricegrabber.com/search_attrib.php/page_id=3293" id="LeftNav_ComparePrices-ign.pricegrabber.com_ps3" title="PS3 Games" rel="nofollow" onclick="return trackclick(this.id);"><span id="victor_an143" class="victor_other">· PS3 Games</span></a></div>
+<div class="navLink"><a href="http://ign.pricegrabber.com/search_attrib.php/page_id=2025" id="LeftNav_ComparePrices-ign.pricegrabber.com_xbox360" title="Xbox 360 Games" rel="nofollow" onclick="return trackclick(this.id);"><span id="victor_an144" class="victor_other">· Xbox 360 Games</span></a></div>
+<div class="navLink"><a href="http://ign.pricegrabber.com/search_attrib.php/page_id=3294" id="LeftNav_ComparePrices-ign.pricegrabber.com_wii" title="Wii Games" rel="nofollow" onclick="return trackclick(this.id);"><span id="victor_an145" class="victor_other">· Wii Games</span></a></div>
+<div class="navLink"><a href="http://ign.pricegrabber.com/search_attrib.php/page_id=1886" id="LeftNav_ComparePrices-ign.pricegrabber.com_ds" title="Nintendo DS Games" rel="nofollow" onclick="return trackclick(this.id);"><span id="victor_an146" class="victor_other">· DS Games</span></a></div>
+<div id="NavAd">
+
+
+
+<div id="Layer1"><img src="http://ads.ign.com/advertisers/ign/1x1transparent.gif" /></div>
+<img width="1" src="http://de.ign.com/event.ng/Type=count&amp;ClientType=2&amp;AdID=33599&amp;FlightID=29676&amp;TargetID=6682&amp;EntityDefResetFlag=0&amp;Segments=3943,4981,5497,5527,5638,5650,5695,5718,5727,5736,5741,5792,7615&amp;Targets=6682&amp;Values=34,46,51,82,91,100,110,150,204,225,227,235,236,272,451,1503,1594,2275,2683,2684,2721,3489,4295,4525,4662,4799,5628,5999&amp;RawValues=&amp;random=bcRfpwh,bczdnuhomslau" height="1" border="0" style="position: absolute; visibility: hidden;" /></div>
+</div>
+</div>
+
+
+<div id="colCenter">
+<div id="colCenterTop"></div>
+<div id="breadcrumb"><a href="http://www.ign.com"><span id="victor_an147" class="victor_other">IGN</span></a><span id="victor_an148" class="victor_other"> » </span><a href="http://entertainment.ign.com"><span id="victor_an149" class="victor_other">Entertainment</span></a><span id="victor_an150" class="victor_other"> » </span><a href="http://dvd.ign.com/"><span id="victor_an151" class="victor_other">DVD</span></a><span id="victor_an152" class="victor_other"> » </span><a href="http://dvd.ign.com/index/reviews.html"><span id="victor_an153" class="victor_other">Reviews</span></a></div>
+<div id="TitleAd" align="center">
+
+
+
+<div id="Layer1"><img src="http://ads.ign.com/advertisers/ign/1x1transparent.gif" /></div>
+<img width="1" src="http://de.ign.com/event.ng/Type=count&amp;ClientType=2&amp;AdID=33600&amp;FlightID=29677&amp;TargetID=6726&amp;EntityDefResetFlag=0&amp;Segments=3101,3943,4920,5497,5527,5638,5650,5695,5718,5727,5736,5741,5792,7615&amp;Targets=6726&amp;Values=34,46,51,82,91,100,110,150,204,225,227,235,236,289,451,1503,1594,2275,2683,2684,2721,3489,4295,4525,4662,4799,5628,5999&amp;RawValues=&amp;random=cuyIper,bczdnuhomslax" height="1" border="0" style="position: absolute; visibility: hidden;" /></div>
+<div id="articleHeaderTopic"></div>
+<div id="objectTabs">
+<div id="objectTabsProfile" class="center">
+<div id="objectProfileTxt"><a href="http://dvd.ign.com/objects/608/608816.html"><span id="victor_an154" class="victor_other">Babylon 5: The Complete Fourth Season</span></a></div>
+</div>
+<div class="objectTabsNav center">
+<div class="objectTabsNavBG">
+<div>
+<table class="objectTabsNavTable" cellspacing="0" cellpadding="0">
+<tr>
+<td class="objectNavTxt"><a href="http://blogs.ign.com/Indices/Blogs/Channels/ign/index/608816/"><span id="victor_an155" class="victor_other">Blogs</span></a></td>
+<td class="objectNavTxt"><a href="http://boards.ign.com/DVD/c5012/"><span id="victor_an156" class="victor_other">Boards</span></a></td>
+<td class="objectNavTxt"><span class="inact"><span id="victor_an157" class="victor_other">News</span></span></td>
+<td class="objectNavTxt"><a href="http://dvd.ign.com/objects/608/608816.html#reviews"><span id="victor_an158" class="victor_other">Reviews</span></a></td>
+<td class="objectNavTxt"><a href="http://dvd.ign.com/objects/608/608816.html#previews"><span id="victor_an159" class="victor_other">Previews</span></a></td>
+<td class="objectNavTxt"><span class="inact"><span id="victor_an160" class="victor_other">Features</span></span></td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div id="objectTabsBot" class="center"></div>
+</div>
+<div class="colCenterContent">
+<div id="articleHeader">
+<div class="headline"><span id="victor_an161" class="victor_header">Babylon 5: The Complete Fourth Season</span></div>
+<div class="subheadline"><span id="victor_an162" class="victor_paragraph">It was the year of fire... the year of destruction ... It was the year everything changed.</span></div>
+<div class="byline"><span id="victor_an163" class="victor_header">by </span><a href="mailto:sgnondvd@netscape.net"><span id="victor_an164" class="victor_continuation">Sergio Non</span></a></div>
+</div>
+<div class="articleBody">
+<div id="MediumRectangleAd">
+
+
+
+<a target="_blank" href="http://de.ign.com/event.ng/Type=click&amp;FlightID=44015&amp;AdID=48489&amp;TargetID=9385&amp;Targets=6743,7697,8538,9010,9385&amp;Values=34,46,51,82,91,100,110,150,204,225,227,235,236,268,451,1503,1594,2275,2683,2684,2721,3489,4295,4525,4662,4799,5628,5999&amp;RawValues=&amp;Redirect=http://www.askmen.com/women/galleries/actress/pamela-anderson/picture-1.html"><img src="http://ads.ign.com/advertisers/defaults/askmen/300x250_askmen_gallery_pg.gif" border="0" alt="" /></a><img width="1" src="http://de.ign.com/event.ng/Type=count&amp;ClientType=2&amp;AdID=48489&amp;FlightID=44015&amp;TargetID=9385&amp;EntityDefResetFlag=0&amp;Segments=1,9,166,347,348,1931,2092,2863,3494,3943,3975,3982,4170,4834,4951,5015,5036,5497,5527,5638,5650,5695,5718,5727,5736,5741,5792,6501,6650,6671,6701,7615,7676&amp;Targets=6743,7697,8538,9010,9385&amp;Values=34,46,51,82,91,100,110,150,204,225,227,235,236,268,451,1503,1594,2275,2683,2684,2721,3489,4295,4525,4662,4799,5628,5999&amp;RawValues=&amp;random=cIfjstv,bczdnuhomskWt" height="1" border="0" style="position: absolute; visibility: hidden;" /></div>
+<p> <strong><span id="victor_an165" class="victor_header">February 11, 2004</span></strong><span id="victor_an166" class="victor_paragraph"> - Talk all you want about special effects, spaceships and alien costumes, but above all, the enduring mark of great sci-fi is ideas. It's especially true for sci-fi TV shows, which love to bludgeon viewers with Major Themes: Being Human (Spock, Data, The Doctor, various clones); Cultural Diversity (aliens, we love you); What Is Real? (time travel; holodecks; shape shifters); Privacy and Individual Rights (telepaths); Religion (The Force); and of course, The Meaning of Life (Yoda).</span><br />
+<br /><span id="victor_an167" class="victor_paragraph">
+But Babylon 5 wielded the biggest, bluntest instrument of all, and it smashed through season four to create an outsized beast of grandiosity. Everything about this set screams of self-conscious ambition.</span><br />
+<br />
+<b><span id="victor_an168" class="victor_header">The Show</span></b><br />
+<br /><span id="victor_an169" class="victor_paragraph">
+Ultimately, Babylon 5 was all about the ideas of its creator and executive producer J. Michael Straczynski, who wrote the screenplays for the majority of the shows, including every episode of the last two seasons. His ambition dominated Babylon 5 throughout its run: "I'm pretty rigorous in my scripts most of the time. I don't tend to allow for a lot of improvisation or a lot of changing around."</span><br />
+<br /><span id="victor_an170" class="victor_paragraph">
+The content certainly drips with self-importance -- operatic music; exaggerated, acting; didactic dialogues about Really Important Topics; sweeping shots of battle -- and in its desperate attempt to be taken seriously, Babylon 5 ends up stagey and affected.</span><br />
+<br /><span id="victor_an171" class="victor_paragraph">
+Why show consequences when his characters can tell us (and tell us and tell us and tell us) about them? Who needs naturalistic dialogue when there's preaching to be done? What's the use of small gestures when gesticulation can chew up the camera? Why cap the big showdown between Shadows and Vorlons with an exciting fight when you can end with a long-winded Sheridan speech?</span><br />
+<br /><span id="victor_an172" class="victor_paragraph">
+Viewers might have thought the Shadow conflict - which powered the show for much of Babylon 5's first three years -- would take an entire season to complete, but it was resolved by the sixth show, </span><i><span id="victor_an173" class="victor_continuation">Into the Fire</span></i><span id="victor_an174" class="victor_continuation">, making the next 16 episodes feel a bit like one long denouement.</span><br />
+<br />
+</p>
+<table border="0" cellpadding="0" cellspacing="0" width="444" align="center">
+<tr>
+<td class="imgpos0" width="5"><img src="http://media.ign.com/ign/image/pixy.gif" height="5" width="5" /></td>
+<td class="imgpos0" align="center" width="444"><img src="http://dvdmedia.ign.com/dvd/image/b5_menu.jpg" width="444" height="250" border="0" /><br />
+<table border="0" cellpadding="0" cellspacing="0" width="444">
+<tr>
+<td class="imgpos0" align="right">
+<div class="imgpos0" caption=""><font size="-2"><span id="victor_an175" class="victor_other">Warner Home Video</span></font></div>
+</td>
+</tr>
+<tr>
+<td class="imgpos0" align="center">
+<div class="imgpos0" caption=""><font size="-1"><b><span id="victor_an176" class="victor_other">A Babylon 5 Season 4 DVD Menu.</span></b></font></div>
+</td>
+</tr>
+</table>
+</td>
+<td class="imgpos0" width="5"><img src="http://media.ign.com/ign/image/pixy.gif" height="5" width="5" /></td>
+</tr>
+</table>
+<br /><span id="victor_an177" class="victor_paragraph">
+By the time Babylon 5 finally delivers a massive space battle in episode 20, </span><i><span id="victor_an178" class="victor_continuation">Endgame</span></i><span id="victor_an179" class="victor_continuation">, it's hard to care. It didn't help that Straczynski mixed senseless space battle cliches like all-weapons-and-shields-are-down-so-let's-ram-them with one clever idea involving telepaths and ships.</span><br />
+<br /><span id="victor_an180" class="victor_paragraph">
+Yet the maddening and unintentionally comic elements of Babylon 5 often worked.</span><br />
+<br /><span id="victor_an181" class="victor_paragraph">
+Sometimes the outsized, over-the-top acting and dialogue approaches brilliance. The devious, sneering Ambassador Londo Mollari might be one of the greatest TV sci-fi characters of all time, and his actor, Peter Jurasik, gets to bluster and show off his outlandish accent to full effect in season four. Mira Furlan's breathless portrayal of Ambassador Delenn and Jerry Doyle's smartass, grumpy cop take on Chief Garibaldi are weirdly compelling.</span><br />
+<br /><span id="victor_an182" class="victor_paragraph">
+And for all his wordiness, Straczynski can write remarkable scenes. Season 4's last episode, </span><i><span id="victor_an183" class="victor_continuation">The Deconstruction of Falling Stars</span></i><span id="victor_an184" class="victor_continuation">, offered a microcosm of the show's best and worst traits. Set up as a far-future historian's look back at the effect of Babylon 5 on Earth history, the script insists on extolling the greatness of Sheridan and his cohorts - you can't get more heavy-handed than Delenn glaring at a trio of academic strawmen and wheezing that Sheridan "was a good man."</span><br />
+<br />
+
+<table border="0" cellpadding="0" cellspacing="0" width="444" align="center">
+<tr>
+<td class="imgpos1" width="5"><img src="http://media.ign.com/ign/image/pixy.gif" height="5" width="5" /></td>
+<td class="imgpos1" align="center" width="444"><img src="http://dvdmedia.ign.com/dvd/image/b5_gkarasjester.jpg" width="444" height="250" border="0" /><br />
+<table border="0" cellpadding="0" cellspacing="0" width="444">
+<tr>
+<td class="imgpos1" align="right">
+<div class="imgpos1" caption=""><font size="-2"><span id="victor_an185" class="victor_other">Warner Home Video</span></font></div>
+</td>
+</tr>
+<tr>
+<td class="imgpos1" align="center">
+<div class="imgpos1" caption=""><font size="-1"><b><span id="victor_an186" class="victor_other">If Worf can be a merry man, I can be a court jester.</span></b></font></div>
+</td>
+</tr>
+</table>
+</td>
+<td class="imgpos1" width="5"><img src="http://media.ign.com/ign/image/pixy.gif" height="5" width="5" /></td>
+</tr>
+</table>
+<br /><span id="victor_an187" class="victor_paragraph">
+On the other hand, </span><i><span id="victor_an188" class="victor_continuation">Deconstruction</span></i><span id="victor_an189" class="victor_continuation"> includes a wonderful vignette that -- in a nod to the classic novel </span><i><span id="victor_an190" class="victor_continuation">Canticle for Leibowitz</span></i><span id="victor_an191" class="victor_continuation"> -- features an older monk defending the Babylon 5 "myth" against the questions of his younger colleague; it's a touching, eloquent defense of religious belief, and especially surprising coming from a skeptic like Straczynski.</span><br />
+<br /><span id="victor_an192" class="victor_paragraph">
+Lots to dislike, but even more to love. The ideas and their build-up make Babylon 5 worth watching, especially in its climactic season. If only the payoff were better.</span><br />
+<br />
+<b><span id="victor_an193" class="victor_header">Score: 9 out of 10</span><br />
+<br />
+</b>
+<table border="0" cellpadding="0" cellspacing="0" width="444" align="center">
+<tr>
+<td class="imgpos2" width="5"><img src="http://media.ign.com/ign/image/pixy.gif" height="5" width="5" /></td>
+<td class="imgpos2" align="center" width="444"><img src="http://dvdmedia.ign.com/dvd/image/b5_gkarbeingtortured.jpg" width="444" height="250" border="0" /><br />
+<table border="0" cellpadding="0" cellspacing="0" width="444">
+<tr>
+<td class="imgpos2" align="right">
+<div class="imgpos2" caption=""><font size="-2"><span id="victor_an194" class="victor_other">Warner Home Video</span></font></div>
+</td>
+</tr>
+<tr>
+<td class="imgpos2" align="center">
+<div class="imgpos2" caption=""><font size="-1"><b><span id="victor_an195" class="victor_other">The typical reaction to watching </span><i><span id="victor_an196" class="victor_other">Star Trek: Enterprise</span></i></b></font></div>
+</td>
+</tr>
+</table>
+</td>
+<td class="imgpos2" width="5"><img src="http://media.ign.com/ign/image/pixy.gif" height="5" width="5" /></td>
+</tr>
+</table>
+<br /><span id="victor_an197" class="victor_header">
+The Video</span><br />
+<br /><span id="victor_an198" class="victor_paragraph">
+Sadly, the video quality can make the watching a little hard on the eyes. Considering this is a science-fiction show with some fairly sophisticated 3D graphics, it wouldn't have been asking too much to clean up the video for DVD distribution.</span><br />
+<br /><span id="victor_an199" class="victor_paragraph">
+Instead, the ongoing insistence on painting Babylon 5 as an Epic For Our Time may have actually made picture quality worse on DVDs. The live action sequences were shot in 16:9 format with high-definition television screens in mind, but to save money, the special effects were created for 4:3 viewing. Thus, all CGI effects are, in effect, blown-up on the DVDs, which present the show 16:9, in keeping with Straczynski's original vision.</span><br />
+<br /><span id="victor_an200" class="victor_paragraph">
+The end result? For any scene with special effects, including composite shots that mix live-action and CGI, the same problems noted in IGN's previous review exist here: graininess, jagged edges and digital errors, even on non-HD television sets. If you don't have a high-definition television, try watching this on a PC's DVD player -- you may find yourself wondering if you're watching a DivX downloaded from the Internet or an actual DVD.</span><br />
+<br /><span id="victor_an201" class="victor_paragraph">
+The quality on the trailers is even worse.</span><br />
+<br />
+<b><span id="victor_an202" class="victor_header">Score: 4 out of 10</span><br />
+<br />
+</b>
+<table border="0" cellpadding="0" cellspacing="0" width="444" align="center">
+<tr>
+<td class="imgpos3" width="5"><img src="http://media.ign.com/ign/image/pixy.gif" height="5" width="5" /></td>
+<td class="imgpos3" align="center" width="444"><img src="http://dvdmedia.ign.com/dvd/image/b5_londodisc1.jpg" width="444" height="250" border="0" /><br />
+<table border="0" cellpadding="0" cellspacing="0" width="444">
+<tr>
+<td class="imgpos3" align="right">
+<div class="imgpos3" caption=""><font size="-2"><span id="victor_an203" class="victor_other">Warner Home Video</span></font></div>
+</td>
+</tr>
+<tr>
+<td class="imgpos3" align="center">
+<div class="imgpos3" caption=""><font size="-1"><b><span id="victor_an204" class="victor_other">Excuse me, what were you saying about my hair?</span></b></font></div>
+</td>
+</tr>
+</table>
+</td>
+<td class="imgpos3" width="5"><img src="http://media.ign.com/ign/image/pixy.gif" height="5" width="5" /></td>
+</tr>
+</table>
+<br /><span id="victor_an205" class="victor_header">
+Audio and Languages</span><br />
+<br /><span id="victor_an206" class="victor_paragraph">
+Babylon 5 does a workmanlike job with its 5.1 sound. Muscular surround sound systems can show off with the bombastic "No Surrender, No Retreat" musical suite -- you'll definitely know if your subwoofer works, and your rear speakers , while not used as extensively as in a high-quality theatrical release, get more of a workout than from most TV shows.</span><br />
+<br /><span id="victor_an207" class="victor_paragraph">
+As far as the show itself, careful listeners will pick up a few incidental noises, as well as echo effects of computer voices -- check out the final sequence in </span><i><span id="victor_an208" class="victor_continuation">Deconstruction</span></i><span id="victor_an209" class="victor_continuation"> for a good sample. However, as is often the case with TV shows, Babylon 5's battle sounds -- which rear speakers should be carrying more than any other track -- are generally front-loaded.</span><br />
+<br /><span id="victor_an210" class="victor_paragraph">
+The set has subtitles in English, French and Spanish. Happily, the subtitles remain during the audio commentaries.</span><br />
+<br />
+<b><span id="victor_an211" class="victor_header">Score: 7 out of 10</span><br />
+<br />
+</b>
+<table border="0" cellpadding="0" cellspacing="0" width="444" align="center">
+<tr>
+<td class="imgpos4" width="5"><img src="http://media.ign.com/ign/image/pixy.gif" height="5" width="5" /></td>
+<td class="imgpos4" align="center" width="444"><img src="http://dvdmedia.ign.com/dvd/image/b5_michael.jpg" width="444" height="250" border="0" /><br />
+<table border="0" cellpadding="0" cellspacing="0" width="444">
+<tr>
+<td class="imgpos4" align="right">
+<div class="imgpos4" caption=""><font size="-2"><span id="victor_an212" class="victor_other">Warner Home Video</span></font></div>
+</td>
+</tr>
+<tr>
+<td class="imgpos4" align="center">
+<div class="imgpos4" caption=""><font size="-1"><b><span id="victor_an213" class="victor_other">Shame that 200 years from now, we still won't have a cure for baldness.</span></b></font></div>
+</td>
+</tr>
+</table>
+</td>
+<td class="imgpos4" width="5"><img src="http://media.ign.com/ign/image/pixy.gif" height="5" width="5" /></td>
+</tr>
+</table>
+<br /><span id="victor_an214" class="victor_header">
+Packaging and Extras</span><br />
+<br /><span id="victor_an215" class="victor_paragraph">
+The 6-disc set comes in a thin Amaray holders. It includes a pamphlet with brief synopses of each episode.</span><br />
+<br /><span id="victor_an216" class="victor_paragraph">
+Audio commentaries include one for episode 4, </span><i><span id="victor_an217" class="victor_continuation">Falling Toward Apotheosis</span></i><span id="victor_an218" class="victor_continuation">, with actors Jurasik, Doyle, Bruce Boxleitner (who played Sheridan) and Patricia Tallman (telepath Lyta Alexander). Apparently it was recorded via remote, since some of the actors indicate they're in different locations. It's also entirely useless for anyone seeking insight into the show - the group spends most of its time cracking jokes about the shape of Doyle's head, followed by Boxleitner's ability (or lack thereof) to remember lines, and the Londo hairpiece that Jurasik wore.</span><br />
+<br />
+
+<table border="0" cellpadding="0" cellspacing="0" width="444" align="center">
+<tr>
+<td class="imgpos5" width="5"><img src="http://media.ign.com/ign/image/pixy.gif" height="5" width="5" /></td>
+<td class="imgpos5" align="center" width="444"><img src="http://dvdmedia.ign.com/dvd/image/b5_susanandzathros.jpg" width="444" height="250" border="0" /><br />
+<table border="0" cellpadding="0" cellspacing="0" width="444">
+<tr>
+<td class="imgpos5" align="right">
+<div class="imgpos5" caption=""><font size="-2"><span id="victor_an219" class="victor_other">Warner Home Video</span></font></div>
+</td>
+</tr>
+<tr>
+<td class="imgpos5" align="center">
+<div class="imgpos5" caption=""><font size="-1"><b><span id="victor_an220" class="victor_other">Hey baby, come here often?</span></b></font></div>
+</td>
+</tr>
+</table>
+</td>
+<td class="imgpos5" width="5"><img src="http://media.ign.com/ign/image/pixy.gif" height="5" width="5" /></td>
+</tr>
+</table>
+<br /><span id="victor_an221" class="victor_paragraph">
+Perhaps the actors kept it breezy, knowing that Straczynski would more than make up for it with his excessively thoughtful audio supplement to two episodes, </span><i><span id="victor_an222" class="victor_continuation">The Face of the Enemy</span></i><span id="victor_an223" class="victor_continuation"> and the aforementioned </span><i><span id="victor_an224" class="victor_continuation">Deconstruction</span></i><span id="victor_an225" class="victor_continuation">. The former also includes comments from director Michael Vejar. Straczynski also sits down for a separate interview that serves as an introduction to and overview of the entire show.</span><br />
+<br /><span id="victor_an226" class="victor_paragraph">
+Disc Six includes a short documentary about the show's composer, Christopher Franke, a performance of the "No Surrender, No Retreat" orchestral suite, a gag reel and a Universe of Babylon 5 feature with tidbits about various Babylon 5 elements.</span><br />
+<br /><span id="victor_an227" class="victor_paragraph">
+Preview trailers are included for each episode. Warner Brothers should have left them out -- what's the point of trailers for episodes that can already be watched at will? - and used the extra space for higher video quality.</span><br />
+<br />
+<b><span id="victor_an228" class="victor_header">Score: 7 of 10</span></b><br />
+<br />
+
+<table border="0" cellpadding="0" cellspacing="0" width="444" align="center">
+<tr>
+<td class="imgpos6" width="5"><img src="http://media.ign.com/ign/image/pixy.gif" height="5" width="5" /></td>
+<td class="imgpos6" align="center" width="444"><img src="http://dvdmedia.ign.com/dvd/image/b5_telepath2.jpg" width="444" height="250" border="0" /><br />
+<table border="0" cellpadding="0" cellspacing="0" width="444">
+<tr>
+<td class="imgpos6" align="right">
+<div class="imgpos6" caption=""><font size="-2"><span id="victor_an229" class="victor_other">Warner Home Video</span></font></div>
+</td>
+</tr>
+<tr>
+<td class="imgpos6" align="center">
+<div class="imgpos6" caption=""><font size="-1"><b><span id="victor_an230" class="victor_other">This is what happens when some people try to hook up their own satellite dish.</span></b></font></div>
+</td>
+</tr>
+</table>
+</td>
+<td class="imgpos6" width="5"><img src="http://media.ign.com/ign/image/pixy.gif" height="5" width="5" /></td>
+</tr>
+</table>
+
+<p><span id="victor_an231" class="victor_other">&nbsp;</span></p>
+
+<div class="clear"></div>
+<div class="colCenterBoxTop"><span id="victor_an232" class="victor_other">IGN's Ratings for Babylon 5: The Complete Fourth Season</span></div>
+<div id="ratingsBox" class="colCenterBoxBody">
+<table id="ratingsBoxTable" cellspacing="0" cellpadding="0">
+<col id="ratingsBoxColA" />
+<col id="ratingsBoxColB" />
+<col id="ratingsBoxColC" />
+<tr>
+<td class="ratingsBoxHeader txtC"><b><span id="victor_an233" class="victor_other">Rating</span></b></td>
+<td class="ratingsBoxHeader"><b><span id="victor_an234" class="victor_other">Description</span></b></td>
+<td class="ratingsBoxHeader txtR"><span id="victor_an235" class="victor_other">&nbsp;</span></td>
+</tr>
+<tr>
+<td class="ratingsBoxSubHeader txtC"><span id="victor_an236" class="victor_other">out of 10</span></td>
+<td class="ratingsBoxSubHeader" id="ratingsBoxInfo" colspan="2"><a href="http://dvd.ign.com/ratings.html"></a><span id="victor_an237" class="victor_other">click here for ratings guide</span><img src="http://media.ign.com/ign/images/icon_i.gif" width="15" height="15" alt="Get Ratings Information" border="0"><span id="victor_an238" class="victor_other">Get Ratings Information</span></img></td>
+</tr>
+<tr>
+<td class="ratingsBoxScore"><span id="victor_an239" class="victor_other">9</span></td>
+<td class="ratingsBoxText" colspan="2"><strong><span id="victor_an240" class="victor_other">The Movie</span></strong><br /><span id="victor_an241" class="victor_other">
+We love it, we love it not. We love it, we love it not. We love it...</span></td>
+</tr>
+<tr>
+<td class="ratingsBoxScore"><span id="victor_an242" class="victor_other">4</span></td>
+<td class="ratingsBoxText" colspan="2"><strong><span id="victor_an243" class="victor_other">The Video</span></strong><br /><span id="victor_an244" class="victor_other">
+Very poor, especially for a science fiction show.</span></td>
+</tr>
+<tr>
+<td class="ratingsBoxScore"><span id="victor_an245" class="victor_other">7</span></td>
+<td class="ratingsBoxText" colspan="2"><strong><span id="victor_an246" class="victor_other">The Audio</span></strong><br /><span id="victor_an247" class="victor_other">
+Fairly front-loaded for a 5.1 mix.</span></td>
+</tr>
+<tr>
+<td class="ratingsBoxScore"><span id="victor_an248" class="victor_other">7</span></td>
+<td class="ratingsBoxText" colspan="2"><strong><span id="victor_an249" class="victor_other">The Extras</span></strong><br /><span id="victor_an250" class="victor_other">
+Similar to previous efforts.</span></td>
+</tr>
+<tr>
+<td class="ratingsBoxScoreOv"><span id="victor_an251" class="victor_other">7</span></td>
+<td class="ratingsBoxTextOv"><strong><span id="victor_an252" class="victor_other">OVERALL</span></strong><br /><span id="victor_an253" class="victor_other">
+(out of 10 / not an average)</span></td>
+<td class="ratingsBoxEc"><span id="victor_an254" class="victor_other">&nbsp;</span></td>
+</tr>
+</table>
+</div>
+
+<div class="clear"></div>
+</div>
+
+<div id="mediaTabs">
+<div class="clear"></div>
+<div class="objectTabsNav center">
+<div class="objectTabsNavBG">
+<div>
+<table class="objectTabsNavTable" cellspacing="0" cellpadding="0">
+<tr>
+<td class="objectNavTxt"><a href="http://blogs.ign.com/Indices/Blogs/Channels/ign/index/608816/"><span id="victor_an255" class="victor_other">Blogs</span></a></td>
+<td class="objectNavTxt"><a href="http://boards.ign.com/DVD/c5012/"><span id="victor_an256" class="victor_other">Boards</span></a></td>
+<td class="objectNavTxt"><span class="inact"><span id="victor_an257" class="victor_other">News</span></span></td>
+<td class="objectNavTxt"><a href="http://dvd.ign.com/objects/608/608816.html#reviews"><span id="victor_an258" class="victor_other">Reviews</span></a></td>
+<td class="objectNavTxt"><a href="http://dvd.ign.com/objects/608/608816.html#previews"><span id="victor_an259" class="victor_other">Previews</span></a></td>
+<td class="objectNavTxt"><span class="inact"><span id="victor_an260" class="victor_other">Features</span></span></td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</div>
+
+<div id="articleRelated">
+<div class="articleRelatedHeader"><span id="victor_an261" class="victor_other">Related Links</span></div>
+<p><a href="http://dvd.ign.com/articles/448/448380p1.html"><span id="victor_an262" class="victor_other">Babylon 5 S5 Due In April</span></a><br /><span id="victor_an263" class="victor_other">
+Final season looks to be as loaded as previous sets.</span></p>
+<p><a href="http://tv.ign.com/articles/436/436980p1.html"><i><span id="victor_an264" class="victor_other">Babylon 5</span></i><span id="victor_an265" class="victor_other"> Revival Follow-Up</span></a><br /><span id="victor_an266" class="victor_other">
+Jerry Doyle speaks out regarding plans for a </span><i><span id="victor_an267" class="victor_other">B5</span></i><span id="victor_an268" class="victor_other"> revival. And JMS responds!</span></p>
+<p><a href="http://movies.ign.com/articles/385/385419p1.html"><span id="victor_an269" class="victor_other">Straczynski on </span><i><span id="victor_an270" class="victor_other">Spidey 2</span></i><span id="victor_an271" class="victor_other">?</span></a><br /><span id="victor_an272" class="victor_other">
+IGN FilmForce has the truth about the latest rumor.</span></p>
+<p><a href="http://dvd.ign.com/articles/316/316977p1.html"><span id="victor_an273" class="victor_other">Babylon 5 on DVD: The Interview</span></a><br /><span id="victor_an274" class="victor_other">
+J. Michael Straczynski talks to IGN about DVDs, Legend of the Rangers, comics, and more.</span></p>
+<p><a href="http://movies.ign.com/articles/315/315948p1.html"><span id="victor_an275" class="victor_other">10 Questions: J. Michael Straczynski</span></a><br /><span id="victor_an276" class="victor_other">
+The creator of </span><b><span id="victor_an277" class="victor_other">Babylon 5</span></b><span id="victor_an278" class="victor_other"> and </span><i><span id="victor_an279" class="victor_other">Rising Stars</span></i><span id="victor_an280" class="victor_other"> gives his 10 answers.</span></p>
+<p><a href="http://movies.ign.com/articles/035/035907p1.html"><span id="victor_an281" class="victor_other">Interview with J. Michael Straczynski (Conclusion)</span></a><br /><span id="victor_an282" class="victor_other">
+"As things unravel, it's a larger conspiracy, so basically � after the second year – the show you think </span><b><span id="victor_an283" class="victor_other">Crusade</span></b><span id="victor_an284" class="victor_other"> is would be a whole different show, with much more depth to it..."</span></p>
+<p><a href="http://movies.ign.com/articles/035/035906p1.html"><span id="victor_an285" class="victor_other">Interview with J. Michael Straczynski (Part 3 of 4)</span></a><br /><span id="victor_an286" class="victor_other">
+"I would go back in time and do it again... I would not do it a second time, because it damn near killed me the first time."</span></p>
+<p><a href="http://movies.ign.com/articles/035/035905p1.html"><span id="victor_an287" class="victor_other">Interview with J. Michael Straczynski (Part 2 of 4)</span></a><br /><span id="victor_an288" class="victor_other">
+My log line on </span><b><span id="victor_an289" class="victor_other">Jake and the Fatman</span></b><span id="victor_an290" class="victor_other"> was 'He can�t walk. He can't act. Together they fight crime.'"</span></p>
+<p><a href="http://movies.ign.com/articles/035/035904p1.html"><span id="victor_an291" class="victor_other">Interview with J. Michael Straczynski (Part 1 of 4)</span></a><br /><span id="victor_an292" class="victor_other">
+"I�ve sold about maybe 85-90% of everything I�ve ever written. I have no explanation."</span></p>
+</div>
+<div id="ConnBoxAd" align="center" valign="bottom">
+
+
+
+<a target="_blank" href="http://de.ign.com/event.ng/Type=click&amp;FlightID=43474&amp;AdID=48333&amp;TargetID=9317&amp;Targets=6725,6327,6714,9317&amp;Values=34,46,51,82,91,100,110,150,204,225,227,235,236,265,451,1503,1594,2275,2683,2684,2721,3489,4295,4525,4662,4799,5628,5999&amp;RawValues=&amp;Redirect=http://awards.rottentomatoes.com"><img src="http://ads.ign.com/advertisers/defaults/rt/awardtour_440x160.jpg" border="0" alt="" /></a><img width="1" src="http://de.ign.com/event.ng/Type=count&amp;ClientType=2&amp;AdID=48333&amp;FlightID=43474&amp;TargetID=9317&amp;EntityDefResetFlag=0&amp;Segments=2007,3943,4932,5497,5527,5558,5638,5650,5695,5718,5727,5736,5741,5767,5792,7615&amp;Targets=6725,6327,6714,9317&amp;Values=34,46,51,82,91,100,110,150,204,225,227,235,236,265,451,1503,1594,2275,2683,2684,2721,3489,4295,4525,4662,4799,5628,5999&amp;RawValues=&amp;random=bbpqRzz,bczdnuhomslag" height="1" border="0" style="position: absolute; visibility: hidden;" /></div>
+<div id="colCenterContact">
+<div class="center" style="width:462px">
+<div class="button17 fl" style="width:136px"><a href="http://www.google.com/coop/profile?user=002222481411752108774" id="GoogleCoopArticleBottom-www.google.com" onclick="return trackclick(this.id);"><span id="victor_an293" class="victor_other">Add IGN to Google</span></a></div>
+<div class="button17 fl" style="width:169px;border-left:0"><a href="javascript:void(stf())"><span id="victor_an294" class="victor_other">Send This Page to a Friend</span></a></div>
+<div class="button17 fl" style="width:153px;border-left:0"><a href="/email.html"><span id="victor_an295" class="victor_other">Contact the Editors</span></a></div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="colRight">
+<div id="CountDownAd" align="center">
+
+
+
+<div id="Layer1"><img src="http://ads.ign.com/advertisers/ign/1x1transparent.gif" /></div>
+<img width="1" src="http://de.ign.com/event.ng/Type=count&amp;ClientType=2&amp;AdID=33595&amp;FlightID=29672&amp;TargetID=6683&amp;EntityDefResetFlag=0&amp;Segments=306,3071,3943,4177,4905,5497,5527,5638,5650,5695,5718,5727,5736,5741,5792,6510,6575,6576,6577,6764,6910,7615&amp;Targets=6286,6683&amp;Values=34,46,51,82,91,100,110,150,204,225,227,235,236,247,451,1503,1594,2275,2683,2684,2721,3489,4295,4525,4662,4799,5628,5999&amp;RawValues=&amp;random=dalucaN,bczdnuhomskWN" height="1" border="0" style="position: absolute; visibility: hidden;" /></div>
+
+
+
+<div id="objectDetailsBox">
+<div class="colRightBoxTop"><span class="colRightBoxHead"><span id="victor_an296" class="victor_other">DVD Details for Babylon 5: The Complete Fourth S...</span></span></div>
+
+<div class="colRightBox">
+<div id="objectDetailsBoxTop">
+<div class="fr txtC" style="width:160px"><img src="http://dvdmedia.ign.com/dvd/image/object/608/608816/babylon4boxart_160w.jpg" border="0" alt="" width="160" height="223" /></div>
+
+
+<div id="userToolsHead"><map name="clubHeaderMap">
+<area shape="rect" alt="Get Club Tools Help" coords="113,1,128,27" href="http://www.ign.com/help/clubtools.html" />
+<area shape="rect" alt="CLUB IGN" coords="1,1,111,27" href="http://club.ign.com/" /></map> <img id="userToolsHeaderImage" class="imgBlock" src="http://media.ign.com/ign/images/club_header.gif" width="130" height="29" alt="" usemap="#clubHeaderMap" /></div>
+
+
+<div id="userTools" class="userToolsControls">
+<table id="userToolsLayout" cellspacing="0">
+<tr>
+<td class="userToolsLayoutTop">
+  
+
+ 
+<div class="userToolsCheckBoxes"><input id="nowplayingwatchingControl" type="checkbox" onclick="o_nowplayingwatchingControl.updateList();" /> <span id="nowplayingwatching"><img class="userToolsIcon" src="http://media.ign.com/ign/images/club_iconwatchingnow.gif" width="20" height="15" alt="" /></span><span id="victor_an297" class="victor_other">Watching Now</span><br />
+ <input id="getalertsControl" type="checkbox" onclick="o_getalertsControl.updateList();" /> <span id="getalerts"><img class="userToolsIcon" src="http://media.ign.com/ign/images/club_iconemailalert.gif" width="20" height="15" alt="" /></span><span id="victor_an298" class="victor_other">Get Alerts </span></div>
+
+
+<div class="userToolsRadioButtons"><input id="wishlistControl" type="radio" name="ownOrWish" onclick="o_wishlistControl.updateList();" /> <span id="wishlist"><img class="userToolsIcon" src="http://media.ign.com/ign/images/club_iconwishlist.gif" width="20" height="15" alt="" /></span><span id="victor_an299" class="victor_other">Wishlist</span><br />
+ <input id="collectionControl" type="radio" name="ownOrWish" onclick="o_collectionControl.updateList();" /> <span id="collection"><img class="userToolsIcon" src="http://media.ign.com/ign/images/club_iconcollection.gif" width="20" height="15" alt="" /></span><span id="victor_an300" class="victor_other">Collection</span><br />
+ <input id="neitherControl" type="radio" name="ownOrWish" onclick="o_neitherControl.updateList();" /> <span id="neither"><img class="userToolsIcon" src="http://media.ign.com/ign/images/club_iconneither.gif" width="20" height="15" alt="" /></span><span id="victor_an301" class="victor_other">Neither</span><br />
+ 
+<div class="editListDetails button17" onclick="goToLists();"><span id="victor_an302" class="victor_other">Edit List Details</span></div>
+ </div>
+</td>
+</tr>
+<tr>
+<td class="userToolsLayoutBottom">
+<div class="userToolsContextualIntegration">
+<a class="userToolsBlogThis" href="http://blogs.ign.com/post/ign/608816/"><img src="http://media.ign.com/ign/images/club_buttonblogthis.gif" alt="Blog This"><span id="victor_an303" class="victor_other">Blog This</span></img></a> </div>
+</td>
+</tr>
+</table>
+</div>
+
+
+ 
+<br />
+
+ 
+<div class="clear"></div>
+</div>
+
+
+<div id="objectDetails"><strong><span id="victor_an304" class="victor_other">MPAA Rating:</span></strong> <strong><a href="http://www.ign.com/mpaa.html#NR"><span id="victor_an305" class="victor_other">NR</span></a></strong><br />
+<strong><span id="victor_an306" class="victor_other">MSRP:</span></strong><span id="victor_an307" class="victor_other"> $99.98</span><br />
+<strong><span id="victor_an308" class="victor_other">Publisher:</span></strong><span id="victor_an309" class="victor_other"> Warner Home Video</span><br />
+<strong><span id="victor_an310" class="victor_other">Running Time:</span></strong><span id="victor_an311" class="victor_other"> 996 Minutes</span><br />
+<strong><span id="victor_an312" class="victor_other">Genre:</span></strong><span id="victor_an313" class="victor_other"> Sci-Fi</span><br />
+<strong><span id="victor_an314" class="victor_other">Release Date:</span></strong><span id="victor_an315" class="victor_other"> January 6, 2004</span><br />
+<br />
+<div id="objectDetailsExtended"></div>
+<div class="clear"></div>
+</div>
+
+<div id="objectDetailsMoreInfo">
+<div class="button17" onclick="document.location='http://dvd.ign.com/objects/608/608816.html'"><span id="victor_an316" class="victor_other">Click Here for More DVD Info</span></div>
+</div>
+</div>
+</div>
+
+<div id="articleColRightPromo2">
+<div id="tvPromoBox">
+<div class="colRightBoxTop"><span class="colRightBoxHead"><span id="victor_an317" class="victor_other">IGN TV: Tune in Today</span></span></div>
+<div class="colRightBox">
+<div id="tvPromoBoxContent">
+<div id="tvPromoBoxHeader" style="height:60px; width:260px" onmouseover="this.style.cursor='hand';" onmouseout="this.style.cursor='default';"><a id="tvPromoBoxHeader_link-tv.ign.com" onclick="return trackclick(this.id);" href="http://tv.ign.com"><img src="http://media.ign.com/ign/images/pixy.gif" height="60" width="260" border="0" /></a></div>
+<div id="tvPromoBoxText" style="margin-top:20px;">
+<table cellpadding="0" cellspacing="0" border="0">
+<tr>
+<td class="tvPromoBoxDate"><span id="victor_an318" class="victor_other">12/22</span></td>
+<td class="tvPromoBoxHeadline"><a id="tvPromoBoxHeader_link-tv.ign.com" onclick="return trackclick(this.id);" href="http://tv.ign.com/articles/751/751575p1.html"><b><i><span id="victor_an319" class="victor_other">Beauty and the Geek 3</span></i><span id="victor_an320" class="victor_other">: Meet the Girls</span></b></a></td>
+</tr>
+<tr>
+<td class="tvPromoBoxDate"><span id="victor_an321" class="victor_other">12/22</span></td>
+<td class="tvPromoBoxHeadline"><a id="tvPromoBoxHeader_link-tv.ign.com" onclick="return trackclick(this.id);" href="http://tv.ign.com/articles/752/752283p1.html"><b><span id="victor_an322" class="victor_other">Dirt: "Pilot" Advance Review</span></b></a></td>
+</tr>
+<tr>
+<td class="tvPromoBoxDate"><span id="victor_an323" class="victor_other">12/22</span></td>
+<td class="tvPromoBoxHeadline"><a id="tvPromoBoxHeader_link-tv.ign.com" onclick="return trackclick(this.id);" href="http://tv.ign.com/articles/752/752221p1.html"><b><span id="victor_an324" class="victor_other">2006 Year in Review: TV</span></b></a></td>
+</tr>
+</table>
+</div>
+</div>
+
+<div class="clear"></div>
+</div>
+</div>
+</div>
+
+
+
+      
+<div id="scoresBox" style="display:none">
+<div class="colRightBoxTop"><span class="colRightBoxHead" id="scoresBoxTitle"></span></div>
+<div class="colRightBox">
+<div id="scoresBoxWrapper">
+<div class="scoresBoxMyRating"></div>
+<div class="fl" style="width:113px">
+<div id="scoresBoxIgn">
+<div id="scoresBoxIgnOvScore"></div>
+<div id="scoresBoxIgnOvScoreText"></div>
+</div>
+</div>
+<div class="fl" style="width:185px">
+<div id="scoresBoxReaderAvg">
+<div id="scoresBoxReaderAvgNum"></div>
+<div id="scoresBoxReaderAvgNfo"></div>
+<div id="scoresBoxEntReaderAvgBtn"></div>
+</div>
+<div id="entscoresBoxRatingNfo"></div>
+</div>
+<div class="clear"></div>
+</div>
+<div id="scoresBoxEdChoice" style="display:none">
+<div id="scoresBoxEdChoiceBtn"></div>
+</div>
+<div id="rtMeter" style="display:none">
+<div id="rtMeter_scoreOvrall">
+<div id="rtMeter_score"></div>
+</div>
+<div id="rtBottom"></div>
+</div>
+</div>
+</div>
+ 
+ 
+<div id="colRightPriceGrabber"></div>
+<div id="largesweepsAdColRight">
+
+
+
+<div id="Layer1"><img src="http://ads.ign.com/advertisers/ign/1x1transparent.gif" /></div>
+<img width="1" src="http://de.ign.com/event.ng/Type=count&amp;ClientType=2&amp;AdID=33606&amp;FlightID=29683&amp;TargetID=6700&amp;EntityDefResetFlag=0&amp;Segments=2368,3943,5497,5527,5638,5650,5695,5718,5727,5736,5741,5766,5792,7615&amp;Targets=6700&amp;Values=34,46,51,82,91,100,110,150,204,225,227,235,236,451,1503,1594,2275,2683,2684,2721,3489,3650,4295,4525,4662,4799,5628,5999&amp;RawValues=&amp;random=bcKtytK,bczdnuhomskWz" height="1" border="0" style="position: absolute; visibility: hidden;" /></div>
+
+<div id="latestArticlesBox">
+<div class="colRightBoxTop"><span class="colRightBoxHead"><span id="victor_an325" class="victor_other">Latest DVD Reviews</span></span></div>
+<div class="colRightBox">
+<table id="latestArticles">
+<tr valign="top">
+<td class="latestArticlesBoxRow1"><a href="http://dvd.ign.com/articles/752/752200p1.html"><span id="victor_an326" class="victor_other">A Scanner Darkly</span></a></td>
+</tr>
+<tr valign="top">
+<td class="latestArticlesBoxRow2"><a href="http://dvd.ign.com/articles/752/752082p1.html"><span id="victor_an327" class="victor_other">The Simpsons - The Complete Ninth Season</span></a></td>
+</tr>
+<tr valign="top">
+<td class="latestArticlesBoxRow1"><a href="http://dvd.ign.com/articles/752/752080p1.html"><span id="victor_an328" class="victor_other">Black Christmas (Special Edition)</span></a></td>
+</tr>
+<tr valign="top">
+<td class="latestArticlesBoxRow2"><a href="http://dvd.ign.com/articles/751/751928p1.html"><span id="victor_an329" class="victor_other">Richard Pryor: Live in Concert</span></a></td>
+</tr>
+<tr valign="top">
+<td class="latestArticlesBoxRow1"><a href="http://dvd.ign.com/articles/751/751909p1.html"><span id="victor_an330" class="victor_other">Four Weddings and a Funeral</span></a></td>
+</tr>
+</table>
+</div>
+</div>
+<div id="side300x250AdColRight">
+
+
+
+<div id="Layer1"><img src="http://ads.ign.com/advertisers/ign/1x1transparent.gif" /></div>
+<img width="1" src="http://de.ign.com/event.ng/Type=count&amp;ClientType=2&amp;AdID=33610&amp;FlightID=29687&amp;TargetID=6713&amp;EntityDefResetFlag=0&amp;Segments=3,346,2090,2092,3208,3218,3943,4885,5497,5527,5638,5650,5695,5718,5727,5736,5741,5792,7615&amp;Targets=6713&amp;Values=34,46,51,82,91,100,110,150,204,225,227,235,236,451,1503,1594,2275,2683,2684,2721,3489,3757,4295,4525,4662,4799,5628,5999&amp;RawValues=&amp;random=daNxxrz,bczdnuhomslac" height="1" border="0" style="position: absolute; visibility: hidden;" /></div>
+</div>
+
+<div id="frameBottom"></div>
+
+<div id="footerNav">
+<div class="horizontalNavText"><a href="http://www.ign.com/" id="HeaderNav-www.ign.com" onclick="return trackclick(this.id);"><span id="victor_an331" class="victor_other">IGN.com</span></a><span id="victor_an332" class="victor_other"> | </span><a href="http://pc.ign.com/" id="HeaderNav-pc.ign.com" onclick="return trackclick(this.id);"><span id="victor_an333" class="victor_other">PC Games</span></a><span id="victor_an334" class="victor_other"> | </span><a href="http://ps2.ign.com/" id="HeaderNav-ps2.ign.com" onclick="return trackclick(this.id);"><span id="victor_an335" class="victor_other">PS2</span></a><span id="victor_an336" class="victor_other"> | </span><a href="http://ps3.ign.com/" id="HeaderNav-ps3.ign.com" onclick="return trackclick(this.id);"><span id="victor_an337" class="victor_other">PS3</span></a><span id="victor_an338" class="victor_other"> | </span><a href="http://psp.ign.com/" id="HeaderNav-psp.ign.com" onclick="return trackclick(this.id);"><span id="victor_an339" class="victor_other">PSP</span></a><span id="victor_an340" class="victor_other"> | </span><a href="http://xbox.ign.com/" id="HeaderNav-xbox.ign.com" onclick="return trackclick(this.id);"><span id="victor_an341" class="victor_other">Xbox</span></a><span id="victor_an342" class="victor_other"> | </span><a href="http://xbox360.ign.com/" id="HeaderNav-xbox360.ign.com" onclick="return trackclick(this.id);"><span id="victor_an343" class="victor_other">Xbox 360</span></a><span id="victor_an344" class="victor_other"> | </span><a href="http://cube.ign.com/" id="HeaderNav-cube.ign.com" onclick="return trackclick(this.id);"><span id="victor_an345" class="victor_other">GameCube</span></a><span id="victor_an346" class="victor_other"> | </span><a href="http://wii.ign.com/" id="HeaderNav-wii.ign.com" onclick="return trackclick(this.id);"><span id="victor_an347" class="victor_other">Wii</span></a><span id="victor_an348" class="victor_other"> | </span><a href="http://ds.ign.com/" id="HeaderNav-ds.ign.com" onclick="return trackclick(this.id);"><span id="victor_an349" class="victor_other">DS</span></a><span id="victor_an350" class="victor_other"> | </span><a href="http://gameboy.ign.com/" id="HeaderNav-gameboy.ign.com" onclick="return trackclick(this.id);"><span id="victor_an351" class="victor_other">GBA</span></a><span id="victor_an352" class="victor_other"> | </span><a href="http://wireless.ign.com/" id="HeaderNav-wireless.ign.com" onclick="return trackclick(this.id);"><span id="victor_an353" class="victor_other">Wireless</span></a><span id="victor_an354" class="victor_other"> | </span><a href="http://www.fileplanet.com/" id="HeaderNav-www.fileplanet.com" onclick="return trackclick(this.id);"><span id="victor_an355" class="victor_other">FilePlanet</span></a><span id="victor_an356" class="victor_other"> | </span><a href="http://cheats.ign.com/" id="HeaderNav-cheats.ign.com" onclick="return trackclick(this.id);"><span id="victor_an357" class="victor_other">Cheats</span></a><span id="victor_an358" class="victor_other"> | </span><a href="http://movies.ign.com/" id="HeaderNav-movies.ign.com" onclick="return trackclick(this.id);"><span id="victor_an359" class="victor_other">Movies</span></a><span id="victor_an360" class="victor_other"> | </span><a href="http://tv.ign.com/" id="HeaderNav-tv.ign.com" onclick="return trackclick(this.id);"><span id="victor_an361" class="victor_other">TV</span></a><span id="victor_an362" class="victor_other"> | </span><a href="http://dvd.ign.com/" id="HeaderNav-dvd.ign.com" onclick="return trackclick(this.id);"><span id="victor_an363" class="victor_other">DVD</span></a><span id="victor_an364" class="victor_other"> | </span><a href="http://music.ign.com/" id="HeaderNav-music.ign.com" onclick="return trackclick(this.id);"><span id="victor_an365" class="victor_other">Music</span></a><span id="victor_an366" class="victor_other"> | </span><a href="http://comics.ign.com/" id="HeaderNav-comics.ign.com" onclick="return trackclick(this.id);"><span id="victor_an367" class="victor_other">Comics</span></a><span id="victor_an368" class="victor_other"> | </span><a href="http://gear.ign.com/" id="HeaderNav-gear.ign.com" onclick="return trackclick(this.id);"><span id="victor_an369" class="victor_other">Gear</span></a><span id="victor_an370" class="victor_other"> | </span><a href="http://sports.ign.com/" id="HeaderNav-sports.ign.com" onclick="return trackclick(this.id);"><span id="victor_an371" class="victor_other">Sports</span></a><span id="victor_an372" class="victor_other"> | </span><a href="http://cars.ign.com/" id="HeaderNav-cars.ign.com" onclick="return trackclick(this.id);"><span id="victor_an373" class="victor_other">Cars</span></a><span id="victor_an374" class="victor_other"> | </span><a href="http://babes.entertainment.ign.com/" id="HeaderNav-babes.ign.com" onclick="return trackclick(this.id);"><span id="victor_an375" class="victor_other">Babes</span></a></div>
+</div>
+</div>
+
+<div class="footerFrame"><br />
+<div id="adsHotContent">
+<div id="sLeaderboardAd">
+
+
+
+<div id="Layer1"><img src="http://ads.ign.com/advertisers/ign/1x1transparent.gif" /></div>
+<img width="1" src="http://de.ign.com/event.ng/Type=count&amp;ClientType=2&amp;AdID=33630&amp;FlightID=29706&amp;TargetID=6702&amp;EntityDefResetFlag=0&amp;Segments=1,4,1931,2091,2092,2094,3943,5008,5497,5527,5638,5650,5695,5718,5727,5736,5741,5792,7615&amp;Targets=6702&amp;Values=34,46,51,82,91,100,110,150,204,225,227,235,236,451,1503,1594,2275,2683,2684,2721,3242,3489,4295,4525,4662,4799,5628,5999&amp;RawValues=&amp;random=bAwcKAn,bczdnuhomslam" height="1" border="0" style="position: absolute; visibility: hidden;" /></div>
+<div id="TextAd">
+
+
+
+<div id="Layer1"><img src="http://ads.ign.com/advertisers/ign/1x1transparent.gif" /></div>
+<img width="1" src="http://de.ign.com/event.ng/Type=count&amp;ClientType=2&amp;AdID=33641&amp;FlightID=29717&amp;TargetID=6724&amp;EntityDefResetFlag=0&amp;Segments=19,170,344,546,1003,3943,4897,4954,5031,5497,5527,5638,5650,5695,5718,5727,5736,5741,5792,6705,7615&amp;Targets=6723,6331,6724&amp;Values=34,46,51,82,91,100,110,150,204,225,227,235,236,288,451,1503,1594,2275,2683,2684,2721,3489,4295,4525,4662,4799,5628,5999&amp;RawValues=&amp;random=bydjNnK,bczdnuhomskWx" height="1" border="0" style="position: absolute; visibility: hidden;" />
+ 
+ 
+ 
+ 
+ </div>
+
+<div class="footerHotContent"><b><span id="victor_an376" class="victor_other">Hot DVDs:</span></b> <a href="http://dvd.ign.com/objects/864/864825.html" title="A Scanner Darkly"><span id="victor_an377" class="victor_other">A Scanner Darkly</span></a><span id="victor_an378" class="victor_other"> &nbsp;|&nbsp; </span><a href="http://dvd.ign.com/objects/860/860858.html" title="The Simpsons - The Complete Ninth Season"><span id="victor_an379" class="victor_other">The Simpsons - The Complete Ninth Season</span></a><span id="victor_an380" class="victor_other"> &nbsp;|&nbsp; </span><a href="http://dvd.ign.com/objects/862/862593.html" title="American Pie Presents The Naked Mile (Unrated)"><span id="victor_an381" class="victor_other">American Pie Presents The Naked Mile (Unrated)</span></a><span id="victor_an382" class="victor_other"> &nbsp;|&nbsp; </span><a href="http://dvd.ign.com/objects/863/863923.html" title="Black Christmas (Special Edition)"><span id="victor_an383" class="victor_other">Black Christmas (Special Edition)</span></a><span id="victor_an384" class="victor_other"> &nbsp;|&nbsp; </span><a href="http://dvd.ign.com/objects/863/863114.html" title="Jackass: Number Two (Unrated)"><span id="victor_an385" class="victor_other">Jackass: Number Two (Unrated)</span></a></div>
+</div>
+
+<div id="footerNetworkWrapper">
+<div id="footerNetwork">
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr>
+<td class="footerLogoCell"><a class="footerLogo" href="http://corp.ign.com/"></a></td>
+<td class="footerTextCell"><a href="http://www.ign.com/"><span id="victor_an386" class="victor_other">IGN.com</span></a><span id="victor_an387" class="victor_other"> | </span><a href="http://www.gamespy.com/"><span id="victor_an388" class="victor_other">GameSpy</span></a><span id="victor_an389" class="victor_other"> | </span><a href="http://www.gamespyarcade.com/"><span id="victor_an390" class="victor_other">Arcade</span></a><span id="victor_an391" class="victor_other"> | </span><a href="http://arena.gamespy.com/"><span id="victor_an392" class="victor_other">Arena</span></a><span id="victor_an393" class="victor_other"> | </span><a href="http://www.teamxbox.com/"><span id="victor_an394" class="victor_other">TeamXbox</span></a><span id="victor_an395" class="victor_other"> | </span><a href="http://www.gamestats.com/"><span id="victor_an396" class="victor_other">GameStats</span></a><span id="victor_an397" class="victor_other"> | </span><a href="http://www.gamespy.com/network/"><span id="victor_an398" class="victor_other">Planets</span></a><span id="victor_an399" class="victor_other"> | </span><a href="http://vault.ign.com/"><span id="victor_an400" class="victor_other">Vaults</span></a><span id="victor_an401" class="victor_other"> | </span><a href="http://ve3d.ign.com/"><span id="victor_an402" class="victor_other">VE3D</span></a><span id="victor_an403" class="victor_other"> | </span><a href="http://www.askmen.com/"><span id="victor_an404" class="victor_other">AskMen.com</span></a><br />
+<a href="http://www.cheatscodesguides.com/"><span id="victor_an405" class="victor_other">CheatsCodesGuides</span></a><span id="victor_an406" class="victor_other"> | </span><a href="http://www.fileplanet.com/"><span id="victor_an407" class="victor_other">FilePlanet</span></a><span id="victor_an408" class="victor_other"> | </span><a href="http://www.3dgamers.com/"><span id="victor_an409" class="victor_other">3D Gamers</span></a><span id="victor_an410" class="victor_other"> | </span><a href="http://www.direct2drive.com/"><span id="victor_an411" class="victor_other">Direct2Drive</span></a><span id="victor_an412" class="victor_other"> | </span><a href="http://www.rottentomatoes.com/"><span id="victor_an413" class="victor_other">Rotten Tomatoes</span></a><span id="victor_an414" class="victor_other"> | </span><a href="http://www.gamermetrics.com/"><span id="victor_an415" class="victor_other">GamerMetrics</span></a></td>
+</tr>
+</table>
+
+
+<div class="footerCorp"><span id="victor_an416" class="victor_other">By continuing past this page, and by your continued use of this site, you agree to be bound by and abide by the </span><a href="http://corp.ign.com/user-agreement.html"><span id="victor_an417" class="victor_other">User Agreement</span></a><span id="victor_an418" class="victor_other">.</span><br /><span id="victor_an419" class="victor_other">
+Copyright 1996-2006, IGN Entertainment, Inc. &nbsp; </span><a href="http://corp.ign.com/"><span id="victor_an420" class="victor_other">About Us</span></a><span id="victor_an421" class="victor_other"> | </span><a href="http://support.ign.com/"><span id="victor_an422" class="victor_other">Support</span></a><span id="victor_an423" class="victor_other"> | </span><a href="http://corp.ign.com/advertising-solutions.html"><span id="victor_an424" class="victor_other">Advertise</span></a><span id="victor_an425" class="victor_other"> | </span><a href="http://corp.ign.com/privacy.html"><span id="victor_an426" class="victor_other">Privacy Policy</span></a><span id="victor_an427" class="victor_other"> | </span><a href="http://corp.ign.com/user-agreement.html"><span id="victor_an428" class="victor_other">User Agreement</span></a><span id="victor_an429" class="victor_other"> | </span><a href="http://corp.ign.com/feeds.html"><img class="footerRss" src="http://media.ign.com/ign/images/xml.gif" width="36" height="14" border="0" alt="Subscribe to RSS Feeds" title="Subscribe to RSS Feeds"><span id="victor_an430" class="victor_other">Subscribe to RSS Feeds</span></img></a><br />
+<br /><span id="victor_an431" class="victor_other">
+IGN's enterprise databases running Oracle, SQL and MySQL are professionally monitored and managed by </span><a href="http://www.pythian.com" target="_blank"><span id="victor_an432" class="victor_other">Pythian Remote DBA</span></a><span id="victor_an433" class="victor_other">.</span></div>
+</div>
+</div>
+
+<br /></div>
+
+
+
+
+<div id="Layer1"><img src="http://ads.ign.com/advertisers/ign/1x1transparent.gif" /></div>
+<img width="1" src="http://de.ign.com/event.ng/Type=count&amp;ClientType=2&amp;AdID=33612&amp;FlightID=29689&amp;TargetID=6335&amp;EntityDefResetFlag=0&amp;Segments=3943,4900,4960,5497,5527,5638,5650,5695,5718,5727,5736,5741,5792,7615&amp;Targets=6335,7752&amp;Values=34,46,51,82,91,100,110,150,204,225,227,235,236,275,451,1503,1594,2275,2683,2684,2721,3489,4295,4525,4662,4799,5628,5999&amp;RawValues=&amp;random=bNgwAnr,bczdnuhomslaq" height="1" border="0" style="position: absolute; visibility: hidden;" />
+
+
+
+</body>
+</html>

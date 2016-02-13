@@ -1,0 +1,1960 @@
+<html>
+<head>
+<title>How many current projects? Should I seek help? - Topic Powered by eve community</title>
+<meta content="Groupee" name="GENERATOR" />
+
+
+<link rel="shortcut icon" href="http://episteme.arstechnica.com/groupee_common/platform_images/favicon.ico" type="image/x-icon" />
+<link rel="icon" href="http://episteme.arstechnica.com/groupee_common/platform_images/favicon.ico" type="image/x-icon" />
+
+
+
+
+<link rel="STYLESHEET" type="text/css" href="http://episteme.arstechnica.com/eve/,a,gcss,ss,4120979761,ssm,IP_PLATFORM,sslm,1163547780000.css" />
+<link rel="STYLESHEET" type="text/css" href="http://episteme.arstechnica.com/eve/forums/,a,gcss,ss,4120979761,ssm,IP_UBBX,sslm,1163547780000.css" />
+
+
+
+
+
+</head>
+<body onclick="if(event.which==null || event.which!=3) clearMenus();" onscroll="if(window.moveQuickReply)moveQuickReply();">
+<div align="center">
+
+ 
+ 
+</div>
+<div id="ev_common_master_div1">
+<div class="ev_ubbx_ipt">
+<div id="ev_portal_title_graphic_div">
+<a href="http://episteme.arstechnica.com/eve">
+<img id="eve_portal_title_graphic" class="eve_title" src="http://episteme.arstechnica.com/groupee_common/platform_images/blank.gif" />
+</a>
+</div>
+<div class="ev_background_txt" id="eve_bc_top">
+<a href="http://arstechnica.com"><span id="victor_an0" class="victor_other">Ars Technica</span></a><span id="victor_an1" class="victor_other">&nbsp;&nbsp;
+</span><img src="http://episteme.arstechnica.com/groupee_common/platform_images/blank.gif" class="eve_ubbx_icon" align="absmiddle" alt="" title="" /><span id="victor_an2" class="victor_other">&nbsp;&nbsp;
+</span><a href="http://episteme.arstechnica.com/eve/forums"><span id="victor_an3" class="victor_other">Ars OpenForum 3.0b</span></a><span id="victor_an4" class="victor_other">&nbsp;&nbsp;
+</span><a onclick="setHoptoArray(window.site_oid);showHoptoMenu('gs_hoptohouse_top','all',0);event.cancelBubble=true" id="gs_hoptohouse_top" href="javascript:void(0);">
+<img src="http://episteme.arstechnica.com/groupee_common/platform_images/blank.gif" class="eve_bread_tier3" align="absmiddle" alt="Hop To Forum Categories" title="Hop To Forum Categories"><span id="victor_an5" class="victor_other">Hop To Forum Categories</span></img>
+</a><span id="victor_an6" class="victor_other">&nbsp;&nbsp;
+</span><a href="http://episteme.arstechnica.com/eve/forums/a/frm/f/122097561"><span id="victor_an7" class="victor_other">Distributed Computing Arcana</span></a><span id="victor_an8" class="victor_other">&nbsp;&nbsp;
+</span><img src="http://episteme.arstechnica.com/groupee_common/platform_images/blank.gif" class="eve_bread_post" align="absmiddle" alt="" title="" /><span id="victor_an9" class="victor_other">&nbsp;&nbsp;How many current projects? Should I seek help?</span></div>
+<span class="ev_background_txt">
+<br />
+<img src="http://episteme.arstechnica.com/groupee_common/platform_images/blank.gif" class="eve_lock" alt="Closed" title="Closed"><span id="victor_an10" class="victor_other">Closed</span></img><span id="victor_an11" class="victor_other"> Topic Closed
+</span><br /></span>
+<table class="ev_tab_table_top" cellspacing="0" cellpadding="0" onclick="window.activemenu=true;event.cancelBubble=true">
+<tr>
+<td class="eve_tab" id="gs_tab_go" onclick="window.activemenu=true;eveMenu(this.id,1);" onmouseover="eveMenu(this.id,1);" onmouseout="resetMenuButtonColors(this.id);">
+<div id="gs_tab_go_border" class="ev_tab"><span id="victor_an12" class="victor_other">Go 
+</span><img class="eve_go" src="http://episteme.arstechnica.com/groupee_common/platform_images/blank.gif" align="middle" /></div>
+</td>
+<td class="eve_tab" id="gs_tab_new" onclick="window.activemenu=true;eveMenu(this.id);" onmouseover="eveMenu(this.id);" onmouseout="resetMenuButtonColors(this.id);">
+<div id="gs_tab_new_border" class="ev_tab"><span id="victor_an13" class="victor_other">New 
+</span><img class="eve_new" src="http://episteme.arstechnica.com/groupee_common/platform_images/blank.gif" align="middle" /></div>
+</td>
+<td class="eve_tab" id="gs_tab_find" onclick="window.activemenu=true;eveMenu(this.id);document.searchlite.reqWords.focus();" onmouseover="eveMenu(this.id);" onmouseout="resetMenuButtonColors(this.id);">
+<div id="gs_tab_find_border" class="ev_tab"><span id="victor_an14" class="victor_other">Find 
+</span><img class="eve_find" src="http://episteme.arstechnica.com/groupee_common/platform_images/blank.gif" align="middle" /></div>
+</td>
+<td class="eve_tab" id="gs_tab_notify" onclick="showPopup('http://episteme.arstechnica.com/eve?a=scfrm&amp;smod=40000452&amp;type=T&amp;content=103003273731', '');window.activemenu=true;" onmouseover="eveMenu(this.id);" onmouseout="resetMenuButtonColors(this.id);">
+<div id="gs_tab_notify_border" class="ev_tab"><span id="victor_an15" class="victor_other">Notify 
+</span><img class="eve_notify" src="http://episteme.arstechnica.com/groupee_common/platform_images/blank.gif" align="middle" /></div>
+</td>
+<td class="eve_tab" id="gs_tab_tools" onclick="window.activemenu=true;eveMenu(this.id);" onmouseover="eveMenu(this.id);" onmouseout="resetMenuButtonColors(this.id);">
+<div id="gs_tab_tools_border" class="ev_tab"><span id="victor_an16" class="victor_other">Tools 
+</span><img class="eve_tools" src="http://episteme.arstechnica.com/groupee_common/platform_images/blank.gif" align="middle" /></div>
+</td>
+<td class="eve_tab" id="ev_display_admin" onclick="window.activemenu=true;eveMenu(this.id);" onmouseover="eveMenu(this.id);" onmouseout="resetMenuButtonColors(this.id);" style="display:none;">
+<div id="ev_display_admin_border" class="ev_tab"><span id="victor_an17" class="victor_other">Admin 
+</span><img class="eve_admin" src="http://episteme.arstechnica.com/groupee_common/platform_images/blank.gif" align="middle" /></div>
+</td>
+<td class="eve_tab" id="ev_pm_indicator" onclick="window.location.href='http://episteme.arstechnica.com/eve?a=ugtpc'" onmouseover="eveMenu(this.id);" onmouseout="resetMenuButtonColors(this.id);" style="display:none;">
+<div id="gs_tab_private_border" class="ev_tab"><span id="victor_an18" class="victor_other">New PM! 
+</span><img class="eve_new_pm_alert" src="http://episteme.arstechnica.com/groupee_common/platform_images/blank.gif" align="middle" /></div>
+</td>
+</tr>
+</table>
+<div class="eve_tab_menu" id="gs_tab_go_menu" style="position:absolute; left:200px; top:200px;visibility:hidden; height:100px; z-index:5" onclick="exemptClearMenus(this.id);">
+<table class="ev_layer_table" cellspacing="0">
+<tr onmouseover="this.className='ev_menu_on';changeObjectVisibility('gs_hopto_menu','hidden');window.activemenu=true;eveMenu('gs_tab_myspace_sub',13,0,true);" onmouseout="this.className='';" id="gs_tab_go_menu_myspace">
+<td onclick="window.location.href='http://episteme.arstechnica.com/eve/personal'">
+<a href="http://episteme.arstechnica.com/eve/personal" onclick="clearMenus(); getObjById('gs_msg_dynamic_content').innerHTML = wait_message; positionDiv('gs_msg_dynamic','left','top',320,270,220,65);" rel="nofollow"><span id="victor_an19" class="victor_other">Personal Zone</span></a>
+</td>
+<td class="ev_menu_raquo">
+<a id="gs_tab_myspace_sub"><span id="victor_an20" class="victor_other">»</span></a>
+</td>
+</tr>
+<tr onmouseover="this.className='ev_menu_on';changeObjectVisibility('gs_hopto_menu','hidden');changeObjectVisibility('gs_tab_myspace_sub_menu','hidden');setHoptoArray(40000452);showHoptoMenu('gs_tab_forums_sub_40000452','go_menu_all',0);event.cancelBubble=true;" onmouseout="this.className='';" id="gs_tab_go_menu_forums_40000452">
+<td onclick="window.location.href='http://episteme.arstechnica.com/eve/forums'">
+<a href="http://episteme.arstechnica.com/eve/forums"><span id="victor_an21" class="victor_other">Ars OpenForum 3.0b</span></a>
+</td>
+<td class="ev_menu_raquo">
+<a id="gs_tab_forums_sub_40000452"><span id="victor_an22" class="victor_other">»</span></a>
+</td>
+</tr>
+<tr onmouseover="this.className='ev_menu_on';changeObjectVisibility('gs_hopto_menu','hidden');changeObjectVisibility('gs_tab_myspace_sub_menu','hidden');setHoptoArray(307009462401);showHoptoMenu('gs_tab_chat_sub_307009462401','go_menu_all',0);event.cancelBubble=true;" onmouseout="this.className='';" id="gs_tab_go_menu_chat_307009462401">
+<td onclick="window.location.href='http://episteme.arstechnica.com/eve/chat'">
+<a href="http://episteme.arstechnica.com/eve/chat"><span id="victor_an23" class="victor_other">Chat Rooms</span></a>
+</td>
+<td class="ev_menu_raquo">
+<a id="gs_tab_chat_sub_307009462401"><span id="victor_an24" class="victor_other">»</span></a>
+</td>
+</tr>
+</table>
+</div>
+<div class="eve_tab_menu" id="gs_tab_myspace_sub_menu" style="position:absolute; left:200px; top:200px;visibility:hidden; height:100px; z-index:5" onclick="exemptClearMenus(this.id);">
+<table class="ev_layer_table" cellspacing="0">
+<tr onmouseover="this.className='ev_menu_on';" onmouseout="this.className='';">
+<td onclick="window.location.href='http://episteme.arstechnica.com/eve/personal?x_myspace_page=profile'">
+<a href="http://episteme.arstechnica.com/eve/personal?x_myspace_page=profile"><span id="victor_an25" class="victor_other">Profile</span></a>
+</td>
+</tr>
+<tr onmouseover="this.className='ev_menu_on';" onmouseout="this.className='';">
+<td onclick="window.location.href='http://episteme.arstechnica.com/eve/personal?x_myspace_page=buddies'">
+<a href="http://episteme.arstechnica.com/eve/personal?x_myspace_page=buddies" rel="nofollow"><span id="victor_an26" class="victor_other">Buddies</span></a>
+</td>
+</tr>
+<tr onmouseover="this.className='ev_menu_on';" onmouseout="this.className='';">
+<td onclick="window.location.href='http://episteme.arstechnica.com/eve/personal?x_myspace_page=ignore_list'">
+<a href="http://episteme.arstechnica.com/eve/personal?x_myspace_page=ignore_list" rel="nofollow"><span id="victor_an27" class="victor_other">Ignore List</span></a>
+</td>
+</tr>
+<tr onmouseover="this.className='ev_menu_on';" onmouseout="this.className='';">
+<td onclick="window.location.href='http://episteme.arstechnica.com/eve/personal?x_myspace_page=groups'">
+<a href="http://episteme.arstechnica.com/eve/personal?x_myspace_page=groups" rel="nofollow"><span id="victor_an28" class="victor_other">Groups</span></a>
+</td>
+</tr>
+<tr onmouseover="this.className='ev_menu_on';" onmouseout="this.className='';">
+<td onclick="window.location.href='http://episteme.arstechnica.com/eve/personal?x_myspace_page=permissions'">
+<a href="http://episteme.arstechnica.com/eve/personal?x_myspace_page=permissions" rel="nofollow"><span id="victor_an29" class="victor_other">Permissions</span></a>
+</td>
+</tr>
+<tr onmouseover="this.className='ev_menu_on';" onmouseout="this.className='';">
+<td onclick="window.location.href='http://episteme.arstechnica.com/eve?a=ugtpc'">
+<a href="http://episteme.arstechnica.com/eve?a=ugtpc" rel="nofollow"><span id="victor_an30" class="victor_other">Private Messaging</span></a>
+</td>
+</tr>
+<tr onmouseover="this.className='ev_menu_on';" onmouseout="this.className='';">
+<td onclick="window.location.href='http://episteme.arstechnica.com/eve/personal?x_myspace_page=subscriptions'">
+<a href="http://episteme.arstechnica.com/eve/personal?x_myspace_page=subscriptions" rel="nofollow"><span id="victor_an31" class="victor_other">Notifications</span></a>
+</td>
+</tr>
+<tr onmouseover="this.className='ev_menu_on';" onmouseout="this.className='';">
+<td onclick="window.location.href='http://episteme.arstechnica.com/eve/personal?x_myspace_page=karma'">
+<a href="http://episteme.arstechnica.com/eve/personal?x_myspace_page=karma" rel="nofollow"><span id="victor_an32" class="victor_other">Karma</span></a>
+</td>
+</tr>
+<tr onmouseover="this.className='ev_menu_on';" onmouseout="this.className='';">
+<td onclick="window.location.href='http://episteme.arstechnica.com/eve/personal?x_myspace_page=uprefs'">
+<a href="http://episteme.arstechnica.com/eve/personal?x_myspace_page=uprefs" rel="nofollow"><span id="victor_an33" class="victor_other">Preferences</span></a>
+</td>
+</tr>
+<tr onmouseover="this.className='ev_menu_on';" onmouseout="this.className='';">
+<td onclick="window.location.href='http://episteme.arstechnica.com/eve/personal?x_myspace_page=ufav&amp;x_myspace_module=forums'">
+<a href="http://episteme.arstechnica.com/eve/personal?x_myspace_page=ufav&amp;x_myspace_module=forums" rel="nofollow"><span id="victor_an34" class="victor_other">Favorites</span></a>
+</td>
+</tr>
+<tr onmouseover="this.className='ev_menu_on';" onmouseout="this.className='';">
+<td onclick="window.location.href='http://episteme.arstechnica.com/eve/personal?x_myspace_page=profile'">
+<a href="http://episteme.arstechnica.com/eve/personal?x_myspace_page=profile" rel="nofollow"><span id="victor_an35" class="victor_other">More...</span></a>
+</td>
+</tr>
+</table>
+</div>
+<div class="eve_tab_menu" id="gs_tab_new_menu" style="position:absolute; left:200px; top:200px;visibility:hidden; height:100px; z-index:5" onclick="event.cancelBubble=true;">
+<table class="ev_layer_table" cellspacing="0">
+<tr onmouseover="this.className='ev_menu_on';" onmouseout="this.className='';">
+<td onclick="sizePopup('topic', 'http://episteme.arstechnica.com/eve/forums?a=ptpc&amp;f=122097561&amp;x_popup=Y', 'open');">
+<a href="javascript:void(0);" id="gs_tab_new_menu_topic" onclick="sizePopup('topic', 'http://episteme.arstechnica.com/eve/forums?a=ptpc&amp;f=122097561&amp;x_popup=Y', 'open');"><span id="victor_an36" class="victor_other">Discussion</span></a>
+</td>
+</tr>
+<tr onmouseover="this.className='ev_menu_on';" onmouseout="this.className='';">
+<td onclick="sizePopup('poll', 'http://episteme.arstechnica.com/eve/forums?a=ptpc&amp;post_type=PTYP_POLL&amp;f=122097561&amp;x_popup=Y', 'open');">
+<a href="javascript:void(0);" id="gs_tab_new_menu_poll" onclick="sizePopup('poll', 'http://episteme.arstechnica.com/eve/forums?a=ptpc&amp;post_type=PTYP_POLL&amp;f=122097561&amp;x_popup=Y', 'open');"><span id="victor_an37" class="victor_other">Poll</span></a>
+</td>
+</tr>
+<tr onmouseover="this.className='ev_menu_on';" onmouseout="this.className='';">
+<td onclick="if(!window.userIsLoggedIn){alert(&quot;You are not logged in.&quot;);return false;}sizePopup('topic', 'http://episteme.arstechnica.com/eve?a=gtmgmt&amp;x_popup=Y', 'open');">
+<a href="javascript:void(0);" id="gs_tab_new_menu_priv_topic" onclick="if(!window.userIsLoggedIn){alert(&quot;You are not logged in.&quot;);return false;}sizePopup('topic', 'http://episteme.arstechnica.com/eve?a=gtmgmt&amp;x_popup=Y', 'open');"><span id="victor_an38" class="victor_other">Private Message</span></a>
+</td>
+</tr>
+</table>
+</div>
+<div class="eve_tab_menu" id="gs_tab_find_menu" style="position:absolute; left:200px; top:200px;visibility:hidden; height:100px; z-index:5" onclick="exemptClearMenus(this.id);">
+<form method="get" action="http://episteme.arstechnica.com/eve/forums?a=search" name="searchlite">
+<table class="ev_layer_table" cellspacing="0">
+<tr onmouseover="this.className='ev_menu_on';" onmouseout="this.className='';">
+<td onclick="window.location.href='javascript:void(0);'">
+<b><span id="victor_an39" class="victor_other">Keyword Search</span></b>
+<br />
+<input type="hidden" name="a" value="search" />
+<input type="text" name="reqWords" size="20" /><span id="victor_an40" class="victor_other">&nbsp;&nbsp;
+</span><input class="ev_input" type="submit" value="GO" />
+<br /><span id="victor_an41" class="victor_other">Search current forum only 
+</span><input class="ev_input" type="checkbox" name="use_forum_scope" checked="true" />
+<input type="hidden" name="forum_scope" value="122097561" /></td>
+</tr>
+<tr onmouseover="this.className='ev_menu_on';" onmouseout="this.className='';">
+<td onclick="window.location.href='http://episteme.arstechnica.com/eve/forums?a=srchf'">
+<a href="http://episteme.arstechnica.com/eve/forums?a=srchf" rel="nofollow"><span id="victor_an42" class="victor_other">Advanced Search</span></a>
+</td>
+</tr>
+<tr onmouseover="this.className='ev_menu_on';" onmouseout="this.className='';">
+<td onclick="window.location.href='http://episteme.arstechnica.com/eve/forums?a=nslv'">
+<a href="http://episteme.arstechnica.com/eve/forums?a=nslv" onclick="clearMenus();getObjById('gs_msg_dynamic_content').innerHTML = wait_message;positionDiv('gs_msg_dynamic','left','top',320,270,220,65);" rel="nofollow"><span id="victor_an43" class="victor_other">New Since your Last Visit</span></a>
+</td>
+</tr>
+<tr onmouseover="this.className='ev_menu_on';" onmouseout="this.className='';">
+<td onclick="window.location.href='http://episteme.arstechnica.com/eve/forums?a=tat&amp;c=4009662'">
+<a href="http://episteme.arstechnica.com/eve/forums?a=tat&amp;c=4009662" rel="nofollow"><span id="victor_an44" class="victor_other">Today's Active Topics in this Category</span></a>
+</td>
+</tr>
+</table>
+</form>
+</div>
+<div class="eve_tab_menu" id="gs_tab_notify_menu" style="visibility:hidden;"></div>
+<div class="eve_tab_menu" id="gs_tab_tools_menu" style="position:absolute; left:200px; top:200px;visibility:hidden; height:100px; z-index:5" onclick="exemptClearMenus(this.id);">
+<table class="ev_layer_table" cellspacing="0">
+<tr onmouseover="this.className='ev_menu_on';" onmouseout="this.className='';" class="gs_user_not_logged_in">
+<td onclick="sizePopup('conf', 'http://episteme.arstechnica.com/eve/forums?a=afav&amp;content_type=topic&amp;IS_CLOSE_WINDOW_AVAILABLE=Y&amp;content_oid=103003273731&amp;x_popup=Y','open');">
+<a href="javascript:void(0);"><span id="victor_an45" class="victor_other">Add to My Favorites</span></a>
+</td>
+</tr>
+<tr onmouseover="this.className='ev_menu_on';" onmouseout="this.className='';">
+<td onclick="window.location.href='http://episteme.arstechnica.com/eve/forums/a/tpc/f/122097561/m/103003273731/xsl/print_topic'">
+<a href="http://episteme.arstechnica.com/eve/forums/a/tpc/f/122097561/m/103003273731/xsl/print_topic" rel="nofollow"><span id="victor_an46" class="victor_other">Printer Friendly Format</span></a>
+</td>
+</tr>
+<tr onmouseover="this.className='ev_menu_on';" onmouseout="this.className='';" class="gs_user_not_logged_in">
+<td onclick="sizePopup('email_a_friend', 'http://episteme.arstechnica.com/eve/forums?a=emf&amp;f=122097561&amp;m=103003273731&amp;p=&amp;x_popup=Y', 'open');">
+<a href="javascript:void(0);" onclick="sizePopup('email_a_friend', 'http://episteme.arstechnica.com/eve/forums?a=emf&amp;f=122097561&amp;m=103003273731&amp;p=&amp;x_popup=Y', 'open');"><span id="victor_an47" class="victor_other">Email a Friend</span></a>
+</td>
+</tr>
+<tr onmouseover="this.className='ev_menu_on';" onmouseout="this.className='';">
+<td onclick="clearMenus();">
+<a href="http://arstechnica.com/forum/forumfaq.html" onclick="clearMenus();" target="_blank" rel="nofollow"><span id="victor_an48" class="victor_other">Help</span></a>
+</td>
+</tr>
+</table>
+</div>
+<div class="eve_tab_menu" id="ev_display_admin_menu" style="position:absolute; left:200px; top:200px;visibility:hidden; height:100px; z-index:5" onclick="exemptClearMenus(this.id);">
+<table class="ev_layer_table" cellspacing="0">
+<tr onmouseover="this.className='ev_menu_on';" onmouseout="this.className='';" id="ev_manage_topics" style="display:none;">
+<td>
+<a href="javascript:void(0);" onclick="sizePopup('poll','http://episteme.arstechnica.com/eve/forums?a=atpccntmgmt&amp;f=122097561&amp;m=103003273731&amp;x_popup=Y', 'open');" rel="nofollow"><span id="victor_an49" class="victor_other">Manage</span></a>
+</td>
+</tr>
+<tr onmouseover="this.className='ev_menu_on';" onmouseout="this.className='';" id="ev_manage_topic_content" style="display:none;">
+<td>
+<a href="http://episteme.arstechnica.com/eve?a=cp&amp;x_show_template_page=afrmcntmgmt&amp;x_show_searchby=topic_posts&amp;x_show_template_module_oid=40000452&amp;x_show_topic_oid=103003273731&amp;x_show_forum=122097561" onclick="clearMenus();" target="_blank" rel="nofollow"><span id="victor_an50" class="victor_other">Manage Content in This Topic</span></a>
+</td>
+</tr>
+<tr onmouseover="this.className='ev_menu_on';" onmouseout="this.className='';" id="ev_manmems_link" style="display:none;">
+<td>
+<a href="http://episteme.arstechnica.com/eve/cp?x_show_template_page=ammgmt&amp;x_show_template_module_oid=30000452" onclick="clearMenus();" target="_blank" rel="nofollow"><span id="victor_an51" class="victor_other">Manage Members</span></a>
+</td>
+</tr>
+<tr onmouseover="this.className='ev_menu_on';" onmouseout="this.className='';" id="ev_onow_link" style="display:none;">
+<td>
+<a href="http://episteme.arstechnica.com/eve/cp?x_show_template_page=aolnow&amp;x_show_template_module_oid=30000452" onclick="clearMenus();" target="_blank" rel="nofollow"><span id="victor_an52" class="victor_other">Online Now</span></a>
+</td>
+</tr>
+<tr onmouseover="this.className='ev_menu_on';" onmouseout="this.className='';" id="ev_cp_link" style="display:none;">
+<td>
+<a href="http://episteme.arstechnica.com/eve/cp" onclick="clearMenus();" target="_blank" rel="nofollow"><span id="victor_an53" class="victor_other">Control Panel</span></a>
+</td>
+</tr>
+</table>
+</div>
+<div class="eve_tab_menu" id="gs_tab_private_menu" style="position:absolute; left:200px; top:200px;visibility:hidden; height:100px; z-index:5" onclick="exemptClearMenus(this.id);">
+<table class="ev_layer_table" cellspacing="0"></table>
+</div>
+<div id="gs_menu_y_baseline">
+<table class="ev_container" cellspacing="0" cellpadding="0" width="100%">
+<tr>
+<td>
+<img class="ubb_star_" src="http://episteme.arstechnica.com/groupee_common/platform_images/blank.gif" alt="-star Rating" title="-star Rating"><span id="victor_an54" class="victor_other">-star Rating</span></img> 
+<a id="gs_rating" href="javascript:void(0)" onclick="window.activemenu=true;eveMenu(this.id,0,22);window.activemenu=false;event.cancelBubble=true"><span id="victor_an55" class="victor_other">Rate It!</span></a><span id="victor_an56" class="victor_other">&nbsp;</span></td>
+<td class="ev_container_right_td">
+<span id="gs_login_text"><span id="victor_an57" class="victor_other">&nbsp;
+</span><a id="ev_login_text" href="http://episteme.arstechnica.com/eve/login" rel="nofollow"><span id="victor_an58" class="victor_other">Login/Join</span></a>
+<span id="ev_logout_text" style="display:none"><span id="victor_an59" class="victor_other">Welcome, 
+</span><span id="victor_an60" class="victor_other"> [
+</span><a href="http://episteme.arstechnica.com/eve/logout" rel="nofollow"><span id="victor_an61" class="victor_other">Logout</span></a><span id="victor_an62" class="victor_other">]&nbsp;</span></span></span>
+</td>
+<td id="login_menu_anchor" class="ev_tr_corner"><span id="victor_an63" class="victor_other">&nbsp;</span></td>
+</tr>
+</table>
+
+</div>
+</div>
+<table id="post_103003273731" class="ev_msg_rowcolor2" cellspacing="0" align="center">
+<tr>
+<td class="ev_msg_userinfo">
+<a name="103003273731"></a>
+<div class="ev_ubbx_tpc_author">
+<a onclick="window.activemenu=true;show_member_menu(this,'gs_user_contact_menu','whilden','9330938812','');window.activemenu=false;event.cancelBubble=true" id="user_9330938812_msg_103003273731" class="ev_member_link" href="javascript:void(0)"><span id="victor_an64" class="victor_header">whilden</span></a>
+</div>
+<span class="ev_text_small"><span id="victor_an65" class="victor_other">Ars Scholae Palatinae
+</span><br /></span>
+<div id="ev_tpc_location">
+<span class="ev_text_small">
+<br /><span id="victor_an66" class="victor_other">Tribus: GR - MI - US</span></span>
+</div>
+<div id="ev_tpc_reg"><span id="victor_an67" class="victor_other">Registered: July 03, 2001</span></div>
+<a class="ev_text_color" href="http://episteme.arstechnica.com/eve/forums?a=userposts&amp;sortType=1&amp;u=9330938812" rel="nofollow"></a>
+<div id="ev_tpc_post"><span id="victor_an68" class="victor_other">Posts: 2783</span></div>
+</td>
+<td class="ev_ubbx_tpc_alt">
+<div class="ev_ubbx_tpc_info_alt">
+<a href="http://episteme.arstechnica.com/eve/forums/a/tpc/f/122097561/m/103003273731?r=103003273731#103003273731" rel="nofollow">
+<img class="ubb_post_icon1" align="absbottom" src="http://episteme.arstechnica.com/groupee_common/platform_images/blank.gif" />
+</a><span id="victor_an69" class="victor_other"> Posted 
+</span> 
+<noscript><span id="victor_an70" class="victor_other">June 06, 2005 07:31</span></noscript><span id="victor_an71" class="victor_other"> &nbsp; 
+</span><nobr>
+<a href="javascript:void(0);" onclick="sizePopup('reply', 'http://episteme.arstechnica.com/eve/forums?a=em&amp;m=103003273731&amp;f=122097561&amp;x_popup=Y', 'open');">
+<img src="http://episteme.arstechnica.com/groupee_common/platform_images/blank.gif" class="eve_edit" hspace="3" name="9330938812.103003273731.edit" alt="Edit or Delete Message" title="Edit or Delete Message"><span id="victor_an72" class="victor_other">Edit or Delete Message</span></img>
+</a>
+</nobr><span id="victor_an73" class="victor_other"> &nbsp;</span></div>
+<div class="ev_ubbx_tpc_alt"><span id="victor_an74" class="victor_list">Prime95 (factoring/LL)
+</span><br /><span id="victor_an75" class="victor_list">SOB - #2 on the team
+</span><br /><span id="victor_an76" class="victor_list">F@H - I cant remember where
+</span><br /><span id="victor_an77" class="victor_list">FAD - just one machine
+</span><br /><span id="victor_an78" class="victor_list">LLRNET - side prime project
+</span><br />
+<br /><span id="victor_an79" class="victor_paragraph">anyone else like to run multiple projects, or do you stay focused on one project at a time?</span></div>
+</td>
+</tr>
+</table>
+<table id="post_423004273731" class="ev_msg_rowcolor1" cellspacing="0" align="center">
+<tr>
+<td class="ev_msg_userinfo">
+<a name="423004273731"></a>
+<div class="ev_ubbx_tpc_author">
+<a onclick="window.activemenu=true;show_member_menu(this,'gs_user_contact_menu','Calavaro','6300901503','');window.activemenu=false;event.cancelBubble=true" id="user_6300901503_msg_423004273731" class="ev_member_link" href="javascript:void(0)"><span id="victor_an80" class="victor_header">Calavaro</span></a>
+</div>
+<span class="ev_text_small"><span id="victor_an81" class="victor_other">Smack-Fu Master, in training
+</span><br /></span>
+<div id="ev_tpc_reg">
+<span class="ev_text_small"><span id="victor_an82" class="victor_other">Registered: November 01, 2001</span></span>
+</div>
+<a class="ev_text_color" href="http://episteme.arstechnica.com/eve/forums?a=userposts&amp;sortType=1&amp;u=6300901503" rel="nofollow"></a>
+<div id="ev_tpc_post"><span id="victor_an83" class="victor_other">Posts: 110</span></div>
+</td>
+<td class="ev_ubbx_tpc_alt">
+<div class="ev_ubbx_tpc_info_alt">
+<a href="http://episteme.arstechnica.com/eve/forums/a/tpc/f/122097561/m/103003273731?r=423004273731#423004273731" rel="nofollow">
+<img class="ubb_post_icon1" align="absbottom" src="http://episteme.arstechnica.com/groupee_common/platform_images/blank.gif" />
+</a><span id="victor_an84" class="victor_other"> Posted 
+</span> 
+<noscript><span id="victor_an85" class="victor_other">June 06, 2005 08:20</span></noscript><span id="victor_an86" class="victor_other"> &nbsp; 
+</span><nobr>
+<a href="javascript:void(0);" onclick="sizePopup('reply', 'http://episteme.arstechnica.com/eve/forums?a=em&amp;m=423004273731&amp;f=122097561&amp;x_popup=Y', 'open');">
+<img src="http://episteme.arstechnica.com/groupee_common/platform_images/blank.gif" class="eve_edit" hspace="3" name="6300901503.423004273731.edit" alt="Edit or Delete Message" title="Edit or Delete Message"><span id="victor_an87" class="victor_other">Edit or Delete Message</span></img>
+</a>
+</nobr><span id="victor_an88" class="victor_other"> &nbsp;</span></div>
+<div class="ev_ubbx_tpc_alt"><span id="victor_an89" class="victor_paragraph">More than 1 boxen on more than 1 project constitutes an addiction.
+</span><br /><span id="victor_an90" class="victor_continuation">Buying boxen or seeking out boxen to put a DC client on, would make you crazy in the common mans view.
+</span><br /><span id="victor_an91" class="victor_continuation">You, whilden, are just wired wrong. 
+</span><img src="http://episteme.arstechnica.com/groupee_common/emoticons/icon_wink.gif" alt="Wink" width="15" height="15"><span id="victor_an92" class="victor_other">Wink</span></img>
+</div>
+</td>
+</tr>
+</table>
+<table id="ignore_423004273731" class="ev_msg_rowcolor1" cellspacing="0" align="center" style="display:none;">
+<tr>
+<td class="ev_ignore_msg" colspan="2">
+<table cellspacing="0" cellpadding="0" width="100%">
+<tr>
+<td class="ev_text_small"><span id="victor_an93" class="victor_other">Ignored post by 
+</span><a onclick="window.activemenu=true;show_member_menu(this,'gs_user_contact_menu','Calavaro','6300901503','');window.activemenu=false;event.cancelBubble=true" id="user_6300901503_i_msg_423004273731" class="ev_member_link" href="javascript:void(0)"><span id="victor_an94" class="victor_other">Calavaro</span></a><span id="victor_an95" class="victor_other"> posted 
+</span> 
+<noscript><span id="victor_an96" class="victor_other">June 06, 2005 08:20</span></noscript></td>
+<td class="ev_text_small" style="text-align:right;">
+<a href="javascript:void(0);" onclick="showElement('post_423004273731'); hideElement('ignore_423004273731');"><span id="victor_an97" class="victor_other">Show Post</span></a>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+
+<table id="post_763004273731" class="ev_msg_rowcolor2" cellspacing="0" align="center">
+<tr>
+<td class="ev_msg_userinfo">
+<a name="763004273731"></a>
+<div class="ev_ubbx_tpc_author">
+<a onclick="window.activemenu=true;show_member_menu(this,'gs_user_contact_menu','GOD','84509492','');window.activemenu=false;event.cancelBubble=true" id="user_84509492_msg_763004273731" class="ev_member_link" href="javascript:void(0)"><span id="victor_an98" class="victor_header">GOD</span></a>
+</div>
+<span class="ev_text_small"><span id="victor_an99" class="victor_other">Ars Tribunus Angusticlavius
+</span><br /><span id="victor_an100" class="victor_other">et 
+</span><a href="http://arstechnica.com/etc/subscribe/subscribe-1.html" style="text-decoration: none" target="_Blank">
+<font color="#800000"><span id="victor_an101" class="victor_other">Subscriptor</span></font>
+</a>
+<br /></span>
+<div id="ev_tpc_reg">
+<span class="ev_text_small"><span id="victor_an102" class="victor_other">Registered: January 17, 2000</span></span>
+</div>
+<a class="ev_text_color" href="http://episteme.arstechnica.com/eve/forums?a=userposts&amp;sortType=1&amp;u=84509492" rel="nofollow"></a>
+<div id="ev_tpc_post"><span id="victor_an103" class="victor_other">Posts: 4071</span></div>
+</td>
+<td class="ev_ubbx_tpc_alt">
+<div class="ev_ubbx_tpc_info_alt">
+<a href="http://episteme.arstechnica.com/eve/forums/a/tpc/f/122097561/m/103003273731?r=763004273731#763004273731" rel="nofollow">
+<img class="ubb_post_icon1" align="absbottom" src="http://episteme.arstechnica.com/groupee_common/platform_images/blank.gif" />
+</a><span id="victor_an104" class="victor_other"> Posted 
+</span> 
+<noscript><span id="victor_an105" class="victor_other">June 06, 2005 08:34</span></noscript><span id="victor_an106" class="victor_other"> &nbsp; 
+</span><nobr>
+<a href="javascript:void(0);" onclick="sizePopup('reply', 'http://episteme.arstechnica.com/eve/forums?a=em&amp;m=763004273731&amp;f=122097561&amp;x_popup=Y', 'open');">
+<img src="http://episteme.arstechnica.com/groupee_common/platform_images/blank.gif" class="eve_edit" hspace="3" name="84509492.763004273731.edit" alt="Edit or Delete Message" title="Edit or Delete Message"><span id="victor_an107" class="victor_other">Edit or Delete Message</span></img>
+</a>
+</nobr><span id="victor_an108" class="victor_other"> &nbsp;</span></div>
+<div class="ev_ubbx_tpc_alt"><span id="victor_an109" class="victor_paragraph">I'm only running 3 projects - seti classic (still), mousetracker (useless but low cost) and folding @ home (actually useful).
+</span><br /><span id="victor_an110" class="victor_continuation">I'm only 60% as ill as 
+</span><b><span id="victor_an111" class="victor_continuation">whilden</span></b><span id="victor_an112" class="victor_continuation">.</span></div>
+</td>
+</tr>
+</table>
+<table id="ignore_763004273731" class="ev_msg_rowcolor2" cellspacing="0" align="center" style="display:none;">
+<tr>
+<td class="ev_ignore_msg" colspan="2">
+<table cellspacing="0" cellpadding="0" width="100%">
+<tr>
+<td class="ev_text_small"><span id="victor_an113" class="victor_other">Ignored post by 
+</span><a onclick="window.activemenu=true;show_member_menu(this,'gs_user_contact_menu','GOD','84509492','');window.activemenu=false;event.cancelBubble=true" id="user_84509492_i_msg_763004273731" class="ev_member_link" href="javascript:void(0)"><span id="victor_an114" class="victor_other">GOD</span></a><span id="victor_an115" class="victor_other"> posted 
+</span> 
+<noscript><span id="victor_an116" class="victor_other">June 06, 2005 08:34</span></noscript></td>
+<td class="ev_text_small" style="text-align:right;">
+<a href="javascript:void(0);" onclick="showElement('post_763004273731'); hideElement('ignore_763004273731');"><span id="victor_an117" class="victor_other">Show Post</span></a>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+
+<table id="post_393004273731" class="ev_msg_rowcolor1" cellspacing="0" align="center">
+<tr>
+<td class="ev_msg_userinfo">
+<a name="393004273731"></a>
+<div class="ev_ubbx_tpc_author">
+<a onclick="window.activemenu=true;show_member_menu(this,'gs_user_contact_menu','garo','270096016','');window.activemenu=false;event.cancelBubble=true" id="user_270096016_msg_393004273731" class="ev_member_link" href="javascript:void(0)"><span id="victor_an118" class="victor_header">garo</span></a>
+</div>
+<span class="ev_text_small"><span id="victor_an119" class="victor_other">Ars Scholae Palatinae
+</span><br /></span>
+<div id="ev_tpc_reg">
+<span class="ev_text_small"><span id="victor_an120" class="victor_other">Registered: January 05, 2001</span></span>
+</div>
+<a class="ev_text_color" href="http://episteme.arstechnica.com/eve/forums?a=userposts&amp;sortType=1&amp;u=270096016" rel="nofollow"></a>
+<div id="ev_tpc_post"><span id="victor_an121" class="victor_other">Posts: 1876</span></div>
+</td>
+<td class="ev_ubbx_tpc_alt">
+<div class="ev_ubbx_tpc_info_alt">
+<a href="http://episteme.arstechnica.com/eve/forums/a/tpc/f/122097561/m/103003273731?r=393004273731#393004273731" rel="nofollow">
+<img class="ubb_post_icon1" align="absbottom" src="http://episteme.arstechnica.com/groupee_common/platform_images/blank.gif" />
+</a><span id="victor_an122" class="victor_other"> Posted 
+</span> 
+<noscript><span id="victor_an123" class="victor_other">June 06, 2005 08:43</span></noscript><span id="victor_an124" class="victor_other"> &nbsp; 
+</span><nobr>
+<a href="javascript:void(0);" onclick="sizePopup('reply', 'http://episteme.arstechnica.com/eve/forums?a=em&amp;m=393004273731&amp;f=122097561&amp;x_popup=Y', 'open');">
+<img src="http://episteme.arstechnica.com/groupee_common/platform_images/blank.gif" class="eve_edit" hspace="3" name="270096016.393004273731.edit" alt="Edit or Delete Message" title="Edit or Delete Message"><span id="victor_an125" class="victor_other">Edit or Delete Message</span></img>
+</a>
+</nobr><span id="victor_an126" class="victor_other"> &nbsp;</span></div>
+<div class="ev_ubbx_tpc_alt"><span id="victor_an127" class="victor_list">Prime95
+</span><br /><span id="victor_an128" class="victor_list">OGR
+</span><br /><span id="victor_an129" class="victor_list">Seti Classic
+</span><br /><span id="victor_an130" class="victor_list">DIMES
+</span><br /><span id="victor_an131" class="victor_list">Proth (for generalized Fermat Numbers)
+</span><br /><span id="victor_an132" class="victor_list">SOB Sieve
+</span><br />
+<br /><span id="victor_an133" class="victor_paragraph">These are only my current projects. In the past i've also run
+</span><br />
+<br /><span id="victor_an134" class="victor_list">G@H
+</span><br /><span id="victor_an135" class="victor_list">RC5-64
+</span><br /><span id="victor_an136" class="victor_list">Distr Folding
+</span><br /><span id="victor_an137" class="victor_list">NSFNet
+</span><br /><span id="victor_an138" class="victor_list">F@H
+</span><br /><span id="victor_an139" class="victor_list">Ubero
+</span><br /><span id="victor_an140" class="victor_list">CPDN (never completed a unit)</span></div>
+</td>
+</tr>
+</table>
+<table id="ignore_393004273731" class="ev_msg_rowcolor1" cellspacing="0" align="center" style="display:none;">
+<tr>
+<td class="ev_ignore_msg" colspan="2">
+<table cellspacing="0" cellpadding="0" width="100%">
+<tr>
+<td class="ev_text_small"><span id="victor_an141" class="victor_other">Ignored post by 
+</span><a onclick="window.activemenu=true;show_member_menu(this,'gs_user_contact_menu','garo','270096016','');window.activemenu=false;event.cancelBubble=true" id="user_270096016_i_msg_393004273731" class="ev_member_link" href="javascript:void(0)"><span id="victor_an142" class="victor_other">garo</span></a><span id="victor_an143" class="victor_other"> posted 
+</span> 
+<noscript><span id="victor_an144" class="victor_other">June 06, 2005 08:43</span></noscript></td>
+<td class="ev_text_small" style="text-align:right;">
+<a href="javascript:void(0);" onclick="showElement('post_393004273731'); hideElement('ignore_393004273731');"><span id="victor_an145" class="victor_other">Show Post</span></a>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+
+<table id="post_685003273731" class="ev_msg_rowcolor2" cellspacing="0" align="center">
+<tr>
+<td class="ev_msg_userinfo">
+<a name="685003273731"></a>
+<div class="ev_ubbx_tpc_author">
+<a onclick="window.activemenu=true;show_member_menu(this,'gs_user_contact_menu','whilden','9330938812','');window.activemenu=false;event.cancelBubble=true" id="user_9330938812_msg_685003273731" class="ev_member_link" href="javascript:void(0)"><span id="victor_an146" class="victor_header">whilden</span></a>
+</div>
+<span class="ev_text_small"><span id="victor_an147" class="victor_other">Ars Scholae Palatinae
+</span><br /></span>
+<div id="ev_tpc_location">
+<span class="ev_text_small">
+<br /><span id="victor_an148" class="victor_other">Tribus: GR - MI - US</span></span>
+</div>
+<div id="ev_tpc_reg"><span id="victor_an149" class="victor_other">Registered: July 03, 2001</span></div>
+<a class="ev_text_color" href="http://episteme.arstechnica.com/eve/forums?a=userposts&amp;sortType=1&amp;u=9330938812" rel="nofollow"></a>
+<div id="ev_tpc_post"><span id="victor_an150" class="victor_other">Posts: 2783</span></div>
+</td>
+<td class="ev_ubbx_tpc_alt">
+<div class="ev_ubbx_tpc_info_alt">
+<a href="http://episteme.arstechnica.com/eve/forums/a/tpc/f/122097561/m/103003273731?r=685003273731#685003273731" rel="nofollow">
+<img class="ubb_post_icon1" align="absbottom" src="http://episteme.arstechnica.com/groupee_common/platform_images/blank.gif" />
+</a><span id="victor_an151" class="victor_other"> Posted 
+</span> 
+<noscript><span id="victor_an152" class="victor_other">June 06, 2005 08:59</span></noscript><span id="victor_an153" class="victor_other"> &nbsp; 
+</span><nobr>
+<a href="javascript:void(0);" onclick="sizePopup('reply', 'http://episteme.arstechnica.com/eve/forums?a=em&amp;m=685003273731&amp;f=122097561&amp;x_popup=Y', 'open');">
+<img src="http://episteme.arstechnica.com/groupee_common/platform_images/blank.gif" class="eve_edit" hspace="3" name="9330938812.685003273731.edit" alt="Edit or Delete Message" title="Edit or Delete Message"><span id="victor_an154" class="victor_other">Edit or Delete Message</span></img>
+</a>
+</nobr><span id="victor_an155" class="victor_other"> &nbsp;</span></div>
+<div class="ev_ubbx_tpc_alt"><span id="victor_an156" class="victor_paragraph">I forgot about Dimes, which is like DC on top of DC.
+</span><br />
+<br /><span id="victor_an157" class="victor_paragraph">/me calls the doc</span></div>
+</td>
+</tr>
+</table>
+<table id="ignore_685003273731" class="ev_msg_rowcolor2" cellspacing="0" align="center" style="display:none;">
+<tr>
+<td class="ev_ignore_msg" colspan="2">
+<table cellspacing="0" cellpadding="0" width="100%">
+<tr>
+<td class="ev_text_small"><span id="victor_an158" class="victor_other">Ignored post by 
+</span><a onclick="window.activemenu=true;show_member_menu(this,'gs_user_contact_menu','whilden','9330938812','');window.activemenu=false;event.cancelBubble=true" id="user_9330938812_i_msg_685003273731" class="ev_member_link" href="javascript:void(0)"><span id="victor_an159" class="victor_other">whilden</span></a><span id="victor_an160" class="victor_other"> posted 
+</span> 
+<noscript><span id="victor_an161" class="victor_other">June 06, 2005 08:59</span></noscript></td>
+<td class="ev_text_small" style="text-align:right;">
+<a href="javascript:void(0);" onclick="showElement('post_685003273731'); hideElement('ignore_685003273731');"><span id="victor_an162" class="victor_other">Show Post</span></a>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+
+<table id="post_627003273731" class="ev_msg_rowcolor1" cellspacing="0" align="center">
+<tr>
+<td class="ev_msg_userinfo">
+<a name="627003273731"></a>
+<div class="ev_ubbx_tpc_author">
+<a onclick="window.activemenu=true;show_member_menu(this,'gs_user_contact_menu','MarcC','1710919573','');window.activemenu=false;event.cancelBubble=true" id="user_1710919573_msg_627003273731" class="ev_member_link" href="javascript:void(0)"><span id="victor_an163" class="victor_header">MarcC</span></a>
+</div>
+<span class="ev_text_small"><span id="victor_an164" class="victor_other">Ars Scholae Palatinae
+</span><br /></span>
+<div id="ev_tpc_location">
+<span class="ev_text_small">
+<br /><span id="victor_an165" class="victor_other">Tribus: Lurking in the shadows of the AFS barracks</span></span>
+</div>
+<div id="ev_tpc_reg"><span id="victor_an166" class="victor_other">Registered: February 17, 2002</span></div>
+<a class="ev_text_color" href="http://episteme.arstechnica.com/eve/forums?a=userposts&amp;sortType=1&amp;u=1710919573" rel="nofollow"></a>
+<div id="ev_tpc_post"><span id="victor_an167" class="victor_other">Posts: 1338</span></div>
+</td>
+<td class="ev_ubbx_tpc_alt">
+<div class="ev_ubbx_tpc_info_alt">
+<a href="http://episteme.arstechnica.com/eve/forums/a/tpc/f/122097561/m/103003273731?r=627003273731#627003273731" rel="nofollow">
+<img class="ubb_post_icon1" align="absbottom" src="http://episteme.arstechnica.com/groupee_common/platform_images/blank.gif" />
+</a><span id="victor_an168" class="victor_other"> Posted 
+</span> 
+<noscript><span id="victor_an169" class="victor_other">June 06, 2005 09:23</span></noscript><span id="victor_an170" class="victor_other"> &nbsp; 
+</span><nobr>
+<a href="javascript:void(0);" onclick="sizePopup('reply', 'http://episteme.arstechnica.com/eve/forums?a=em&amp;m=627003273731&amp;f=122097561&amp;x_popup=Y', 'open');">
+<img src="http://episteme.arstechnica.com/groupee_common/platform_images/blank.gif" class="eve_edit" hspace="3" name="1710919573.627003273731.edit" alt="Edit or Delete Message" title="Edit or Delete Message"><span id="victor_an171" class="victor_other">Edit or Delete Message</span></img>
+</a>
+</nobr><span id="victor_an172" class="victor_other"> &nbsp;</span></div>
+<div class="ev_ubbx_tpc_alt"><span id="victor_an173" class="victor_paragraph">hmm let's see at the moment:
+</span><br /><span id="victor_an174" class="victor_list">Folding@home
+</span><br /><span id="victor_an175" class="victor_list">DIMES
+</span><br /><span id="victor_an176" class="victor_list">mousetracker
+</span><br />
+<br /><span id="victor_an177" class="victor_paragraph">experimenting with
+</span><br /><span id="victor_an178" class="victor_list">fad
+</span><br /><span id="victor_an179" class="victor_list">muon
+</span><br />
+<br /><span id="victor_an180" class="victor_paragraph">I've been pretty much in all projects ars is associated with at some point with the notable exception of BOINC.
+</span><br />
+<br /><span id="victor_an181" class="victor_paragraph">of course that's not what makes me certifiable. what does is this propensity I have to collect stats for all these projects and put them occasionally up for public review. if this doesn't constitute insanity I don't know what does.
+</span><br />
+<br /><span id="victor_an182" class="victor_paragraph">Cheers,
+</span><br /><span id="victor_an183" class="victor_paragraph">Marc</span></div>
+</td>
+</tr>
+</table>
+<table id="ignore_627003273731" class="ev_msg_rowcolor1" cellspacing="0" align="center" style="display:none;">
+<tr>
+<td class="ev_ignore_msg" colspan="2">
+<table cellspacing="0" cellpadding="0" width="100%">
+<tr>
+<td class="ev_text_small"><span id="victor_an184" class="victor_other">Ignored post by 
+</span><a onclick="window.activemenu=true;show_member_menu(this,'gs_user_contact_menu','MarcC','1710919573','');window.activemenu=false;event.cancelBubble=true" id="user_1710919573_i_msg_627003273731" class="ev_member_link" href="javascript:void(0)"><span id="victor_an185" class="victor_other">MarcC</span></a><span id="victor_an186" class="victor_other"> posted 
+</span> 
+<noscript><span id="victor_an187" class="victor_other">June 06, 2005 09:23</span></noscript></td>
+<td class="ev_text_small" style="text-align:right;">
+<a href="javascript:void(0);" onclick="showElement('post_627003273731'); hideElement('ignore_627003273731');"><span id="victor_an188" class="victor_other">Show Post</span></a>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+
+<table id="post_891005273731" class="ev_msg_rowcolor2" cellspacing="0" align="center">
+<tr>
+<td class="ev_msg_userinfo">
+<a name="891005273731"></a>
+<div class="ev_ubbx_tpc_author">
+<a onclick="window.activemenu=true;show_member_menu(this,'gs_user_contact_menu','Animekiksazz','987005064631','');window.activemenu=false;event.cancelBubble=true" id="user_987005064631_msg_891005273731" class="ev_member_link" href="javascript:void(0)"><span id="victor_an189" class="victor_header">Animekiksazz</span></a>
+</div>
+<span class="ev_text_small"><span id="victor_an190" class="victor_other">Wise, Aged Ars Veteran
+</span><br /></span>
+<div id="ev_tpc_location">
+<span class="ev_text_small">
+<br /><span id="victor_an191" class="victor_other">Tribus: Mimico (Toronto)</span></span>
+</div>
+<div id="ev_tpc_reg"><span id="victor_an192" class="victor_other">Registered: June 02, 2004</span></div>
+<a class="ev_text_color" href="http://episteme.arstechnica.com/eve/forums?a=userposts&amp;sortType=1&amp;u=987005064631" rel="nofollow"></a>
+<div id="ev_tpc_post"><span id="victor_an193" class="victor_other">Posts: 623</span></div>
+</td>
+<td class="ev_ubbx_tpc_alt">
+<div class="ev_ubbx_tpc_info_alt">
+<a href="http://episteme.arstechnica.com/eve/forums/a/tpc/f/122097561/m/103003273731?r=891005273731#891005273731" rel="nofollow">
+<img class="ubb_post_icon1" align="absbottom" src="http://episteme.arstechnica.com/groupee_common/platform_images/blank.gif" />
+</a><span id="victor_an194" class="victor_other"> Posted 
+</span> 
+<noscript><span id="victor_an195" class="victor_other">June 06, 2005 10:35</span></noscript><span id="victor_an196" class="victor_other"> &nbsp; 
+</span><nobr>
+<a href="javascript:void(0);" onclick="sizePopup('reply', 'http://episteme.arstechnica.com/eve/forums?a=em&amp;m=891005273731&amp;f=122097561&amp;x_popup=Y', 'open');">
+<img src="http://episteme.arstechnica.com/groupee_common/platform_images/blank.gif" class="eve_edit" hspace="3" name="987005064631.891005273731.edit" alt="Edit or Delete Message" title="Edit or Delete Message"><span id="victor_an197" class="victor_other">Edit or Delete Message</span></img>
+</a>
+</nobr><span id="victor_an198" class="victor_other"> &nbsp;</span></div>
+<div class="ev_ubbx_tpc_alt"><span id="victor_an199" class="victor_paragraph">CPDN - Main thing I care about
+</span><br /><span id="victor_an200" class="victor_paragraph">DIMES - doesn't use any cpu time (barely)
+</span><br /><span id="victor_an201" class="victor_paragraph">MouseTracker - 'useless'
+</span><br />
+<br /><span id="victor_an202" class="victor_paragraph">Used to run SETI, and SETI@BOINC.</span></div>
+</td>
+</tr>
+</table>
+<table id="ignore_891005273731" class="ev_msg_rowcolor2" cellspacing="0" align="center" style="display:none;">
+<tr>
+<td class="ev_ignore_msg" colspan="2">
+<table cellspacing="0" cellpadding="0" width="100%">
+<tr>
+<td class="ev_text_small"><span id="victor_an203" class="victor_other">Ignored post by 
+</span><a onclick="window.activemenu=true;show_member_menu(this,'gs_user_contact_menu','Animekiksazz','987005064631','');window.activemenu=false;event.cancelBubble=true" id="user_987005064631_i_msg_891005273731" class="ev_member_link" href="javascript:void(0)"><span id="victor_an204" class="victor_other">Animekiksazz</span></a><span id="victor_an205" class="victor_other"> posted 
+</span> 
+<noscript><span id="victor_an206" class="victor_other">June 06, 2005 10:35</span></noscript></td>
+<td class="ev_text_small" style="text-align:right;">
+<a href="javascript:void(0);" onclick="showElement('post_891005273731'); hideElement('ignore_891005273731');"><span id="victor_an207" class="victor_other">Show Post</span></a>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+
+<table id="post_145005273731" class="ev_msg_rowcolor1" cellspacing="0" align="center">
+<tr>
+<td class="ev_msg_userinfo">
+<a name="145005273731"></a>
+<div class="ev_ubbx_tpc_author">
+<a onclick="window.activemenu=true;show_member_menu(this,'gs_user_contact_menu','pizzaking','7940946891','');window.activemenu=false;event.cancelBubble=true" id="user_7940946891_msg_145005273731" class="ev_member_link" href="javascript:void(0)"><span id="victor_an208" class="victor_header">pizzaking</span></a>
+</div>
+<span class="ev_text_small"><span id="victor_an209" class="victor_other">Ars Praetorian
+</span><br /></span>
+<div id="ev_tpc_location">
+<span class="ev_text_small">
+<br /><span id="victor_an210" class="victor_other">Tribus: Ironville, UK</span></span>
+</div>
+<div id="ev_tpc_reg"><span id="victor_an211" class="victor_other">Registered: June 08, 2001</span></div>
+<a class="ev_text_color" href="http://episteme.arstechnica.com/eve/forums?a=userposts&amp;sortType=1&amp;u=7940946891" rel="nofollow"></a>
+<div id="ev_tpc_post"><span id="victor_an212" class="victor_other">Posts: 785</span></div>
+</td>
+<td class="ev_ubbx_tpc_alt">
+<div class="ev_ubbx_tpc_info_alt">
+<a href="http://episteme.arstechnica.com/eve/forums/a/tpc/f/122097561/m/103003273731?r=145005273731#145005273731" rel="nofollow">
+<img class="ubb_post_icon1" align="absbottom" src="http://episteme.arstechnica.com/groupee_common/platform_images/blank.gif" />
+</a><span id="victor_an213" class="victor_other"> Posted 
+</span> 
+<noscript><span id="victor_an214" class="victor_other">June 06, 2005 11:10</span></noscript><span id="victor_an215" class="victor_other"> &nbsp; 
+</span><nobr>
+<a href="javascript:void(0);" onclick="sizePopup('reply', 'http://episteme.arstechnica.com/eve/forums?a=em&amp;m=145005273731&amp;f=122097561&amp;x_popup=Y', 'open');">
+<img src="http://episteme.arstechnica.com/groupee_common/platform_images/blank.gif" class="eve_edit" hspace="3" name="7940946891.145005273731.edit" alt="Edit or Delete Message" title="Edit or Delete Message"><span id="victor_an216" class="victor_other">Edit or Delete Message</span></img>
+</a>
+</nobr><span id="victor_an217" class="victor_other"> &nbsp;</span></div>
+<div class="ev_ubbx_tpc_alt"><span id="victor_an218" class="victor_paragraph">Only contributing to a couple of projects these days;
+</span><br /><span id="victor_an219" class="victor_paragraph">F@H - Windows boxes and my main project
+</span><br /><span id="victor_an220" class="victor_paragraph">GIMPS - Mainly FreeBSD boxes, my install and forget project
+</span><br />
+<br /><span id="victor_an221" class="victor_paragraph">Although over the years I've also contributed to; D2OL, DF phases 1 and 2, ECCp-109, ECC2-109, G@H, OGR24 (or it might have been OGR25, I forget) and SETI.
+</span><br />
+<br /><span id="victor_an222" class="victor_paragraph">and I'm still a statswhore....
+</span><br />
+<br /><span id="victor_an223" class="victor_paragraph">pk</span></div>
+</td>
+</tr>
+</table>
+<table id="ignore_145005273731" class="ev_msg_rowcolor1" cellspacing="0" align="center" style="display:none;">
+<tr>
+<td class="ev_ignore_msg" colspan="2">
+<table cellspacing="0" cellpadding="0" width="100%">
+<tr>
+<td class="ev_text_small"><span id="victor_an224" class="victor_other">Ignored post by 
+</span><a onclick="window.activemenu=true;show_member_menu(this,'gs_user_contact_menu','pizzaking','7940946891','');window.activemenu=false;event.cancelBubble=true" id="user_7940946891_i_msg_145005273731" class="ev_member_link" href="javascript:void(0)"><span id="victor_an225" class="victor_other">pizzaking</span></a><span id="victor_an226" class="victor_other"> posted 
+</span> 
+<noscript><span id="victor_an227" class="victor_other">June 06, 2005 11:10</span></noscript></td>
+<td class="ev_text_small" style="text-align:right;">
+<a href="javascript:void(0);" onclick="showElement('post_145005273731'); hideElement('ignore_145005273731');"><span id="victor_an228" class="victor_other">Show Post</span></a>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+
+<table id="post_167005273731" class="ev_msg_rowcolor2" cellspacing="0" align="center">
+<tr>
+<td class="ev_msg_userinfo">
+<a name="167005273731"></a>
+<div class="ev_ubbx_tpc_author">
+<a onclick="window.activemenu=true;show_member_menu(this,'gs_user_contact_menu','VJS','9280940535','');window.activemenu=false;event.cancelBubble=true" id="user_9280940535_msg_167005273731" class="ev_member_link" href="javascript:void(0)"><span id="victor_an229" class="victor_header">VJS</span></a>
+</div>
+<span class="ev_text_small"><span id="victor_an230" class="victor_other">Wise, Aged Ars Veteran
+</span><br /></span>
+<div id="ev_tpc_reg">
+<span class="ev_text_small"><span id="victor_an231" class="victor_other">Registered: October 01, 2002</span></span>
+</div>
+<a class="ev_text_color" href="http://episteme.arstechnica.com/eve/forums?a=userposts&amp;sortType=1&amp;u=9280940535" rel="nofollow"></a>
+<div id="ev_tpc_post"><span id="victor_an232" class="victor_other">Posts: 948</span></div>
+</td>
+<td class="ev_ubbx_tpc_alt">
+<div class="ev_ubbx_tpc_info_alt">
+<a href="http://episteme.arstechnica.com/eve/forums/a/tpc/f/122097561/m/103003273731?r=167005273731#167005273731" rel="nofollow">
+<img class="ubb_post_icon1" align="absbottom" src="http://episteme.arstechnica.com/groupee_common/platform_images/blank.gif" />
+</a><span id="victor_an233" class="victor_other"> Posted 
+</span> 
+<noscript><span id="victor_an234" class="victor_other">June 06, 2005 11:32</span></noscript><span id="victor_an235" class="victor_other"> &nbsp; 
+</span><nobr>
+<a href="javascript:void(0);" onclick="sizePopup('reply', 'http://episteme.arstechnica.com/eve/forums?a=em&amp;m=167005273731&amp;f=122097561&amp;x_popup=Y', 'open');">
+<img src="http://episteme.arstechnica.com/groupee_common/platform_images/blank.gif" class="eve_edit" hspace="3" name="9280940535.167005273731.edit" alt="Edit or Delete Message" title="Edit or Delete Message"><span id="victor_an236" class="victor_other">Edit or Delete Message</span></img>
+</a>
+</nobr><span id="victor_an237" class="victor_other"> &nbsp;</span></div>
+<div class="ev_ubbx_tpc_alt"><span id="victor_an238" class="victor_paragraph">I kind of like to stay focused on one project and one project only at a time.
+</span><br />
+<br /><span id="victor_an239" class="victor_paragraph">Once entirely exhausted on a project I don't look back. Basically something else has to come around and really spark my interest to change.
+</span><br />
+<br /><span id="victor_an240" class="victor_paragraph">I believe this is the ultimate illness where one project can consume you entirely.</span></div>
+</td>
+</tr>
+</table>
+<table id="ignore_167005273731" class="ev_msg_rowcolor2" cellspacing="0" align="center" style="display:none;">
+<tr>
+<td class="ev_ignore_msg" colspan="2">
+<table cellspacing="0" cellpadding="0" width="100%">
+<tr>
+<td class="ev_text_small"><span id="victor_an241" class="victor_other">Ignored post by 
+</span><a onclick="window.activemenu=true;show_member_menu(this,'gs_user_contact_menu','VJS','9280940535','');window.activemenu=false;event.cancelBubble=true" id="user_9280940535_i_msg_167005273731" class="ev_member_link" href="javascript:void(0)"><span id="victor_an242" class="victor_other">VJS</span></a><span id="victor_an243" class="victor_other"> posted 
+</span> 
+<noscript><span id="victor_an244" class="victor_other">June 06, 2005 11:32</span></noscript></td>
+<td class="ev_text_small" style="text-align:right;">
+<a href="javascript:void(0);" onclick="showElement('post_167005273731'); hideElement('ignore_167005273731');"><span id="victor_an245" class="victor_other">Show Post</span></a>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+
+<table id="post_218005273731" class="ev_msg_rowcolor1" cellspacing="0" align="center">
+<tr>
+<td class="ev_msg_userinfo">
+<a name="218005273731"></a>
+<div class="ev_ubbx_tpc_author">
+<a onclick="window.activemenu=true;show_member_menu(this,'gs_user_contact_menu','Rattledagger','6600923561','');window.activemenu=false;event.cancelBubble=true" id="user_6600923561_msg_218005273731" class="ev_member_link" href="javascript:void(0)"><span id="victor_an246" class="victor_header">Rattledagger</span></a>
+</div>
+<span class="ev_text_small"><span id="victor_an247" class="victor_other">Wise, Aged Ars Veteran
+</span><br /></span>
+<div id="ev_tpc_location">
+<span class="ev_text_small">
+<br /><span id="victor_an248" class="victor_other">Tribus: Anandtech</span></span>
+</div>
+<div id="ev_tpc_reg"><span id="victor_an249" class="victor_other">Registered: April 29, 2001</span></div>
+<a class="ev_text_color" href="http://episteme.arstechnica.com/eve/forums?a=userposts&amp;sortType=1&amp;u=6600923561" rel="nofollow"></a>
+<div id="ev_tpc_post"><span id="victor_an250" class="victor_other">Posts: 504</span></div>
+</td>
+<td class="ev_ubbx_tpc_alt">
+<div class="ev_ubbx_tpc_info_alt">
+<a href="http://episteme.arstechnica.com/eve/forums/a/tpc/f/122097561/m/103003273731?r=218005273731#218005273731" rel="nofollow">
+<img class="ubb_post_icon1" align="absbottom" src="http://episteme.arstechnica.com/groupee_common/platform_images/blank.gif" />
+</a><span id="victor_an251" class="victor_other"> Posted 
+</span> 
+<noscript><span id="victor_an252" class="victor_other">June 06, 2005 11:37</span></noscript><span id="victor_an253" class="victor_other"> &nbsp; 
+</span><nobr>
+<a href="javascript:void(0);" onclick="sizePopup('reply', 'http://episteme.arstechnica.com/eve/forums?a=em&amp;m=218005273731&amp;f=122097561&amp;x_popup=Y', 'open');">
+<img src="http://episteme.arstechnica.com/groupee_common/platform_images/blank.gif" class="eve_edit" hspace="3" name="6600923561.218005273731.edit" alt="Edit or Delete Message" title="Edit or Delete Message"><span id="victor_an254" class="victor_other">Edit or Delete Message</span></img>
+</a>
+</nobr><span id="victor_an255" class="victor_other"> &nbsp;</span></div>
+<div class="ev_ubbx_tpc_alt"><span id="victor_an256" class="victor_paragraph">Hmm, have crunched seti for 3 different teams and CPDN for a 4th last month, so...
+</span><br />
+<br /><span id="victor_an257" class="victor_paragraph">Anyway, past projects in falling order: SETI@home "classic", Genome@home, UD "think", Folding@home, CPDN "classic", Distributed Folding.
+</span><br />
+<br /><span id="victor_an258" class="victor_paragraph">Current projects, various combinations of: CPDN/BOINC, Einstein@home, Folding@home/BOINC, LHC@home, Predictor@home, SETI@home/BOINC.</span></div>
+</td>
+</tr>
+</table>
+<table id="ignore_218005273731" class="ev_msg_rowcolor1" cellspacing="0" align="center" style="display:none;">
+<tr>
+<td class="ev_ignore_msg" colspan="2">
+<table cellspacing="0" cellpadding="0" width="100%">
+<tr>
+<td class="ev_text_small"><span id="victor_an259" class="victor_other">Ignored post by 
+</span><a onclick="window.activemenu=true;show_member_menu(this,'gs_user_contact_menu','Rattledagger','6600923561','');window.activemenu=false;event.cancelBubble=true" id="user_6600923561_i_msg_218005273731" class="ev_member_link" href="javascript:void(0)"><span id="victor_an260" class="victor_other">Rattledagger</span></a><span id="victor_an261" class="victor_other"> posted 
+</span> 
+<noscript><span id="victor_an262" class="victor_other">June 06, 2005 11:37</span></noscript></td>
+<td class="ev_text_small" style="text-align:right;">
+<a href="javascript:void(0);" onclick="showElement('post_218005273731'); hideElement('ignore_218005273731');"><span id="victor_an263" class="victor_other">Show Post</span></a>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+
+<table id="post_768005273731" class="ev_msg_rowcolor2" cellspacing="0" align="center">
+<tr>
+<td class="ev_msg_userinfo">
+<a name="768005273731"></a>
+<div class="ev_ubbx_tpc_author">
+<a onclick="window.activemenu=true;show_member_menu(this,'gs_user_contact_menu','Larry Loen','794098771','');window.activemenu=false;event.cancelBubble=true" id="user_794098771_msg_768005273731" class="ev_member_link" href="javascript:void(0)"><span id="victor_an264" class="victor_header">Larry Loen</span></a>
+</div>
+<span class="ev_text_small"><span id="victor_an265" class="victor_other">Ars Tribunus Militum
+</span><br /></span>
+<div id="ev_tpc_location">
+<span class="ev_text_small">
+<br /><span id="victor_an266" class="victor_other">Tribus: OS/400 land</span></span>
+</div>
+<div id="ev_tpc_reg"><span id="victor_an267" class="victor_other">Registered: August 06, 2000</span></div>
+<a class="ev_text_color" href="http://episteme.arstechnica.com/eve/forums?a=userposts&amp;sortType=1&amp;u=794098771" rel="nofollow"></a>
+<div id="ev_tpc_post"><span id="victor_an268" class="victor_other">Posts: 8723</span></div>
+</td>
+<td class="ev_ubbx_tpc_alt">
+<div class="ev_ubbx_tpc_info_alt">
+<a href="http://episteme.arstechnica.com/eve/forums/a/tpc/f/122097561/m/103003273731?r=768005273731#768005273731" rel="nofollow">
+<img class="ubb_post_icon1" align="absbottom" src="http://episteme.arstechnica.com/groupee_common/platform_images/blank.gif" />
+</a><span id="victor_an269" class="victor_other"> Posted 
+</span> 
+<noscript><span id="victor_an270" class="victor_other">June 06, 2005 11:42</span></noscript><span id="victor_an271" class="victor_other"> &nbsp; 
+</span><nobr>
+<a href="javascript:void(0);" onclick="sizePopup('reply', 'http://episteme.arstechnica.com/eve/forums?a=em&amp;m=768005273731&amp;f=122097561&amp;x_popup=Y', 'open');">
+<img src="http://episteme.arstechnica.com/groupee_common/platform_images/blank.gif" class="eve_edit" hspace="3" name="794098771.768005273731.edit" alt="Edit or Delete Message" title="Edit or Delete Message"><span id="victor_an272" class="victor_other">Edit or Delete Message</span></img>
+</a>
+</nobr><span id="victor_an273" class="victor_other"> &nbsp;</span></div>
+<div class="ev_ubbx_tpc_alt"><span id="victor_an274" class="victor_paragraph">In my most active period, I never ran more than two projects at a time.
+</span><br />
+<br /><span id="victor_an275" class="victor_paragraph">There was turnover, however, in terms of which two it was.</span></div>
+</td>
+</tr>
+</table>
+<table id="ignore_768005273731" class="ev_msg_rowcolor2" cellspacing="0" align="center" style="display:none;">
+<tr>
+<td class="ev_ignore_msg" colspan="2">
+<table cellspacing="0" cellpadding="0" width="100%">
+<tr>
+<td class="ev_text_small"><span id="victor_an276" class="victor_other">Ignored post by 
+</span><a onclick="window.activemenu=true;show_member_menu(this,'gs_user_contact_menu','Larry Loen','794098771','');window.activemenu=false;event.cancelBubble=true" id="user_794098771_i_msg_768005273731" class="ev_member_link" href="javascript:void(0)"><span id="victor_an277" class="victor_other">Larry Loen</span></a><span id="victor_an278" class="victor_other"> posted 
+</span> 
+<noscript><span id="victor_an279" class="victor_other">June 06, 2005 11:42</span></noscript></td>
+<td class="ev_text_small" style="text-align:right;">
+<a href="javascript:void(0);" onclick="showElement('post_768005273731'); hideElement('ignore_768005273731');"><span id="victor_an280" class="victor_other">Show Post</span></a>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+
+<table id="post_142007273731" class="ev_msg_rowcolor1" cellspacing="0" align="center">
+<tr>
+<td class="ev_msg_userinfo">
+<a name="142007273731"></a>
+<div class="ev_ubbx_tpc_author">
+<a onclick="window.activemenu=true;show_member_menu(this,'gs_user_contact_menu','Loudergood','4620908604','');window.activemenu=false;event.cancelBubble=true" id="user_4620908604_msg_142007273731" class="ev_member_link" href="javascript:void(0)"><span id="victor_an281" class="victor_header">Loudergood</span></a>
+</div>
+<span class="ev_text_small"><span id="victor_an282" class="victor_other">Ars Scholae Palatinae
+</span><br /></span>
+<div id="ev_tpc_location">
+<span class="ev_text_small">
+<br /><span id="victor_an283" class="victor_other">Tribus: Northeast Kingdom</span></span>
+</div>
+<div id="ev_tpc_reg"><span id="victor_an284" class="victor_other">Registered: March 18, 2002</span></div>
+<a class="ev_text_color" href="http://episteme.arstechnica.com/eve/forums?a=userposts&amp;sortType=1&amp;u=4620908604" rel="nofollow"></a>
+<div id="ev_tpc_post"><span id="victor_an285" class="victor_other">Posts: 4126</span></div>
+</td>
+<td class="ev_ubbx_tpc_alt">
+<div class="ev_ubbx_tpc_info_alt">
+<a href="http://episteme.arstechnica.com/eve/forums/a/tpc/f/122097561/m/103003273731?r=142007273731#142007273731" rel="nofollow">
+<img class="ubb_post_icon1" align="absbottom" src="http://episteme.arstechnica.com/groupee_common/platform_images/blank.gif" />
+</a><span id="victor_an286" class="victor_other"> Posted 
+</span> 
+<noscript><span id="victor_an287" class="victor_other">June 06, 2005 12:13</span></noscript><span id="victor_an288" class="victor_other"> &nbsp; 
+</span><nobr>
+<a href="javascript:void(0);" onclick="sizePopup('reply', 'http://episteme.arstechnica.com/eve/forums?a=em&amp;m=142007273731&amp;f=122097561&amp;x_popup=Y', 'open');">
+<img src="http://episteme.arstechnica.com/groupee_common/platform_images/blank.gif" class="eve_edit" hspace="3" name="4620908604.142007273731.edit" alt="Edit or Delete Message" title="Edit or Delete Message"><span id="victor_an289" class="victor_other">Edit or Delete Message</span></img>
+</a>
+</nobr><span id="victor_an290" class="victor_other"> &nbsp;</span></div>
+<div class="ev_ubbx_tpc_alt"><span id="victor_an291" class="victor_paragraph">I'm running a few, I'm just not at liberty to say what they are at the moment. 
+</span><img src="http://episteme.arstechnica.com/images/biggrin_old.gif" alt="Big Grin" width="15" height="15"><span id="victor_an292" class="victor_other">Big Grin</span></img>
+</div>
+</td>
+</tr>
+</table>
+<table id="ignore_142007273731" class="ev_msg_rowcolor1" cellspacing="0" align="center" style="display:none;">
+<tr>
+<td class="ev_ignore_msg" colspan="2">
+<table cellspacing="0" cellpadding="0" width="100%">
+<tr>
+<td class="ev_text_small"><span id="victor_an293" class="victor_other">Ignored post by 
+</span><a onclick="window.activemenu=true;show_member_menu(this,'gs_user_contact_menu','Loudergood','4620908604','');window.activemenu=false;event.cancelBubble=true" id="user_4620908604_i_msg_142007273731" class="ev_member_link" href="javascript:void(0)"><span id="victor_an294" class="victor_other">Loudergood</span></a><span id="victor_an295" class="victor_other"> posted 
+</span> 
+<noscript><span id="victor_an296" class="victor_other">June 06, 2005 12:13</span></noscript></td>
+<td class="ev_text_small" style="text-align:right;">
+<a href="javascript:void(0);" onclick="showElement('post_142007273731'); hideElement('ignore_142007273731');"><span id="victor_an297" class="victor_other">Show Post</span></a>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+
+<table id="post_135005573731" class="ev_msg_rowcolor2" cellspacing="0" align="center">
+<tr>
+<td class="ev_msg_userinfo">
+<a name="135005573731"></a>
+<div class="ev_ubbx_tpc_author">
+<a onclick="window.activemenu=true;show_member_menu(this,'gs_user_contact_menu','Jetta','3560999963','');window.activemenu=false;event.cancelBubble=true" id="user_3560999963_msg_135005573731" class="ev_member_link" href="javascript:void(0)"><span id="victor_an298" class="victor_header">Jetta</span></a>
+</div>
+<span class="ev_text_small"><span id="victor_an299" class="victor_other">"Chili thread starter"
+</span><br /><span id="victor_an300" class="victor_other">Ars Scholae Palatinae
+</span><br /><span id="victor_an301" class="victor_other">et 
+</span><a href="http://arstechnica.com/etc/subscribe/subscribe-1.html" style="text-decoration: none" target="_Blank">
+<font color="#800000"><span id="victor_an302" class="victor_other">Subscriptor</span></font>
+</a>
+<br /></span>
+<div id="ev_tpc_location">
+<span class="ev_text_small">
+<br /><span id="victor_an303" class="victor_other">Tribus: Tampa, FL</span></span>
+</div>
+<div id="ev_tpc_reg"><span id="victor_an304" class="victor_other">Registered: February 09, 2002</span></div>
+<a class="ev_text_color" href="http://episteme.arstechnica.com/eve/forums?a=userposts&amp;sortType=1&amp;u=3560999963" rel="nofollow"></a>
+<div id="ev_tpc_post"><span id="victor_an305" class="victor_other">Posts: 15613</span></div>
+<img src="http://big.oscar.aol.com/Ars%20Jetta?on_url=http://episteme.arstechnica.com/groupee_common/platform_images/im_on.gif&amp;off_url=http://episteme.arstechnica.com/groupee_common/platform_images/im_off.gif" title="AIM: Online Status For Ars Jetta" alt="AIM: Online Status For Ars Jetta"><span id="victor_an306" class="victor_other">AIM: Online Status For Ars Jetta</span></img>
+</td>
+<td class="ev_ubbx_tpc_alt">
+<div class="ev_ubbx_tpc_info_alt">
+<a href="http://episteme.arstechnica.com/eve/forums/a/tpc/f/122097561/m/103003273731?r=135005573731#135005573731" rel="nofollow">
+<img class="ubb_post_icon1" align="absbottom" src="http://episteme.arstechnica.com/groupee_common/platform_images/blank.gif" />
+</a><span id="victor_an307" class="victor_other"> Posted 
+</span> 
+<noscript><span id="victor_an308" class="victor_other">June 07, 2005 12:05</span></noscript><span id="victor_an309" class="victor_other"> &nbsp; 
+</span><nobr>
+<a href="javascript:void(0);" onclick="sizePopup('reply', 'http://episteme.arstechnica.com/eve/forums?a=em&amp;m=135005573731&amp;f=122097561&amp;x_popup=Y', 'open');">
+<img src="http://episteme.arstechnica.com/groupee_common/platform_images/blank.gif" class="eve_edit" hspace="3" name="3560999963.135005573731.edit" alt="Edit or Delete Message" title="Edit or Delete Message"><span id="victor_an310" class="victor_other">Edit or Delete Message</span></img>
+</a>
+</nobr><span id="victor_an311" class="victor_other"> &nbsp;</span></div>
+<div class="ev_ubbx_tpc_alt">
+<blockquote class="ip-ubbcode-quote">
+<div class="ip-ubbcode-quote-title"><span id="victor_an312" class="victor_other">quote:</span></div>
+<div class="ip-ubbcode-quote-content"><span id="victor_an313" class="victor_other">Originally posted by Loudergood:
+</span><br /><span id="victor_an314" class="victor_other">I'm running a few, I'm just not at liberty to say what they are at the moment. 
+</span><img src="http://episteme.arstechnica.com/images/biggrin_old.gif" alt="Big Grin" width="15" height="15"><span id="victor_an315" class="victor_other">Big Grin</span></img>
+</div>
+</blockquote>
+<br />
+<br />
+<img src="http://episteme.arstechnica.com/images/scared.gif" alt="Scared" width="15" height="15"><span id="victor_an316" class="victor_other">Scared</span></img>
+
+</div>
+</td>
+</tr>
+</table>
+<table id="ignore_135005573731" class="ev_msg_rowcolor2" cellspacing="0" align="center" style="display:none;">
+<tr>
+<td class="ev_ignore_msg" colspan="2">
+<table cellspacing="0" cellpadding="0" width="100%">
+<tr>
+<td class="ev_text_small"><span id="victor_an317" class="victor_other">Ignored post by 
+</span><a onclick="window.activemenu=true;show_member_menu(this,'gs_user_contact_menu','Jetta','3560999963','');window.activemenu=false;event.cancelBubble=true" id="user_3560999963_i_msg_135005573731" class="ev_member_link" href="javascript:void(0)"><span id="victor_an318" class="victor_other">Jetta</span></a><span id="victor_an319" class="victor_other"> posted 
+</span> 
+<noscript><span id="victor_an320" class="victor_other">June 07, 2005 12:05</span></noscript></td>
+<td class="ev_text_small" style="text-align:right;">
+<a href="javascript:void(0);" onclick="showElement('post_135005573731'); hideElement('ignore_135005573731');"><span id="victor_an321" class="victor_other">Show Post</span></a>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+
+<table id="post_384008573731" class="ev_msg_rowcolor1" cellspacing="0" align="center">
+<tr>
+<td class="ev_msg_userinfo">
+<a name="384008573731"></a>
+<div class="ev_ubbx_tpc_author">
+<a onclick="window.activemenu=true;show_member_menu(this,'gs_user_contact_menu','Thomasn','815096972','');window.activemenu=false;event.cancelBubble=true" id="user_815096972_msg_384008573731" class="ev_member_link" href="javascript:void(0)"><span id="victor_an322" class="victor_header">Thomasn</span></a>
+</div>
+<span class="ev_text_small"><span id="victor_an323" class="victor_other">Smack-Fu Master, in training
+</span><br /></span>
+<div id="ev_tpc_location">
+<span class="ev_text_small">
+<br /><span id="victor_an324" class="victor_other">Tribus: Bergen</span></span>
+</div>
+<div id="ev_tpc_reg"><span id="victor_an325" class="victor_other">Registered: November 05, 2000</span></div>
+<a class="ev_text_color" href="http://episteme.arstechnica.com/eve/forums?a=userposts&amp;sortType=1&amp;u=815096972" rel="nofollow"></a>
+<div id="ev_tpc_post"><span id="victor_an326" class="victor_other">Posts: 80</span></div>
+</td>
+<td class="ev_ubbx_tpc_alt">
+<div class="ev_ubbx_tpc_info_alt">
+<a href="http://episteme.arstechnica.com/eve/forums/a/tpc/f/122097561/m/103003273731?r=384008573731#384008573731" rel="nofollow">
+<img class="ubb_post_icon1" align="absbottom" src="http://episteme.arstechnica.com/groupee_common/platform_images/blank.gif" />
+</a><span id="victor_an327" class="victor_other"> Posted 
+</span> 
+<noscript><span id="victor_an328" class="victor_other">June 07, 2005 14:24</span></noscript><span id="victor_an329" class="victor_other"> &nbsp; 
+</span><nobr>
+<a href="javascript:void(0);" onclick="sizePopup('reply', 'http://episteme.arstechnica.com/eve/forums?a=em&amp;m=384008573731&amp;f=122097561&amp;x_popup=Y', 'open');">
+<img src="http://episteme.arstechnica.com/groupee_common/platform_images/blank.gif" class="eve_edit" hspace="3" name="815096972.384008573731.edit" alt="Edit or Delete Message" title="Edit or Delete Message"><span id="victor_an330" class="victor_other">Edit or Delete Message</span></img>
+</a>
+</nobr><span id="victor_an331" class="victor_other"> &nbsp;</span></div>
+<div class="ev_ubbx_tpc_alt"><span id="victor_an332" class="victor_paragraph">I think I had FAH as main, with a bottomhugger of rc5 and one bottomhugger of manual ecm tests (when fah was unstable and I lacked FAH wu). That was on the home machine, did Find a drug at work, and ogr at the university.
+</span><br />
+<br /><span id="victor_an333" class="victor_paragraph">Now I focus on one project at a time, was FAH, which I got to 100000 points, now I have switched to rc5, goal is to reach 1M wus, currently 35K or so 
+</span><img src="http://episteme.arstechnica.com/groupee_common/emoticons/icon_wink.gif" alt="Wink" width="15" height="15"><span id="victor_an334" class="victor_other">Wink</span></img>
+
+<br />
+<br /><span id="victor_an335" class="victor_paragraph">So : you are not ill. I found after a time though that with only 5 cpus, you have to focus to gain ranks fast. Yes I am a stats whore 
+</span><img src="http://episteme.arstechnica.com/groupee_common/emoticons/icon_wink.gif" alt="Wink" width="15" height="15"><span id="victor_an336" class="victor_other">Wink</span></img>
+</div>
+</td>
+</tr>
+</table>
+<table id="ignore_384008573731" class="ev_msg_rowcolor1" cellspacing="0" align="center" style="display:none;">
+<tr>
+<td class="ev_ignore_msg" colspan="2">
+<table cellspacing="0" cellpadding="0" width="100%">
+<tr>
+<td class="ev_text_small"><span id="victor_an337" class="victor_other">Ignored post by 
+</span><a onclick="window.activemenu=true;show_member_menu(this,'gs_user_contact_menu','Thomasn','815096972','');window.activemenu=false;event.cancelBubble=true" id="user_815096972_i_msg_384008573731" class="ev_member_link" href="javascript:void(0)"><span id="victor_an338" class="victor_other">Thomasn</span></a><span id="victor_an339" class="victor_other"> posted 
+</span> 
+<noscript><span id="victor_an340" class="victor_other">June 07, 2005 14:24</span></noscript></td>
+<td class="ev_text_small" style="text-align:right;">
+<a href="javascript:void(0);" onclick="showElement('post_384008573731'); hideElement('ignore_384008573731');"><span id="victor_an341" class="victor_other">Show Post</span></a>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+
+<table id="post_659008573731" class="ev_msg_rowcolor2" cellspacing="0" align="center">
+<tr>
+<td class="ev_msg_userinfo">
+<a name="659008573731"></a>
+<div class="ev_ubbx_tpc_author">
+<a onclick="window.activemenu=true;show_member_menu(this,'gs_user_contact_menu','Jamilla','261092138','');window.activemenu=false;event.cancelBubble=true" id="user_261092138_msg_659008573731" class="ev_member_link" href="javascript:void(0)"><span id="victor_an342" class="victor_header">Jamilla</span></a>
+</div>
+<span class="ev_text_small"><span id="victor_an343" class="victor_other">"Facetus Malum"
+</span><br /><span id="victor_an344" class="victor_other">Ars Tribunus Militum
+</span><br /><span id="victor_an345" class="victor_other">et 
+</span><a href="http://arstechnica.com/etc/subscribe/subscribe-1.html" style="text-decoration: none" target="_Blank">
+<font color="#800000"><span id="victor_an346" class="victor_other">Subscriptor</span></font>
+</a>
+<br /></span>
+<div id="ev_tpc_location">
+<span class="ev_text_small">
+<br /><span id="victor_an347" class="victor_other">Tribus: Sab Diego, CA Crunching Granny</span></span>
+</div>
+<div id="ev_tpc_reg"><span id="victor_an348" class="victor_other">Registered: February 02, 2001</span></div>
+<a class="ev_text_color" href="http://episteme.arstechnica.com/eve/forums?a=userposts&amp;sortType=1&amp;u=261092138" rel="nofollow"></a>
+<div id="ev_tpc_post"><span id="victor_an349" class="victor_other">Posts: 4677</span></div>
+<a href="http://edit.yahoo.com/config/send_webmesg?.target=besuvwl&amp;.src=pg">
+<img width="64" height="16" src="http://opi.yahoo.com/online?u=besuvwl&amp;m=g&amp;t=1" alt="Yahoo IM" title="Yahoo IM"><span id="victor_an350" class="victor_other">Yahoo IM</span></img>
+</a>
+</td>
+<td class="ev_ubbx_tpc_alt">
+<div class="ev_ubbx_tpc_info_alt">
+<a href="http://episteme.arstechnica.com/eve/forums/a/tpc/f/122097561/m/103003273731?r=659008573731#659008573731" rel="nofollow">
+<img class="ubb_post_icon1" align="absbottom" src="http://episteme.arstechnica.com/groupee_common/platform_images/blank.gif" />
+</a><span id="victor_an351" class="victor_other"> Posted 
+</span> 
+<noscript><span id="victor_an352" class="victor_other">June 07, 2005 14:53</span></noscript><span id="victor_an353" class="victor_other"> &nbsp; 
+</span><nobr>
+<a href="javascript:void(0);" onclick="sizePopup('reply', 'http://episteme.arstechnica.com/eve/forums?a=em&amp;m=659008573731&amp;f=122097561&amp;x_popup=Y', 'open');">
+<img src="http://episteme.arstechnica.com/groupee_common/platform_images/blank.gif" class="eve_edit" hspace="3" name="261092138.659008573731.edit" alt="Edit or Delete Message" title="Edit or Delete Message"><span id="victor_an354" class="victor_other">Edit or Delete Message</span></img>
+</a>
+</nobr><span id="victor_an355" class="victor_other"> &nbsp;</span></div>
+<div class="ev_ubbx_tpc_alt"><span id="victor_an356" class="victor_paragraph">I am currently running SoB and DIMES.
+</span><br />
+<br /><span id="victor_an357" class="victor_paragraph">I just finished up running Seti Classic. I will not be BOINC'ing until the client(s) have all of the bugs worked out.
+</span><br />
+<br /><span id="victor_an358" class="victor_paragraph">In the past I have run:
+</span><br />
+<br /><span id="victor_an359" class="victor_list">Seti Classic
+</span><br /><span id="victor_an360" class="victor_list">GAH
+</span><br /><span id="victor_an361" class="victor_list">FAH
+</span><br /><span id="victor_an362" class="victor_list">Ubero
+</span><br /><span id="victor_an363" class="victor_list">ECCp-109
+</span><br /><span id="victor_an364" class="victor_list">ECC2-109
+</span><br /><span id="victor_an365" class="victor_list">Distributed Folding 1 &amp; 2
+</span><br /><span id="victor_an366" class="victor_list">RC5-64
+</span><br /><span id="victor_an367" class="victor_list">UD
+</span><br /><span id="victor_an368" class="victor_list">Seti@Home - BOINC
+</span><br /><span id="victor_an369" class="victor_list">Predictor@Home
+</span><br /><span id="victor_an370" class="victor_list">Einstein@Home
+</span><br /><span id="victor_an371" class="victor_list">LHC@Home
+</span><p><span id="victor_an372" class="victor_other">&nbsp;</span></p>
+<i><span id="victor_an373" class="victor_other">This message has been edited. Last edited by: 
+</span><a href="http://episteme.arstechnica.com/eve/personal?x_myspace_page=profile&amp;u=261092138" target="_blank"><span id="victor_an374" class="victor_other">Jamilla</span></a><span id="victor_an375" class="victor_other">, 
+</span> 
+<noscript><span id="victor_an376" class="victor_other">June 07, 2005 17:31</span></noscript></i></div>
+</td>
+</tr>
+</table>
+<table id="ignore_659008573731" class="ev_msg_rowcolor2" cellspacing="0" align="center" style="display:none;">
+<tr>
+<td class="ev_ignore_msg" colspan="2">
+<table cellspacing="0" cellpadding="0" width="100%">
+<tr>
+<td class="ev_text_small"><span id="victor_an377" class="victor_other">Ignored post by 
+</span><a onclick="window.activemenu=true;show_member_menu(this,'gs_user_contact_menu','Jamilla','261092138','');window.activemenu=false;event.cancelBubble=true" id="user_261092138_i_msg_659008573731" class="ev_member_link" href="javascript:void(0)"><span id="victor_an378" class="victor_other">Jamilla</span></a><span id="victor_an379" class="victor_other"> posted 
+</span> 
+<noscript><span id="victor_an380" class="victor_other">June 07, 2005 14:53</span></noscript></td>
+<td class="ev_text_small" style="text-align:right;">
+<a href="javascript:void(0);" onclick="showElement('post_659008573731'); hideElement('ignore_659008573731');"><span id="victor_an381" class="victor_other">Show Post</span></a>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+
+<table id="post_579008573731" class="ev_msg_rowcolor1" cellspacing="0" align="center">
+<tr>
+<td class="ev_msg_userinfo">
+<a name="579008573731"></a>
+<div class="ev_ubbx_tpc_author">
+<a onclick="window.activemenu=true;show_member_menu(this,'gs_user_contact_menu','Jamilla','261092138','');window.activemenu=false;event.cancelBubble=true" id="user_261092138_msg_579008573731" class="ev_member_link" href="javascript:void(0)"><span id="victor_an382" class="victor_header">Jamilla</span></a>
+</div>
+<span class="ev_text_small"><span id="victor_an383" class="victor_other">"Facetus Malum"
+</span><br /><span id="victor_an384" class="victor_other">Ars Tribunus Militum
+</span><br /><span id="victor_an385" class="victor_other">et 
+</span><a href="http://arstechnica.com/etc/subscribe/subscribe-1.html" style="text-decoration: none" target="_Blank">
+<font color="#800000"><span id="victor_an386" class="victor_other">Subscriptor</span></font>
+</a>
+<br /></span>
+<div id="ev_tpc_location">
+<span class="ev_text_small">
+<br /><span id="victor_an387" class="victor_other">Tribus: Sab Diego, CA Crunching Granny</span></span>
+</div>
+<div id="ev_tpc_reg"><span id="victor_an388" class="victor_other">Registered: February 02, 2001</span></div>
+<a class="ev_text_color" href="http://episteme.arstechnica.com/eve/forums?a=userposts&amp;sortType=1&amp;u=261092138" rel="nofollow"></a>
+<div id="ev_tpc_post"><span id="victor_an389" class="victor_other">Posts: 4677</span></div>
+<a href="http://edit.yahoo.com/config/send_webmesg?.target=besuvwl&amp;.src=pg">
+<img width="64" height="16" src="http://opi.yahoo.com/online?u=besuvwl&amp;m=g&amp;t=1" alt="Yahoo IM" title="Yahoo IM"><span id="victor_an390" class="victor_other">Yahoo IM</span></img>
+</a>
+</td>
+<td class="ev_ubbx_tpc_alt">
+<div class="ev_ubbx_tpc_info_alt">
+<a href="http://episteme.arstechnica.com/eve/forums/a/tpc/f/122097561/m/103003273731?r=579008573731#579008573731" rel="nofollow">
+<img class="ubb_post_icon1" align="absbottom" src="http://episteme.arstechnica.com/groupee_common/platform_images/blank.gif" />
+</a><span id="victor_an391" class="victor_other"> Posted 
+</span> 
+<noscript><span id="victor_an392" class="victor_other">June 07, 2005 14:54</span></noscript><span id="victor_an393" class="victor_other"> &nbsp; 
+</span><nobr>
+<a href="javascript:void(0);" onclick="sizePopup('reply', 'http://episteme.arstechnica.com/eve/forums?a=em&amp;m=579008573731&amp;f=122097561&amp;x_popup=Y', 'open');">
+<img src="http://episteme.arstechnica.com/groupee_common/platform_images/blank.gif" class="eve_edit" hspace="3" name="261092138.579008573731.edit" alt="Edit or Delete Message" title="Edit or Delete Message"><span id="victor_an394" class="victor_other">Edit or Delete Message</span></img>
+</a>
+</nobr><span id="victor_an395" class="victor_other"> &nbsp;</span></div>
+<div class="ev_ubbx_tpc_alt">
+<blockquote class="ip-ubbcode-quote">
+<div class="ip-ubbcode-quote-title"><span id="victor_an396" class="victor_other">quote:</span></div>
+<div class="ip-ubbcode-quote-content"><span id="victor_an397" class="victor_other">Originally posted by Thomasn:
+</span><br /><span id="victor_an398" class="victor_other">Yes I am a stats whore 
+</span><img src="http://episteme.arstechnica.com/groupee_common/emoticons/icon_wink.gif" alt="Wink" width="15" height="15"><span id="victor_an399" class="victor_other">Wink</span></img>
+</div>
+</blockquote>
+<br />
+<br /><span id="victor_an400" class="victor_paragraph">Ain't nothing wrong with that!</span></div>
+</td>
+</tr>
+</table>
+<table id="ignore_579008573731" class="ev_msg_rowcolor1" cellspacing="0" align="center" style="display:none;">
+<tr>
+<td class="ev_ignore_msg" colspan="2">
+<table cellspacing="0" cellpadding="0" width="100%">
+<tr>
+<td class="ev_text_small"><span id="victor_an401" class="victor_other">Ignored post by 
+</span><a onclick="window.activemenu=true;show_member_menu(this,'gs_user_contact_menu','Jamilla','261092138','');window.activemenu=false;event.cancelBubble=true" id="user_261092138_i_msg_579008573731" class="ev_member_link" href="javascript:void(0)"><span id="victor_an402" class="victor_other">Jamilla</span></a><span id="victor_an403" class="victor_other"> posted 
+</span> 
+<noscript><span id="victor_an404" class="victor_other">June 07, 2005 14:54</span></noscript></td>
+<td class="ev_text_small" style="text-align:right;">
+<a href="javascript:void(0);" onclick="showElement('post_579008573731'); hideElement('ignore_579008573731');"><span id="victor_an405" class="victor_other">Show Post</span></a>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+
+<table id="post_187000673731" class="ev_msg_rowcolor2" cellspacing="0" align="center">
+<tr>
+<td class="ev_msg_userinfo">
+<a name="187000673731"></a>
+<div class="ev_ubbx_tpc_author">
+<a onclick="window.activemenu=true;show_member_menu(this,'gs_user_contact_menu','kb9skw','2600983722','');window.activemenu=false;event.cancelBubble=true" id="user_2600983722_msg_187000673731" class="ev_member_link" href="javascript:void(0)"><span id="victor_an406" class="victor_header">kb9skw</span></a>
+</div>
+<span class="ev_text_small"><span id="victor_an407" class="victor_other">Ars Scholae Palatinae
+</span><br /></span>
+<div id="ev_tpc_location">
+<span class="ev_text_small">
+<br /><span id="victor_an408" class="victor_other">Tribus: Rockford, IL</span></span>
+</div>
+<div id="ev_tpc_reg"><span id="victor_an409" class="victor_other">Registered: July 13, 2001</span></div>
+<a class="ev_text_color" href="http://episteme.arstechnica.com/eve/forums?a=userposts&amp;sortType=1&amp;u=2600983722" rel="nofollow"></a>
+<div id="ev_tpc_post"><span id="victor_an410" class="victor_other">Posts: 1851</span></div>
+</td>
+<td class="ev_ubbx_tpc_alt">
+<div class="ev_ubbx_tpc_info_alt">
+<a href="http://episteme.arstechnica.com/eve/forums/a/tpc/f/122097561/m/103003273731?r=187000673731#187000673731" rel="nofollow">
+<img class="ubb_post_icon1" align="absbottom" src="http://episteme.arstechnica.com/groupee_common/platform_images/blank.gif" />
+</a><span id="victor_an411" class="victor_other"> Posted 
+</span> 
+<noscript><span id="victor_an412" class="victor_other">June 07, 2005 15:59</span></noscript><span id="victor_an413" class="victor_other"> &nbsp; 
+</span><nobr>
+<a href="javascript:void(0);" onclick="sizePopup('reply', 'http://episteme.arstechnica.com/eve/forums?a=em&amp;m=187000673731&amp;f=122097561&amp;x_popup=Y', 'open');">
+<img src="http://episteme.arstechnica.com/groupee_common/platform_images/blank.gif" class="eve_edit" hspace="3" name="2600983722.187000673731.edit" alt="Edit or Delete Message" title="Edit or Delete Message"><span id="victor_an414" class="victor_other">Edit or Delete Message</span></img>
+</a>
+</nobr><span id="victor_an415" class="victor_other"> &nbsp;</span></div>
+<div class="ev_ubbx_tpc_alt"><span id="victor_an416" class="victor_paragraph">Active...
+</span><br /><span id="victor_an417" class="victor_list">D2OL (thats a given 
+</span><img src="http://episteme.arstechnica.com/groupee_common/emoticons/icon_razz.gif" alt="Razz" width="15" height="15"><span id="victor_an418" class="victor_continuation">Razz</span></img><span id="victor_an419" class="victor_continuation">
+)
+</span><br /><span id="victor_an420" class="victor_list">SoB
+</span><br /><span id="victor_an421" class="victor_list">F@H
+</span><br /><span id="victor_an422" class="victor_list">MouseTracker
+</span><br />
+<br /><span id="victor_an423" class="victor_paragraph">Past Stuff...
+</span><br /><span id="victor_an424" class="victor_list">SETI@Home</span></div>
+</td>
+</tr>
+</table>
+<table id="ignore_187000673731" class="ev_msg_rowcolor2" cellspacing="0" align="center" style="display:none;">
+<tr>
+<td class="ev_ignore_msg" colspan="2">
+<table cellspacing="0" cellpadding="0" width="100%">
+<tr>
+<td class="ev_text_small"><span id="victor_an425" class="victor_other">Ignored post by 
+</span><a onclick="window.activemenu=true;show_member_menu(this,'gs_user_contact_menu','kb9skw','2600983722','');window.activemenu=false;event.cancelBubble=true" id="user_2600983722_i_msg_187000673731" class="ev_member_link" href="javascript:void(0)"><span id="victor_an426" class="victor_other">kb9skw</span></a><span id="victor_an427" class="victor_other"> posted 
+</span> 
+<noscript><span id="victor_an428" class="victor_other">June 07, 2005 15:59</span></noscript></td>
+<td class="ev_text_small" style="text-align:right;">
+<a href="javascript:void(0);" onclick="showElement('post_187000673731'); hideElement('ignore_187000673731');"><span id="victor_an429" class="victor_other">Show Post</span></a>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+
+<table id="post_335001673731" class="ev_msg_rowcolor1" cellspacing="0" align="center">
+<tr>
+<td class="ev_msg_userinfo">
+<a name="335001673731"></a>
+<div class="ev_ubbx_tpc_author">
+<a onclick="window.activemenu=true;show_member_menu(this,'gs_user_contact_menu','Stratcat','1960947975','');window.activemenu=false;event.cancelBubble=true" id="user_1960947975_msg_335001673731" class="ev_member_link" href="javascript:void(0)"><span id="victor_an430" class="victor_header">Stratcat</span></a>
+</div>
+<span class="ev_text_small"><span id="victor_an431" class="victor_other">Wise, Aged Ars Veteran
+</span><br /></span>
+<div id="ev_tpc_location">
+<span class="ev_text_small">
+<br /><span id="victor_an432" class="victor_other">Tribus: TDOW - Chicago Chapter</span></span>
+</div>
+<div id="ev_tpc_reg"><span id="victor_an433" class="victor_other">Registered: August 11, 2003</span></div>
+<a class="ev_text_color" href="http://episteme.arstechnica.com/eve/forums?a=userposts&amp;sortType=1&amp;u=1960947975" rel="nofollow"></a>
+<div id="ev_tpc_post"><span id="victor_an434" class="victor_other">Posts: 940</span></div>
+</td>
+<td class="ev_ubbx_tpc_alt">
+<div class="ev_ubbx_tpc_info_alt">
+<a href="http://episteme.arstechnica.com/eve/forums/a/tpc/f/122097561/m/103003273731?r=335001673731#335001673731" rel="nofollow">
+<img class="ubb_post_icon1" align="absbottom" src="http://episteme.arstechnica.com/groupee_common/platform_images/blank.gif" />
+</a><span id="victor_an435" class="victor_other"> Posted 
+</span> 
+<noscript><span id="victor_an436" class="victor_other">June 07, 2005 16:59</span></noscript><span id="victor_an437" class="victor_other"> &nbsp; 
+</span><nobr>
+<a href="javascript:void(0);" onclick="sizePopup('reply', 'http://episteme.arstechnica.com/eve/forums?a=em&amp;m=335001673731&amp;f=122097561&amp;x_popup=Y', 'open');">
+<img src="http://episteme.arstechnica.com/groupee_common/platform_images/blank.gif" class="eve_edit" hspace="3" name="1960947975.335001673731.edit" alt="Edit or Delete Message" title="Edit or Delete Message"><span id="victor_an438" class="victor_other">Edit or Delete Message</span></img>
+</a>
+</nobr><span id="victor_an439" class="victor_other"> &nbsp;</span></div>
+<div class="ev_ubbx_tpc_alt">
+<blockquote class="ip-ubbcode-quote">
+<div class="ip-ubbcode-quote-title"><span id="victor_an440" class="victor_other">quote:</span></div>
+<div class="ip-ubbcode-quote-content"><span id="victor_an441" class="victor_other">Originally posted by Loudergood:
+</span><br /><span id="victor_an442" class="victor_other">I'm running a few, I'm just not at liberty to say what they are at the moment. 
+</span><img src="http://episteme.arstechnica.com/images/biggrin_old.gif" alt="Big Grin" width="15" height="15"><span id="victor_an443" class="victor_other">Big Grin</span></img>
+</div>
+</blockquote><span id="victor_an444" class="victor_paragraph">Ahhh...you're running the new adult movie rendering project, eh??? 
+</span><img src="http://episteme.arstechnica.com/groupee_common/emoticons/icon_wink.gif" alt="Wink" width="15" height="15"><span id="victor_an445" class="victor_other">Wink</span></img>
+
+<br />
+<br /><span id="victor_an446" class="victor_paragraph">Strat</span></div>
+</td>
+</tr>
+</table>
+<table id="ignore_335001673731" class="ev_msg_rowcolor1" cellspacing="0" align="center" style="display:none;">
+<tr>
+<td class="ev_ignore_msg" colspan="2">
+<table cellspacing="0" cellpadding="0" width="100%">
+<tr>
+<td class="ev_text_small"><span id="victor_an447" class="victor_other">Ignored post by 
+</span><a onclick="window.activemenu=true;show_member_menu(this,'gs_user_contact_menu','Stratcat','1960947975','');window.activemenu=false;event.cancelBubble=true" id="user_1960947975_i_msg_335001673731" class="ev_member_link" href="javascript:void(0)"><span id="victor_an448" class="victor_other">Stratcat</span></a><span id="victor_an449" class="victor_other"> posted 
+</span> 
+<noscript><span id="victor_an450" class="victor_other">June 07, 2005 16:59</span></noscript></td>
+<td class="ev_text_small" style="text-align:right;">
+<a href="javascript:void(0);" onclick="showElement('post_335001673731'); hideElement('ignore_335001673731');"><span id="victor_an451" class="victor_other">Show Post</span></a>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+
+<table id="post_865001673731" class="ev_msg_rowcolor2" cellspacing="0" align="center">
+<tr>
+<td class="ev_msg_userinfo">
+<a name="865001673731"></a>
+<div class="ev_ubbx_tpc_author">
+<a onclick="window.activemenu=true;show_member_menu(this,'gs_user_contact_menu','Stratcat','1960947975','');window.activemenu=false;event.cancelBubble=true" id="user_1960947975_msg_865001673731" class="ev_member_link" href="javascript:void(0)"><span id="victor_an452" class="victor_header">Stratcat</span></a>
+</div>
+<span class="ev_text_small"><span id="victor_an453" class="victor_other">Wise, Aged Ars Veteran
+</span><br /></span>
+<div id="ev_tpc_location">
+<span class="ev_text_small">
+<br /><span id="victor_an454" class="victor_other">Tribus: TDOW - Chicago Chapter</span></span>
+</div>
+<div id="ev_tpc_reg"><span id="victor_an455" class="victor_other">Registered: August 11, 2003</span></div>
+<a class="ev_text_color" href="http://episteme.arstechnica.com/eve/forums?a=userposts&amp;sortType=1&amp;u=1960947975" rel="nofollow"></a>
+<div id="ev_tpc_post"><span id="victor_an456" class="victor_other">Posts: 940</span></div>
+</td>
+<td class="ev_ubbx_tpc_alt">
+<div class="ev_ubbx_tpc_info_alt">
+<a href="http://episteme.arstechnica.com/eve/forums/a/tpc/f/122097561/m/103003273731?r=865001673731#865001673731" rel="nofollow">
+<img class="ubb_post_icon1" align="absbottom" src="http://episteme.arstechnica.com/groupee_common/platform_images/blank.gif" />
+</a><span id="victor_an457" class="victor_other"> Posted 
+</span> 
+<noscript><span id="victor_an458" class="victor_other">June 07, 2005 17:02</span></noscript><span id="victor_an459" class="victor_other"> &nbsp; 
+</span><nobr>
+<a href="javascript:void(0);" onclick="sizePopup('reply', 'http://episteme.arstechnica.com/eve/forums?a=em&amp;m=865001673731&amp;f=122097561&amp;x_popup=Y', 'open');">
+<img src="http://episteme.arstechnica.com/groupee_common/platform_images/blank.gif" class="eve_edit" hspace="3" name="1960947975.865001673731.edit" alt="Edit or Delete Message" title="Edit or Delete Message"><span id="victor_an460" class="victor_other">Edit or Delete Message</span></img>
+</a>
+</nobr><span id="victor_an461" class="victor_other"> &nbsp;</span></div>
+<div class="ev_ubbx_tpc_alt">
+<blockquote class="ip-ubbcode-quote">
+<div class="ip-ubbcode-quote-title"><span id="victor_an462" class="victor_other">quote:</span></div>
+<div class="ip-ubbcode-quote-content"><span id="victor_an463" class="victor_other">Originally posted by Calavaro:
+</span><br /><span id="victor_an464" class="victor_other">More than 1 boxen on more than 1 project constitutes an addiction.
+</span><br /><span id="victor_an465" class="victor_other">Buying boxen or seeking out boxen to put a DC client on, would make you crazy in the common mans view.
+</span><br /><span id="victor_an466" class="victor_other">You, whilden, are just wired wrong. 
+</span><img src="http://episteme.arstechnica.com/groupee_common/emoticons/icon_wink.gif" alt="Wink" width="15" height="15"><span id="victor_an467" class="victor_other">Wink</span></img>
+</div>
+</blockquote><span id="victor_an468" class="victor_paragraph">Yeah...but he's wired perfectly for Ars-DCA! 
+</span><img src="http://episteme.arstechnica.com/groupee_common/emoticons/icon_biggrin.gif" alt="Big Green" width="15" height="15"><span id="victor_an469" class="victor_other">Big Green</span></img>
+
+<br />
+<br /><span id="victor_an470" class="victor_paragraph">Strat
+</span><br />
+<br /><span id="victor_an471" class="victor_paragraph">/me goes about tinkering w/my machines &amp; projects</span></div>
+</td>
+</tr>
+</table>
+<table id="ignore_865001673731" class="ev_msg_rowcolor2" cellspacing="0" align="center" style="display:none;">
+<tr>
+<td class="ev_ignore_msg" colspan="2">
+<table cellspacing="0" cellpadding="0" width="100%">
+<tr>
+<td class="ev_text_small"><span id="victor_an472" class="victor_other">Ignored post by 
+</span><a onclick="window.activemenu=true;show_member_menu(this,'gs_user_contact_menu','Stratcat','1960947975','');window.activemenu=false;event.cancelBubble=true" id="user_1960947975_i_msg_865001673731" class="ev_member_link" href="javascript:void(0)"><span id="victor_an473" class="victor_other">Stratcat</span></a><span id="victor_an474" class="victor_other"> posted 
+</span> 
+<noscript><span id="victor_an475" class="victor_other">June 07, 2005 17:02</span></noscript></td>
+<td class="ev_text_small" style="text-align:right;">
+<a href="javascript:void(0);" onclick="showElement('post_865001673731'); hideElement('ignore_865001673731');"><span id="victor_an476" class="victor_other">Show Post</span></a>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+
+<table id="post_662002673731" class="ev_msg_rowcolor1" cellspacing="0" align="center">
+<tr>
+<td class="ev_msg_userinfo">
+<a name="662002673731"></a>
+<div class="ev_ubbx_tpc_author">
+<a onclick="window.activemenu=true;show_member_menu(this,'gs_user_contact_menu','MechWarrior','271095891','');window.activemenu=false;event.cancelBubble=true" id="user_271095891_msg_662002673731" class="ev_member_link" href="javascript:void(0)"><span id="victor_an477" class="victor_header">MechWarrior</span></a>
+</div>
+<span class="ev_text_small"><span id="victor_an478" class="victor_other">Ars Scholae Palatinae
+</span><br /></span>
+<div id="ev_tpc_location">
+<span class="ev_text_small">
+<br /><span id="victor_an479" class="victor_other">Tribus: Richmond, VA USA</span></span>
+</div>
+<div id="ev_tpc_reg"><span id="victor_an480" class="victor_other">Registered: August 29, 2000</span></div>
+<a class="ev_text_color" href="http://episteme.arstechnica.com/eve/forums?a=userposts&amp;sortType=1&amp;u=271095891" rel="nofollow"></a>
+<div id="ev_tpc_post"><span id="victor_an481" class="victor_other">Posts: 1490</span></div>
+</td>
+<td class="ev_ubbx_tpc_alt">
+<div class="ev_ubbx_tpc_info_alt">
+<a href="http://episteme.arstechnica.com/eve/forums/a/tpc/f/122097561/m/103003273731?r=662002673731#662002673731" rel="nofollow">
+<img class="ubb_post_icon1" align="absbottom" src="http://episteme.arstechnica.com/groupee_common/platform_images/blank.gif" />
+</a><span id="victor_an482" class="victor_other"> Posted 
+</span> 
+<noscript><span id="victor_an483" class="victor_other">June 07, 2005 17:05</span></noscript><span id="victor_an484" class="victor_other"> &nbsp; 
+</span><nobr>
+<a href="javascript:void(0);" onclick="sizePopup('reply', 'http://episteme.arstechnica.com/eve/forums?a=em&amp;m=662002673731&amp;f=122097561&amp;x_popup=Y', 'open');">
+<img src="http://episteme.arstechnica.com/groupee_common/platform_images/blank.gif" class="eve_edit" hspace="3" name="271095891.662002673731.edit" alt="Edit or Delete Message" title="Edit or Delete Message"><span id="victor_an485" class="victor_other">Edit or Delete Message</span></img>
+</a>
+</nobr><span id="victor_an486" class="victor_other"> &nbsp;</span></div>
+<div class="ev_ubbx_tpc_alt"><span id="victor_an487" class="victor_paragraph">Currently active:
+</span><br /><span id="victor_an488" class="victor_list">S@H 1
+</span><br /><span id="victor_an489" class="victor_list">TER
+</span><br />
+<br /><span id="victor_an490" class="victor_paragraph">Past projects include:
+</span><br />
+<br /><span id="victor_an491" class="victor_list">SETI BOINC
+</span><br /><span id="victor_an492" class="victor_list">G@H
+</span><br /><span id="victor_an493" class="victor_list">D2OL
+</span><br /><span id="victor_an494" class="victor_list">SOB
+</span><br /><span id="victor_an495" class="victor_list">ECCP-109
+</span><br /><span id="victor_an496" class="victor_list">TFY
+</span><br /><span id="victor_an497" class="victor_list">FAD
+</span><br /><span id="victor_an498" class="victor_list">Distr Folding phase one ( I beleive )
+</span><br />
+<br /><span id="victor_an499" class="victor_paragraph">I tend to stay with one project at a time but am running two more often now.</span></div>
+</td>
+</tr>
+</table>
+<table id="ignore_662002673731" class="ev_msg_rowcolor1" cellspacing="0" align="center" style="display:none;">
+<tr>
+<td class="ev_ignore_msg" colspan="2">
+<table cellspacing="0" cellpadding="0" width="100%">
+<tr>
+<td class="ev_text_small"><span id="victor_an500" class="victor_other">Ignored post by 
+</span><a onclick="window.activemenu=true;show_member_menu(this,'gs_user_contact_menu','MechWarrior','271095891','');window.activemenu=false;event.cancelBubble=true" id="user_271095891_i_msg_662002673731" class="ev_member_link" href="javascript:void(0)"><span id="victor_an501" class="victor_other">MechWarrior</span></a><span id="victor_an502" class="victor_other"> posted 
+</span> 
+<noscript><span id="victor_an503" class="victor_other">June 07, 2005 17:05</span></noscript></td>
+<td class="ev_text_small" style="text-align:right;">
+<a href="javascript:void(0);" onclick="showElement('post_662002673731'); hideElement('ignore_662002673731');"><span id="victor_an504" class="victor_other">Show Post</span></a>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+
+<table id="post_760003673731" class="ev_msg_rowcolor2" cellspacing="0" align="center">
+<tr>
+<td class="ev_msg_userinfo">
+<a name="760003673731"></a>
+<div class="ev_ubbx_tpc_author">
+<a onclick="window.activemenu=true;show_member_menu(this,'gs_user_contact_menu','Jamilla','261092138','');window.activemenu=false;event.cancelBubble=true" id="user_261092138_msg_760003673731" class="ev_member_link" href="javascript:void(0)"><span id="victor_an505" class="victor_header">Jamilla</span></a>
+</div>
+<span class="ev_text_small"><span id="victor_an506" class="victor_other">"Facetus Malum"
+</span><br /><span id="victor_an507" class="victor_other">Ars Tribunus Militum
+</span><br /><span id="victor_an508" class="victor_other">et 
+</span><a href="http://arstechnica.com/etc/subscribe/subscribe-1.html" style="text-decoration: none" target="_Blank">
+<font color="#800000"><span id="victor_an509" class="victor_other">Subscriptor</span></font>
+</a>
+<br /></span>
+<div id="ev_tpc_location">
+<span class="ev_text_small">
+<br /><span id="victor_an510" class="victor_other">Tribus: Sab Diego, CA Crunching Granny</span></span>
+</div>
+<div id="ev_tpc_reg"><span id="victor_an511" class="victor_other">Registered: February 02, 2001</span></div>
+<a class="ev_text_color" href="http://episteme.arstechnica.com/eve/forums?a=userposts&amp;sortType=1&amp;u=261092138" rel="nofollow"></a>
+<div id="ev_tpc_post"><span id="victor_an512" class="victor_other">Posts: 4677</span></div>
+<a href="http://edit.yahoo.com/config/send_webmesg?.target=besuvwl&amp;.src=pg">
+<img width="64" height="16" src="http://opi.yahoo.com/online?u=besuvwl&amp;m=g&amp;t=1" alt="Yahoo IM" title="Yahoo IM"><span id="victor_an513" class="victor_other">Yahoo IM</span></img>
+</a>
+</td>
+<td class="ev_ubbx_tpc_alt">
+<div class="ev_ubbx_tpc_info_alt">
+<a href="http://episteme.arstechnica.com/eve/forums/a/tpc/f/122097561/m/103003273731?r=760003673731#760003673731" rel="nofollow">
+<img class="ubb_post_icon1" align="absbottom" src="http://episteme.arstechnica.com/groupee_common/platform_images/blank.gif" />
+</a><span id="victor_an514" class="victor_other"> Posted 
+</span> 
+<noscript><span id="victor_an515" class="victor_other">June 07, 2005 17:35</span></noscript><span id="victor_an516" class="victor_other"> &nbsp; 
+</span><nobr>
+<a href="javascript:void(0);" onclick="sizePopup('reply', 'http://episteme.arstechnica.com/eve/forums?a=em&amp;m=760003673731&amp;f=122097561&amp;x_popup=Y', 'open');">
+<img src="http://episteme.arstechnica.com/groupee_common/platform_images/blank.gif" class="eve_edit" hspace="3" name="261092138.760003673731.edit" alt="Edit or Delete Message" title="Edit or Delete Message"><span id="victor_an517" class="victor_other">Edit or Delete Message</span></img>
+</a>
+</nobr><span id="victor_an518" class="victor_other"> &nbsp;</span></div>
+<div class="ev_ubbx_tpc_alt">
+<blockquote class="ip-ubbcode-quote">
+<div class="ip-ubbcode-quote-title"><span id="victor_an519" class="victor_other">quote:</span></div>
+<div class="ip-ubbcode-quote-content"><span id="victor_an520" class="victor_other">Originally posted by Rattledagger:
+</span><br /><span id="victor_an521" class="victor_other">Hmm, have crunched seti for 3 different teams and CPDN for a 4th last month, so...</span></div>
+</blockquote>
+<br /><span id="victor_an522" class="victor_paragraph">Any particular reason why you move around so much? I know that I have certain teams here that I stay with as I have certain teams elsewhere that I stay with. Can't spread myself too thin so I stay with one group at a time and run their DC projects and vice-versa.
+</span><br />
+<br /><span id="victor_an523" class="victor_paragraph">Plus everybody should know where their allegiances lie.
+</span><br />
+<br /><span id="victor_an524" class="victor_paragraph">Jammy
+</span><br />
+<br /><span id="victor_an525" class="victor_paragraph">EDIT &gt;&gt;&gt;oooo . . .I forgot the last part of the question: Should I seek help? Uh . . .I don't think there is any kind of help available for being a stats whore. I have tried weaning myself away from my computers and can successfully stay away for three hours. i did move one of my boxes into the bedroom because it has a nice 19" flat panel that I can turn around and watch my DVDs on, lol.</span></div>
+</td>
+</tr>
+</table>
+<table id="ignore_760003673731" class="ev_msg_rowcolor2" cellspacing="0" align="center" style="display:none;">
+<tr>
+<td class="ev_ignore_msg" colspan="2">
+<table cellspacing="0" cellpadding="0" width="100%">
+<tr>
+<td class="ev_text_small"><span id="victor_an526" class="victor_other">Ignored post by 
+</span><a onclick="window.activemenu=true;show_member_menu(this,'gs_user_contact_menu','Jamilla','261092138','');window.activemenu=false;event.cancelBubble=true" id="user_261092138_i_msg_760003673731" class="ev_member_link" href="javascript:void(0)"><span id="victor_an527" class="victor_other">Jamilla</span></a><span id="victor_an528" class="victor_other"> posted 
+</span> 
+<noscript><span id="victor_an529" class="victor_other">June 07, 2005 17:35</span></noscript></td>
+<td class="ev_text_small" style="text-align:right;">
+<a href="javascript:void(0);" onclick="showElement('post_760003673731'); hideElement('ignore_760003673731');"><span id="victor_an530" class="victor_other">Show Post</span></a>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+
+<table id="post_773007673731" class="ev_msg_rowcolor1" cellspacing="0" align="center">
+<tr>
+<td class="ev_msg_userinfo">
+<a name="last_reply"></a>
+<a name="773007673731"></a>
+<div class="ev_ubbx_tpc_author">
+<a onclick="window.activemenu=true;show_member_menu(this,'gs_user_contact_menu','Rattledagger','6600923561','');window.activemenu=false;event.cancelBubble=true" id="user_6600923561_msg_773007673731" class="ev_member_link" href="javascript:void(0)"><span id="victor_an531" class="victor_header">Rattledagger</span></a>
+</div>
+<span class="ev_text_small"><span id="victor_an532" class="victor_other">Wise, Aged Ars Veteran
+</span><br /></span>
+<div id="ev_tpc_location">
+<span class="ev_text_small">
+<br /><span id="victor_an533" class="victor_other">Tribus: Anandtech</span></span>
+</div>
+<div id="ev_tpc_reg"><span id="victor_an534" class="victor_other">Registered: April 29, 2001</span></div>
+<a class="ev_text_color" href="http://episteme.arstechnica.com/eve/forums?a=userposts&amp;sortType=1&amp;u=6600923561" rel="nofollow"></a>
+<div id="ev_tpc_post"><span id="victor_an535" class="victor_other">Posts: 504</span></div>
+</td>
+<td class="ev_ubbx_tpc_alt">
+<div class="ev_ubbx_tpc_info_alt">
+<a href="http://episteme.arstechnica.com/eve/forums/a/tpc/f/122097561/m/103003273731?r=773007673731#773007673731" rel="nofollow">
+<img class="ubb_post_icon1" align="absbottom" src="http://episteme.arstechnica.com/groupee_common/platform_images/blank.gif" />
+</a><span id="victor_an536" class="victor_other"> Posted 
+</span> 
+<noscript><span id="victor_an537" class="victor_other">June 07, 2005 22:07</span></noscript><span id="victor_an538" class="victor_other"> &nbsp; 
+</span><nobr>
+<a href="javascript:void(0);" onclick="sizePopup('reply', 'http://episteme.arstechnica.com/eve/forums?a=em&amp;m=773007673731&amp;f=122097561&amp;x_popup=Y', 'open');">
+<img src="http://episteme.arstechnica.com/groupee_common/platform_images/blank.gif" class="eve_edit" hspace="3" name="6600923561.773007673731.edit" alt="Edit or Delete Message" title="Edit or Delete Message"><span id="victor_an539" class="victor_other">Edit or Delete Message</span></img>
+</a>
+</nobr><span id="victor_an540" class="victor_other"> &nbsp;</span></div>
+<div class="ev_ubbx_tpc_alt">
+<blockquote class="ip-ubbcode-quote">
+<div class="ip-ubbcode-quote-title"><span id="victor_an541" class="victor_other">quote:</span></div>
+<div class="ip-ubbcode-quote-content"><span id="victor_an542" class="victor_other">Originally posted by Jamilla:
+</span><br /><span id="victor_an543" class="victor_other">Any particular reason why you move around so much? I know that I have certain teams here that I stay with as I have certain teams elsewhere that I stay with. Can't spread myself too thin so I stay with one group at a time and run their DC projects and vice-versa.
+</span><br />
+<br /><span id="victor_an544" class="victor_other">Plus everybody should know where their allegiances lie.</span></div>
+</blockquote>
+<br />
+<br /><span id="victor_an545" class="victor_paragraph">Joined the BBR-forums to answer a bandwith-question from "someone" 
+</span><img src="http://episteme.arstechnica.com/groupee_common/emoticons/icon_frown.gif" alt="Frown" width="15" height="15"><span id="victor_an546" class="victor_continuation">Frown</span></img><span id="victor_an547" class="victor_continuation">
+ and like other Anandtech-users made a seti-account there to get the spinning globe. But, instead of only crunching one wu like most of the others, decided on keeping wu-count higher than post-count.
+</span><br />
+<br /><span id="victor_an548" class="victor_paragraph">Keeping this up in SETI@home/BOINC is mostly for testing-purposes of BOINC client, and 99% of the time is only using one account so an ocassional result for another team shouldn't really be a problem.
+</span><br />
+<br /><span id="victor_an549" class="victor_paragraph">While my original seti-team didn't really handle the transition to v3.03 very well, when they made a CPDN/BOINC-team decided to crunch a little for them. Since uses CPDN as backup-project, it can be some time between each trickle. 
+</span><img src="http://episteme.arstechnica.com/groupee_common/emoticons/icon_wink.gif" alt="Wink" width="15" height="15"><span id="victor_an550" class="victor_other">Wink</span></img>
+</div>
+</td>
+</tr>
+</table>
+<table id="ignore_773007673731" class="ev_msg_rowcolor1" cellspacing="0" align="center" style="display:none;">
+<tr>
+<td class="ev_ignore_msg" colspan="2">
+<table cellspacing="0" cellpadding="0" width="100%">
+<tr>
+<td class="ev_text_small"><span id="victor_an551" class="victor_other">Ignored post by 
+</span><a onclick="window.activemenu=true;show_member_menu(this,'gs_user_contact_menu','Rattledagger','6600923561','');window.activemenu=false;event.cancelBubble=true" id="user_6600923561_i_msg_773007673731" class="ev_member_link" href="javascript:void(0)"><span id="victor_an552" class="victor_other">Rattledagger</span></a><span id="victor_an553" class="victor_other"> posted 
+</span> 
+<noscript><span id="victor_an554" class="victor_other">June 07, 2005 22:07</span></noscript></td>
+<td class="ev_text_small" style="text-align:right;">
+<a href="javascript:void(0);" onclick="showElement('post_773007673731'); hideElement('ignore_773007673731');"><span id="victor_an555" class="victor_other">Show Post</span></a>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+
+<div class="ev_ubbx_ipt">
+<table class="ev_container_bottom" cellspacing="0">
+<tr>
+<td class="ev_bl_corner"><span id="victor_an556" class="victor_other">&nbsp;</span></td>
+<td class="ev_container_left">
+<a href="http://episteme.arstechnica.com/eve/forums/a/tpc/f/122097561/m/103003273731/inc/-1"><span id="victor_an557" class="victor_other">Previous Topic</span></a><span id="victor_an558" class="victor_other"> | 
+</span><a href="http://episteme.arstechnica.com/eve/forums/a/tpc/f/122097561/m/103003273731/inc/1"><span id="victor_an559" class="victor_other">Next Topic</span></a><span id="victor_an560" class="victor_other">&nbsp;</span></td>
+<td class="ev_poweredby" nowrap="nowrap">
+<a id="ev_powered_by" class="ev_text_poweredby" href="javascript:void(0)" onclick="show_eve_status_menu('ev_powered_by','ev_powered_by_menu');"><span id="victor_an561" class="victor_other">powered by eve community</span></a>
+</td>
+<td class="ev_container_right_td"><span id="victor_an562" class="victor_other">&nbsp;</span></td>
+<td class="ev_br_corner"><span id="victor_an563" class="victor_other">&nbsp;</span></td>
+</tr>
+</table>
+<div id="eve_wait_message" style="position:absolute;top:55px;left:66px;z-index:75;visibility:hidden">
+<table align="center" cellpadding="5">
+<tr>
+<td>
+<img src="http://episteme.arstechnica.com/groupee_common/platform_images/loading.gif" width="40" height="36" />
+</td>
+<td style="font-family:verdana, arial;font-size:75%;border-left:1px solid #cccccc;"><span id="victor_an564" class="victor_other">&nbsp;Please Wait. Your request is being processed...</span></td>
+</tr>
+</table>
+</div>
+<div id="ev_powered_by_menu" style="position:absolute;visibility:hidden;bottom:200px;left:330px;width:400px; height:100px; z-index:5">
+<table align="center" cellpadding="0" cellspacing="4" width="255" bgcolor="#FFFFCC" style="border:1px solid #000000;">
+<tr>
+<td nowrap="nowrap" colspan="2">
+<table width="100%" padding="0" cellspacing="0">
+<tr>
+<td>
+<a style="color:#000000;" href="http://eve.groupee.com/landing/goto.php?a=community" target="_blank">
+<img src="/groupee_common/platform_images/eve_info_div.gif" />
+</a>
+</td>
+<td width="22" onclick="document.getElementById('ev_powered_by_menu').style.visibility='hidden'" align="right">
+<span class="ev_text_small" style="cursor:pointer;color:#000000;"><span id="victor_an565" class="victor_other">[x]</span></span>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td>
+<span class="ev_text_small" style="color:#000000;"><span id="victor_an566" class="victor_other">Site</span></span>
+</td>
+<td>
+<span class="ev_text_small" style="color:#000000;"><span id="victor_an567" class="victor_other">Ars OpenForum 3.0b</span></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="ev_text_small" style="color:#000000;"><span id="victor_an568" class="victor_other">Servlet</span></span>
+</td>
+<td>
+<span class="ev_text_small" style="color:#000000;"><span id="victor_an569" class="victor_other">eve1da009</span></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="ev_text_small" style="color:#000000;"><span id="victor_an570" class="victor_other">Version</span></span>
+</td>
+<td>
+<span class="ev_text_small" style="color:#000000;"><span id="victor_an571" class="victor_other">1.2.17&nbsp;build 8729</span></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="ev_text_small" style="color:#000000;"><span id="victor_an572" class="victor_other">Module</span></span>
+</td>
+<td colspan="2">
+<span class="ev_text_small" style="color:#000000;"><span id="victor_an573" class="victor_other">Forums 4.0.3</span></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="ev_text_small" style="color:#000000;"><span id="victor_an574" class="victor_other">Stylesheet</span></span>
+</td>
+<td nowrap="nowrap">
+<span class="ev_text_small" style="color:#000000;"><span id="victor_an575" class="victor_other">"Default Style - Site Wide"</span></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="ev_text_small" style="color:#000000;"><span id="victor_an576" class="victor_other">Wordlet Set</span></span>
+</td>
+<td nowrap="nowrap">
+<span class="ev_text_small" style="color:#000000;"><span id="victor_an577" class="victor_other">"Default Wordlet Set"</span></span>
+</td>
+</tr>
+</table>
+</div>
+<div id="gs_logout_menu" style="visibility:hidden;position:absolute" onclick="exemptClearMenus(this.id);" class="ev_menu_logout">
+<a href="http://episteme.arstechnica.com/eve/logout"><span id="victor_an578" class="victor_other">Logout: Ars OpenForum 3.0b</span></a>
+<br />
+<a href="" target="_blank"><span id="victor_an579" class="victor_other">Update Groupee Account</span></a>
+</div>
+<span class="ev_background_txt">
+<br />
+<img src="http://episteme.arstechnica.com/groupee_common/platform_images/blank.gif" class="eve_lock" alt="Closed" title="Closed"><span id="victor_an580" class="victor_other">Closed</span></img><span id="victor_an581" class="victor_other"> Topic Closed
+</span><br /></span>
+<br />
+<div class="ev_background_txt" id="eve_bc_bottom">
+<a href="http://arstechnica.com"><span id="victor_an582" class="victor_other">Ars Technica</span></a><span id="victor_an583" class="victor_other">&nbsp;&nbsp;
+</span><img src="http://episteme.arstechnica.com/groupee_common/platform_images/blank.gif" class="eve_ubbx_icon" align="absmiddle" alt="" title="" /><span id="victor_an584" class="victor_other">&nbsp;&nbsp;
+</span><a href="http://episteme.arstechnica.com/eve/forums"><span id="victor_an585" class="victor_other">Ars OpenForum 3.0b</span></a><span id="victor_an586" class="victor_other">&nbsp;&nbsp;
+</span><a onclick="setHoptoArray(window.site_oid);showHoptoMenu('gs_hoptohouse_bottom','all',0);event.cancelBubble=true" id="gs_hoptohouse_bottom" href="javascript:void(0);">
+<img src="http://episteme.arstechnica.com/groupee_common/platform_images/blank.gif" class="eve_bread_tier3" align="absmiddle" alt="Hop To Forum Categories" title="Hop To Forum Categories"><span id="victor_an587" class="victor_other">Hop To Forum Categories</span></img>
+</a><span id="victor_an588" class="victor_other">&nbsp;&nbsp;
+</span><a href="http://episteme.arstechnica.com/eve/forums/a/frm/f/122097561"><span id="victor_an589" class="victor_other">Distributed Computing Arcana</span></a><span id="victor_an590" class="victor_other">&nbsp;&nbsp;
+</span><img src="http://episteme.arstechnica.com/groupee_common/platform_images/blank.gif" class="eve_bread_post" align="absmiddle" alt="" title="" /><span id="victor_an591" class="victor_other">&nbsp;&nbsp;How many current projects? Should I seek help?</span></div>
+</div>
+<br />
+<div id="ev_contact_links" class="ev_background_txt">
+<a href="http://arstechnica.com/site/contact-mods.ars"><span id="victor_an592" class="victor_other">Contact Us</span></a><span id="victor_an593" class="victor_other"> | 
+</span><a href="http://arstechnica.com" target="_top"><span id="victor_an594" class="victor_other">Ars Technica</span></a><span id="victor_an595" class="victor_other"> | 
+</span><a href="http://arstechnica.com/wankerdesk/privacy.html"><span id="victor_an596" class="victor_other">Privacy Statement</span></a><span id="victor_an597" class="victor_other"> | 
+</span><a href="javascript:void(0);" onclick="window.open('http://episteme.arstechnica.com/eve/tos','','width=400,height=425,toolbar=no, location=no,directories=no,status=yes,menubar=no,scrollbars=yes,copyhistory=yes, resizable=yes');"><span id="victor_an598" class="victor_other">Terms of Service</span></a></div>
+<div id="ev_copy_txt"><span id="victor_an599" class="victor_other">© Ars Technica, LLC 1998-2006.</span></div>
+</div>
+<br />
+<center>
+ 
+</center>
+<br />
+<p align="center">
+<font face="Arial" size="2"><span id="victor_an600" class="victor_other">Looking for more chatting insanity? Visit the 
+</span><a href="http://arstechnica.com/forum/irc/irc.html"><span id="victor_an601" class="victor_other">Ars OpenIRC Server</span></a><span id="victor_an602" class="victor_other">!</span></font>
+</p>
+
+
+<div id="gs_user_contact_menu" onclick="exemptClearMenus(this.id)" style="position:absolute; top:50px; left:50px; visibility:hidden; width:250px;height:100px;">
+<table cellspacing="0" class="ev_layer_table">
+<tr>
+<td class="ev_menu_img">
+<img src="http://episteme.arstechnica.com/groupee_common/platform_images/blank.gif" class="eve_profile" alt="" />
+</td>
+<td>
+<a href="http://episteme.arstechnica.com/eve/personal?x_myspace_page=profile&amp;u=$GS_USER_OID" target="_top"><span id="victor_an603" class="victor_other">View $GS_USERNAME's Public Profile</span></a>
+</td>
+</tr>
+<tr class="gs_user_not_logged_in">
+<td class="ev_menu_img">
+<img src="http://episteme.arstechnica.com/groupee_common/platform_images/blank.gif" class="eve_buddies" alt="" />
+</td>
+<td>
+<a href="javascript:void(0)" onclick="{sizePopup('conf', 'http://episteme.arstechnica.com/eve?a=ADD_MEMBERS_TO_CONTACTS&amp;MEMBER_OID_$GS_USER_OID=Y&amp;x_popup=Y&amp;x_simple=Y','open');document.getElementById('gs_user_contact_menu').style.visibility='hidden'}"><span id="victor_an604" class="victor_other">Add $GS_USERNAME to my Buddies</span></a>
+</td>
+</tr>
+<tr class="gs_user_not_logged_in">
+<td class="ev_menu_img">
+<img src="http://episteme.arstechnica.com/groupee_common/platform_images/blank.gif" class="eve_ignore_list" alt="" />
+</td>
+<td>
+<span id="ignore_$GS_USER_OID">
+<a href="javascript:void(0)" onclick="{sizePopup('conf', 'http://episteme.arstechnica.com/eve?a=ADD_MEMBERS_TO_IGNORE_LIST&amp;MEMBER_OID_$GS_USER_OID=Y&amp;x_popup=Y&amp;x_simple=Y&amp;x_popup_refresh_parent=Y','open');document.getElementById('gs_user_contact_menu').style.visibility='hidden'}"><span id="victor_an605" class="victor_other">Add $GS_USERNAME to my Ignore List</span></a>
+</span>
+<span id="stop_ignore_$GS_USER_OID" style="display: none;">
+<a href="javascript:void(0)" onclick="{sizePopup('conf', 'http://episteme.arstechnica.com/eve?a=REMOVE_PERSONAL_GROUP_MEMBERS&amp;GROUP_TYPE=IGNORED_USERS&amp;MEMBER_OID_$GS_USER_OID=Y&amp;x_popup=Y&amp;x_simple=Y&amp;x_popup_refresh_parent=Y','open');document.getElementById('gs_user_contact_menu').style.visibility='hidden'}"><span id="victor_an606" class="victor_other">Remove $GS_USERNAME from my Ignore List</span></a>
+</span>
+</td>
+</tr>
+<tr class="gs_user_not_logged_in">
+<td class="ev_menu_img">
+<img src="http://episteme.arstechnica.com/groupee_common/platform_images/blank.gif" class="eve_priv_msg" alt="" />
+</td>
+<td>
+<a href="javascript:void(0);" onclick="sizePopup('topic','http://episteme.arstechnica.com/eve?a=ptpc&amp;u=$GS_USER_OID&amp;x_popup=Y','open');" id="gs_user_contact_menu_name2"><span id="victor_an607" class="victor_other">Invite $GS_USERNAME to a Private Topic</span></a>
+</td>
+</tr>
+<tr>
+<td class="ev_menu_img">
+<img src="http://episteme.arstechnica.com/groupee_common/platform_images/blank.gif" class="eve_user_posts_new" alt="" />
+</td>
+<td>
+<a href="http://episteme.arstechnica.com/eve/forums?a=userposts&amp;sortType=1&amp;u=$GS_USER_OID" id="gs_user_contact_menu_name3" target="_top" rel="nofollow"><span id="victor_an608" class="victor_other">View Recent Posts by $GS_USERNAME</span></a>
+</td>
+</tr>
+<tr class="gs_user_not_logged_in">
+<td class="ev_menu_img">
+<img src="http://episteme.arstechnica.com/groupee_common/platform_images/blank.gif" class="eve_notify" alt="" />
+</td>
+<td>
+<a href="javascript:void(0);" id="gs_user_contact_menu_name4" onclick="window.open('http://episteme.arstechnica.com/eve?a=scfrm&amp;type=M&amp;content=$GS_USER_OID&amp;smod=40000452&amp;x_popup=Y','','width=450,height=425,toolbar=no, location=no,directories=no,status=yes,menubar=no,scrollbars=no,copyhistory=yes, resizable=yes');"><span id="victor_an609" class="victor_other">Notify me of New Posts by $GS_USERNAME</span></a>
+</td>
+</tr>
+</table>
+</div>
+<div id="gs_rating_menu" onclick="event.cancelBubble=true" style="position:absolute; top:100px; left:50px; visibility:hidden; width:250px; height:100px; z-index:2;">
+<form name="RATE_IT" action="http://episteme.arstechnica.com/eve/forums?a=ratetopic&amp;m=103003273731" method="post">
+<table>
+<tr>
+<td colspan="2">
+<b><span id="victor_an610" class="victor_other">Rate Topic</span></b>
+</td>
+</tr>
+<tr>
+<td>
+<input type="radio" class="gs_radio" name="ratingval" value="5" />
+</td>
+<td>
+<img src="http://episteme.arstechnica.com/groupee_common/platform_images/blank.gif" class="ubb_star_5" />
+</td>
+</tr>
+<tr>
+<td>
+<input type="radio" class="gs_radio" name="ratingval" value="4" />
+</td>
+<td>
+<img src="http://episteme.arstechnica.com/groupee_common/platform_images/blank.gif" class="ubb_star_4" />
+</td>
+</tr>
+<tr>
+<td>
+<input type="radio" class="gs_radio" name="ratingval" value="3" />
+</td>
+<td>
+<img src="http://episteme.arstechnica.com/groupee_common/platform_images/blank.gif" class="ubb_star_3" />
+</td>
+</tr>
+<tr>
+<td>
+<input type="radio" class="gs_radio" name="ratingval" value="2" />
+</td>
+<td>
+<img src="http://episteme.arstechnica.com/groupee_common/platform_images/blank.gif" class="ubb_star_2" />
+</td>
+</tr>
+<tr>
+<td>
+<input type="radio" class="gs_radio" name="ratingval" value="1" />
+</td>
+<td>
+<img src="http://episteme.arstechnica.com/groupee_common/platform_images/blank.gif" class="ubb_star_1" />
+</td>
+</tr>
+<tr>
+<td align="right" colspan="2">
+<input type="SUBMIT" value="OK" class="ev_input_small" />
+</td>
+</tr>
+</table>
+</form>
+<div id="gs_quick_reply" style="position:absolute; top:20px; left:20px; visibility:hidden; width:525px; height:300px; z-index:85;">
+<form action="http://episteme.arstechnica.com/eve/forums?UPDATE_MESSAGE=Y&amp;t=103003273731&amp;f=122097561" method="post" name="REPLIER">
+<input type="hidden" name="IS_EXISTING_MESSAGE" value="N" />
+<input type="hidden" name="POST_TYPE" value="PTYP_MSG" />
+<input type="hidden" name="f" value="122097561" />
+<input type="hidden" name="TOPIC_MESSAGE_OID" value="103003273731" />
+<input type="hidden" name="TOPIC_MESSAGE_OID_BAK" value="103003273731" />
+<input type="hidden" name="USE_USER_PREF_SUBSCRIPTIONS" value="Y" />
+<input type="hidden" name="POSTING_FORM_ID" value="" />
+
+<input type="hidden" name="USE_USER_PREF_SIGNATURE" value="Y" />
+<input type="hidden" name="ON_COMPLETE_REDIRECT_URL" value="http://episteme.arstechnica.com/eve/forums/a/tpc/f/122097561/m/103003273731" />
+<table align="center" class="ev_message_alert" cellspacing="0">
+<tr onmousedown="storeQuickReplyPos();startDrag(event,'gs_quick_reply')">
+<td class="ev_grab_bar" colspan="2">
+<div style="float:right; padding: 0px 4px;text-align:right">
+<input onclick="document.getElementById('gs_quick_reply').style.visibility='hidden';showQuickReply.visible=false" class="ev_input_normal" type="button" value=" X " />
+</div>
+<span id="gs_quick_reply_replyto"><span id="victor_an611" class="victor_other">Quick Reply to: How many current projects? Should I seek help?</span></span>
+<span id="gs_quick_reply_subject" style="display:none">
+<input class="ev_input_normal" title="Subject" maxlength="85" name="SUBJECT" value="" />
+</span>
+</td>
+</tr>
+<tr id="ev_quick_reply_guest_name" style="display:none">
+<td colspan="2" class="ev_content">
+<span class="ev_text_normal">
+<b><span id="victor_an612" class="victor_other">Guest Name</span></b><span id="victor_an613" class="victor_other"> &nbsp;
+</span><input maxlength="40" name="GUEST_NAME" size="13" value="" /></span>
+</td>
+</tr>
+<tr>
+<td colspan="2" class="ev_content">
+
+</td>
+</tr>
+<tr>
+<td class="ev_content" align="left">
+<span class="ev_text_small">
+<a href="javascript:void(0);" onclick="changeObjectVisibility('gs_quick_reply', 'hidden');"><span id="victor_an614" class="victor_other">Close</span></a><span id="victor_an615" class="victor_other">&nbsp;&nbsp;|&nbsp;&nbsp;
+</span><a href="javascript:void(0);" class="gs_reply_wquote" onmousedown="quickQuote()"><span id="victor_an616" class="victor_other">Quick Quote</span></a></span>
+</td>
+<td class="ev_content" align="right">
+<input class="ev_input_normal" type="submit" name="UPDATE_MESSAGE" value="Post Now" tabindex="2" />
+</td>
+</tr>
+</table>
+</form>
+</div>
+
+<div id="gs_msg_dynamic" style="position:absolute; left:400px; top:100px; visibility:hidden; width:250px;height:250px;" onclick="event.cancelBubble=true">
+<table class="ev_message_alert" width="100%" align="center" cellpadding="2" cellspacing="0">
+<tr onmousedown="startDrag(event,'gs_msg_dynamic')" style="cursor:pointer;">
+<td align="right" class="ev_grab_bar" style="padding-right:5px;">
+<input onclick="document.getElementById('gs_msg_dynamic').style.visibility='hidden'" class="ev_input_normal" type="button" value=" X " />
+</td>
+</tr>
+<tr>
+<td style="font-size:83%" class="ev_content" id="gs_msg_dynamic_content">
+<br />
+<br />
+</td>
+</tr>
+</table>
+</div>
+<div id="gs_hopto_menu" style="position:absolute; left:200px; top:200px;visibility:hidden; height:100px; z-index:5" onclick="exemptClearMenus(this.id)">
+<table class="ev_hopto_table" cellspacing="0" id="hopto_table"></table>
+</div>
+<div id="hopto_images" style="position:absolute; top:40px; left:40px; visibility:hidden;">
+<img class="ubb_arr_up" src="http://episteme.arstechnica.com/groupee_common/platform_images/blank.gif" />
+<img class="ubb_arr_down" src="http://episteme.arstechnica.com/groupee_common/platform_images/blank.gif" />
+</div>
+
+<div id="gs_global_menu" style="position:absolute; top:40px; left:40px; visibility:hidden;">
+<table border="0" class="ev_layer_table" cellpadding="0" cellspacing="0">
+<tr>
+<td class="ev_layer_hopto_td" onmouseover="this.className='ev_layer_table_hover';" onmouseout="this.className='ev_layer_hopto_td'">
+<a title="View posts since your last visit" href="http://episteme.arstechnica.com/eve/forums?a=nslv" class="ev_text_containercolor" onclick="clearMenus();getObjById('gs_msg_dynamic_content').innerHTML = wait_message;positionDiv('gs_msg_dynamic','left','top',320,270,220,65);" rel="nofollow"><span id="victor_an617" class="victor_other">New Since your Last Visit</span></a>
+</td>
+</tr>
+<tr>
+<td class="ev_layer_hopto_td" onmouseover="this.className='ev_layer_table_hover';" onmouseout="this.className='ev_layer_hopto_td'">
+<a title="View todays active topics" href="http://episteme.arstechnica.com/eve/forums?a=tat" class="ev_text_containercolor" onclick="clearMenus();getObjById('gs_msg_dynamic_content').innerHTML = wait_message;positionDiv('gs_msg_dynamic','left','top',320,270,220,65);" rel="nofollow"><span id="victor_an618" class="victor_other">Today's Active Topics</span></a>
+</td>
+</tr>
+</table>
+</div>
+
+
+
+
+
+<table align="left" cellpadding="5" cellspacing="0" class="ev_layer_table"></table>
+</div>
+</body>
+</html>

@@ -11,13 +11,14 @@ object DOM {
   /** Pattern matching class for empty nodes */
   object EmptyNode {
     def unapply(z: jnodes.Element): Option[jnodes.Element] =
-      if (z.text matches """^[\p{Z}\s]*$""") Some(z) else None
+      if (z.text.trim matches """^[\p{Z}\s]*$""") Some(z) else None
   }
+
 
   /** Pattern matching class for empty text nodes */
   object EmptyTextNode {
     def unapply(z: jnodes.TextNode): Option[jnodes.TextNode] =
-      if (z.text matches """^[\p{Z}\s]*$""") Some(z) else None
+      if (z.text.trim matches """^[\p{Z}\s]*$""") Some(z) else None
   }
 
   /** Pattern matching class for nodes that are not to be incorporated in the CDOM */
@@ -44,6 +45,48 @@ object DOM {
     case n: jnodes.TextNode => n.text
     case n: jnodes.Element => n.text
     case _ => ""
+  }
+
+  /** Wraps blocks in <span class="boilerplate-text-block"/> */
+  def wrapBlocks(dom: jnodes.Element): Unit = {
+    var id = 0
+    def wrapTextNodes(node: jnodes.Node): Unit = {
+      node match {
+        case DOM.EmptyNode(x) => None
+        case DOM.EmptyTextNode(x) => None
+        case DOM.SkipNode(x)  => None
+        case leaf: jnodes.TextNode  => {
+          leaf.wrap("<span class=\"boilerplate-text-block\" data-id=\""+id+"\"></span>")
+          id += 1
+        }
+        case branch => branch.childNodes.map(wrapTextNodes)
+      }
+    }
+
+    wrapTextNodes(dom)
+  }
+
+  /** Makes the DOM safe for an annotation tool, by removing interactivity
+    * and links. */
+  def removeJavascript(dom: jnodes.Element): Unit = {
+    dom.select("script").map(_.remove)
+    dom.select("noscript").map(_.remove)
+    dom.select("[onclick]").map(n => n.attr("onclick",""))
+    dom.select("[onchange]").map(n => n.attr("onchange",""))
+    dom.select("[onmouseup]").map(n => n.attr("onmouseup",""))
+    dom.select("[onmousedown]").map(n => n.attr("onmousedown",""))
+    dom.select("[onload]").map(n => n.attr("onload",""))
+    dom.select("meta[http-equiv=\"refresh\"]").map(_.remove)
+    dom.select("iframe").map(_.remove)
+  }
+
+  def inactivateLinks(dom: jnodes.Element): Unit = {
+    dom.select("a[href]").map(n => n.attr("href",""))
+  }
+
+  def makeUrlsAbsolute(dom: jnodes.Element): Unit = {
+    dom.select("[src]").map(n => n.attr("src",n.attr("abs:src")));
+    dom.select("link[href]").map(n => n.attr("href",n.attr("abs:href")));
   }
 
 }

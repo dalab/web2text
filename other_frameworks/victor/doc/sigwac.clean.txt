@@ -1,0 +1,10 @@
+<h> SIGWAC
+<p> SIGWAC is the Special Interest Group of the Association for Computational Linguistics (ACL) on Web as Corpus
+
+<p> Its objectives are
+
+<l> to promote interest in the use of the web as a source of linguistic data, and as an object of study in its own right;
+<l> to provide members of the ACL with a special interest in the web-as-corpus with a means of exchanging news of recent research developments and other matters of interest;
+<l> to sponsor meetings and workshops on the web as corpus that appear to be timely and worthwhile.
+<p> More info on 
+

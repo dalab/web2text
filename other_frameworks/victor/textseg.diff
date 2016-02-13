@@ -1,0 +1,89 @@
+# * make Tokenizer and Segmenter submodules of Victor::Features::Counts
+# * load the data files from the directory where the .pm files live, rather
+#   than from the working directory
+--- Victor/Features/Counts/Segmenter.pm	2006-05-26 05:52:42.000000000 +0200
++++ Victor/Features/Counts/Segmenter.pm	2006-12-30 22:41:11.000000000 +0100
+@@ -1,6 +1,6 @@
+ #!/usr/bin/perl
+ 
+-package Segmenter;
++package Victor::Features::Counts::Segmenter;
+ use Exporter;
+ @ISA = qw (Exporter);
+ @EXPORT = qw (&segments);
+@@ -17,9 +17,12 @@
+ ################################################################################
+ # inicializace, nacteni zkratek do globalnich promennych
+ ################################################################################
++my $datadir = $INC{"Victor/Features/Counts/Segmenter.pm"};
++$datadir =~ s/Segmenter\.pm$//;
++
+ my (%abbr_12, %abbr_12_short, %abbr_13, %abbr_14);
+ 
+-open(ABBR_12, "abbr_not_s.dat") or die "Can't find file abbr_not_s.dat with list of abbreviations.\n";
++open(ABBR_12, "$datadir/abbr_not_s.dat") or die "Can't find file abbr_not_s.dat with list of abbreviations.\n";
+ while(<ABBR_12>) {
+   $_ = decode("utf8", $_);
+   chomp;
+@@ -27,7 +30,7 @@
+ }
+ close ABBR_12;
+ 
+-open(ABBR_12_SHORT, "abbr_negative_2.dat") or die "Can't find file abbr_negative_2.dat with list of abbreviations.\n";
++open(ABBR_12_SHORT, "$datadir/abbr_negative_2.dat") or die "Can't find file abbr_negative_2.dat with list of abbreviations.\n";
+ while(<ABBR_12_SHORT>) {
+   $_ = decode("utf8", $_);
+   chomp;
+@@ -35,7 +38,7 @@
+ }
+ close ABBR_12_SHORT;
+ 
+-open(ABBR_13, "abbr_may_s.dat") or die "Can't find file abbr_may_s.dat with list of abbreviations.\n";
++open(ABBR_13, "$datadir/abbr_may_s.dat") or die "Can't find file abbr_may_s.dat with list of abbreviations.\n";
+ while(<ABBR_13>) {
+   $_ = decode("utf8", $_);
+   chomp;
+@@ -43,7 +46,7 @@
+ }
+ close ABBR_13;
+ 
+-open(ABBR_14, "abbr=apel.dat") or die "Can't find file abbr=apel.dat with list of abbreviations.\n";
++open(ABBR_14, "$datadir/abbr=apel.dat") or die "Can't find file abbr=apel.dat with list of abbreviations.\n";
+ while(<ABBR_14>) {
+   $_ = decode("utf8", $_);
+   chomp;
+@@ -51,7 +54,7 @@
+ }
+ close ABBR_14;
+ 
+-open(QUOTES, "quotes.dat") or die "Can't find file quotes.dat with list of quotation marks and right (closing) brackets.\n";
++open(QUOTES, "$datadir/quotes.dat") or die "Can't find file quotes.dat with list of quotation marks and right (closing) brackets.\n";
+ $_ = <QUOTES>; $_ = decode ("utf8", $_); chomp;
+ my $quotes = $_;
+ close (QUOTES);
+--- Victor/Features/Counts/Tokenizer.pm	2006-05-25 16:11:44.000000000 +0200
++++ Victor/Features/Counts/Tokenizer.pm	2006-12-30 22:37:59.000000000 +0100
+@@ -1,6 +1,6 @@
+ #!/usr/bin/perl
+ 
+-package Tokenizer;
++package Victor::Features::Counts::Tokenizer;
+ use Exporter;
+ @ISA = qw (Exporter);
+ @EXPORT = qw (&tokens);
+@@ -15,7 +15,10 @@
+ use Encode;
+ 
+ 
+-open (LETTERS, "letters.dat") or die "Can't find file letters.dat with list of all recognized letters.\n";
++my $datadir = $INC{"Victor/Features/Counts/Tokenizer.pm"};
++$datadir =~ s/Tokenizer\.pm$//;
++
++open (LETTERS, "$datadir/letters.dat") or die "Can't find file letters.dat with list of all recognized letters.\n";
+ $_ = <LETTERS>; $_ = decode ("utf8", $_); chomp;
+ my $lower = $_;
+ $_ = <LETTERS>; $_ = decode ("utf8", $_); chomp;
+Pouze v ../packages/textseg/textseq/: __cze__.lm
+Pouze v ../packages/textseg/textseq/: cze_top400.lm
+Pouze v ../packages/textseg/textseq/: info.log
+Pouze v ../packages/textseg/textseq/: textseg.pl

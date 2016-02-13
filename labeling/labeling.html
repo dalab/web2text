@@ -1,0 +1,86 @@
+<head>
+  <title>Boilerplate Labeling</title>
+  <meta charset="utf-8">
+</head>
+
+<template name="layout">
+  {{> navigation}}
+
+  {{> yield}}
+</template>
+
+<template name="navigation">
+  <nav class="navbar navbar-fixed-top navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Boilerplate</a>
+    </div>
+      <ul class="nav navbar-nav">
+        <ol class="breadcrumb">
+          {{> yield "breadcrumbs"}}
+        </ol>
+      </ul>
+    <ul class="nav navbar-nav navbar-right">
+      {{> loginButtons}}
+    </ul>
+  </div><!-- /.container-fluid -->
+</nav>
+</template>
+
+<template name="view">
+  <div class="container-fluid main-content">
+  <p>Please choose a dataset</p>
+  <div class="list-group">
+  {{#each datasets}}
+    <a class="list-group-item"><span class="glyphicon glyphicon-chevron-right"></span> {{name}}</a>
+  {{/each}}
+  </div>
+  </div>
+  {{#contentFor "breadcrumbs"}}
+    <li class="active">View</li>
+  {{/contentFor}}
+</template>
+
+<template name="viewDataset">
+  <div class="container-fluid main-content">
+    <table class="table">
+      <tbody>
+      {{#each pages}}
+        <tr>
+          <td><a class="go-to-page"><span class="glyphicon glyphicon-chevron-right"></span> <strong>{{doc_id}}</strong></a></td>
+          <td>{{hostname(url)}}</td>
+        </tr>
+      {{/each}}
+      </tbody>
+    </table>
+  </div>
+  {{#contentFor "breadcrumbs"}}
+    <li><a href="/">View</a></li>
+    <li class="active">{{name}}</li>
+  {{/contentFor}}
+</template>
+
+<template name="viewPage">
+  <div class="main-container">
+    <div class="iframe-wrapper"><iframe id="page" frameborder="0"></iframe></div>
+    <div class="cleaned-gt"><h4>Cleaned Ground-truth</h4>{{cleaned}}</div>
+  </div>
+  {{#contentFor "breadcrumbs"}}
+    <li><a href="/">View</a></li>
+    <li><a href="{{pathFor route='view.dataset' id=dataset.id}}">{{dataset.name}}</a></li>
+    <li>{{doc_id}}</li>
+    <li><select class="labeling-selector">{{#each labelings}}<option value="{{this}}" {{labelingSelected this}}>{{this}}</option>{{/each}}</select></li>
+  {{/contentFor}}
+</template>
+
+<template name="loading">
+  {{> spinner}}
+</template>
+
+<template name="login">
+  <div class="container-fluid login-container">
+    <h3>Boilerplate Labeling</h3>
+    {{> loginButtons}}
+  </div>
+</template>

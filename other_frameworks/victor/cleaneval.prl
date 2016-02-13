@@ -1,0 +1,829 @@
+#!/usr/bin/perl
+
+# Written by Francis Chantree 
+
+
+#HASH ARRAYS TO GIVE INDEXED REFERENCES
+%TextIDs = ("C","Contestants","B","Benchmark"); #The contestant's version & the gold-standard
+
+%actions = ("A","Aligned","S","Substitn","C","Cont_Over","B","Bench_Over"); #Actions used to locate a minimum edit path in matrix created by Levenstein algorithm
+
+%markuptags = ("p","<p>","h","<h>","l","<l>","g","<x>"); #Contestant-entered tags + generalised
+
+#Index of preprocessing actions: (these letters are used in preprocess sequences)
+%preprocessversions = ("_","Initial","g","Markup Generalised","r","Markup Removed","b","Deblanked","t","Tokenised","n","Normalised","v","Verticalised"); #Types of processing prior to alignment
+
+#Index of scoring types: their preprocess sequences, segment validity sequences
+%scoring_types = ("t",["Text Only","rbtnv",""], #Removing markup tags first (so no seg.validity)
+		  "m",["Text and Markup","btnv",&svalid_run_sequences("standard")]); #VanillaRun
+
+%languagenames = ("e","English","c","Chinese");
+
+#Global variables for handling character tokenising (for Chinese)
+#$wspacetoken = "_G_"; # token to preserve whitespace around non-CJK chars
+#$defaultsegmentlength = 2; #the default segment length for character tokeniser
+$chinese_segment_length = 2; #To account for character tokenisation of Chinese
+
+#CAPTURE ARGUMENTS: (1) CONTESTANTS FILE, (2) BENCHMARK FILE
+$contestant_raw = $ARGV[0]; #Contestants original text file. GLOBAL!
+$benchmark_raw = $ARGV[1]; #Benchmark original text file. GLOBAL!
+&extraneous_input_parameters_check; #To account for if more than 2 parameters entered
+$contestant_orig = &remove_directory_designation($contestant_raw); #Version without directory
+$benchmark_orig = &remove_directory_designation($benchmark_raw); #Version without directory
+
+#CREATE DIRECTORY FOR LOG AND TRACING FILES, AND SET LOGGING & TRACING OPTIONS
+&tracing("T"); #Parameters for size of log file: "T" = terse (RECOMMENDED!!) or "V" = verbose
+
+
+#SET OUTPUT FILES & PARAMETERS
+&resultsdirectory; #CREATE DIRECTORY FOR (CONTESTANT-SPECIFIC) RESULTS FILES
+&align_outputfiles; #SET UP (INTERMEDIATE) OUTPUT FILES REPRESENTING THE ALIGNMENT
+&edit_distance_outputfiles; #SET UP EDIT DISTANCE OUTPUT FILES
+&paragraph_validity_outputfiles; #SET UP SEGMENT VALIDITY OUTPUT FILES
+
+#print "Choose type of scoring you require: (T)ext only, or (M)arkup and text: ";
+#chomp($scoring_type = <STDIN>); #GLOBAL!
+#$scoring_type =~ tr/A-Z/a-z/; #Makes it lower case
+
+
+#INITIALISING FOR MASTER PROGRAM
+@scoring_types = keys %scoring_types; #Gets the scoring types only from their hash
+$number_of_scoring_types = @scoring_types; #Gets the number of them
+$overall_score = 0; #Variable to hold contestant's final score
+
+#ESTABLISH WHICH LANGUAGE THE TEXTS ARE IN. A QUICK (& TEMPORARY) WAY OF DOING IT!
+print "Select Language the texts are written in: (E)nglish, (C)hinese: ";
+chomp($language = <STDIN>); #GLOBAL!
+$language =~ tr/A-Z/a-z/; #Makes it lower case
+if (exists $languagenames{$language}) {
+    print "The texts you are using are written in " . $languagenames{$language} . "\n";
+    print LOG "The texts you are using are written in " . $languagenames{$language} . "\n";
+} else {
+    die "You have typed an incorrect letter. ABORTING!!\n";
+}
+
+
+#MASTER PROGRAM
+foreach $scoring_type (@scoring_types) { #A run for each type of scoring
+    $scoring_types_name = $scoring_types{$scoring_type}[0]; #Long Name of scoring type
+    $orig_sequence = $scoring_types{$scoring_type}[1]; #Pre-processing Sequence for run.GLOBAL!
+    $svalid_run_sequence = $scoring_types{$scoring_type}[2]; #Segment Validity run sequence
+    print "\nType of scoring: $scoring_types_name\n";
+    print LOG "\nType of scoring: $scoring_types_name\n";
+    $run_score = 0; #initialise the score for this scoring run. GLOBAL! 
+
+    #PREPROCESSING: CREATING VERSIONS OF CONTESTANT AND BENCHMARK FILES USED FOR ALIGNMENT
+    &preprocess($orig_sequence); #Preprocess, using chosen sequence
+
+    #BUILD ARRAY OF CONTESTANTS' TEXT
+    my @contestantparametres = ("C",$contestant_post,$contestant_pre);
+    @contestant = &buildtextarray(@contestantparametres); #Build array of contestants' text
+    $lencont =  @contestant; #Gets length of contestant array. GLOBAL!
+    if ($dbl eq "V") { print LOG "\nArray of Contestant normalised & original text: $lencont entries\n"; } #Output to log file
+    if ($dbl eq "V") { for $i ( @contestant ) { print LOG "\t [ @$i ] \n"; } } #Print out array
+
+    #BUILD ARRAY OF BENCHMARK TEXT
+    my @benchmarkparametres = ("B",$benchmark_post,$benchmark_pre);
+    @benchmark = &buildtextarray(@benchmarkparametres); #Build array of benchmark text
+    $lenbench = @benchmark; #Gets length of benchmark array. GLOBAL!
+    if ($dbl eq "V") { print LOG "\nArray of Benchmark normalised and original text: $lenbench entries\n"; } #Output to log file
+    if ($dbl eq "V") { for $i ( @benchmark ) { print LOG "\t [ @$i ] \n"; } } #Print out array
+
+    #USE LEVENSHTEIN ALGORITHM TO GIVE ALIGNMENT AND EDIT DISTANCE OF TWO TEXTS
+    &levenshtein(0); #Construct matrix using Levenshtein algorithm  (post normalisation text).
+    &traceback; #Finds a minimum edit path in Levenshtein matrix, bottom right to top left
+                #Outputs a file of edit actions necessary to give this path.
+    $edist_score = &align_using_actions; #Uses edit actions file to create alignment of texts
+                                         #Returns percentage score of goodness of alignment
+    &edist_output_printing; #Print results for this scoring option run to logfile and screen 
+
+    #USE ALIGNMENT TO ASSESS VALIDITY OF ALIGNMENT OF SEGMENTS IN TEXTS
+    if ($svalid_run_sequence) { #If there are associated segment validity actions to run
+        $svalid_total_score = &segments_validity($svalid_run_sequence); #Seg.Validity Score
+        &svalid_output_printing; #Print results for this scoring option run to logfile & screen 
+        $run_score = ($edist_score + $svalid_total_score) / 2; #Average of EDist & Seg.Valid.
+    } else {
+        $run_score = $edist_score; #Score for this run only based on Edit Distance
+    }
+
+    &run_output_printing;
+    $overall_score = $overall_score + $run_score; #Add score of this run to overall score
+}
+
+&final_output_printing; #Print final results to logfile and screen 
+
+
+close(GEN_ALIGN);
+close(SPEC_ALIGN);
+close(GEN_EDIST);
+close(SPEC_EDIST); 
+close(GEN_SVALID); 
+close(SPEC_SVALID); 
+close(LOG);
+
+
+
+#===========
+#===========
+#SUBROUTINES
+#===========
+#===========
+
+
+
+
+#SUBROUTINES FOR PRE-PROCESSING TEXT
+#===================================
+
+
+sub preprocess {
+    my($preprocess_sequence) = @_; #Preprocessing actions sequence
+    print LOG "Original Preprocess Sequence = $preprocess_sequence\n";
+
+    $contestant_pre = &preprocessing_action("_","C",$contestant_raw); #Prepare to prepocess
+    $benchmark_pre = &preprocessing_action("_","B",$benchmark_raw); #Prepare to prepocess
+    $contestant_post = $contestant_pre; #Initialise contestant's _post file to _pre.GLOBAL!
+    $benchmark_post = $benchmark_pre; #Initialise benchmark post-processed file to _pre.GLOBAL!
+    
+    while ($preprocess_sequence) { #While there are still letters in preprocessing sequence
+        $preprocess_action = substr($preprocess_sequence,0,1); #Get first letter
+        $preprocess_sequence = substr($preprocess_sequence,1); #set sequence to the remainder
+        print LOG "Preprocess sequence: $preprocess_sequence; Preprocess action: $preprocess_action \n";
+
+        #NORMALISATION PROCESS IS ONLY APPLICABLE TO THE POST-PROCESSED VERSION
+        if ($preprocess_action =~ /N/i) { #NB: pre- files stay the same
+            $contestant_post = &preprocessing_action($preprocess_action,"C",$contestant_post);
+            $benchmark_post = &preprocessing_action($preprocess_action,"B",$benchmark_post);
+        #PROCESSES NECESSARILY GENERIC TO BOTH PRE- & POST- PROCESSED VERSIONS    
+        } else {
+            $contestant_pre = &preprocessing_action($preprocess_action,"C",$contestant_pre);
+            $contestant_post = &preprocessing_action($preprocess_action,"C",$contestant_post);
+            $benchmark_pre = &preprocessing_action($preprocess_action,"B",$benchmark_pre);
+            $benchmark_post = &preprocessing_action($preprocess_action,"B",$benchmark_post);
+        }
+    }
+    #AFTER PREPROCESSING, SET WORKING FILES TO FINAL PREPROCESSED VERSIONS IN TRACING DIRECTORY
+    $contestant_pre = "$tracing/$contestant_pre";
+    $contestant_post = "$tracing/$contestant_post";
+    $benchmark_pre = "$tracing/$benchmark_pre";
+    $benchmark_post = "$tracing/$benchmark_post";
+}
+
+
+sub preprocessing_action {
+    my ($versioncode,$whosetext,$input) = @_; #Input: process type, whose text, file name
+    my $output; #Variable for output file 
+    if ($versioncode eq "_") { #First iteration of preprocessing
+#        open(INPUT, "<$input"); #Input from original working directory
+        open(INPUT,"<:utf8",$input); #Input from original working directory
+        my $bare_input = &remove_directory_designation($input); #Remove directory designation
+        $output = &file_versioncode_append($versioncode,$bare_input); #Make new name of file 
+    } else { #All other iterations
+        open(INPUT, "<./$tracing/$input"); #Input from tracing directory
+        $output = &file_versioncode_append($versioncode,$input); #Make new name of file 
+    }
+    open(OUTPUT, ">./$tracing/$output"); #Output to tracing directory
+    while (<INPUT>) { #For each line in input file
+        my $line = $_; #Give name to default for line
+        if ($versioncode eq "_") { 
+            print OUTPUT $line; #No changes
+        } elsif ($versioncode =~ /b/i) { #Removing BLANK lines
+            if ($line =~ /\S/) { #If line has > 0 non-whitespace characters
+                print OUTPUT $line; 
+            }
+        } elsif ($versioncode =~ /r/i) { #REMOVE markup tags
+            $line =~ s/<[phlPHL]>/ /gi; #Remove any of the markup tags
+            print OUTPUT $line;
+        } elsif ($versioncode =~ /g/i) { #GENERALISE any of the markup tags
+            $line =~ s/<[phlPHL]>/ <x> /gi; #Replace any markup tags with generic markup tag
+            print OUTPUT $line;
+        } elsif ($versioncode =~ /t/i) { #TOKENISE file
+            $line =~ s/<([phlPHL])>/ <\1> /gi; #Surround markup items with white-space
+            $line =~ s/\t/ /g; #Replace tabs by spaces
+            $line =~ s/ +/ /g; #Remove multiple spaces
+            $line =~ s/ ([\r\n\f])/$1/g; #Remove spaces before end-of-lines
+            $line =~ s/[\r\f]&/\n/; #replace oddball end-of-line markers with \n
+            $line =~ s/^ //g; #Remove spaces at beginning of lines
+            #THIS PART OF TOKENISING DEALS ADDRESSES LANGUAGE USED
+#            if ($line =~ /^[A-Za-z0-9`¬!"£\$%\^&*\(\)_\-\+=\{\}\\\[\]:;@'~#<,>\.\?\/\|]/) { #If string starts with Latin chars, don't character tokenise. (Simply all keys on a UK English keyboard). DOESN'T WORK: SOME OF THESE ARE IN CHINESE TEXTS!
+            if ($language eq "e") {
+                print OUTPUT $line;
+	    } elsif ($language eq "c") {
+	        $line =~ s/ //g; #Initially remove all whitespace
+	        my $whitespacedline = ""; #Initialise
+		my $i = 0;
+	        while ($i < length($line)) {
+		    if (substr($line,$i,3) =~ /<[phlPHL]>/) {
+		        $chinese_segment = substr($line,$i,3);
+			$i+=3;
+		    } else {
+                        $chinese_segment = substr($line,$i,$chinese_segment_length);
+			$i+=$chinese_segment_length;
+		    }
+                    $whitespacedline = join " ", $whitespacedline, $chinese_segment;
+	        }
+                $whitespacedline =~ s/^ +//; #Remove whitespace at start of lines
+                $whitespacedline =~ s/ +\n/\n/; #Remove whitespace at end of lines
+                print OUTPUT $whitespacedline;
+	    }
+        } elsif ($versioncode =~ /n/i) { #NORMALISE file
+            $line =~ s/[\,\;\:\.\?\!]//g; #Remove all punctuation. THIS LIST CAN BE INCREASED.
+            $line =~ s/(.)/\L$1/gi; #Lowercase everything. 
+            #INSERT: Code to change accented characters to non-accented ones
+            print OUTPUT $line;
+        } elsif ($versioncode =~ /v/i) { #VERTICALISE file
+            $line =~ s/ /\n/g; #Replace all spaces with a new line
+            print OUTPUT $line;
+        } else { 
+            die "You have input an incorrect code for pre-processing. ABORTING!!\n";
+        }
+    }
+    close(INPUT);
+    close(OUTPUT);
+    print LOG "$preprocessversions{$versioncode} file for $TextIDs{$whosetext}: $output\n";
+    return $output; #Subroutine returns name of the new output file
+}
+
+
+
+
+#SUBROUTINES FOR BUILDING ARRAYS OF INPUT TEXTS
+#==============================================
+
+sub buildtextarray { #BUILD ARRAY OF TEXT
+    my($whosetext,$localnormalised,$localprenorm) = @_; #Parameters: whose, _pre, _post files
+    my @localarray = (); #Initialise temporary array holding new text array
+    open(LOCALNORM, "<$localnormalised");
+    while (<LOCALNORM>) { #Make an array of normalised text
+        my $line = $_; #Give name to default for line
+        chomp($line);
+        push(@localarray, $line); #add line to the array
+    }
+    close(LOCALNORM);
+    my $templocalarray = @localarray; #Length of the array of normalised data
+
+    open(LOCALPRE, "<$localprenorm");
+    my $arraycounttemp = 0; #Counter for accessing location in array
+    while (<LOCALPRE>) { #For every line of pre_normalised data
+        my $line = $_; #Give name to default for line
+        chomp($line);
+        $localarray[$arraycounttemp] = [$localarray[$arraycounttemp],$line]; #Add to Array entry
+        $arraycounttemp++; #Increment location in array
+    }
+    close(LOCALPRE);
+    if ($templocalarray != @localarray) { #Array has changed length
+        die "Original and Procesed $TextIDs{$whosetext} arrays not equal length. ABORTING!!\n";
+    }
+    return @localarray; #Returns completed array containing both pre_ & post_normalised data
+}
+
+
+#UTILITY SUBROUTINES
+#===================
+
+
+sub remove_directory_designation {
+    my($file_with_dir) = @_; #Input: a filename, possibly preceded by a directory designation
+    my $file_without_dir; #Variable to hold filename stripped of directory
+    my $start_of_name = rindex($file_with_dir,"/") + 1; #Position in string (0 if not found)
+    if ($start_of_name > 0 ) { #If a directory designation was present
+        $file_without_dir = substr($file_with_dir,$start_of_name); # Remove directory
+    } else {
+        $file_without_dir = $file_with_dir; #Nothing needs to be changed
+    }
+    return $file_without_dir;
+}
+
+
+sub extraneous_input_parameters_check {;
+#    if ($ARGV[2] && $ARGV[3]) {
+#        print "You entered 4 parameters. For preprocessing, you can now chose only \"none\"\n"; 
+#    } elsif ($ARGV[2]) {
+#        die "You entered 3 arguments. You should enter only 1, 2 or 4. Aborting!!\n";
+#    }
+    if ($ARGV[2]) {
+        die "You entered more than 2 arguments. Aborting!!\n";
+    }
+}
+
+
+sub file_versioncode_append { #Makes a new name for file, relating to the current process
+    my ($versioncode,$filename) = @_; #Parameters: code to add to name, filename 
+    if ($filename =~ /\./) { #If the file name contains a dot (therefore an extension)
+        $filename =~ s/\./$versioncode\./; #Add code before extension
+    } else {
+        $filename = $filename . $versioncode; #Add code at end of file
+    }
+    return $filename; #Return new filename
+}
+
+
+sub min { #FINDS THE MINIMAL ELEMENT OF AN ARRAY
+    my($min_so_far) = shift @_; #Remove 1st item from parameter list (an array).
+    foreach $i (@_) { #For all remaining items in parameter list
+        if ($i < $min_so_far) { $min_so_far = $i; } #If less than previous min, it's new min
+    }
+    return $min_so_far; #Return minimum of all items in parameter list
+}
+
+
+sub min_cost_action { #FINDS MINIMAL ELEMENT IN NESTED ARRAY; RETURNS AN ASSOCIATED ACTION CODE
+    my($first_case) = shift @_; #Remove 1st item (itself an array) from parameter list.
+    my($action_required,$min_so_far) = @$first_case; #Initial action & min are set to 1st item
+    foreach $temp (@_) { #For all remaining items (arrays) in parameter list
+        my($i,$j) = @$temp; #Accessing elements in item
+        if ($j < $min_so_far) { #If current minimum less than previous minimum
+            $min_so_far = $j; #New minimum is current minimum
+            $action_required = $i; #New action code is the one associated with that minimum
+        }
+    }
+    return $action_required; #Return action code associated with minimum element
+}
+
+
+
+#I/O SUBROUTINES 
+#===============
+
+sub resultsdirectory { #SET A DIRECTORY FOR CONTESTANT-SPECIFIC RESULTS FILES
+    $resultsdirectory = "results"; #Name for results diectory. Can be changed.
+    unless (opendir RESULTSDIRECTORY, $resultsdirectory) { #Open directory or if it doesnt exist
+        mkdir $resultsdirectory, 0755 or die "Can't make directory $resultsdirectory: $! \n";
+        opendir RESULTSDIRECTORY, $resultsdirectory; #Make it and open it
+    }
+}
+
+
+sub tracing { #SET UP TRACING AND LOG FILE
+    ($dbl) = @_; #Code for setting level of reporting in log file. GLOBAL!
+    $dbl =~ tr/a-z/A-Z/; #Makes it upper case
+    if (($dbl ne "V") && ($dbl ne "T")) { #If invalid letter
+        die "You entered an incorrect logfile reporting option. ABORTING!!\n";
+    }
+    $tracing = "tracing"; #Name for tracing directory. Can be changed.
+    unless (opendir TRACING, $tracing) { #Open directory, or if it doesn't exist...
+        mkdir $tracing, 0755 or die "Cannot make directory $tracing: $! \n"; #Make it
+        opendir TRACING, $tracing or die "Cannot open directory $tracing: $! \n"; #And open it
+    }
+    $logfile = &file_versioncode_append("_LOG",$contestant_orig); #Create name for log file
+    open(LOG, ">$logfile"); #Log file will be written in this directory
+    print LOG "Time of Run (GMT): " . &timestamp() . "\n"; #Start log file with a timestamp
+    print LOG "=====================================================\n";
+}
+
+
+sub timestamp {
+    ($sec, $min, $hour, $mday, $mon, $year, $wday, $yday, $isdst) = gmtime (time);
+    my @Days = ("Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday");
+    my @Months = ("January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December");
+    my $day = $Days[$wday];
+    my $date = $mday + 0;
+    my $year = 1900 + $year;
+    my $month = $Months[$mon];
+    my $timestamp = $hour . ":" . $min . ":" . $sec . " " . $date . "/" . $month . "/" . $year;
+    return $timestamp;
+}
+
+
+sub align_outputfiles { #SET UP OUTPUT FILE FOR TUPLES REPRESENTING THE ALIGNMENT
+    $gen_align_tuples = "Alignments"; #Generic name of alignment tuples file. GLOBAL!
+    $spec_align_tuples = &file_versioncode_append("_ALIGN",$contestant_orig); #Run-spec.GLOBAL!
+    open(GEN_ALIGN, ">$gen_align_tuples"); #Generic file written over each time
+    open(SPEC_ALIGN, ">./$resultsdirectory/$spec_align_tuples"); #Contestant-specific file
+}
+
+
+sub edit_distance_outputfiles { #SET UP OUTPUT FILES FOR CONTAINING EDIT DISTANCE RESULTS
+    $gen_edit_distances = "Edit_Distances"; #Generic name of edit distances file. GLOBAL!
+    $edit_distances = &file_versioncode_append("_EDIST",$contestant_orig); #Run-specific.GLOBAL!
+    open(GEN_EDIST, ">$gen_edit_distances"); #Generic file written over each time
+    open(SPEC_EDIST, ">./$resultsdirectory/$edit_distances"); #Contestant-specific file
+    print GEN_EDIST "[Contestant,Benchmark,PreprocessSequence,EditDistance,AlignmentLength,Granularity,Performance]\n"; #Add a header as 1st line of generic paragraph validity results file
+    print SPEC_EDIST "[Contestant,Benchmark,PreprocessSequence,EditDistance,AlignmentLength,Granularity,Performance]\n"; #Add a header as 1st line of contestant-specific paragraph validity results file
+    @edit_dist_results = (); #Initialise edit distance results array
+}
+
+
+sub paragraph_validity_outputfiles { #SET UP OUTPUT FILES CONTAINING PARAGRAPH VALIDITY RESULTS
+    $gen_para_valid = "Segment_Validity"; #Generic name of edit distances file. GLOBAL!
+    $para_valid = &file_versioncode_append("_SVALID",$contestant_orig); #Run-specific.GLOBAL!
+    open(GEN_SVALID, ">$gen_para_valid"); #Generic file written over each time
+    open(SPEC_SVALID, ">./$resultsdirectory/$para_valid"); #Contestant-specific file
+    print GEN_SVALID "[Contestant,Benchmark,RunSequence,CorrectSegs,ContestantTags,Prec,BenchmarkTags,Recall,FMeasure]\n"; #Add a header as 1st line of generic paragraph validity results file
+    print SPEC_SVALID "[Contestant,Benchmark,RunSequence,CorrectSegs,ContestantTags,Prec,BenchmarkTags,Recall,FMeasure]\n"; #Add header as 1st line of specific paragraph validity results file
+    @para_valid_results = (); #Initialise results array. GLOBAL!
+}
+
+
+sub run_output_printing {
+    printf "\nOverall Score for $scoring_types_name Scoring: %.1f%%\n", $run_score;
+    print "--------------------------------------------------------------\n";
+    printf LOG "\nScore for $scoring_types_name Scoring: %.1f%%\n", $run_score;
+    print LOG "\n==============================================================\n";
+}
+
+
+sub final_output_printing { #Print final results to logfile and screen 
+    $overall_score = $overall_score / $number_of_scoring_types; #Final score: average run scores
+    printf "\nContestant, Your Score on This Task is: %.1f%%.\n\n", $overall_score; #Final score
+    print "Details in \"" . $logfile . "\", \"" . $gen_align_tuples . "\", \"" . $gen_edit_distances . "\" and  \"" . $gen_para_valid . "\".\n"; 
+    print "More (file-specific) details in: \"" . $resultsdirectory . "\" and \"" . $tracing  . "\" directories.\n";
+    printf LOG "\nFinal Overall score: %.1f%%; No. of Scoring Types: %d \n", $overall_score, $number_of_scoring_types;
+    print LOG "\n==============================================================\n";
+}
+
+
+sub edist_output_printing { #PRINT FINAL EDIT DISTANCE RESULTS: TO LOG FILE AND TO SCREEN
+    print LOG "Name of the contestant\'s file of alignment tuples: $spec_align_tuples \n"; 
+
+    #PRINT EDIT-DISTANCE RESULTS
+    print LOG "\nArray of (Cumulative) Edit Distance Results on this pair of text files \n"; 
+    print LOG "\t[contestant,benchmark,preprocesses,edit-dist,align-length,granularity,performance]\n";
+    for $i ( @edit_dist_results ) { print LOG "\t[ @$i ] \n"; } #Print out array
+    printf LOG "\nTotal Edit Distance Performance score for this run: %.1f%%\n", $edist_score;
+    print LOG "\n--------------------------------------------------------------\n";
+}
+
+
+sub svalid_output_printing { #PRINT FINAL SEGMENT VAIDITY RESULTS: TO LOG FILE AND TO SCREEN
+    print LOG "\nArray of (Cumulative) Segment Validity Results on this pair of text files \n"; 
+    print LOG "\t[contestant,benchmark,run_seq,correct_segs,cont_tags,prec,bench_tags,recall,f-measure]\n";
+    for $i ( @para_valid_results ) { print LOG "\t [ @$i ] \n"; } #Print out array
+    printf "\nTotal Segment Validity score for this run: %.1f%% \n", $svalid_total_score;
+    printf LOG "\nTotal Segment Validity score for this run: %.1f%% \n", $svalid_total_score;
+    print LOG "\n--------------------------------------------------------------\n";
+}
+
+
+sub add_alignment_headers {
+    print GEN_ALIGN "-----------------------------------------\n";
+    print GEN_ALIGN "Alignment for $scoring_types_name Scoring\n"; #Add alignment file header
+    print GEN_ALIGN "-----------------------------------------\n";
+    print SPEC_ALIGN "-----------------------------------------\n";
+    print SPEC_ALIGN "Alignment for $scoring_types_name Scoring\n"; #Add alignment file header
+    print SPEC_ALIGN "-----------------------------------------\n";
+}
+
+
+#SUBROUTINES FOR LEVENSHTEIN ALGORITHM: FINDING MINIMUM EDIT DISTANCE
+#====================================================================
+
+sub levenshtein {
+    my($z) = @_; #Column in array (i.e. normalised or original text)
+    print     "\nEntering Levenshtein algorithm\n";
+    print LOG "\nEntering Levenshtein algorithm\n";
+    @levmat = (); #Initialise array for Levenshtein Distance matrix. GLOBAL!
+
+    #INITIALISE THE DISTANCE MATRIX
+    foreach $i (0..$lencont) {
+        foreach $j (0..$lenbench) {
+            $levmat[$i][$j] = 0; #Set elements in body of array to 0
+            $levmat[0][$j] = $j; #Set elements in 1st row to their index
+        }
+        $levmat[$i][0] = $i; #Set elements in 1st column to their index
+    }
+        
+    #CALCULATE TOTAL COST OF DISTANCE 
+    my $cost; #Local variable for cost of the edit action
+    foreach $i (1..$lencont) {
+        foreach $j (1..$lenbench) {
+            my $m = $i-1; #Contestants' increment, to account for array starting at 0
+            my $n = $j-1; #Benchmark increment, to account for array starting at 0
+            if ($contestant[$m][$z] eq $benchmark[$n][$z]) {
+                $cost = 0; #The elements align
+            } else {
+                $cost = 2; #A substitution would be necessary
+            }
+            if ($dbl eq "V") {print LOG "Contestant entry $m: $contestant[$m][0];  Benchmark entry $n: $benchmark[$n][0];  Cost: $cost \n"; }
+            $levmat[$i][$j]  =  &min($levmat[$i-1][$j] + 1,	   #Deletion
+				     $levmat[$i][$j-1] + 1,	   #Insertion
+				     $levmat[$i-1][$j-1] + $cost); #Align/Substitution
+        }
+    }
+    if ($dbl eq "V") { print LOG "\nResultant Matrix for Levenshtein Distance\n"; }
+    if ($dbl eq "V") { for $i ( @levmat ) { print LOG "\t [ @$i ] \n"; } } #Print out array
+
+    $edit_distance = $levmat[$lencont][$lenbench]; #EDIT DISTANCE:lowest cost of edit.GLOBAL!
+}
+
+
+sub traceback { #BACKTRACK TO FIND A ROUTE OF LOWEST COST IN MATRIX
+    print     "Tracing back in matrix to find minimum edit path\n";
+    print LOG "\nTracing back in matrix to find minimum edit path\n";
+    @actions = (); #Initialise array for list of alignment actions to be taken. GLOBAL!
+    my $i = $lencont; #Increment for Contestant entries in Levenshtein Distance Matrix
+    my $j = $lenbench; #Increment for Benchmark entries in Levenshtein Distance Matrix
+    my $worstcost = $lencont + $lenbench; #A cost never to be excelled (> length longest text)
+
+    until (($i == 0) && ($j == 0)) { #Until top left corner of matrix is reached
+        if (($i > 0) && ($j > 0)) { #Alignment or substitution are still possible
+            if ($levmat[$i-1][$j-1] == $levmat[$i][$j]) { #There was no cost, so was alignment
+                $aligned = $levmat[$i-1][$j-1]; #aligned set to that cost
+                $substitution = $worstcost; #Substitution not a valid option
+            } else { #Must have been a substitution
+                $aligned = $worstcost;
+                $substitution = $levmat[$i-1][$j-1];
+            }
+        } else { #Alignment or substitution not possible
+            $aligned = $worstcost;
+            $substitution = $worstcost;
+        }
+        if ($i > 0) { #Still some contestant elements to be aligned
+            $cont_over = $levmat[$i-1][$j]; #Cost of having a contestant line unmatched is set
+        } else { 
+            $cont_over = $worstcost;
+        }
+        if ($j > 0) { 
+            $bench_over = $levmat[$i][$j-1]; #Cost of having a benchmark line unmatched is set
+        } else { 
+            $bench_over = $worstcost;
+        }
+
+        #FINDING THE ACTION WHICH HAS THE LOWEST COST
+        $action = &min_cost_action(["A",$aligned],      #Action 1: Aligned
+				   ["S",$substitution], #Action 2: Substitution
+				   ["C",$cont_over],    #Action 3: A Contestant item over
+				   ["B",$bench_over]);  #Action 4: A Benchmark item over
+        unshift @actions, [$actions{$action},$i,$j,$levmat[$i][$j]]; #Add action to array
+        if ($dbl eq "V") {print LOG "Cont_Over $cont_over, Bench_Over $bench_over, Alignment $aligned, Subst'n $substitution, Coords $i $j, Choice: $actions{$action}, CostSoFar: $levmat[$i][$j]\n"; } #Print to log file
+
+        #RESET INCREMENTS TO NEWLY FOUND LOCATION IN MATRIX
+        if (($action eq "A") || ($action eq "S")) { #ALIGNED OR SUBSTITUTION
+            if ($i > 0) { $i--; } #Decrement contestant index
+            if ($j > 0) { $j--; } #Decrement benchmark index
+        }
+        if ($action eq "C") { #WHEN THERE WAS A CONTESTANT ITEM OVER (I.E. UNMATCHED)
+            if ($i > 0) { $i--; } #Decrement contestant index
+        } elsif ($action eq "B") { #WHEN THERE WAS A BENCHMARK ITEM OVER (I.E. UNMATCHED)
+            if ($j > 0) { $j--; } #Decrement benchmark index
+        }
+    }
+
+    if ($dbl eq "V") { print LOG "Actions Array (Action|Cont.Coord|Bench.Coord|Cost) From Levenshtein Algorithm: \n"; }
+    if ($dbl eq "V") { for $i ( @actions ) { print LOG "\t [ @$i ] \n"; } } #Print out array
+
+}
+
+
+#SUBROUTINES CREATING ALIGNMENT
+#==============================
+
+sub align_using_actions {
+    my $action; #For each individual action
+    &add_alignment_headers;
+    @align_tuple_array = (); #Initialise array to contain alignment tuples. GLOBAL!
+    $granularity = 0; #Measure of granularity. GLOBAL!
+    my $previous_action = $actions{"A"}; #Initialise (to Alignment) for granularity calculation
+    foreach $actionline (@actions) { #For each item (itself an array) of array of actions
+        $action = shift(@$actionline); #Remove 1st element
+        if ($actions{"A"} eq $action) { #Alignment
+            &aligned_words;
+            &granularity($action,$previous_action);
+        } elsif ($actions{"C"} eq $action) { #A contestant element cannot be aligned
+            &cont_offset;
+            &granularity($action,$previous_action);
+        } elsif ($actions{"B"} eq $action) { #A benchmark element cannot be aligned
+            &bench_offset;
+            &granularity($action,$previous_action);
+        } elsif ($actions{"S"} eq $action) { #Substit'n: Comprising cont_offset & bench_offset
+            if ($previous_action eq $actions{"C"}) { #Favour continuity (arbitrarily, of Cont)
+                &cont_offset; #Consists of a cont_offset.....
+                $action = $actions{"C"};
+                &granularity($action,$previous_action);
+                &bench_offset; #....followed by a bench_offset
+                $action = $actions{"B"};
+                &granularity($action,$previous_action);
+            } else { #Contiuity of bench, (or any other action)
+                &bench_offset; #....followed by a bench_offset
+                $action = $actions{"B"};
+                &granularity($action,$previous_action);
+                &cont_offset; #Consists of a cont_offset.....
+                $action = $actions{"C"};
+                &granularity($action,$previous_action);
+            }
+        } else { 
+            die "An invalid action has been encountered in the Actions Array. ABORTING!!\n";
+        }
+        $previous_action = $action; #Save this action, for granularity measure calculation
+    }
+
+    my $tuple_array_len = @align_tuple_array; #Length of tuples array, & therefore of alignment
+    my $edit_distance_perform;
+    if ($tuple_array_len) {
+	    $edit_distance_perform = 100-(($edit_distance/$tuple_array_len)*100); #AlignmentGoodness
+    } else {
+	    $edit_distance = 0;
+    }
+
+    #PRINT TO LOG & SCREEN
+    printf     "\nAlignment Cost: %s; Alignment Length: %s; Granularity: %s; Performance: %.1f%% \n", $edit_distance, $tuple_array_len, $granularity, $edit_distance_perform;
+    printf LOG "\nAlignment Cost: %s; Alignment Length: %s; Granularity: %s; Performance: %.1f%% \n", $edit_distance, $tuple_array_len, $granularity, $edit_distance_perform;
+
+    #PRINT TO FILES
+    printf GEN_EDIST "%s %s %s %.0f %.0f %.0f %.1f\n", $contestant_orig, $benchmark_orig, $orig_sequence, $edit_distance, $tuple_array_len, $granularity, $edit_distance_perform;
+    printf SPEC_EDIST "%s %s %s %.0f %.0f %.0f %.1f\n", $contestant_orig, $benchmark_orig, $orig_sequence, $edit_distance, $tuple_array_len, $granularity, $edit_distance_perform;
+    push @edit_dist_results, [$contestant_orig,$benchmark_orig,$orig_sequence,$edit_distance,$tuple_array_len,$granularity,$edit_distance_perform]; #Add to Array
+
+    if ($dbl eq "V") { print LOG "\nArray of Tuples resulting from alignment process:\n"; }
+    if ($dbl eq "V") { for $i (@align_tuple_array) { print LOG "\t [ @$i ] \n"; } } #Print array
+
+    return $edit_distance_perform;
+}
+
+
+sub granularity { #To calculate granularity score
+    my($action,$previous_action) = @_;
+    if ($actions{"A"} ne $action) { #Only actions involving non-alignments affect granularity
+        if ($action ne $previous_action) { $granularity++; } #Granularity+1 if new action
+    }
+    if ($dbl eq "V") { print LOG "Action: $action; Previous Action: $previous_action; Granularity: $granularity\n"; }
+}
+    
+
+sub aligned_words { #CREATES TUPLE WHEN ALIGNMENT IS FOUND
+    push @align_tuple_array, [$contestant[$offsetcount][0],$contestant[$offsetcount][1],$benchmark[$offsetcount][0],$benchmark[$offsetcount][1]]; #Add tuple to array
+    $tuple = $contestant[$offsetcount][0] . "\t\t" . $contestant[$offsetcount][1] . "\t\t" . $benchmark[$offsetcount][0] . "\t\t" .  $benchmark[$offsetcount][1] . "\n"; #Make tuple for files
+    &output; #Write tuple to output file(s)
+    shift @contestant; #Remove item from Contestant array
+    shift @benchmark; #Remove item from Benchmark array
+}
+
+
+sub cont_offset { #CREATES TUPLES WITH EMPTY FIELDS FOR AN OFFSET IN CONTESTANT TEXT
+    push @align_tuple_array, [$contestant[0][0],$contestant[0][1],"e","e"];
+    $tuple = $contestant[0][0] . "\t\t" .  $contestant[0][1] . "\t\te\t\te\n"; #Tuple for files
+    &output; #Write tuple to output file(s)
+    shift @contestant; #Remove item from Contestant array
+}
+
+
+sub bench_offset { #CREATES TUPLES WITH EMPTY FIELDS FOR AN OFFSET IN BENCHMARK TEXT
+    $tuple = "e \t\te \t\t" . $benchmark[0][0] . "\t\t" .  $benchmark[0][1] . "\n"; #Make tuple
+    push @align_tuple_array, ["e","e",$benchmark[0][0],$benchmark[0][1]];
+    &output; #Write tuple to output file
+    shift @benchmark;  #Remove item from Benchmark array
+}
+
+
+sub output { #WRITES TO OUTPUT
+    print GEN_ALIGN $tuple; #Write tuple to generic output file
+    print SPEC_ALIGN $tuple; #Write tuple to generic output file
+}
+
+
+
+#SUBROUTINES OBTAINING DATA FROM ALIGNMENT
+#=========================================
+
+
+sub svalid_run_sequences {
+    my($svalid_run_sequences_code) = @_;
+    my($paragraph_min_length_validity,$other_segment_min_length_validity);
+    if ($svalid_run_sequences_code eq "standard") {
+        $paragraph_min_length_validity = 2; #We have chosen this number for paragraphs
+        $other_segment_min_length_validity = 1; #We chose this for shorter segs than paragraphs
+    } else {
+        die "You have used an incorrect svalid_run_sequences_code. ABORTING!";
+    }	
+    my $para_begin = "pb" . $paragraph_min_length_validity;
+    my $para_end = "pe" . $paragraph_min_length_validity;
+    my $header_begin = "hb" . $other_segment_min_length_validity;
+    my $header_end = "he" . $other_segment_min_length_validity;
+    my $list_begin = "lb" . $other_segment_min_length_validity;
+    my $list_end = "le" . $other_segment_min_length_validity;
+    return $para_begin . $para_end . $header_begin . $header_end . $list_begin . $list_end;
+}
+
+
+sub segments_validity {
+    my($svalid_run_sequence) = @_; #Sequence of actions for segments validity run
+    print     "\nEntering Segment Validity Algorithm\n";
+    print LOG "\nEntering Segment Validity Algorithm\n\n";
+    my $svalid_counter = 0; #Initialise loop counter
+    my $svalid_total_score = 0; #Initialise total score
+    while ($svalid_run_sequence) { #While there's still letters in segment validity sequence
+        my $svalid_run_action = substr($svalid_run_sequence,0,3); #1st 3 characters = an action
+        $svalid_score = &segment_validity($svalid_run_action); #SegmentValidity score on action
+        $svalid_total_score = $svalid_total_score + $svalid_score; #Add segment score to total
+        $svalid_run_sequence = substr($svalid_run_sequence,3); #Set sequence to remainder
+        $svalid_counter++; #Increment counter
+    }
+    $svalid_total_score = $svalid_total_score / $svalid_counter; #Average for no. of segments
+    return $svalid_total_score;
+}
+
+
+sub segment_validity {
+    my($seg_valid_sequence) = @_; #Segment Validity sequence of actions
+    $run_sequence = $orig_sequence . "|" . $seg_valid_sequence; #Add to run sequence for output
+    #GET THE INDIVIDUAL PARAMETERS FROM THE SEQUENCE
+    $tagtype = substr($seg_valid_sequence,0,1); #1st letter: which tag type = segment signifier
+    $tagtype = $markuptags{$tagtype}; #Get the actual markup tag
+    if ($dbl eq "V") { print LOG "Tagtype = $tagtype \n"; }
+    $begin_or_end = substr($seg_valid_sequence,1,1); #2nd letter: tag starts or ends segment?
+    $segment_min = substr($seg_valid_sequence,2,1); #Third element is minimum segment length
+    print LOG "Markup Tag Type: $tagtype; Segment Beginner or Ender: $begin_or_end; Minimum Segment Length: $segment_min \n";
+
+    #INITIALISE SETTINGS
+    my $place_in_tuples_array = 0; #Initialise position in tuples_array
+    my $total_contestant_markuptags = 0; #Initialise
+    my $total_benchmark_markuptags = 0; #Initialise
+    my $correct_segments_counter = 0; #Initialise
+
+    #ACTION PARAGRAPH VALIDITY METRICS
+    foreach $tupletemp (@align_tuple_array) { #Each element (itself an array) in tuples array
+        ($i,$j,$k,$l) = @$tupletemp; #pre_ & post_ normalised data for contestant & benchmark
+        if ($i =~ /$tagtype/) { #Contestant entry contains markup tag (NB: anywhere in string)
+            $total_contestant_markuptags++; #Add to total markup tags for contestants
+        }
+        if ($k =~ /$tagtype/) { #Benchmark entry contains markup tag (NB: anywhere in string)
+            $total_benchmark_markuptags++; #Add to total markup tags for benchmark
+        }
+        if (($i =~ /$tagtype/) && ($k =~ /$tagtype/)) { #Both entries contain markup tag
+            $segment_correctness_flag = "Y"; #Initialise
+            foreach $segment_offset (1..$segment_min) { #Test following alignments
+                my $offset; #The incremented offset
+                if ($begin_or_end =~ /b/i) { #Tag is considered a segment beginner
+                    $offset = $place_in_tuples_array + $segment_offset; #Increment Offset
+                    if ($offset > @align_tuple_array) { last; } #Beyond array.Exit loop.(Flag=Y)
+                } elsif ($begin_or_end =~ /e/i) { #Tag is considered a segment ender
+                    $offset = $place_in_tuples_array - $segment_offset; #Decrement Offset
+                    if ($offset < 0) { last; } #Before array. Exit loop. (Flag still = Yes)
+                }
+                if ($align_tuple_array[$offset][0] ne $align_tuple_array[$offset][2]) { #NoMatch
+                    $segment_correctness_flag = "N"; #Indicate segment not acceptable
+                    last; #Exit the loop
+                }
+            }
+
+            if ($segment_correctness_flag eq "Y") { 
+                $correct_segments_counter++; #Increment counter
+                print LOG "Correct segment. Match: $i $k; Position: $place_in_tuples_array \n";
+            }
+        }
+        $place_in_tuples_array++; #Increment counter
+    }
+
+    #CALCULATE & OUTPUT PERFORMANCE OF THIS ALIGNMENT IN TERMS OF TYPE OF SEGMENT ANALISED
+    my($precision, $recall, $fmeasure);
+    if ($total_contestant_markuptags > 0) {
+        $precision = 100 * $correct_segments_counter / $total_contestant_markuptags;
+    } else {
+        $precision = 0; #To account for division by zero
+    }
+    if ($total_benchmark_markuptags > 0) {
+        $recall = 100 * $correct_segments_counter / $total_benchmark_markuptags;
+    } else {
+        $recall = 0; #To account for division by zero
+    }
+    if ($precision + $recall > 0) {
+        $fmeasure = 2 * $precision * $recall / ($precision + $recall); #Unweighted F-Measure
+    } else { #To account for division by zero
+        if (($total_contestant_markuptags + $total_benchmark_markuptags) == 0) { #No tags
+            $fmeasure = 100; #Max accuracy with no tags
+        } else {
+            $fmeasure = 0; #No accuracy with any number of tags
+        }
+    }
+
+    #PRINT RESULTS TO LOG FILE AND TO SCREEN
+    printf LOG "%d Aligned %s Segments; %d Contestant %s; Precision: %.1f%%; %d Benchmark %s; Recall: %.1f%% F-Measure: %.1f%%\n", $correct_segments_counter, $tagtype, $total_contestant_markuptags, $tagtype, $precision, $total_benchmark_markuptags, $tagtype, $recall, $fmeasure;
+#    printf "%d Aligned %s Segments; %d Contestant %s; Precision: %.1f%%; %d Benchmark %s; Recall: %.1f%% F-Measure: %.1f%%\n", $correct_segments_counter, $tagtype, $total_contestant_markuptags, $tagtype, $precision, $total_benchmark_markuptags, $tagtype, $recall, $fmeasure;
+
+    #PRINT RESULTS TO OUTPUT FILES
+    printf GEN_SVALID "%s %s %s %d %d %.1f %d %.1f %.1f \n", $contestant_orig, $benchmark_orig, $run_sequence, $correct_segments_counter, $total_contestant_markuptags, $precision, $total_benchmark_markuptags, $recall, $fmeasure;
+    printf SPEC_SVALID "%s %s %s %d %d %.1f %d %.1f %.1f \n", $contestant_orig, $benchmark_orig, $run_sequence, $correct_segments_counter, $total_contestant_markuptags, $precision, $total_benchmark_markuptags, $recall, $fmeasure;
+
+    #ADD RESULTS TO ARRAY
+    push @para_valid_results, [$contestant_orig,$benchmark_orig,$run_sequence,$correct_segments_counter,$total_contestant_markuptags,$precision,$total_benchmark_markuptags,$recall,$fmeasure]; #Add new set of Paragraph Validity results to the Array
+
+    return $fmeasure;
+}
+
+
+#From Serge & Marco's PotaModule.pm
+#sub character_tokeniser {
+#    my ($data,$segmentlength) = @_;
+#    unless ($segmentlength) {
+#	$segmentlength = $defaultsegmentlength;
+#    }
+#
+#    chomp $data;
+#    my @tokens;
+#    foreach (split "[ ]+",$data) {
+#	if (/^[A-Za-z0-9]/) { # if a string starts with Latin chars do not tokenise; 
+#                              # ideally we should provide the full range of non-CJK UTF8 chars
+#	    if ($_ eq $tagtoken) {
+#		push @tokens, $_;
+#	    } else {
+#		push @tokens, $wspacetoken, $_, $wspacetoken; #preserve whitespaces
+#	    }
+#	} elsif (/\S/) { #otherwise split nonempty lines into characters
+#	    for (my $i=0; $i < length($_); $i+=$segmentlength) {
+#		push @tokens,substr($_,$i,$segmentlength);
+#	    }
+#	};
+#    }
+#    return \@tokens;
+#}
+

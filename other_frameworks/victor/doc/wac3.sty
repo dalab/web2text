@@ -1,0 +1,338 @@
+% Stylesheet "Cahiers du Cental"
+\def\fileversion{0.1}
+\def\filedate{2007/03/19}
+\def\Copyright{Copyright (C) 2007, Hubert Naets, CENTAL, Louvain-la-Neuve, Belgium}
+\NeedsTeXFormat{LaTeX2e}[1994/01/01]
+\typeout{Package `cental' <\filedate>.}
+\typeout{\Copyright}
+\typeout{hubertnaets@gmail.com}
+
+%================================================
+% Packages needed
+%================================================
+\usepackage{caption}
+\usepackage{mathptmx}
+
+%================================================
+% Page composition
+%================================================
+
+\setlength{\oddsidemargin}{-1in}
+\addtolength{\oddsidemargin}{2.5cm}
+\setlength{\textwidth}{21cm}
+\addtolength{\textwidth}{-5cm}
+\setlength{\evensidemargin}{-1in}
+\addtolength{\evensidemargin}{2.5cm}
+
+\setlength{\topmargin}{-1in}
+\addtolength{\topmargin}{1.25cm}
+\setlength{\headheight}{.1cm}
+\setlength{\headsep}{1.15cm}
+\setlength{\textheight}{29.7cm}
+\addtolength{\textheight}{-5.3cm}
+\setlength{\footskip}{1.43cm}
+
+%================================================
+% Shortcuts
+%================================================
+\newcommand{\up}[1]{\textsuperscript{#1}}
+
+%================================================
+% Fonts
+%================================================
+% normal style
+\def\selectnormalfont{
+\fontsize{13}{16pt}\selectfont
+}
+
+% bibliography style
+\def\selectbibliographyfont{
+\fontsize{11}{0.42cm}\selectfont
+}
+
+% title font
+\DeclareFixedFont{\titlefontstyle}{\encodingdefault}%
+{\familydefault}{bx}{\shapedefault}{20pt}
+\newcommand{\titlefont}{\titlefontstyle}
+
+% author font
+\DeclareFixedFont{\authorfontstyle}{\encodingdefault}%
+{\familydefault}{\seriesdefault}{\shapedefault}{16pt}
+\newcommand{\authorfont}{\authorfontstyle}
+
+% institution font
+\DeclareFixedFont{\institutionfontstyle}{\encodingdefault}%
+{\familydefault}{\seriesdefault}{\shapedefault}{13pt}
+\newcommand{\institutionfont}{\institutionfontstyle}
+
+% abstract font
+\DeclareFixedFont{\abstractfontstyle}{\encodingdefault}%
+{\familydefault}{bx}{\shapedefault}{13pt}
+\newcommand{\abstractfont}{\abstractfontstyle}
+
+% abstract content font
+\DeclareFixedFont{\abstractcontentfontstyle}{\encodingdefault}%
+{\familydefault}{\seriesdefault}{\shapedefault}{11pt}
+\newcommand{\abstractcontentfont}{\abstractcontentfontstyle}
+
+% keywords font
+\DeclareFixedFont{\keywordsfontstyle}{\encodingdefault}%
+{\familydefault}{bx}{\shapedefault}{11pt}
+\newcommand{\keywordsfont}{\keywordsfontstyle}
+
+% keywords content font
+\DeclareFixedFont{\keywordscontentfontstyle}{\encodingdefault}%
+{\familydefault}{\seriesdefault}{\shapedefault}{11pt}
+\newcommand{\keywordscontentfont}{\keywordscontentfontstyle}
+
+% Section font
+\DeclareFixedFont{\sectionfontstyle}{\encodingdefault}%
+{\familydefault}{bx}{\shapedefault}{16pt}
+\newcommand{\sectionfont}{\sectionfontstyle}
+
+% Subsection font
+\DeclareFixedFont{\subsectionfontstyle}{\encodingdefault}%
+{\familydefault}{\seriesdefault}{\shapedefault}{13pt}
+\newcommand{\subsectionfont}{\subsectionfontstyle}
+
+% Subsubsection font
+\DeclareFixedFont{\subsubsectionfontstyle}{\encodingdefault}%
+{\familydefault}{\seriesdefault}{it}{13pt}
+\newcommand{\subsubsectionfont}{\subsubsectionfontstyle}
+
+% Captions font
+\DeclareFixedFont{\captionsfontstyle}{\encodingdefault}%
+{\familydefault}{\seriesdefault}{it}{13pt}
+\newcommand{\captionsfont}{\captionsfontstyle}
+
+% Footnote font
+\DeclareFixedFont{\footnotefontstyle}{\encodingdefault}%
+{\familydefault}{\seriesdefault}{\shapedefault}{11pt}
+\newcommand{\footnotefont}{\footnotefontstyle}
+
+% Header font
+\DeclareFixedFont{\headerfontstyle}{\encodingdefault}%
+{\familydefault}{\seriesdefault}{sc}{10pt}
+\newcommand{\headerfont}{\headerfontstyle}
+
+% Page number font
+\DeclareFixedFont{\pagenumberfontstyle}{\encodingdefault}%
+{\familydefault}{\seriesdefault}{sc}{10pt}
+\newcommand{\pagenumberfont}{\pagenumberfontstyle}
+
+% Footer font
+\DeclareFixedFont{\footerfontstyle}{\encodingdefault}%
+{\familydefault}{\seriesdefault}{it}{11pt}
+\newcommand{\footerfont}{\footerfontstyle}
+
+%================================================
+% Footnotes
+%================================================
+\let\myFoot\footnote
+\renewcommand{\footnote}[1]{\,\myFoot{\footnotefont \,#1}}
+
+\renewcommand\footnoterule{%
+ % \vspace{1em}%   <-- one line space between text and footnoterule
+  \kern-3\p@\hrule\@width.2\columnwidth%
+  \kern2.6\p@}
+
+%================================================
+% Sections
+%================================================
+
+% Explication :
+% + La commande \@startsection permet de g�er : la table des
+% 	mati�es, la num�otation des titres, les r��ences,
+% 	les titres des sections dans l'en-t�e, etc...
+% + {section} indique qu'il s'agit d'une section
+% + {1} indique son niveau dans la table des mati�es
+% + {\z@} indique son niveau d'indentation (z�o)
+% + {-3.5ex \@plus -1ex \@minus -.2ex} d�init l'espace qui sera
+% 	ajout�au dessus du titre
+% + {2.3ex \ at plus.2ex} d�init l'espace qui sera ajout�en dessous
+% 	du titre. Si ce nombre est n�atif alors il s'agit d'un
+% 	espacement horizontal, pour avoir des titres "en ligne",
+% 	comme � :
+% 	Titre de ma section.        Nous allons parler... bla,
+% 	bla, bla...
+% + \@plus et \@minus permettent de jouer sur l'�asticit�de ces
+% 	espaces
+% + {\reset@font\Large\bfseries} sont les commandes de mises en
+% 	forme du titre.
+
+\renewcommand*\@seccntformat[1]{\csname the#1\endcsname\hspace{.2cm}}
+
+\renewcommand\section{\@startsection {section}{1}{\z@}%
+	{-1ex \@plus -1ex \@minus 1ex}%
+	{0.1ex \@plus.2ex}%
+	{\reset@font\sectionfont}}
+
+\renewcommand\subsection{\@startsection {subsection}{1}{\z@}%
+	{-1ex \@plus -0ex \@minus -.2ex}%
+	{0.1ex \@plus.2ex}%
+	{\reset@font\subsectionfont}}
+
+\renewcommand\subsubsection{\@startsection {subsubsection}{1}{\z@}%
+	{-1ex \@plus -0ex \@minus -.2ex}%
+	{0.1ex \@plus.2ex}%
+	{\reset@font\subsubsectionfont}}
+
+\renewcommand{\thesection}{\arabic{section}.}
+\renewcommand{\thesubsection}{\thesection\arabic{subsection}.}
+\renewcommand{\thesubsubsection}{\thesubsection\arabic{subsubsection}.}
+
+%================================================
+% Headers
+%================================================
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+%\fancyhf{}
+\fancyhead{}
+
+\renewcommand{\headrulewidth}{0pt} % no line for the header
+\renewcommand{\footrulewidth}{0pt} % no line for the footer
+
+
+% odd pages header
+\def\headertitle#1{
+\fancyhead[CO]{\headerfont #1}
+\fancyhead[RO]{\pagenumberfont\thepage}
+% \def\@oddhead{\centerline{\headerfont #1}}
+}
+
+% even pages header
+\def\headerauthor#1{
+\fancyhead[CE]{\headerfont #1}
+\fancyhead[LE]{\pagenumberfont\thepage}
+%\def\@evenhead{\headerfont\thepage \centerline{\headerfont #1}}
+%\fancyhead[CO]{\textsc{#1}}
+}
+
+\fancyfoot[C]{\hfil}
+
+% 1st page
+\def\ps@firstpage{
+\def\@oddhead{}
+\def\@oddfoot{\footerfont \hfil Cahiers du Cental, 5 (2007), \thepage}
+}
+
+%================================================
+% Title
+%================================================
+
+\newcommand{\@institutionData}{}
+\newcommand{\institution}[1]{\renewcommand{\@institutionData}{#1}}
+
+\def\maketitle{\centalmaketitle}
+
+\def\centalmaketitle{\par
+ \begingroup
+ \newpage
+ \global\@topnum\z@ \@centalmaketitle 
+ \thispagestyle{firstpage}
+ \@thanks
+ \endgroup
+ \setcounter{footnote}{0}
+ \let\centalmaketitle\relax
+ \let\@centalmaketitle\relax
+ \gdef\@thanks{}
+ \gdef\@author{}\gdef\@title{}
+ \let\thanks\relax
+ }
+
+\def\@centalmaketitle{\newpage
+  \begin{center}
+    \parindent 0pt
+    \null
+    \vskip 0.4cm
+    {\titlefont \@title \par}
+  \end{center}
+  \begin{flushright}
+    \vskip 0.5cm
+    {\authorfont \@author \par}
+    \null
+    \vskip -.8cm
+    {\institutionfont \@institutionData \par}
+  \end{flushright}
+    \vskip 1.8cm
+}
+
+%================================================
+% Parindent
+%================================================
+
+\setlength{\parindent}{0cm}
+\setlength{\parskip}{.21cm}
+
+
+%================================================
+% Captions
+%================================================
+% use caption.sty
+\DeclareCaptionFont{cental}{\captionsfont}
+\captionsetup{labelsep=period,font=cental, position=below, aboveskip=-.4cm}
+
+
+%================================================
+% Citations
+%================================================
+
+\def\@cite#1#2{(#1\if@tempswa ~:
+#2\fi)}
+\def\@biblabel#1{}
+
+\def\@citex[#1]#2{\if@filesw\immediate\write\@auxout{\string\citation{#2}}\fi
+  \def\@citea{}\@cite{\@for\@citeb:=#2\do
+    {\@citea\def\@citea{; }\@ifundefined
+       {b@\@citeb}{{\bf ?}\@warning
+       {Citation `\@citeb' on page \thepage \space undefined}}%
+{\csname b@\@citeb\endcsname}}}{#1}}
+
+\let\@internalcite\cite
+\def\cite{\def\citename##1{##1 }\@internalcite} % c'est ici {##1 <separateur>}qu'on met le s�arateur
+						% entre le nom et la date. \citename vient de la feuille de style bibtex *.bst 
+\def\shortcite{\catcode`:=12\def\citename##1{}\@internalcite}
+
+%================================================
+% Bibliography
+%================================================
+%% \DeclareOption{french}{
+ \def\thebibliography#1{\vskip 13pt\selectbibliographyfont\section*{References}
+     \list
+     {\arabic{enumi}.}{\settowidth\labelwidth{}
+     \leftmargin 0.5cm
+     %\labelwidth
+     \itemsep 0cm
+     \itemindent -0.5cm
+     \usecounter{enumi}}
+     \def\newblock{\hskip .11em plus .33em minus -.07em}
+     \sloppy
+     \sfcode`\.=1000\relax
+ }
+
+
+%================================================
+% Abstract and keywords
+%================================================
+
+\def\abstract#1{
+{\abstractfont Abstract \\} \vskip -.4cm \abstractcontentfontstyle \advance\baselineskip -1.5pt #1}
+
+\def\keywords#1{
+\vskip -.1cm
+{\keywordsfont Keywords~:}
+\keywordscontentfontstyle #1.\\
+}
+
+\def\resume#1{ \vskip .3cm
+{\abstractfont R\'esum\'e \\} \vskip -.4cm \abstractcontentfontstyle #1}
+
+\def\motsclefs#1{
+\vskip -.1cm
+{\keywordsfont Mots-cl\'es~:}
+\keywordscontentfontstyle #1.\\
+}
+
+
+\ProcessOptions

@@ -8,7 +8,7 @@ import org.apache.spark.{SparkConf,SparkContext}
 import breeze.linalg
 import ch.ethz.dalab.dissolve.regression.LabeledObject
 import ch.ethz.dalab.dissolve.models.LinearChainCRF
-import ch.ethz.dalab.dissolve.optimization.{LocalBCFW,DistBCFW}
+import ch.ethz.dalab.dissolve.optimization.{LocalSSGD,DistBCFW}
 import ch.ethz.dalab.dissolve.optimization.SSVMClassifier
 
 case class ChainCRF(
@@ -79,20 +79,21 @@ case class ChainCRF(
     // Transform the data to the right format
     val d = data.map(transformData)
     val t = testData.map(transformData)
-    val train_data = spark.parallelize(d)
-    val test_data = spark.parallelize(t)
+    // val train_data = spark.parallelize(d)
+    // val test_data = spark.parallelize(t)
 
     // Train the model
 
-    val solver = new DistBCFW(
+    val solver = new LocalSSGD(
       modelConfig,
       debug=debug,
-      debugMultiplier=debugMultiplier,
+      // debugMultiplier=debugMultiplier,
       lambda=lambda
+      // roundLimit=2000
     )
 
     // Save the  model
-    classifier.train(train_data, test_data, solver)
+    classifier.train(d, t, solver)
   }
 
   /** Store the model weights to file */

@@ -95,6 +95,7 @@ object Util {
     */
   def loadFile(path: String, skipLines: Int = 0, isResource: Boolean = false) = {
 
+
     val source = {
       if (isResource) {
         val is = getClass.getResourceAsStream(path)

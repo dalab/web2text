@@ -4,19 +4,43 @@ import nl.tvogels.boilerplate.utilities.Util
 import nl.tvogels.boilerplate.utilities.Util._
 import nl.tvogels.boilerplate.alignment.Alignment
 import nl.tvogels.boilerplate.cleaneval.CleanEval
-import nl.tvogels.boilerplate.cdom.CDOM
+import nl.tvogels.boilerplate.cdom.{CDOM,DOM}
 import org.jsoup.Jsoup
 import nl.tvogels.boilerplate.features.extractor._
 import nl.tvogels.boilerplate.classification.{PerformanceStatistics,ChainCRF}
 import nl.tvogels.boilerplate.features.{BlockFeatureExtractor,FeatureExtractor}
+import nl.tvogels.boilerplate.visualization.Visualization
 
 object Main {
   def main(args: Array[String]): Unit = {
 
-    testChainCRF
+    // Visualization(27017).storeCleanEvalInMongo
+    // Visualization(27018).storeCleanEvalInMongo
+
+    addLabelsToMongo("bte")
+    addLabelsToMongo("unfluff")
+    addLabelsToMongo("default-extractor")
+    addLabelsToMongo("article-extractor")
+    addLabelsToMongo("largestcontent-extractor")
+
   }
 
-  def evaluateOtherMethod = {
+  def addLabelsToMongo(dir: String) = {
+    val vis = Visualization(27018)
+
+    for (p <- CleanEval.iterator) {
+      val location = s"/Users/thijs/dev/boilerplate/other_frameworks/output/$dir/${p.id}-aligned.txt"
+      if (Util.fileExists(location)) {
+        val body = Jsoup.parse(p.origWithoutTextTag).body
+        val cdom = CDOM.fromBody(body)
+        val labels = Alignment.labelsFromAlignedString(cdom, Util.loadFile(location))
+        vis.addLabelsToDocument(dir, labels, p.docId)
+        println(s"Added '$dir' to document ${p.docId}.")
+      }
+    }
+  }
+
+  def evaluateOtherMethods = {
     val bte = CleanEval.evaluateOtherCleaner((id: Int) => s"/Users/thijs/Desktop/other_frameworks/output/bte/$id-aligned.txt")
     println(s"BTE:\n$bte")
 
@@ -33,6 +57,7 @@ object Main {
     println(s"Unfluff:\n$unfluff")
   }
 
+
   def testParseResults = {
     val doc = Jsoup.parse(Util.loadFile(CleanEval.origPath(581),isResource=true))
     val cdom = CDOM.fromBody(doc.body)
@@ -43,15 +68,16 @@ object Main {
 
   def testChainCRF = {
     scala.util.Random.setSeed(14101992)
-    val data = CleanEval.dataset(
+    println("Load dataset")
+    val data = time{CleanEval.dataset(
       FeatureExtractor(AncestorExtractor(BasicBlockExtractor,levels=2),EmptyEdgeExtractor)
-    )
-    println(data.length)
+    )}
+    println("Dataset loaded")
     val splits = data.randomSplit(0.5,0.5);
     val (train,test) = (splits(0),splits(1))
-    val classifier = ChainCRF(lambda = 0.01,debug=true)
+    val classifier = ChainCRF(lambda = 10,debug=false,disablePairwise=false)
     classifier.train(train,test)
-
+    classifier.saveWeights("output/weights.txt")
     println(s"Training statistics: ${classifier.performanceStatistics(train)}")
     println(s"Test statistics:     ${classifier.performanceStatistics(test)}")
 

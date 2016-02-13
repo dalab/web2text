@@ -1,0 +1,870 @@
+%*%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%                                    %%%
+%%% ©ablona bakaláøské práce na MFF UK %%%
+%%%                                    %%%
+%%% (c) Franti¹ek ©trupl, 2005         %%%
+%%%                                    %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% POZOR: Úprava bakaláøské práce je závislá rovnì¾ na volbì
+% jednostranného resp. oboustranného tisku.
+%        Bli¾¹i informace naleznete v dokumentu Úprava bakaláøské práce,
+%        který se nalézá na adrese:
+%        http://www.mff.cuni.cz/studium/obecne/bplayout/pok12mo4.pdf
+
+\documentclass[12pt,notitlepage]{report}
+\pagestyle{plain}
+
+\usepackage[latin2]{inputenc}
+\usepackage{a4wide}
+\usepackage[left=4cm]{geometry} % nastavení dané velikosti okrajù
+
+\usepackage[czech,english]{babel}
+
+\usepackage{graphicx}
+\usepackage{listings}
+
+\usepackage{hyperref}
+
+% http://www.m-w.com/dictionary/rather
+\hyphenation{rath-er}
+
+\title{Automaticé èi¹tìní HTML dokumentù}
+\author{Michal Marek}
+
+%\date{}
+
+\begin{document}
+
+\begin{titlepage}
+\begin{center}
+\ \\
+
+\vspace{15mm}
+
+\large
+Univerzita Karlova v Praze\\
+Matematicko-fyzikální fakulta\\
+
+\vspace{5mm}
+
+{\Large\bf BAKALÁØSKÁ PRÁCE}
+
+\vspace{10mm}
+
+\includegraphics[scale=0.3]{logo} 
+
+\vspace{15mm}
+
+%\normalsize
+{\Large Michal Marek}\\ % doplòte va¹e jméno
+\vspace{5mm}
+{\Large\bf Automatické èi¹tìní HTML dokumentù}\\ % doplòte název práce
+{\Large\bf Automatic cleaning of HTML documents}\\
+\vspace{5mm}
+Ústav formální a aplikované lingvistiky \\ % doplòte název katedry èi ústavu
+\end{center}
+\vspace{15mm}
+
+\large
+\noindent Vedoucí bakaláøské práce: Mgr. Pavel Pecina
+\vspace{1mm} 
+
+\noindent Studijní program: Informatika, programování
+
+\vspace{\fill}
+
+\begin{center}
+2007
+\end{center}
+
+\end{titlepage} % zde konèí úvodní strana
+
+\normalsize % nastavení normální velikosti fontu
+\setcounter{page}{2} % nastavení èíslování stránek
+\ \vspace{10mm} 
+
+\selectlanguage{czech}
+\noindent Chtìl bych podìkovat svému vedoucímu Pavlovi Pecinovi za
+vypsání zají\-mavého tématu, rady k implementaci programu a výbìr
+literatury. Jemu i jeho kolegovi Mirkovi Spoustovi také dìkuji za
+pøipomínky ke èlánku a práci. Na závìr chci podìkovat své ¾enì Petøe za
+pomoc pøi pøípravì trénovacích dat a za podporu.
+
+\vspace{\fill}
+\noindent Prohla¹uji, ¾e jsem svou bakaláøskou práci napsal
+samostatnì a výhradnì s pou¾itím citovaných pramenù. Souhlasím se
+zapùjèováním práce a jejím zveøejòováním.
+
+\bigskip
+\noindent V Praze dne 8. srpna 2007\hspace{\fill}Michal Marek
+
+
+\tableofcontents
+
+\newpage
+
+%%% Následuje strana s abstrakty. Doplòte vlastní údaje.
+\noindent
+Název práce: Automatické èi¹tìní HTML dokumentù\\
+Autor: Michal Marek\\
+Katedra (ústav): Ústav formální a aplikované lingvistiky\\
+Vedoucí bakaláøské práce: Mgr. Pavel Pecina\\
+e-mail vedoucího: pecina@ufal.mff.cuni.cz\\
+
+\noindent Abstrakt: Tato práce popisuje systém pro automatické èi¹tìní
+HTML dokumentù, který byl pou¾it pøi úèasti Univerzity Karlovy v soutì¾i
+CLEAN\-EVAL 2007. CLEANEVAL je {\it sdílená úloha} (shared task) a soutì¾
+automatických systémù pro èi¹tìní libovolných stránek s cílem pou¾ít
+webová data jako korpus v poèítaèové lingvistice a zpracování
+pøirozeného jazyka. Tuto úlohu øe¹íme jako problém {\it znaèkování
+sekvencí} (sequence labeling) a ná¹ experimentální systém je zalo¾en na
+algoritmu Conditional Random Fields, pou¾ívajícím {\it vlastnosti}
+(features) blokù textu odvozené z textového obsahu a HTML struktury
+analyzovaných webových stránek.
+
+\noindent Klíèová slova: Èi¹tìní webových stránek, Sequence labeling,
+Conditional random fields
+
+\selectlanguage{english}
+\vspace{10mm}
+
+\noindent
+Title: Automatic cleaning of HTML documents\\
+Author: Michal Marek\\
+Department: Institute of Formal and Applied Linguistics\\
+Supervisor: Mgr. Pavel Pecina\\
+Supervisor's e-mail address: pecina@ufal.mff.cuni.cz\\
+
+\noindent Abstract: This paper describes a system for automatic cleaning
+of HTML documents, which was used in the participation of the Charles
+University in CLEANEVAL 2007. CLEANEVAL is a shared task and competitive
+evaluation of automatic systems for cleaning arbitrary web pages with
+the goal of preparing web data for use as a corpus in the area of
+computational linguistics and natural language processing. We try to
+solve this task as a sequence-labeling problem and our experimental
+system is based on Conditional Random Fields exploiting a set of
+features extracted from textual content and HTML structure of analyzed
+web pages for each block of text.
+%% Labels assigned to these blocks then
+%% discriminate between different types of {\it content blocks} containing
+%% useful material that should be preserved in the document and {\it noisy
+%% blocks} of no linguistics interest that should be eliminated.
+
+\noindent Keywords: Web page cleaning, Sequence labeling, Conditional
+random fields
+
+\newpage
+
+
+
+\chapter{Introduction}
+
+The web with its enormous amounts of textual materials is a rich and
+easily accessible source of linguistic data that can be used to create
+extremely large corpora with relatively low cost and within a short
+period of time (compared to the traditional way of building text corpora
+which is an expensive and time-consuming process). The idea of having a
+corpus ``as large as the web'' recently attracted attention of many
+researchers in computational linguistics, natural language processing,
+and related areas, who would greatly benefit from such amount of data.
+Creating such a corpus comprises two steps: a) \textit{web crawling} -
+automatic browsing the web and keeping a copy of visited pages and b)
+\textit{cleaning} the pages to be included in the corpus. In this work
+we focus on the latter.
+
+Apart from the main content, a typical web page contains other material
+of no linguistic interest, such as  navigation bars, panels, and frames,
+page headers and footers, copyright and privacy notices, advertisements
+and other data (often called \textit{boilerplate}). The goal is to
+detect and remove such parts from an arbitrary web page.
+
+Although this task might seem too heterogeneous to be appropriate for
+methods based on supervised training, we solve it as a sequence-labeling
+problem with Conditional Random Fields trained on a manually cleaned set
+of web pages. Our primary goal is an attempt to explore whether
+supervised training methods can perform well enough to be successfully
+used in this task.
+
+\section{Related Work}
+
+Although web page cleaning is a crucial step in the procedure of
+building a web corpus, only a relatively little work has been done in
+this area. Most of it originated in the area of web mining and search
+engines, e.g. \cite{Cooley1999} or \cite{Lee2000}. In \cite{Bar2002}, a
+notion of pagelet determined by the number of hyperlinks in the HTML
+element is employed to segment a web page; pagelets whose frequency of
+hyperlinks exceeds a threshold are removed. \cite{Lin2002} extract
+keywords from each block content to compute its entropy, and blocks with
+small entropy are identified and removed. In  \cite{Yi2003a} and
+\cite{Yi2003b}, a tree structure is introduced to capture the common
+presentation style of web pages and entropy of its elements is computed
+to determine which element should be removed.  In \cite{Chen2006}, a
+two-stage web page cleaning method is proposed. First, web pages are
+segmented into blocks and blocks are clustered according to their style
+features. Second, the blocks with similar layout style and content are
+identified and deleted. As far as the authors know, none of the
+published method was based on sequence labeling or a similar learning
+algorithm.
+
+\chapter{User documentation}
+
+The system we developed is called {\it Victor} and is distributed along
+with this paper.  Following are instructions on installing, optionally
+configuring and using {\it Victor}.
+
+\section{Installation}
+
+Being still somewhat experimental, the package does not have any install
+script. The suggested usage for now is running the scripts from the
+unpacked source directory. Following Perl modules are required
+(available from CPAN):
+
+\begin{itemize}
+\item {\tt Curses} (for the annotation tool only)
+\item {\tt HTML::Entities}
+\item {\tt HTML::Parser}
+\item {\tt HTML::Tidy} (optional)
+\end{itemize}
+
+And the following programs:
+
+\begin{itemize}
+
+\item CRF++, available from \url{http://crfpp.sourceforge.net/}
+
+\item HTML Tidy, available from \url{http://tidy.sourceforge.net/}
+
+\end{itemize}
+
+The included {\tt check-deps.pl} script can be used to check if all the
+required packages are installed.
+
+\section{Configuration}
+
+There are two sources of configuration in {\it Victor}. The so called
+config file, placed in the {\tt configs} sub-directory, and the CRF++
+template file, placed in the {\tt templates} sub-directory. All {\it
+Victor} scripts accept the {\tt --config <name>} command line option to
+switch between configs. There is a preset config for use in the
+CLEANEVAL shared task in {\tt configs/cleaneval.conf} (the command line
+option then reads {\tt --config cleaneval}). The config file has a
+simple format:
+\begin{verbatim}
+    variable: value
+\end{verbatim}
+Where {\tt value} can be either a single token or an array of these,
+depending on the type of the variable. In
+case of an array, the definition can be split into multiple lines:
+\begin{verbatim}
+    variable: value1
+    variable: value2
+\end{verbatim}
+is equivalent to
+\begin{verbatim}
+    variable: value1 value2
+\end{verbatim}
+The meaning of the individual variables is discussed throughout the
+text.%  The format of the CRF++ template file is described in
+%\ref{feature-config}.
+
+\section{Usage}
+
+To use {\it Victor} for cleaning web pages, a set of annotated HTML
+files for training is needed. {\it Victor} comes with files from the
+CLEANEVAL development set, converted to the {\it Victor} annotation
+format. These files are found in {\tt cleaneval/*.anno}. The {\tt
+cleaneval-extra/} directory contains additional training data prepared
+by us. To annotate own files, run the following command in the unpacked
+source directory:
+\begin{verbatim}
+    ./annotate.pl --config cleaneval file.html file.anno
+\end{verbatim}
+This will launch a full-screen terminal application that allows you to
+assign an annotation tag to each segment of text by pressing one of the
+keys displayed on the bottom. Besides the {\tt paragraph}, {\tt header}
+and {\tt list} tags specified by the CLEANEVAL task, there is the {\tt
+other} tag for marking text that should be cleaned away, and the {\tt
+continuation} tag, denoting text segments that connect to the last
+segment marked as paragraph, header or list. The {\tt continuation} tag
+is needed, because {\it Victor} splits the input on HTML tags, but
+paragraphs, headers or list items can span multiple segments, for
+example
+\begin{verbatim}
+    <p> See <a href="http://example.org">our website</a>
+    for more details.</p>
+\end{verbatim}
+would be annotated as (assuming the text is to be annotated as a single
+paragraph)
+\begin{verbatim}
+    [p] See
+    [c] our website
+    [c] for more details.
+\end{verbatim}
+
+Training the CRF++ engine on the annotated data is done by running the
+{\tt learn.pl} script:
+\begin{verbatim}
+    ./learn.pl --config cleaneval file1 file2 ...
+\end{verbatim}
+This will store the results in a ``model'' file in the {\tt models}
+sub-directory. To train on the included CLEANEVAL development dataset,
+run
+\begin{verbatim}
+    ./learn.pl --config cleaneval cleaneval/*.anno
+\end{verbatim}
+
+Finally cleaning web pages is done using the {\tt clean.pl} script. By
+default, its output is the same as that of the annotation tool. This can
+either be converted to the CLEANEVAL annotation format by the {\tt
+victor2cleaneval} script, or by running {\tt clean.pl} with the {\tt
+--format cleaneval} parameter:
+\begin{verbatim}
+    ./clean.pl --config cleaneval --format cleaneval files ...
+\end{verbatim}
+The advantage of the latter method is that it supports the special {\tt
+<text id="...">} tag and adds the {\tt URL: ...} line to the output
+file, as required by CLEANEVAL.
+
+\begin{figure}[h]
+\begin{center}
+        \includegraphics[width=12cm]{sigwac} 
+        \caption{SIGWAC website as rendered by a web browser. Text
+        that should be extracted is marked red.}
+\end{center}
+\end{figure}
+
+
+\begin{figure}[h]
+\begin{lstlisting}[frame=single,basicstyle=\ttfamily]
+<h> SIGWAC
+<p> SIGWAC is the Special Interest Group of the
+Association for Computational Linguistics (ACL)
+on Web as Corpus
+
+<p> Its objectives are
+
+<l> to promote interest in the use of the web as a
+source of linguistic data, and as an object of study
+in its own right;
+<l> to provide members of the ACL with a special
+interest in the web-as-corpus with a means of
+exchanging news of recent research developments
+and other matters of interest;
+<l> to sponsor meetings and workshops on the web as
+corpus that appear to be timely and worthwhile.
+<p> More info on
+\end{lstlisting}
+\caption{The same page as cleaned by {\it Victor}, with line breaks
+added. Except for the stray ``More info on'' paragraph, the result looks
+promising.}
+\end{figure}
+
+
+\chapter{System Overview}
+
+The system is based on sequence labeling with
+CRF++\footnote{\url{http://crfpp.sourceforge.net/}}, an implementation
+of Conditional Random Fields \cite{Lafferty2001}. It is aimed at
+cleaning arbitrary web pages as specified in the CLEANEVAL shared task
+description\footnote{\url{http://cleaneval.sigwac.org.uk/}}. Processing
+the HTML input consists of several steps:
+
+\section{Standardizing HTML code}
+
+The raw HTML input is passed through
+Tidy\footnote{\url{http://tidy.sourceforge.net/}} (either via pipes to
+the tidy binary, or using the {\tt HTML::Tidy} Perl module), in order to
+get a valid and parsable HTML tree. During development, we found only
+one significant problem with Tidy, namely that it does not interpret
+code inside the {\tt <script>} element, which means that it will be
+confused by JavaScript strings containing {\tt <script>} or {\tt
+</script>}. We employed a simple  work-around for it in the preclean
+module. Except for this particular problem which occurred only once in
+our training data, Tidy has proved to be a good choice.
+
+\section{Precleaning}
+
+Afterwards, the HTML text ``precleaned'': It is parsed\footnote{Using
+the HTML::Parser Perl module, which provides an easy-to-use SAX-like
+API.} and some elements (like scripts, style definitions, embedded
+objects, etc) are already deleted. The exact list of elements to delete
+is specified by the {\tt tag-delete} configuration variable.  Remaining
+text is split by HTML tags into a sequence of so called text blocks.
+For example, the snippet
+\begin{verbatim}
+    <p>Hello <b><i>world</i></b>!</p>
+\end{verbatim}
+would be split into three blocks, ``Hello'', ``world'', and ``!''. The
+rest of the system then views the document as a series of blocks. This
+approach has two potential problems:
+
+\begin{itemize}
+\item A given block is classified as whole, there is no way to classify
+a part of a block differently that the rest. In practice, this turned
+out to be a significant problem only for text inside the {\tt <pre>}
+element.  Therefore, inside the {\tt <pre>} element, each line of text
+is separated with a {\tt <br>} tag, splitting the content into multiple
+blocks. This allows each line to be classified separately.
+
+\item Some text rendered on web pages is contained in tag attributes,
+which are ignored by the parser. This is especially true for the {\tt
+alt} attribute of the {\tt <img>} tag and the {\tt value} attribute of
+the {\tt <input>} tag. For {\tt <img>}, this is solved by copying the
+alternative text into an artificial text child the of {\tt <img>}
+element in the preclean stage.  We believe that most {\tt <input>} tags
+on the Web do not carry any useful information in their {\tt value}
+attributes, therefore we ignore them (although the work-around would be
+the same).
+
+\end{itemize}
+
+\section{Parsing Precleaned HTML}
+
+In this step, the precleaned HTML text is again parsed with HTML::Parser
+and the blocks identified in the previous stage are loaded into memory.
+Each block is internally stored as a Perl hash with these fields:
+
+\begin{description}
+
+\item{\tt id}
+
+The number of the block (first block in the document has {\tt id} {\tt
+0}).
+
+\item{\tt text}
+
+Text of the block, with HTML entities decoded.
+
+\item{\tt containers}
+
+An array of parent elements, from outermost to innermost.
+
+\item{\tt distance}
+
+An array of tags seen since last block, {\tt "x"} stands
+for opening tag {\tt <x>} and {\tt "/x"} stands for closing tag {\tt
+</x>}.
+
+\item{{\tt td\_group}, {\tt div\_group}}
+
+Reference to an array of numbers of blocks that belong to the same
+td\_group or div\_group. The meaning of these fields is explained in
+\ref{feature-td-group}.
+
+\item{\tt fv}
+
+The feature vector of this block. This field created in the next stage.
+
+\item{\tt class}
+
+For annotated HTML, this field stores the assigned result tag.
+
+\end{description}
+
+These fields are then used by the feature extraction modules to compute
+the feature vector of each block.  Currently, these fields are always
+generated, even when running the annotation tool (which does not need
+any feature vectors)\footnote{On a 2.40GHz Pentium 4 machine, not
+generating these fields would save only about 0.06 seconds when parsing
+a 150 Kb HTML file, so optimizing here is not worth it.}.
+
+\section{Feature extraction}
+
+In this step, a feature vector is generated for each block and stored in
+the {\tt fv} field. The list of features and their detailed description
+is presented in the next chapter. The features must have a finite set of
+values\footnote{This is a limitation of the CRF tool used.}. The mapping
+of integers and real numbers into finite sets was chosen empirically and
+is specified in the configuration.  Possible values for feature {\tt \em
+X} are specified in the  variable {\tt feature-{\em X}-values}, the
+mapping is ``largest less-or-equal''.  Features that are based on a
+percentage (e.g. relative position in the document) are scaled in a
+similar way: The number of possible values for feature {\tt \em Y} is
+specified in the variable {\tt feature-{\em Y}-scale}.
+
+Most features are generated separately by independent modules. This
+allows for adding other features and switching between them for
+different tasks easily.
+
+Not all features that are generated in this stage are actually used for
+learning and cleaning, the idea is that the feature modules should be as
+simple as possible and fill the feature vector with all features they
+can generate and that the next phase then picks those features that are
+wanted. This is a memory waste, but so far it does not seem to be a
+problem.
+
+\section{Learning And Cleaning}
+
+The CRF++ tool expects the document to have the following tabular
+format:
+\begin{verbatim}
+    feature1 feature2 ... featureN tag
+    feature1 feature2 ... featureN tag
+\end{verbatim}
+that is one row for each ``word'' (a text block in our case), one column
+for each feature and the result tag in the last column (the input of the
+cleaning tool does not have the last column of course). Furthermore, the
+learning tool needs a so called ``template'', that defines actual
+features used by CRF++. A feature in CRF++ is one expanded line in the
+template, with each line being a reference into the document table,
+relative to the current line\footnote{In fact, this is more complicated.
+CRF++ defines a binary feature for each unique string the line can
+expand to, and the line can be composed of multiple references into the
+document table. See CRF++ documentation for details.}. {\it Victor} does
+not use the CRF++ template directly, it generates the templates from its
+own format. See the {\tt templates/cleaneval.tpl} file for an example.
+
+The {\tt crf-features} configuration variable defines, which features
+are output into the document table. Its purpose is also to provide a
+stable mapping of feature names to column numbers\footnote{Feature
+vectors are stored as Perl hashes, which do not have any defined
+sorting.}.
+
+To be able to map rows in the document table back to the text blocks,
+the first column is not a real feature, but the id of the text block.
+The template file never references the first row, so the block ids do
+not influence the learning and cleaning.
+
+The output format of the CRF++ cleaning tool {\tt crf\_test} is the same
+as the input format of the learning tool. When cleaning, {\it Victor}
+dumps the document table without the last columns, runs {\tt crf\_test},
+and set the {\tt class} field of each block according to the last
+column.  The array of blocks is then passed to one of the output
+handlers {\tt Victor::Output::*}.
+
+\chapter{Features}
+
+Features recognized by {\it Victor} can be divided by their scope into
+three subsets: features of individual text blocks, features of groups of
+blocks and features of the whole document. Furthermore, features can be
+divided by their source into features based on the HTML markup and
+features based on the text content of the blocks.
+
+\section{Markup-based Features}
+
+\def\changemargin{\list{}{}\item[]}
+\let\endchangemargin=\endlist
+
+\newcommand{\feature}[2]
+{
+        \noindent {\bf#1}
+        \begin{changemargin}
+                #2
+        \end{changemargin}
+}
+
+%\begin{description}
+
+\feature{container.p, container.a, container.u, container.img,\\
+container.class-header, container.class-bold, container.class-italic,
+container.class-list, container.class-form}
+{For each parent element of a block, a corresponding {\it container.*}
+feature will be set to 1, e.g. a hyperlink inside a paragraph will have
+the features \textit{container.p} and \textit{container.a} set to 1.
+This feature is especially useful for classifying blocks: For instance a
+block contained in one of the {\tt <h{\emph x}>} elements is likely to
+be a header, a {\it container.li} feature suggests a list item, etc. The
+{\it container.class-*} features refer to classes of similar elements
+rath\-er than to elements themselves. This grouping is done in order to
+reduce the length of the feature vector\footnote{and therefore be able
+to train on a smaller set of documents.}.}
+
+\feature{split.p, split.br, split.hr,
+split.class-inline, split.class-block}
+{For each opening or closing tag encountered since the last block, we
+generate a corresponding {\it split.*} feature. This is needed to
+decide, whether a given block connects to the text of the previous block
+(classified as {\it continuation}) or not. Also, the number of
+encountered tags of the same kind is recorded in the feature. This is
+mainly because of the {\tt <br>} tag; a single line break does not
+usually split a paragraph, while two or more {\tt <br>} tags usually do.
+The {\it split.class-*} features again refer to classes of similar
+elements.}
+
+
+%\end{description}
+
+\section{Content-based Features}
+
+%\begin{description}
+
+\feature{char.alpha-rel, char.num-rel, char.punct-rel, char.white-rel,\\
+char.other-rel}
+{These features represent the absolute and relative counts of characters
+of different classes (letters, digits, punctuation, whitespace and
+other) in the block.}
+
+\feature{token.alpha-rel, token.num-rel, token.mix-rel,
+token.other-rel,\\
+token.alpha-abs, token.num-abs, token.mix-abs, token.other-abs}
+{These features reflect distribution of individual classes of
+tokens\footnote{In this context, tokens are sequences of arbitrary
+characters separated by whitespace.}. The classes are words, numbers,
+mixture of letters and digits, and other.}
+
+\feature{sentence.count}
+{Number of sentences in a block. For English, we use a naive algorithm
+basically counting periods, exclamation marks and question marks,
+without trying to detect abbreviations. Given that the actual count is
+mapped into a small set of values anyway, this does not seem to be a
+problem. For Czech language, we use a module, developed by one of our
+colleagues, that also detects abbreviations. But we did not think it is
+worth the effort creating a new module for English.}
+          
+\feature{sentence.avg-length}
+{Average length of a sentence, in words.}
+
+\feature{sentence-begin, sentence-end}
+{These features identify text blocks that start or end a sentence.  This
+helps recognizing headers and list items (as these usually do not end
+with a period) as well as continuation blocks ({\it sentence-end=0} in
+the previous blocks and {\it sentence-start=0} in the current block
+suggest a continuation).}
+
+\feature{first-duplicate, duplicate-count}
+{The {\it duplicate-count} feature counts the number of blocks with the
+same content (ignoring white space and non-letters). The first block of
+a group of duplicates is then marked with {\it first-duplicate}. This
+feature serves two purposes: On pages where valid text interleaves with
+noise (blogs, news frontpages, etc), the noise often consists of some
+phrases like ``read more...'', ``comments'', ``permalink'', etc, that
+repeat multiple times on the page. The second purpose of this feature is
+to identify quotes in discussions, which are deleted in the CLEANEVAL
+development set. The {\it first-duplicate} feature is then used to
+recognize the original post.  Especially for the second use case, there
+is room for improvement in being able to express different levels of
+text similarity among the blocks, to be able to also detect quotes of
+parts of the original text.}
+
+\feature{regexp.url, regexp.date, regexp.time}
+{While we try to develop a tool that works independently of the human
+language of the text, some language-specific features are needed
+nevertheless. The configuration defines each {\it regexp.*} feature as
+an array of regular expressions. The value of the feature is the number
+of the first matching expression (or zero for no match).  We use three
+sets of regular expressions: to identify times and dates (lines with
+creation date/time are marked as {\it header} in CLEANEVAL data) and
+URLs (these are usually cleaned away in the CLEANEVAL data).}
+
+\feature{bullet}
+{This is a specialized version of the {\it regexp.* } features, matching
+different patterns that suggest a list item (number or a single letter,
+closing parenthesis, dash, etc). Each combination of matches results in
+a different value of the feature, so that lists can be recognized as a
+sequence of blocks with the same {\it bullet} value.}
+
+\feature{\label{feature-td-group}div-group.word-ratio,
+td-group.word-ratio}
+{The layout of many web pages follows a similar pattern: The main content
+is enclosed in one big {\tt <div>} or {\tt <td>} element, as are the
+menu bars, advertisements etc. To recognize this feature and express it
+as a number, the parser groups blocks that are direct descendants of the
+same {\tt <div>} element ({\tt <td>} element respectively). A direct
+descendant in this context means that there is no other {\tt <div>}
+element ({\tt <td>} element respectively) in the tree hierarchy between
+the parent and the descendant. For example in this markup % FIXME
+\\
+    {\tt <div> a <div> b c </div> d <div> e f </div> g </div>}
+\\
+the {\it div-group}s would be (a, d, g), (b,c) and (e, f). The {\it
+div-group.word-ratio} and {\it td-group.word-ratio} features express the
+relative size of the group in number of words. To better distinguish
+between groups with noise (e.g. menus) and groups with text, only words
+not enclosed in {\tt <a>} tags are considered.}
+
+%\end{description}
+
+\section{Document-related features}
+
+%\begin{description}
+
+\feature{position}
+{This feature reflects a relative position of the block in the document
+(counted in blocks, not bytes). The rationale behind this feature is
+that parts close to the beginning and the end of documents usually
+contain noise.}
+
+\feature{document.word-count, document.sentence-count,\\
+document.block-count}
+{This feature represents the number of words, sentences and text blocks
+in the document.}
+
+\feature{document.max-div-group, document.max-td-group}
+{The maximum over all {\it div-group.word-ratio} and a maximum over all
+{\it td-group.word-ratio} features. This allows us to express
+``fragmentation'' of the document -- documents with a low value of one
+of these features are composed of small chunks of text (e.g. web
+bulletin boards).}
+
+%\end{description}
+
+\chapter{Data and Evaluation}
+
+For our development purposes we had 104 manually cleaned HTML documents
+available: 51 of them were provided by CLEANEVAL and the rest was
+randomly selected, downloaded, and cleaned following the same guidelines
+by a volunteer. In this development data set, 22\,501 blocks were
+identified and assigned appropriate labels. Their distribution is shown
+in the following table.
+
+\begin{table}[h]
+  
+\begin{center}
+\begin{tabular}{|l|r|}
+\hline
+label & count \\
+\hline
+header & 1\,996 \\
+list  & 1\,149 \\
+paragraph  &  3\,419 \\
+continuation &   3\,380 \\
+\hline
+total (\textit{content}) & 9\,944 \\
+\hline
+other (\textit{noise})  & 12\,557 \\
+\hline
+\end{tabular}
+\end{center}
+\caption{Labels distribution in the development data set.}
+\label{tab2}
+\end{table}
+
+The data set was randomly split into six subsets and for better
+estimation of performance measures used in a six-fold cross-validation.
+Evaluation measures were of two types:
+
+\begin{enumerate}
+
+\item {\bf labeling accuracy} -- the  ratio of correctly assigned block
+labels (1) from the full label set and (2) distinguishing only between
+\textit{content} and \textit{noisy} blocks;
+
+\item {\bf cleaning performance} -- the official CLEANEVAL scoring
+measures based on (3) edit distance and the extent to which the markup
+tags indicate blocks of text starting and ending in the same place and
+(4) alignment of text alone, ignoring the markup tags plus (5) a
+combination of the latter two referred as the total score.
+
+\end{enumerate}
+
+
+
+\chapter{Experiments and Results}
+
+First, we have performed a series of experiments where we disabled each
+of the 46 features one by one with the following observations:
+
+The variance among the results on the six cross-validation subsets was
+relatively high in all experiments; the total score ranged from 66\% to
+80\%. This is partially caused by the relatively small amount of
+training and test data in each run but it also proves the heterogeneous
+character of the task.
+
+In contrast, the difference among the results of all experiments was
+relatively low. The total scores ranged from 71.9\% to 74.5\%. A
+possible explanation is a certain redundancy in the feature set.
+
+Disabling some of the features slightly improved the results. The total
+score with all features enabled was 73.9\%, while disabling the {\it
+% hack
+document.\-word-count} feature resulted in a score of 74.6\%. Although
+this difference is probably not statistically significant we used this
+criterion and disabled some features for cleaning the evaluation data.
+
+We also performed two other experiments: one with only the content-based
+features enabled and one with only the markup-based features enabled.
+Surprisingly, the results only dropped to 65.3\% for markup-only and
+66.5\% for content-only features. This gives us an idea how much
+information is taken from these two types of features and how much we
+gain from their combination.
+
+For the CLEANEVAL evaluation, we have chosen three experimental
+settings: Exp-1 with all features enabled, Exp-2 with the features {\it
+word-ratio}, {\it numeric-count}, {\it mixed-count} and {\it
+nonword-count} disabled, and Exp-3 with two more additionally disabled
+features {\it regexp.url} and {\it document.word-count}.  The
+cross-validated results on the development data set for these
+experiments are displayed in Table \ref{table-results}.
+
+\begin{table}[ht]
+\begin{center}
+\begin{tabular}[c]{|l|c|c|c|c|c|}
+
+\hline  & \multicolumn{2}{c|}{labeling accuracy (\%)} & \multicolumn{3}{c|}{cleaning performance (\%)}\\
+\cline{2-6} & full set & content-noise & markup-only & text-only & total \\
+\hline
+Exp-1 & 74.45 &  82.60 &  66.71 & 81.11 & 73.92\\
+Exp-2 & 75.09 &  83.09 & 67.31  & 81.68 & 74.50\\
+Exp-3 & 75.01 &  82.88  & 68.46 & 81.83 & 75.15\\
+\hline
+\end{tabular}
+\end{center}
+\caption{Labeling accuracy and cleaning performance on the development data.}
+\label{table-results}
+\end{table}
+
+
+\chapter{Conclusions}
+
+We proposed a method for web page cleaning based on sequence labeling
+with Conditional Random Fields and presented a few initial experiments
+evaluated on the development data for CLEANEVAL 2007. With very limited
+costs and manual work we were able to achieve encouraging
+results\footnote{Unfortunately, we have not received results from the
+CLEANEVAL shared task as of writing this paper. Therefore, our
+conclusions are backed up only by the results of the cross-validation
+experiments.}.  Using supervised training methods seems as a reasonable
+approach and we believe that a better set of features and a larger
+collection of training data can bring additional performance
+improvement. Nevertheless, we are aware of some weaknesses of our
+system:
+
+
+\begin{itemize}
+
+\item There is no natural language detection. Therefore, it is also very
+easy to ``trick'' {\it Victor} into accepting something that is no valid
+text at all -- any longer sequence of random characters with enough
+spaces and full stops enclosed in the {\tt <p>} element is very likely
+to be labeled as a paragraph. While we agree that a rudimentary natural
+language detection is necessary in order not to pollute the corpus with
+texts in foreign languages, it could be easily implemented outside of
+the system. Recognizing intentionally mangled content would be harder.
+Theoretically, some spam detection software could be used for that.
+
+\item Currently, {\it Victor} does not perform very well on pages where
+valid text is split up into small pieces, such as bulletin boards. While
+the {\it document.max-div-group} and {\it document.max-td-group}
+features might help recognizing such pages, the actual cleaning
+performance on such pages is still far from being optimal. Depending on
+the task however, it could be acceptable discard pages that are known to
+cause problems, preferring quality of the cleaned text over quantity.
+
+\end{itemize}
+
+\section{Future Ideas}
+
+Below are some ideas for additional features and other improvements.
+
+\subsubsection*{Extract features from CSS style rules}
+
+Currently, the only meta data {\it Victor} uses is the HTML tree. A
+challenging task would be to implement parsing CSS style rules and
+extract features such as font sizes or even positioning. We believe that
+this would improve performance on many web pages that use {\tt <span>}
+or similar tags with style rules instead of ``semantic'' tags.
+
+\subsubsection*{Recognize common Content Management Systems}
+
+It should not be difficult to recognize popular Content Management
+Systems (CMS), such as Drupal or MediaWiki. This would mainly allow to
+hint the CRF algorithm by marking blocks that are part of the main
+content and are therefore more likely to contain valid text.
+
+\bibliographystyle{plain}
+\bibliography{biblio}
+
+\end{document}
+
+% vim: et tw=72

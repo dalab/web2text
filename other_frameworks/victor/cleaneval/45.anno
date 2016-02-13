@@ -1,0 +1,927 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta name="hp_design_version" content="hpweb.1.2e" />
+<meta name="target_country" content="W1" />
+<meta name="web_section_id" content="R256" />
+<meta name="page_content" content="Other" />
+<meta name="segment" content="Large.Partners.Public_Sector" />
+<meta name="user_type" content="Developer" />
+<meta name="robots" content="noarchive" />
+
+
+
+<link rel="stylesheet" type="text/css" href="/country/us/eng/styles/drc.css" />
+<title>Application management solutions with HP OpenView and BEA - HP Dev Resource Central</title>
+<meta name="Keywords" content="dev2dev, bea, presentation,OpenView,slides,notes" />
+<meta name="Description" content="Notes from a presentation given at BEA dev2dev Days 2004." />
+<meta name="Date" content="2005-01-19" />
+</head>
+<body bgcolor="#FFFFFF" text="#000000" link="#003366" alink="#003366" vlink="#660066" marginheight="0" marginwidth="0" leftmargin="0" topmargin="0">
+
+<noscript>
+<span class="color003366"><span id="victor_an0" class="victor_other">»</span></span><span id="victor_an1" class="victor_other">&nbsp;
+</span><a href="/drc/javascript.jsp"><span id="victor_an2" class="victor_other">Summary of site-wide JavaScript functionality</span></a></noscript>
+
+<table border="0" cellpadding="0" cellspacing="0" width="720" summary="">
+<tr>
+<td height="24" width="1">
+<a href="#top" class="hide"><span id="victor_an3" class="victor_other">Jump to content</span></a>
+</td>
+<td height="24" width="719">
+
+</td>
+</tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%" summary="">
+<tr>
+<td align="left" valign="top" bgcolor="#666666">
+<table border="0" cellpadding="0" cellspacing="0" width="720" summary="">
+<tr class="decoration">
+<td>
+<a href="http://welcome.hp.com/country/us/en/welcome.html">
+<img src="http://welcome.hp.com/country/us/en/img/top/hpweb_1-2_topnav_home.gif" width="100" height="24" border="0" alt="HP.com Home"><span id="victor_an4" class="victor_other">HP.com Home</span></img>
+</a>
+</td>
+<td class="colorE7E7E7bg">
+<img src="http://welcome.hp.com/img/s.gif" width="1" height="1" alt="" />
+</td>
+<td>
+<a href="http://welcome.hp.com/country/us/en/prodserv.html">
+<img src="http://welcome.hp.com/country/us/en/img/top/hpweb_1-2_topnav_prdsrv.gif" width="166" height="24" border="0" alt="Products and Services"><span id="victor_an5" class="victor_other">Products and Services</span></img>
+</a>
+</td>
+<td class="colorE7E7E7bg">
+<img src="http://welcome.hp.com/img/s.gif" width="1" height="1" alt="" />
+</td>
+<td>
+<a href="http://welcome.hp.com/country/us/en/support.html">
+<img src="http://welcome.hp.com/country/us/en/img/top/hpweb_1-2_topnav_supprt.gif" width="163" height="24" border="0" alt="Support and Drivers"><span id="victor_an6" class="victor_other">Support and Drivers</span></img>
+</a>
+</td>
+<td class="colorE7E7E7bg">
+<img src="http://welcome.hp.com/img/s.gif" width="1" height="1" alt="" />
+</td>
+<td>
+<a href="http://welcome.hp.com/country/us/en/solutions.html">
+<img src="http://welcome.hp.com/country/us/en/img/top/hpweb_1-2_topnav_slutns.gif" width="143" height="24" border="0" alt="Solutions"><span id="victor_an7" class="victor_other">Solutions</span></img>
+</a>
+</td>
+<td class="colorE7E7E7bg">
+<img src="http://welcome.hp.com/img/s.gif" width="1" height="1" alt="" />
+</td>
+<td>
+<a href="http://welcome.hp.com/country/us/en/howtobuy.html">
+<img src="http://welcome.hp.com/country/us/en/img/top/hpweb_1-2_topnav_buy.gif" width="143" height="24" border="0" alt="How to Buy"><span id="victor_an8" class="victor_other">How to Buy</span></img>
+</a>
+</td>
+<td class="colorE7E7E7bg">
+<img src="http://welcome.hp.com/img/s.gif" width="1" height="1" alt="" />
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+
+
+<table border="0" cellpadding="0" cellspacing="0" width="100%" bgcolor="#E7E7E7" summary="">
+<tr align="left" valign="top">
+<td>
+<table border="0" cellpadding="0" cellspacing="0" width="740" summary="">
+<tr>
+<td width="20">
+<img src="http://welcome.hp.com/img/s.gif" width="20" height="48" alt="" class="decoration" />
+</td>
+<td width="150" align="left" valign="middle" class="color003366bld"><span id="victor_an9" class="victor_other">»&nbsp;
+</span><a href="/drc/contact_hp.jsp" class="smallbld"><span id="victor_an10" class="victor_other">Contact HP</span></a></td>
+<td width="570" align="right" valign="top">
+<form action="http://www.hp.com/search/" method="get">
+<input type="hidden" name="ctry" value="us" /> 
+<input type="hidden" name="lang" value="eng" /> 
+<input type="hidden" name="hps" value="DRC" /> 
+<input type="hidden" name="hpn" value="Dev Resource Central" /> 
+<input type="hidden" name="qp" value="site:devresource.hp.com site:www.presentationselect.com" /> 
+<input type="hidden" name="hpa" value="http://devresource.hp.com/drc/contact_hp.jsp" /> 
+<input type="hidden" name="hpo" value="hphqglobal,hphqNAdev" />
+<table border="0" cellpadding="0" cellspacing="0" align="right" summary="">
+<tr class="decoration">
+<td colspan="4">
+<img src="http://welcome.hp.com/img/s.gif" width="1" height="2" alt="" border="0" />
+</td>
+</tr>
+<tr align="left">
+<td class="bold">
+<label for="textbox1"><span id="victor_an11" class="victor_other">Search:</span></label>
+</td>
+<td>
+<img src="http://welcome.hp.com/img/s.gif" width="4" height="1" alt="" class="decoration" />
+</td>
+<td valign="top">
+<input type="text" name="qt" size="26" maxlength="1991" id="textbox1" alt="Enter search criteria here" />
+<img src="http://welcome.hp.com/img/s.gif" width="4" height="1" alt="" />
+<a id="country" onmouseover="status='search using the specified criteria';return true;" onmouseout="status='';return true;" onfocus="status='search using the specified criteria';return true;" onblur="status='';return true;">
+<input type="Image" name="submit" src="http://welcome.hp.com/img/hpweb_1-2_arrw_sbmt.gif" border="0" alt="Begin your search" />
+</a>
+</td>
+<td>
+<img src="http://welcome.hp.com/img/s.gif" width="20" height="1" alt="" class="decoration" />
+</td>
+</tr>
+<tr align="left">
+<td>
+<img src="http://welcome.hp.com/img/s.gif" height="1" width="1" alt="" />
+</td>
+<td colspan="3" class="small">
+<div>
+<input type="radio" value="1" name="hpl" checked="checked" class="srchradbtn" id="sectionRadio" />
+<label for="sectionRadio">
+<span class="bold"><span id="victor_an12" class="victor_other">DRC</span></span>
+</label>
+<input type="radio" value="0" name="hpl" id="countryRadio" class="srchradbtn" />
+<label for="countryRadio"><span id="victor_an13" class="victor_other">All of HP US</span></label>
+
+</div>
+</td>
+</tr>
+</table></form>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+
+
+
+<table border="0" cellpadding="0" cellspacing="0" width="740" summary="">
+<tr>
+<td width="170" align="center" valign="middle">
+<a href="http://welcome.hp.com/country/us/en/welcome.html">
+<img src="http://welcome.hp.com/img/hpweb_1-2_topnav_hp_logo.gif" width="64" height="55" alt="HP.com home" border="0"><span id="victor_an14" class="victor_other">HP.com home</span></img>
+</a>
+<br />
+</td>
+<td width="10">
+<img src="http://welcome.hp.com/img/s.gif" width="10" height="93" alt="" />
+</td>
+<td width="560" align="left" valign="top">
+<br />
+<img src="http://welcome.hp.com/img/s.gif" width="1" height="6" alt="" />
+<h1><span id="victor_an15" class="victor_header">Application management solutions with HP OpenView and BEA</span></h1><span id="victor_an16" class="victor_header">Notes from a presentation given at BEA dev2dev Days 2004.</span></td>
+
+</tr>
+</table>
+
+
+<table border="0" cellpadding="0" cellspacing="0" width="740" summary="">
+<tr align="left" valign="top">
+<td width="170" bgcolor="#F0F0F0">
+<table border="0" cellpadding="0" cellspacing="0" width="170" summary="">
+<tr align="left" class="colorDCDCDCbg">
+<td width="10">
+<img src="http://welcome.hp.com/img/s.gif" width="1" height="1" alt="" />
+</td>
+<td valign="top" width="10" class="color003366bld"><span id="victor_an17" class="victor_other">»&nbsp;</span></td>
+<td valign="middle" width="150">
+<h2 class="bold">
+<a href="/drc/index.jsp"><span id="victor_an18" class="victor_other">Dev Resource Central</span></a>
+</h2>
+</td>
+</tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="170" summary="">
+<tr align="left" valign="top">
+<td width="10">
+<img src="http://welcome.hp.com/img/s.gif" height="1" width="1" alt="" class="decoration" />
+</td>
+<td width="150">
+<table border="0" cellpadding="0" cellspacing="0" width="150" summary="">
+<tr>
+<td width="10" height="10">
+<img src="http://welcome.hp.com/img/s.gif" width="1" height="1" alt="" />
+</td>
+<td width="10">
+<img src="http://welcome.hp.com/img/s.gif" width="1" height="1" alt="" />
+</td>
+<td width="10">
+<img src="http://welcome.hp.com/img/s.gif" width="1" height="1" alt="" />
+</td>
+<td width="120">
+<img src="http://welcome.hp.com/img/s.gif" width="1" height="1" alt="" />
+</td>
+</tr>
+<tr align="left">
+<td valign="top" width="10" class="color003366"><span id="victor_an19" class="victor_other">»</span></td>
+<td width="140" colspan="3">
+<a href="/drc/downloads/index.jsp"><span id="victor_an20" class="victor_other">Downloads index</span></a>
+</td>
+</tr>
+<tr align="left">
+<td valign="top" width="10" class="color003366"><span id="victor_an21" class="victor_other">»</span></td>
+<td width="140" colspan="3">
+<a href="/drc/topics/index.jsp"><span id="victor_an22" class="victor_other">Topic index</span></a>
+</td>
+</tr>
+<tr align="left">
+<td width="10">
+<img src="http://welcome.hp.com/img/s.gif" height="1" width="1" alt="" class="decoration" />
+</td>
+<td valign="top" width="10" class="color003366"><span id="victor_an23" class="victor_other">»</span></td>
+<td width="120" colspan="2">
+<a href="/drc/topics/OpenView.jsp"><span id="victor_an24" class="victor_other">HP OpenView</span></a>
+</td>
+</tr>
+<tr align="left">
+<td width="10">
+<img src="http://welcome.hp.com/img/s.gif" height="1" width="1" alt="" class="decoration" />
+</td>
+<td valign="top" width="10" class="color003366"><span id="victor_an25" class="victor_other">»</span></td>
+<td width="120" colspan="2">
+<a href="/drc/topics/OpenCall.jsp"><span id="victor_an26" class="victor_other">HP OpenCall</span></a>
+</td>
+</tr>
+<tr align="left">
+<td width="10">
+<img src="http://welcome.hp.com/img/s.gif" height="1" width="1" alt="" class="decoration" />
+</td>
+<td valign="top" width="10" class="color003366"><span id="victor_an27" class="victor_other">»</span></td>
+<td width="120" colspan="2">
+<a href="/drc/topics/Linux.jsp"><span id="victor_an28" class="victor_other">Linux</span></a>
+</td>
+</tr>
+<tr align="left">
+<td valign="top" width="10" class="color003366"><span id="victor_an29" class="victor_other">»</span></td>
+<td width="140" colspan="3">
+<a href="/drc/columns/index.jsp"><span id="victor_an30" class="victor_other">Ask the experts</span></a>
+</td>
+</tr>
+<tr align="left">
+<td valign="top" width="10" class="color003366"><span id="victor_an31" class="victor_other">»</span></td>
+<td width="140" colspan="3">
+<a href="/drc/explore.jsp"><span id="victor_an32" class="victor_other">Explore management technologies</span></a>
+</td>
+</tr>
+<tr align="left">
+<td valign="top" width="10" class="color003366"><span id="victor_an33" class="victor_other">»</span></td>
+<td width="140" colspan="3">
+<a href="/drc/application_stories/index.jsp"><span id="victor_an34" class="victor_other">Integration stories</span></a>
+</td>
+</tr>
+<tr align="left">
+<td valign="top" width="10" class="color003366"><span id="victor_an35" class="victor_other">»</span></td>
+<td width="140" colspan="3">
+<a href="/forums"><span id="victor_an36" class="victor_other">Forums</span></a>
+</td>
+</tr>
+<tr align="left">
+<td valign="top" width="10" class="color003366"><span id="victor_an37" class="victor_other">»</span></td>
+<td width="140" colspan="3">
+<a href="/drc/blogs.jsp"><span id="victor_an38" class="victor_other">Blogs</span></a>
+</td>
+</tr>
+<tr align="left">
+<td valign="top" width="10" class="color003366"><span id="victor_an39" class="victor_other">»</span></td>
+<td width="140" colspan="3">
+<a href="/drc/invent/invent.jsp"><span id="victor_an40" class="victor_other">Invent Online webcasts</span></a>
+</td>
+</tr>
+<tr class="decoration">
+<td width="150" height="10" colspan="4">
+<img src="http://welcome.hp.com/img/s.gif" width="1" height="1" alt="" />
+</td>
+</tr>
+<tr class="decoration">
+<td width="10">
+<img src="http://welcome.hp.com/img/s.gif" width="1" height="1" alt="" />
+</td>
+<td width="140" class="colorCCCCCCbg" colspan="3">
+<img src="http://welcome.hp.com/img/s.gif" width="1" height="1" alt="" />
+</td>
+</tr>
+<tr class="decoration">
+<td width="150" height="10" colspan="4">
+<img src="http://welcome.hp.com/img/s.gif" width="1" height="1" alt="" />
+</td>
+</tr>
+<tr align="left">
+<td valign="top" width="10" class="color003366"><span id="victor_an41" class="victor_other">»</span></td>
+<td width="140" colspan="3">
+<a href="/drc/assistance.jsp"><span id="victor_an42" class="victor_other">Get software support</span></a>
+</td>
+</tr>
+<tr class="decoration">
+<td width="150" height="10" colspan="4">
+<img src="http://welcome.hp.com/img/s.gif" width="1" height="1" alt="" />
+</td>
+</tr>
+<tr class="decoration">
+<td width="10" height="1">
+<img src="http://welcome.hp.com/img/s.gif" width="1" height="1" alt="" />
+</td>
+<td width="140" class="colorCCCCCCbg" colspan="3">
+<img src="http://welcome.hp.com/img/s.gif" width="1" height="1" alt="" />
+</td>
+</tr>
+<tr class="decoration">
+<td width="150" height="10" colspan="4">
+<img src="http://welcome.hp.com/img/s.gif" width="1" height="1" alt="" />
+</td>
+</tr>
+<tr align="left">
+<td valign="top" width="10" class="color003366"><span id="victor_an43" class="victor_other">»</span></td>
+<td width="140" colspan="3">
+<a href="/drc/newsletters/subscriptions.jsp"><span id="victor_an44" class="victor_other">Newsletter</span></a>
+</td>
+</tr>
+<tr align="left">
+<td valign="top" width="10" class="color003366"><span id="victor_an45" class="victor_other">»</span></td>
+<td width="140" colspan="3">
+<a href="/drc/events.jsp"><span id="victor_an46" class="victor_other">Events</span></a>
+</td>
+</tr>
+<tr class="decoration">
+<td width="150" height="10" colspan="4">
+<img src="http://welcome.hp.com/img/s.gif" width="1" height="1" alt="" />
+</td>
+</tr>
+<tr class="decoration">
+<td width="10" height="1">
+<img src="http://welcome.hp.com/img/s.gif" width="1" height="1" alt="" />
+</td>
+<td width="140" class="colorCCCCCCbg" colspan="3">
+<img src="http://welcome.hp.com/img/s.gif" width="1" height="1" alt="" />
+</td>
+</tr>
+<tr class="decoration">
+<td width="150" height="10" colspan="4">
+<img src="http://welcome.hp.com/img/s.gif" width="1" height="1" alt="" />
+</td>
+</tr>
+<tr align="left">
+<td valign="top" width="10" class="color003366"><span id="victor_an47" class="victor_other">»</span></td>
+<td width="140" colspan="3">
+<a href="/drc/about_us.jsp"><span id="victor_an48" class="victor_other">About us</span></a>
+</td>
+</tr>
+<tr align="left">
+<td valign="top" width="10" class="color003366"><span id="victor_an49" class="victor_other">»</span></td>
+<td width="140" colspan="3">
+<a href="/drc/site_map.jsp"><span id="victor_an50" class="victor_other">Site map</span></a>
+</td>
+</tr>
+<tr class="decoration">
+<td width="150" height="10" colspan="4">
+<img src="http://welcome.hp.com/img/s.gif" width="1" height="1" alt="" />
+</td>
+</tr>
+</table>
+</td>
+<td width="10">
+<img src="http://welcome.hp.com/img/s.gif" height="1" width="1" alt="" class="decoration" />
+</td>
+</tr>
+<tr class="decoration">
+<td colspan="3" width="170" height="2" class="colorCCCCCCbg">
+<img src="http://welcome.hp.com/img/s.gif" width="1" height="1" alt="" />
+</td>
+</tr>
+<tr class="decoration">
+<td colspan="3" width="170" height="20">
+<img src="http://welcome.hp.com/img/s.gif" width="1" height="1" alt="" />
+</td>
+</tr>
+<tr>
+<td align="center" valign="top" colspan="3" width="170">
+<img src="http://welcome.hp.com/img/s.gif" height="1" width="1" alt="" class="decoration" />
+</td>
+</tr>
+<tr class="decoration">
+<td colspan="3" width="170" height="20">
+<img src="http://welcome.hp.com/img/s.gif" width="1" height="1" alt="" />
+</td>
+</tr>
+</table>
+<img src="http://welcome.hp.com/img/s.gif" height="1" width="1" alt="" class="decoration" />
+</td>
+
+<td width="10" rowspan="2">
+<a name="top">
+<img src="http://welcome.hp.com/img/s.gif" width="10" height="1" alt="Content starts here" class="decoration"><span id="victor_an51" class="victor_other">Content starts here</span></img>
+</a>
+</td>
+
+<td width="560" rowspan="2">
+
+
+
+<table border="0" width="560" cellspacing="0" cellpadding="0" summary="">
+<tr valign="top">
+<td width="370" height="1" bgcolor="#CCCCCC">
+<img src="http://welcome.hp-ww.com/img/s.gif" height="1" width="1" alt="" class="decoration" />
+</td>
+<td width="190" rowspan="2">
+<div style="margin-left:10px">
+<table border="0" width="180" cellspacing="0" cellpadding="0" summary="">
+<tr class="theme">
+<td class="themebody">
+<div style="margin:10px">
+<em><span id="victor_an52" class="victor_other">by</span></em>
+<br /><span id="victor_an53" class="victor_other">Justin Murray,
+</span><br /><span id="victor_an54" class="victor_other">Chris Peltz, &amp;
+</span><br /><span id="victor_an55" class="victor_other">Claire Rogers, HP</span></div>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr valign="top">
+<td width="370">
+<h2 style="margin-top:10px"><span id="victor_an56" class="victor_header">In this presentation</span></h2>
+<div class="hangindent">
+<span class="color003366"><span id="victor_an57" class="victor_list">»</span></span><span id="victor_an58" class="victor_continuation">&nbsp;
+</span><a href="#topdev"><span id="victor_an59" class="victor_continuation">Top developer challenges</span></a></div>
+<div class="hangindent2">
+<span class="color003366"><span id="victor_an60" class="victor_other">»</span></span><span id="victor_an61" class="victor_other">&nbsp;
+</span><a href="#supporting"><span id="victor_an62" class="victor_list">Supporting the application in production</span></a></div>
+<div class="hangindent2">
+<span class="color003366"><span id="victor_an63" class="victor_other">»</span></span><span id="victor_an64" class="victor_other">&nbsp;
+</span><a href="#addressing"><span id="victor_an65" class="victor_list">Addressing application performance issues</span></a></div>
+<div class="hangindent">
+<span class="color003366"><span id="victor_an66" class="victor_other">»</span></span><span id="victor_an67" class="victor_other">&nbsp;
+</span><a href="#resolving"><span id="victor_an68" class="victor_list">Resolving performance problems today</span></a></div>
+<div class="hangindent2">
+<span class="color003366"><span id="victor_an69" class="victor_other">»</span></span><span id="victor_an70" class="victor_other">&nbsp;
+</span><a href="#common"><span id="victor_an71" class="victor_list">Common problem resolution approaches</span></a></div>
+<div class="hangindent2">
+<span class="color003366"><span id="victor_an72" class="victor_other">»</span></span><span id="victor_an73" class="victor_other">&nbsp;
+</span><a href="#keyissues"><span id="victor_an74" class="victor_list">Key issues in problem resolution today</span></a></div>
+<div class="hangindent">
+<span class="color003366"><span id="victor_an75" class="victor_other">»</span></span><span id="victor_an76" class="victor_other">&nbsp;
+</span><a href="#how"><span id="victor_an77" class="victor_list">How can HP OpenView Transaction Analyzer (OVTA) help?</span></a></div>
+<div class="hangindent">
+<span class="color003366"><span id="victor_an78" class="victor_other">»</span></span><span id="victor_an79" class="victor_other">&nbsp;
+</span><a href="#demonstration"><span id="victor_an80" class="victor_list">Demonstration: isolating performance problems with HP OVTA</span></a></div>
+<div class="hangindent">
+<span class="color003366"><span id="victor_an81" class="victor_other">»</span></span><span id="victor_an82" class="victor_other">&nbsp;
+</span><a href="#a"><span id="victor_an83" class="victor_list">A re-cap of OVTA</span></a></div>
+<div class="hangindent2">
+<span class="color003366"><span id="victor_an84" class="victor_other">»</span></span><span id="victor_an85" class="victor_other">&nbsp;
+</span><a href="#keyovta"><span id="victor_an86" class="victor_list">Key OVTA differentiators</span></a></div>
+<div class="hangindent2">
+<span class="color003366"><span id="victor_an87" class="victor_other">»</span></span><span id="victor_an88" class="victor_other">&nbsp;
+</span><a href="#extended"><span id="victor_an89" class="victor_list">Extended application and platform support</span></a></div>
+<div class="hangindent">
+<span class="color003366"><span id="victor_an90" class="victor_other">»</span></span><span id="victor_an91" class="victor_other">&nbsp;
+</span><a href="#moving"><span id="victor_an92" class="victor_list">Moving beyond performance management</span></a></div>
+<div class="hangindent2">
+<span class="color003366"><span id="victor_an93" class="victor_other">»</span></span><span id="victor_an94" class="victor_other">&nbsp;
+</span><a href="#why"><span id="victor_an95" class="victor_list">Why is designing for manageability important?</span></a></div>
+<div class="hangindent2">
+<span class="color003366"><span id="victor_an96" class="victor_other">»</span></span><span id="victor_an97" class="victor_other">&nbsp;
+</span><a href="#whatcan"><span id="victor_an98" class="victor_list">What can you rely on for manageability?</span></a></div>
+<div class="hangindent2">
+<span class="color003366"><span id="victor_an99" class="victor_other">»</span></span><span id="victor_an100" class="victor_other">&nbsp;
+</span><a href="#whatrole"><span id="victor_an101" class="victor_list">What role can you play in manageability?</span></a></div>
+<div class="hangindent">
+<span class="color003366"><span id="victor_an102" class="victor_other">»</span></span><span id="victor_an103" class="victor_other">&nbsp;
+</span><a href="#application"><span id="victor_an104" class="victor_list">Application management solutions with HP OpenView and BEA</span></a></div>
+<div class="hangindent">
+<span class="color003366"><span id="victor_an105" class="victor_other">»</span></span><span id="victor_an106" class="victor_other">&nbsp;
+</span><a href="#call"><span id="victor_an107" class="victor_list">Call to action</span></a></div>
+</td>
+</tr>
+</table>
+<div class="hdr_space">
+<a name="topdev"></a>
+<table border="0" width="560" cellspacing="0" cellpadding="0" summary="">
+<tr class="theme">
+<td class="themeheader">
+<h2 class="sbs_10"><span id="victor_an108" class="victor_header">Top developer challenges</span></h2>
+</td>
+</tr>
+</table>
+</div>
+<div style="margin:10px 0">
+<a name="supporting"></a>
+<h3><span id="victor_an109" class="victor_header">Supporting the application in production</span></h3>
+<table border="0" width="560" cellspacing="0" cellpadding="0" summary="">
+<tr class="theme">
+<td height="4">
+<img src="http://welcome.hp-ww.com/img/s.gif" height="1" width="1" alt="" class="decoration" />
+</td>
+</tr>
+</table>
+</div>
+<ul>
+<li><span id="victor_an110" class="victor_list">Developer often called to resolve problems</span></li>
+<li><span id="victor_an111" class="victor_list">Difficult to recreate problem outside production</span></li>
+<li><span id="victor_an112" class="victor_list">Need to balance support needs with new development</span></li>
+</ul>
+<div class="hdr_space">
+<a name="addressing"></a>
+<h3><span id="victor_an113" class="victor_header">Addressing application performance issues</span></h3>
+<table border="0" width="560" cellspacing="0" cellpadding="0" summary="">
+<tr class="theme">
+<td height="4">
+<img src="http://welcome.hp-ww.com/img/s.gif" height="1" width="1" alt="" class="decoration" />
+</td>
+</tr>
+</table>
+</div>
+<ul>
+<li><span id="victor_an114" class="victor_list">Detecting problems is often reactive and post-deployment</span></li>
+<li><span id="victor_an115" class="victor_list">Isolating performance bottlenecks can be difficult</span></li>
+<li><span id="victor_an116" class="victor_list">Many distributed, complex layers to analyze</span></li>
+<li><span id="victor_an117" class="victor_list">Developers given vague information on problem</span></li>
+<li><span id="victor_an118" class="victor_list">Increased time to problem resolution</span></li>
+</ul>
+<p><span id="victor_an119" class="victor_paragraph">If you are a developer, you probably face a number of development challenges on a daily basis. There's a constant need to keep current on emerging technologies, pressure from your customers to deliver products ahead-of-schedule, and a desire to build robust and scalable architectures.</span></p>
+<p><span id="victor_an120" class="victor_paragraph">Despite understanding the importance of performance to the success of any application, and the attempting to design and architect your application to ensure that it's robust and scalable, performance management is probably more of an after-thought and doesn't become a critical issue until production when the customer experiences a problem.</span></p>
+<p><span id="victor_an121" class="victor_paragraph">If you had a very simple application, it might not be too difficult to diagnose the problem. But, you're probably using Web services, JMS, Servlets, EJBs, and other distributed technologies. When you're given a support request such as, "the application is slow", you're most likely spending countless hours trying to identify and diagnose the performance problem. You won't have enough information to know where to even start, which will make it very difficult to recreate the problem outside of production.</span></p>
+<p><span id="victor_an122" class="victor_paragraph">This leads us to the developer's dilemma. If you want to spend more type playing with new technologies such as grid computing or AOP, or you want to build more functionality, you have to balance that with the requirements to support the application.</span></p>
+<div class="hdr_space">
+<a name="resolving"></a>
+<table border="0" width="560" cellspacing="0" cellpadding="0" summary="">
+<tr class="theme">
+<td class="themeheader">
+<h2 class="sbs_10"><span id="victor_an123" class="victor_header">Resolving performance problems today</span></h2>
+</td>
+</tr>
+</table>
+</div>
+<table border="0" width="560" cellspacing="0" cellpadding="0" summary="">
+<tr valign="top">
+<td width="370">
+<div style="margin:0 0 10px">
+<a name="common"></a>
+<h3><span id="victor_an124" class="victor_header">Common problem resolution approaches</span></h3>
+<table border="0" width="370" cellspacing="0" cellpadding="0" summary="">
+<tr class="theme">
+<td height="4">
+<img src="http://welcome.hp-ww.com/img/s.gif" height="1" width="1" alt="" class="decoration" />
+</td>
+</tr>
+</table>
+</div>
+<ul>
+<li><span id="victor_an125" class="victor_list">Print statements or log files</span></li>
+<li><span id="victor_an126" class="victor_list">Operating system utilities</span></li>
+<li><span id="victor_an127" class="victor_list">Thread dumps</span></li>
+<li><span id="victor_an128" class="victor_list">Simple management tools</span></li>
+<li><span id="victor_an129" class="victor_list">Trial and error!</span></li>
+</ul>
+<div class="hdr_space">
+<a name="keyissues"></a>
+<h3><span id="victor_an130" class="victor_header">Key issues in problem resolution today</span></h3>
+<table border="0" width="370" cellspacing="0" cellpadding="0" summary="">
+<tr class="theme">
+<td height="4">
+<img src="http://welcome.hp-ww.com/img/s.gif" height="1" width="1" alt="" class="decoration" />
+</td>
+</tr>
+</table>
+</div>
+<ul>
+<li><span id="victor_an131" class="victor_list">Time to resolution is too long</span></li>
+<li><span id="victor_an132" class="victor_list">Developers required to diagnose problems</span></li>
+<li><span id="victor_an133" class="victor_list">Problem may not be code-related</span></li>
+<li><span id="victor_an134" class="victor_list">Often requires multiple diagnostic tools</span></li>
+</ul>
+</td>
+<td width="190">
+<div style="padding-left:10px">
+<div class="theme" style="padding:10px">
+<span class="themebody"><span id="victor_an135" class="victor_paragraph">Time spent troubleshooting and fixing application issues...is time not spent on new functionality</span></span>
+</div>
+</div>
+</td>
+</tr>
+</table>
+<p><span id="victor_an136" class="victor_paragraph">Consider the "traditional" approach commonly used to deal with performance issues. We are all familiar with the tried-and-true "printf" approach for measuring method call times. This technique can be quite useful, except when you have to correlate individual method times with an end-user experience. Spreadsheets and calculators can be your friend here, but it can be very time consuming.</span></p>
+<p><span id="victor_an137" class="victor_paragraph">You might also be able to leverage a variety of operating system tools to help diagnose the problem. If the production machine is hitting 100% CPU utilization, you might leverage a tool such as glance to analyze the problem. Or, if you're experiencing thread contention or Java memory issues, you might leverage specific JVM tools to identify the bottleneck. Often, these techniques are too bottoms-up, making it difficult, if not impossible, to understand how any single component might impact the end user's experience.</span></p>
+<p><span id="victor_an138" class="victor_paragraph">If you're lucky, you may have had the opportunity to work with some simple management tools. Maybe you're leveraging the WebLogic administration console to get some application server statistics. Or, you might have even toyed with ARM, JMX, or Log4J. Even in these situations, the tools at your disposal often only provide part of the answer, and you are left to piece the puzzle together to resolve the problem.</span></p>
+<p><span id="victor_an139" class="victor_paragraph">Bottom line, many of the current approaches used to diagnose performance problems are often very time-intensive, requiring hours or days to diagnose. Many times, the problem isn't even related to the application. It could be a network issue or a database issue, but you've just wasted three days supporting the application instead of enhancing it.</span></p>
+<div class="hdr_space">
+<a name="how"></a>
+<table border="0" width="560" cellspacing="0" cellpadding="0" summary="">
+<tr class="theme">
+<td class="themeheader">
+<h2 class="sbs_10"><span id="victor_an140" class="victor_header">How can HP OpenView Transaction Analyzer (OVTA) help?</span></h2>
+</td>
+</tr>
+</table>
+</div>
+<table border="0" width="560" cellspacing="0" cellpadding="0" summary="">
+<tr class="theme">
+<td class="themebody">
+<div style="margin:10px">
+<strong><span id="victor_an141" class="victor_list">OVTA - Transaction level monitoring &amp; analysis</span></strong>
+<br /><span id="victor_an142" class="victor_list">Are my transactions flowing smoothly across tiers?
+</span><br /><span id="victor_an143" class="victor_list">Where are the performance bottlenecks in my transactions?</span></div>
+</td>
+</tr>
+<tr>
+<td>
+<div style="margin:10px 0">
+<img src="04.png" height="260" width="560" alt="" />
+</div>
+</td>
+</tr>
+<tr class="theme">
+<td class="themebody">
+<div style="margin:10px">
+<strong><span id="victor_an144" class="victor_list">OVTA-JD - Application/JVM/System Level Monitoring &amp; Analysis</span></strong>
+<br /><span id="victor_an145" class="victor_list">Is my application experiencing memory leaks?
+</span><br /><span id="victor_an146" class="victor_list">Where are the source code level performance bottlenecks?</span></div>
+</td>
+</tr>
+</table>
+<p><span id="victor_an147" class="victor_paragraph">OVTA from HP helps you isolate application performance problems in your J2EE applications. Rather than spending the time adding those printf statements, stepping through your code, and trying to identify exactly where your performance bottleneck is occurring, you can now use a tool that can provide you with all kinds of information about your application's performance.</span></p>
+<p><span id="victor_an148" class="victor_paragraph">OVTA captures end-to-end transaction information and tells you if your transactions are flowing smoothly across the different application tiers, including the client, the web server, the app server and the database tiers. It will show you right down to the J2EE component, the location of the performance bottlenecks in a given transaction.</span></p>
+<p><span id="victor_an149" class="victor_paragraph">Now, we can all make mistakes in our code, especially if we're on a time crunch or are simply on a roll and hammering out code deep into the night. Once we have our code developed, how do we determine whether it contains a memory leak or a thread contention problem? Better still, how do we track the leak back to the source code and fix the issue? With the OVTA Java Diagnostics (JD) tool, we can quickly determine if our application is experiencing any memory leaks, and where any source code level performance bottlenecks are located.</span></p>
+<p><span id="victor_an150" class="victor_paragraph">Now you can do all of this in matter of minutes. Instead of spending a half-day stepping through various aspects of your code, trying to piece together the performance puzzle and making guesses on where the performance bottleneck might be, you can use OVTA to quickly diagnose the performance problems in your application.</span></p>
+<div class="hdr_space">
+<a name="demonstration"></a>
+<table border="0" width="560" cellspacing="0" cellpadding="0" summary="">
+<tr class="theme">
+<td class="themeheader">
+<h2 class="sbs_10"><span id="victor_an151" class="victor_header">Demonstration: isolating performance problems with HP OVTA</span></h2>
+</td>
+</tr>
+</table>
+</div>
+<table border="0" width="560" cellspacing="0" cellpadding="0" summary="">
+<tr valign="top">
+<td width="180">
+<h4 style="padding-top:10px"><span id="victor_an152" class="victor_header">Background</span></h4>
+<p><span id="victor_an153" class="victor_paragraph">An application performance problem has been detected in HP OpenView Internet Services</span></p>
+<h4 style="padding-top:10px"><span id="victor_an154" class="victor_header">Demonstration</span></h4>
+<p><span id="victor_an155" class="victor_paragraph">Isolating the performance problem using HP OpenView Transaction Analyzer</span></p>
+</td>
+<td width="370">
+<img src="05.png" height="281" width="368" alt="" style="margin-left:12px" />
+</td>
+</tr>
+</table>
+<p><span id="victor_an156" class="victor_paragraph">Let's take a look at how we can isolate an application performance problem in our application using OVTA.</span></p>
+<p><span id="victor_an157" class="victor_paragraph">In this particular scenario, an IT operator or the application owner is monitoring the application for availability and response time. They might be using a product such as HP OpenView Internet Service (OVIS) to monitor the application from end-to-end to determine overall availability and performance. Here, we see a screenshot of this product indicating that the response time of our application is not in an acceptable state. As the operator or support specialist does some quick root cause analysis, he finds that it is your application that isn't performing up to defined service levels. He contacts you immediately and asks you to look at a problem that is occurring with your application. He doesn't tell you much except that your application transaction response time rate is twice the accepted rate. So how are you going to solve this problem? Let's now take a look at this problem through the perspective of OVTA.</span></p>
+<div class="hdr_space">
+<a name="a"></a>
+<table border="0" width="560" cellspacing="0" cellpadding="0" summary="">
+<tr class="theme">
+<td class="themeheader">
+<h2 class="sbs_10"><span id="victor_an158" class="victor_header">A re-cap of OVTA</span></h2>
+</td>
+</tr>
+</table>
+</div>
+<div style="margin:0 0 10px">
+<a name="keyovta"></a>
+<h3><span id="victor_an159" class="victor_header">Key OVTA differentiators</span></h3>
+<table border="0" width="560" cellspacing="0" cellpadding="0" summary="">
+<tr class="theme">
+<td height="4">
+<img src="http://welcome.hp-ww.com/img/s.gif" height="1" width="1" alt="" class="decoration" />
+</td>
+</tr>
+</table>
+</div>
+<ul>
+<li><span id="victor_an160" class="victor_list">No source code changes required</span></li>
+<li><span id="victor_an161" class="victor_list">Data correlated end-to-end across application tiers</span></li>
+<li><span id="victor_an162" class="victor_list">Very low performance impact on production systems</span></li>
+<li><span id="victor_an163" class="victor_list">Integrated SLA monitoring, reporting, and alarming</span></li>
+<li><span id="victor_an164" class="victor_list">Closes the loop between operations and development</span></li>
+</ul>
+<div class="hdr_space">
+<a name="extended"></a>
+<h3><span id="victor_an165" class="victor_header">Extended application and platform support</span></h3>
+<table border="0" width="560" cellspacing="0" cellpadding="0" summary="">
+<tr class="theme">
+<td height="4">
+<img src="http://welcome.hp-ww.com/img/s.gif" height="1" width="1" alt="" class="decoration" />
+</td>
+</tr>
+</table>
+</div>
+<ul>
+<li><span id="victor_an166" class="victor_list">HP-UX, Solaris, Windows, Linux, and Itanium</span></li>
+<li><span id="victor_an167" class="victor_list">.NET, J2EE, and web services support</span></li>
+<li><span id="victor_an168" class="victor_list">Supports WebLogic Portal, JMS and Struts</span></li>
+<li><span id="victor_an169" class="victor_list">JMX metrics to monitor WebLogic Server health</span></li>
+</ul>
+<p><span id="victor_an170" class="victor_paragraph">In the demonstration, transaction data was correlated across all of the application tiers. This is particularly important when you are trying to assess the exact component causing the bottleneck, including network or database issues that are beyond your control. This can cut the diagnostic time down to just minutes so that you can quickly address the problem.</span></p>
+<p><span id="victor_an171" class="victor_paragraph">HP also offers OVTA Java Diagnostics, a profiling tool that allows you to perform application level analysis on running J2EE applications. The tool enables operations staff and developers to work together effectively in diagnosing performance bottlenecks, helping to diagnose memory leaks, source code performance problems, and other JVM issues.</span></p>
+<p><span id="victor_an172" class="victor_paragraph">Additionally, the impact of having OVTA monitoring and tracking the performance of your application is very low. At a high level, the product provides sufficient data to monitor the application with negligible overhead. You can also tune the amount of trace information captured when performing diagnostics. And even then, the overhead can be controlled to stay at very acceptable ranges while the problem is assessed.</span></p>
+<p><span id="victor_an173" class="victor_paragraph">OVTA offers broad platform and application support, supporting HP-UX, Solaris, Windows, and Linux, and is capable of supporting both J2EE and .NET platforms. The product is optimized to support the WebLogic platform. Additionally, the product leverages JMX technology to monitor and assess the overall health of the WebLogic server. Metrics such as JVM memory utilization can be used to correlate the health of the server with the performance of your application.</span></p>
+<div class="hdr_space">
+<a name="moving"></a>
+<table border="0" width="560" cellspacing="0" cellpadding="0" summary="">
+<tr class="theme">
+<td class="themeheader">
+<h2 class="sbs_10"><span id="victor_an174" class="victor_header">Moving beyond performance management</span></h2>
+</td>
+</tr>
+</table>
+</div>
+<div style="margin:0 0 10px">
+<a name="why"></a>
+<h3><span id="victor_an175" class="victor_header">Why is designing for manageability important?</span></h3>
+<table border="0" width="560" cellspacing="0" cellpadding="0" summary="">
+<tr class="theme">
+<td height="4">
+<img src="http://welcome.hp-ww.com/img/s.gif" height="1" width="1" alt="" class="decoration" />
+</td>
+</tr>
+</table>
+</div>
+<ul>
+<li><span id="victor_an176" class="victor_list">Ensures high degree of application availability</span></li>
+<li><span id="victor_an177" class="victor_list">Minimizes support demands on the developer</span></li>
+<li><span id="victor_an178" class="victor_list">Enables tighter linkage between business and IT</span></li>
+</ul>
+<div class="hdr_space">
+<a name="whatcan"></a>
+<h3><span id="victor_an179" class="victor_header">What can you rely on for manageability?</span></h3>
+<table border="0" width="560" cellspacing="0" cellpadding="0" summary="">
+<tr class="theme">
+<td height="4">
+<img src="http://welcome.hp-ww.com/img/s.gif" height="1" width="1" alt="" class="decoration" />
+</td>
+</tr>
+</table>
+</div>
+<ul>
+<li><span id="victor_an180" class="victor_list">Most J2EE platforms, including WebLogic, support JMX</span></li>
+<li><span id="victor_an181" class="victor_list">HP OpenView can monitor JMX-enabled applications</span></li>
+</ul>
+<div class="hdr_space">
+<a name="whatrole"></a>
+<h3><span id="victor_an182" class="victor_header">What role can you play in manageability?</span></h3>
+<table border="0" width="560" cellspacing="0" cellpadding="0" summary="">
+<tr class="theme">
+<td height="4">
+<img src="http://welcome.hp-ww.com/img/s.gif" height="1" width="1" alt="" class="decoration" />
+</td>
+</tr>
+</table>
+</div>
+<ul>
+<li><span id="victor_an183" class="victor_list">Determine requirements for application manageability</span></li>
+<li><span id="victor_an184" class="victor_list">Select the right management technology (Log4J, JMX)</span></li>
+<li><span id="victor_an185" class="victor_list">Instrument the application, if required</span></li>
+</ul>
+<p><span id="victor_an186" class="victor_paragraph">We have just looked at a way to diagnose J2EE application performance problems using OVTA. One way to deal with these issues is to have the right sets of tools on hand to diagnose problems when they occur.</span></p>
+<p><span id="victor_an187" class="victor_paragraph">But, what if you could design your application in such a way that it contains sufficient information to be better managed in operations? Today, operations relies on the developer because the information available to them is not sufficient to handle the problem themselves. If you can make your applications more "management aware", you can hopefully minimize the demands IT support places on you.</span></p>
+<p><span id="victor_an188" class="victor_paragraph">Additionally, designing applications with "management in mind" has some clear benefits to your organization. With the right set of management interfaces exposed by an application, and operator can ensure a higher degree of application availability. Manageable application can also be made more flexible and adaptive in production.</span></p>
+<p><span id="victor_an189" class="victor_paragraph">What can you do to make applications more manageable? The good news is that many application platforms today provide some amount management out-of-the-box. Almost all J2EE platforms, including WebLogic, expose management interfaces for the platform in the form of JMX MBeans. These interfaces can then leveraged by management systems such as HP OpenView.</span></p>
+<p><span id="victor_an190" class="victor_paragraph">In some cases, platform-level management is not sufficient to effectively manage an application in production. Some amount of work might be required by the developer up-front to expose application-level management interfaces.</span></p>
+<div class="hdr_space">
+<a name="application"></a>
+<table border="0" width="560" cellspacing="0" cellpadding="0" summary="">
+<tr class="theme">
+<td class="themeheader">
+<h2 class="sbs_10"><span id="victor_an191" class="victor_header">Application management solutions with HP OpenView and BEA</span></h2>
+</td>
+</tr>
+</table>
+</div>
+<div class="bold" style="margin:0 0 10px"><span id="victor_an192" class="victor_paragraph">HP OpenView is a BEA preferred priority choice management partner</span></div>
+<strong><span id="victor_an193" class="victor_paragraph">HP OpenView Internet Services</span></strong>
+<ul>
+<li><span id="victor_an194" class="victor_list">Provides a view of the customer experience</span></li>
+<li><span id="victor_an195" class="victor_list">Monitors end-to-end performance and availability</span></li>
+<li><span id="victor_an196" class="victor_list">Supports applications deployed on the BEA platform</span></li>
+<li><span id="victor_an197" class="victor_list">Monitors discrete protocols within J2EE or .NET</span></li>
+</ul>
+<strong><span id="victor_an198" class="victor_paragraph">HP OpenView Transaction Analyzer</span></strong>
+<ul>
+<li><span id="victor_an199" class="victor_list">Drill-down into applications</span></li>
+<li><span id="victor_an200" class="victor_list">Root-cause analysis</span></li>
+<li><span id="victor_an201" class="victor_list">Eliminate performance bottlenecks</span></li>
+<li><span id="victor_an202" class="victor_list">Component-level diagnostics</span></li>
+<li><span id="victor_an203" class="victor_list">Supports BEA WLS and Portal</span></li>
+</ul>
+<strong><span id="victor_an204" class="victor_paragraph">HP OpenView Operations + Smart Plugs-ins</span></strong>
+<ul>
+<li><span id="victor_an205" class="victor_list">Proactively monitor and manage IT environment</span></li>
+<li><span id="victor_an206" class="victor_list">Determine service impacts through service views</span></li>
+<li><span id="victor_an207" class="victor_list">Supports applications running on WLS or WLI</span></li>
+<li><span id="victor_an208" class="victor_list">Extensible through custom JMX MBeans</span></li>
+</ul>
+<p><span id="victor_an209" class="victor_paragraph">Your application may be developed in isolation, but it probably won't run in isolation. There are dependencies on the application server, the database, and other IT infrastructure components. This larger "management ecosystem" requires the right level of manageability at all layers, and you play an important role here.</span></p>
+<p><span id="victor_an210" class="victor_paragraph">The HP OpenView Application Management Solution allows an application owner to comprehensively monitor their business-critical application environment. OVTA provides the insight into the application itself by drilling down to the component or method level, enabling you to quickly find the source of performance bottlenecks. OpenView Internet Services provides a view of the customer experience by monitoring the end-to-end performance and availability of your applications. Additionally, HP offers a set of Rapid Implementation Services which can help you rapidly install and configure OVIS and OVTA in as little as 5 days. HP OpenView Operations provides the ability to map and proactively monitor the underlying infrastructure that supports applications deployed on WebLogic Server or WebLogic Integration.</span></p>
+<p><span id="victor_an211" class="victor_paragraph">Obviously, HP can't do this alone. BEA and HP have teamed up to provide you with management solutions that ensure a high degree of stability, efficiency, and agility for the WebLogic platform. HP OpenView is already supporting WLS, WLI, and WLP to varying degrees. As a BEA preferred and priority management partner, HP is committed to further enhancing these management solutions with more robust and unique management capabilities moving forward.</span></p>
+<div class="hdr_space">
+<a name="call"></a>
+<table border="0" width="560" cellspacing="0" cellpadding="0" summary="">
+<tr class="theme">
+<td class="themeheader">
+<h2 class="sbs_10"><span id="victor_an212" class="victor_header">Call to action</span></h2>
+</td>
+</tr>
+</table>
+</div>
+<p><span id="victor_an213" class="victor_paragraph">There are some important next steps you can take to learn more about HP's application management solutions. You can download an evaluation copy of OVTA at the HP Management Software URL listed on this page. It is very easy to install and configure to run against your own applications.</span></p>
+<p><span id="victor_an214" class="victor_paragraph">For those of you that are considering application manageability through JMX, you are highly encouraged to visit our HP Developer Resource Central site. This site provides you with a variety of white papers, code samples, and developer tutorials on JMX. One of the tutorials shows how a BEA WebLogic sample application can be instrumented using JMX. Once you're done with this tutorial, you will have the foundation to be able to instrument your own existing applications.</span></p>
+<p><span id="victor_an215" class="victor_paragraph">To learn more about HP OpenView and BEA application management solutions, visit the OpenView/BEA web site. You will find that together, BEA and HP OpenView offer you more control and agility, resulting in a greater competitive edge. And finally, don't forget to stop by our booth and take a closer look at OVTA and other HP OpenView management solutions.</span></p>
+<div>
+<strong><span id="victor_an216" class="victor_other">Try out HP OpenView Transaction Analyzer</span></strong>
+<br />
+<span class="color003366"><span id="victor_an217" class="victor_other">»</span></span><span id="victor_an218" class="victor_other">&nbsp;
+</span><a href="http://managementsoftware.hp.com"><span id="victor_an219" class="victor_other">Download</span></a></div>
+<div style="margin:10px 0">
+<strong><span id="victor_an220" class="victor_other">Gain some experience with JMX technology</span></strong>
+<br />
+<span class="color003366"><span id="victor_an221" class="victor_other">»</span></span><span id="victor_an222" class="victor_other">&nbsp;
+</span><a href="http://devresource.hp.com/drc/index.jsp"><span id="victor_an223" class="victor_other">Visit HP Dev Resource Central</span></a></div>
+<div>
+<strong><span id="victor_an224" class="victor_other">Complete developer tutorials on JMX</span></strong>
+<br />
+<span class="color003366"><span id="victor_an225" class="victor_other">»</span></span><span id="victor_an226" class="victor_other">&nbsp;
+</span><a href="http://openview.hp.com/bea"><span id="victor_an227" class="victor_other">Learn more about HP OpenView and BEA application management solutions</span></a></div>
+<div style="margin:10px 0 0">
+<strong><span id="victor_an228" class="victor_other">Find more developer events</span></strong>
+<br />
+<span class="color003366"><span id="victor_an229" class="victor_other">»</span></span><span id="victor_an230" class="victor_other">&nbsp;
+</span><a href="/drc/events.jsp"><span id="victor_an231" class="victor_other">Events</span></a></div>
+
+
+
+
+</td>
+</tr>
+<tr valign="bottom">
+<td rowspan="2" bgcolor="#F0F0F0">
+
+
+<table border="0" cellpadding="0" cellspacing="0" width="170" summary="">
+<tr>
+<td align="center" valign="bottom" width="170" height="60">
+<img src="http://welcome.hp.com/img/hpweb_1-2_prnt_icn.gif" width="19" height="13" alt="" />
+<a href="http://www.hp.com/cgi-bin/pf-new.cgi?in=http://devresource.hp.com/drc/resources/d2dappmgmt/index.jsp" class="udrlinebold"><span id="victor_an232" class="victor_other">Printable version</span></a>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+
+<table border="0" cellpadding="0" cellspacing="0" width="740" summary="">
+<tr>
+<td width="170" bgcolor="#F0F0F0" height="20">
+<img src="http://welcome.hp.com/img/s.gif" width="1" height="1" alt="" />
+</td>
+<td width="570" height="20">
+<img src="http://welcome.hp.com/img/s.gif" height="1" width="1" alt="" class="decoration" />
+</td>
+</tr>
+</table>
+
+<table border="0" cellpadding="0" cellspacing="0" width="100%" summary="">
+<tr class="decoration">
+<td class="color666666bg">
+<img src="http://welcome.hp.com/img/s.gif" width="1" height="4" alt="" />
+</td>
+</tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="740" summary="">
+<tr class="decoration">
+<td colspan="4">
+<img src="http://welcome.hp.com/img/s.gif" width="1" height="4" alt="" />
+</td>
+</tr>
+<tr align="center">
+<td width="20%">
+<a href="http://welcome.hp.com/country/us/en/privacy.html" class="udrlinesmall"><span id="victor_an233" class="victor_other">Privacy statement</span></a>
+</td>
+<td width="33%">
+<a href="http://welcome.hp.com/country/us/en/termsofuse.html" class="udrlinesmall"><span id="victor_an234" class="victor_other">Using this site means you accept its terms</span></a>
+</td>
+<td width="23%">
+<a href="/drc/resources/trademarks.jsp" class="udrlinesmall"><span id="victor_an235" class="victor_other">Trademark acknowledgment</span></a>
+</td>
+<td width="30%">
+<a href="/drc/contact_hp.jsp" class="udrlinesmall"><span id="victor_an236" class="victor_other">Feedback to Dev Resource Central</span></a>
+</td>
+</tr>
+<tr class="decoration">
+<td colspan="4">
+<img src="http://welcome.hp.com/img/s.gif" width="1" height="4" alt="" />
+</td>
+</tr>
+<tr>
+<td align="center" colspan="4" class="small"><span id="victor_an237" class="victor_other">© 2006 Hewlett-Packard Development Company, L.P.</span></td>
+</tr>
+</table>
+
+
+
+
+</body>
+</html>

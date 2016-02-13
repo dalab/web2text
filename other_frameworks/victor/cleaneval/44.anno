@@ -1,0 +1,590 @@
+<html>
+<head>
+<title></title>
+</head>
+<body>
+<table id="container" cellpadding="0" cellspacing="0">
+<tr>
+<td style="position:relative;z-index:100">
+<div id="header">
+<div id="logo">
+<a href="/">
+<img src="/images05/mdl_logo.gif" id="logo_img" />
+<img src="/images05/mdl_tag.gif" id="logo_tag" />
+</a>
+</div>
+<div id="leader">
+<table>
+<tr>
+<td width="728" height="90" bgcolor="#D6E1E7" align="center">
+
+</td>
+</tr>
+</table>
+</div>
+<form method="get" action="http://google2.cancom.com/search">
+<table id="search_head">
+<tr>
+<td><span id="victor_an0" class="victor_other">Find:</span></td>
+<td>
+<input type="text" name="q" />
+</td>
+</tr>
+<tr>
+<td><span id="victor_an1" class="victor_other">In:</span></td>
+<td>
+<select name="site">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</select> 
+<input type="hidden" name="getfields" value="category.snippet" /> 
+<input type="hidden" name="output" value="xml_no_dtd" /> 
+<input type="hidden" name="client" value="devicelink" /> 
+<input type="hidden" name="filter" value="0" /> 
+<input type="hidden" name="sort" value="date:D:R:d1" /></td>
+</tr>
+<tr>
+<td colspan="2" id="search_head_submit">
+<a href="http://google2.cancom.com/search?access=p&amp;filter=0&amp;getfields=category.snippet&amp;sort=date%3AD%3AR%3Ad1&amp;output=xml_no_dtd&amp;site=devicelink&amp;oe=UTF-8&amp;client=devicelink&amp;proxystylesheet=devicelink&amp;proxycustom=%3CADVANCED/%3E"><span id="victor_an2" class="victor_other">Advanced Search</span></a> 
+<input type="hidden" name="proxystylesheet" value="devicelink" /> 
+<input type="image" src="/images05/search.gif" alt="Search" /></td>
+</tr>
+</table>
+</form>
+</div>
+<div id="NavContainer">
+<ul id="nav">
+<li>
+<a href="http://www.devicelink.com/company/" id="product">
+<span><span id="victor_an3" class="victor_other">Find Products &amp; Suppliers</span></span>
+</a>
+<ul id="ProdMenu">
+<li>
+<a href="http://www.devicelink.com/company/"><span id="victor_an4" class="victor_other">Suppliers Directories</span></a>
+</li>
+<li>
+<a href="http://www.devicelink.com/products/"><span id="victor_an5" class="victor_other">Product &amp; Service News</span></a>
+</li>
+<li>
+<a href="http://www.devicelink.com/links/gallery.cgi"><span id="victor_an6" class="victor_other">Web Site Gallery</span></a>
+</li>
+<li>
+<a href="http://www.devicelink.com/prcentral/"><span id="victor_an7" class="victor_other">Press Releases</span></a>
+</li>
+</ul>
+</li>
+<li>
+<a href="http://www.devicelink.com/industry/index.html" id="news">
+<span><span id="victor_an8" class="victor_other">News &amp; Research</span></span>
+</a>
+<ul id="NewsMenu">
+<li>
+<a href="http://www.devicelink.com/industry/canonCalendar/"><span id="victor_an9" class="victor_other">Events</span></a>
+</li>
+<li>
+<a href="http://www.devicelink.com/newsedge/"><span id="victor_an10" class="victor_other">News</span></a>
+</li>
+<li>
+<a href="http://www.devicelink.com/industry/research.html"><span id="victor_an11" class="victor_other">Research</span></a>
+</li>
+</ul>
+</li>
+<li>
+<a href="http://www.devicelink.com/magazines.html" id="magazine">
+<span><span id="victor_an12" class="victor_other">Magazines</span></span>
+</a>
+<ul id="MagMenu">
+<li>
+<a href="http://www.devicelink.com/mddi/"><span id="victor_an13" class="victor_other">Medical Device &amp; Diagnostic Industry</span></a>
+</li>
+<li>
+<a href="http://www.devicelink.com/mpmn/"><span id="victor_an14" class="victor_other">Medical Product Manufacturing News</span></a>
+</li>
+<li>
+<a href="http://www.devicelink.com/ivdt/"><span id="victor_an15" class="victor_other">IVD Technology</span></a>
+</li>
+<li>
+<a href="http://www.devicelink.com/pmpn/"><span id="victor_an16" class="victor_other">Pharmaceutical &amp; Medical Packaging News</span></a>
+</li>
+<li>
+<a href="http://www.devicelink.com/mdt/"><span id="victor_an17" class="victor_other">Medical Device Technology</span></a>
+</li>
+<li>
+<a href="http://www.devicelink.com/emdm/"><span id="victor_an18" class="victor_other">European Medical Device Manufacturer</span></a>
+</li>
+<li>
+<a href="http://www.devicelink.com/mem/"><span id="victor_an19" class="victor_other">Medical Electronics Manufacturing</span></a>
+</li>
+<li>
+<a href="http://www.devicelink.com/mx/"><span id="victor_an20" class="victor_other">MX: For Medtech Executives</span></a>
+</li>
+</ul>
+</li>
+<li>
+<a href="http://www.devicelink.com/expo/index.html" id="tradeshow">
+<span><span id="victor_an21" class="victor_other">Tradeshows</span></span>
+</a>
+<ul id="TradeMenu">
+<li>
+<a href="http://www.canontradeshows.com"><span id="victor_an22" class="victor_other">All Shows</span></a>
+</li>
+<li>
+<a href="http://www.canonmed.com"><span id="victor_an23" class="victor_other">Medical Design &amp; Manufacturing</span></a>
+</li>
+<li>
+<a href="http://www.canonassemblyshows.com"><span id="victor_an24" class="victor_other">Automation/Assembly</span></a>
+</li>
+<li>
+<a href="http://www.canonpackshows.com"><span id="victor_an25" class="victor_other">Packaging</span></a>
+</li>
+<li>
+<a href="http://www.plastecshow.com"><span id="victor_an26" class="victor_other">Plastics</span></a>
+</li>
+<li>
+<a href="http://www.devicelink.com/expo/canondesignshows/"><span id="victor_an27" class="victor_other">Design &amp; Manufacturing</span></a>
+</li>
+<li>
+<a href="http://www.canonqualityshows.com"><span id="victor_an28" class="victor_other">Quality</span></a>
+</li>
+</ul>
+</li>
+
+<li>
+<a href="http://www.devicelink.com/newcc/" id="career">
+<span><span id="victor_an29" class="victor_other">Career Center</span></span>
+</a>
+<ul id="CareerMenu">
+<li>
+<a href="http://www.devicelink.com/newcc/jobsearch.php"><span id="victor_an30" class="victor_other">Search Jobs</span></a>
+</li>
+<li>
+<a href="http://www.devicelink.com/newcc/jobform.php"><span id="victor_an31" class="victor_other">Post Jobs</span></a>
+</li>
+<li>
+<a href="http://www.devicelink.com/newcc/login.php"><span id="victor_an32" class="victor_other">Job Seeker Login</span></a>
+</li>
+<li>
+<a href="http://www.devicelink.com/newcc/register.php"><span id="victor_an33" class="victor_other">Register</span></a>
+</li>
+</ul>
+</li>
+<li>
+<a href="http://www.devicelink.com/about.html" id="about">
+<span><span id="victor_an34" class="victor_other">About This Site</span></span>
+</a>
+<ul id="AboutMenu">
+<li>
+<a href="http://www.devicelink.com/staffbox.html"><span id="victor_an35" class="victor_other">Contact Us</span></a>
+</li>
+<li>
+<a href="http://www.devicelink.com/ccare/siteguide.html"><span id="victor_an36" class="victor_other">Site Guide</span></a>
+</li>
+<li>
+<a href="http://www.devicelink.com/mdea.html"><span id="victor_an37" class="victor_other">Awards Program</span></a>
+</li>
+<li>
+<a href="http://www.devicelink.com/mdl_mediakit/index.html"><span id="victor_an38" class="victor_other">How to Advertise</span></a>
+</li>
+<li>
+<a href="http://www.devicelink.com/register/"><span id="victor_an39" class="victor_other">Register</span></a>
+</li>
+</ul>
+</li>
+<li>
+<a href="http://www.devicelink.com/members/" id="login">
+<span><span id="victor_an40" class="victor_other">Login</span></span>
+</a>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+<tr>
+<td class="main">
+
+<table class="home" cellpadding="0" cellspacing="0">
+<tr>
+<td colspan="2">
+
+
+</td>
+</tr>
+<tr>
+<td></td>
+</tr>
+<tr>
+<td class="top" colspan="2">
+<img src="/images05/top_bg.gif" alt="" width="1" height="5" border="0" />
+</td>
+</tr>
+<tr>
+
+<td width="167" bgcolor="white" valign="top" class="MagLeftCol">
+
+<table>
+<tr>
+<td>
+<a href="/mx/index.html">
+<img src="/images05/MX_title.gif" alt="" width="167" height="33" />
+</a>
+</td>
+</tr>
+<tr>
+<td>
+<a href="/mx/about.html">
+<img src="/images05/about_MX_w.gif" alt="" width="167" height="25" />
+</a>
+</td>
+</tr>
+<tr>
+<td>
+<a href="/mx/current_issue.html">
+<img src="/images05/current_issue.gif" alt="" width="167" height="25" />
+</a>
+</td>
+</tr>
+<tr>
+<td>
+<a href="/mx/archive/index.html">
+<img src="/images05/previous_issues_w.gif" alt="" width="167" height="25" />
+</a>
+</td>
+</tr>
+<tr>
+<td>
+<a href="/mx/staff.html">
+<img src="/images05/contact_us.gif" alt="" width="167" height="25" />
+</a>
+</td>
+</tr>
+<tr>
+<td>
+<a href="http://www.canonmediakit.com/publications/detail.php?pubId=42">
+<img src="/images05/advertising_info_w.gif" alt="" width="167" height="33" />
+</a>
+</td>
+</tr>
+<tr>
+<td>
+<a href="/mx/subscribe">
+<img src="/images05/subscription_services.gif" alt="" width="167" height="25" />
+</a>
+</td>
+</tr>
+<tr>
+<td>
+<a href="http://www.canonmediakit.com/upcoming_issues/mx/">
+<img src="/images05/upcoming_issue_w.gif" alt="" width="167" height="25" />
+</a>
+</td>
+</tr>
+<tr>
+<td>
+<a href="http://www.canonmediakit.com/publications/calendar.php?yearId=37" target="_blank">
+<img src="/images05/editorial_calendar.gif" alt="" width="167" height="25" />
+</a>
+</td>
+</tr>
+<tr>
+<td>
+<a href="/industry/canonCalendar/">
+<img src="/images05/industry_events_w.gif" alt="" width="167" height="25" />
+</a>
+</td>
+</tr>
+<tr>
+<td>
+<a href="/mx/issuesupdate/">
+<img src="/images05/MX_issue_update.gif" alt="" width="167" height="25" />
+</a>
+</td>
+</tr>
+<tr>
+<td>
+<a href="/mx/infodirect.html">
+<img src="/images05/INFO_W.gif" alt="" width="167" height="25" />
+</a>
+</td>
+</tr>
+<tr>
+<td height="60"></td>
+</tr>
+</table>
+</td>
+
+<td width="569" bgcolor="#882136" valign="top">
+<table width="100%">
+<tr>
+<td bgcolor="#363636">
+<a href="/mx/index.html">
+<img src="/images05/MX_banner.gif" alt="" width="569" height="70" />
+</a>
+</td>
+</tr>
+<tr>
+<td></td>
+</tr>
+<tr>
+<td>
+
+<table width="100%">
+<tr>
+<td align="right">
+<table width="100%">
+<tr>
+<td width="80%" bgcolor="#FFFFFF"></td>
+<td bgcolor="#FFFFFF">
+<img src="/images05/pencil_bullet.gif" alt="" />
+<a href="javascript:email()"><span id="victor_an41" class="victor_other">Email this Page</span></a>
+</td>
+</tr>
+<tr>
+<td width="80%" bgcolor="#FFFFFF"></td>
+<td bgcolor="#FFFFFF">
+<img src="/images05/pencil_bullet.gif" alt="" />
+<a href="javascript:print()"><span id="victor_an42" class="victor_other">Print this Page</span></a>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td height="100%" valign="top" bgcolor="#FFFFFF" class="content">
+
+<p><span id="victor_an43" class="victor_other">&nbsp;</span></p>
+<p align="right">
+<font face="verdana, arial, geneva, sans-serif" size="1" color="#336699"><span id="victor_an44" class="victor_other">Originally Published 
+</span><a href="/mx/index.html"><span id="victor_an45" class="victor_other">MX</span></a><span id="victor_an46" class="victor_other"> November/December 2004</span></font>
+</p>
+<p>
+<font face="verdana, arial, geneva, sans-serif" size="2">
+<b><span id="victor_an47" class="victor_header">INFORMATION TECHNOLOGIES</span></b>
+</font>
+</p>
+<font face="verdana, arial, geneva, sans-serif" size="4">
+<b><span id="victor_an48" class="victor_header">IT in the Hands of Field Sales Reps</span></b>
+</font>
+<p>
+<font face="verdana, arial, geneva, sans-serif" size="2">
+<b><span id="victor_an49" class="victor_paragraph">A sales force equipped with mobile tools for interconnection to corporate resources can preserve a manufacturer's competitive advantage.</span></b>
+</font>
+</p>
+<p>
+<b>
+<font size="1"><span id="victor_an50" class="victor_header">David Kerr</span></font>
+</b>
+</p>
+<p><span id="victor_an51" class="victor_other">&nbsp;</span></p>
+<table width="12%" border="1" cellspacing="3" cellpadding="3" bgcolor="#D8E7CA" bordercolor="#EFF5E9" align="right">
+<tr>
+<td height="76">
+<div align="right">
+<p>
+<font size="2">
+<b>
+<font face="Verdana, Arial, Helvetica, sans-serif" size="1"><span id="victor_an52" class="victor_other">Sidebars:</span></font>
+<font face="Verdana, Arial, Helvetica, sans-serif">
+<font size="1">
+<br />
+</font> 
+<font face="verdana, arial, geneva, sans-serif" size="4">
+<b>
+<font size="1">
+<a href="/mx/archive/04/11/kerr_a.html"><span id="victor_an53" class="victor_other">Mobile Sales Force Automation: How It Works</span></a>
+</font>
+</b>
+</font></font>
+</b>
+</font>
+</p>
+<p>
+<font size="2">
+<b>
+<font face="Verdana, Arial, Helvetica, sans-serif">
+<font face="verdana, arial, geneva, sans-serif" size="4">
+<font size="1">
+<a href="/mx/archive/04/11/kerr_b.html"><span id="victor_an54" class="victor_other">How Mobile SFA Technology Benefits the Institutional Healthcare Provider</span></a>
+</font>
+</font>
+</font>
+</b>
+</font>
+</p>
+<p>
+<font size="2">
+<b>
+<font face="Verdana, Arial, Helvetica, sans-serif">
+<font face="verdana, arial, geneva, sans-serif" size="4">
+<a href="/mx/archive/04/11/kerr_c.html">
+<font size="1"><span id="victor_an55" class="victor_other">How Mobile SFA Technology Benefits the Medical Device Sales Rep</span></font>
+</a>
+</font>
+</font>
+</b>
+</font>
+</p>
+</div>
+</td>
+</tr>
+</table>
+<p><span id="victor_an56" class="victor_paragraph">The increasing complexity of today's healthcare equipment procurement environment has presented some new challenges for medical device manufacturing companies and their sales representatives. To gain a competitive edge in influencing product selection may require struggle. The emergence of intricate purchasing plans, contract-buying trends, and shifting pricing options constitute one set of challenges. Another relates to the growing complexity of medical technology itself, particularly its incorporation of information technology (IT) capabilities. 
+
+
+</span></p>
+<p><span id="victor_an57" class="victor_paragraph">Medical device manufacturers and their field reps are discovering several healthcare industry procurement hurdles that need to be overcome. Group purchasing organizations (GPOs), contractual buying arrangements, on-line ordering, and face-to-face selling are each scenarios that present a distinct challenge for pricing and relationship building. A tool that can be of value in each of these situations is mobile sales force automation (SFA) technology.</span></p>
+<p><span id="victor_an58" class="victor_paragraph">Face-to-face selling is made easier by the development of personal relationships with physicians and surgeons in situations where they play an important role in purchasing. When doctors demand considerable technical data, product training, and manufacturer support, those sales reps armed with real-time data and interactive presentation tools will be the ones most likely to close a sale.</span></p>
+<p>
+<img src="/mx/archive/04/11/0411x55a.jpg" align="right" height="128" width="125" /><span id="victor_an59" class="victor_paragraph">In an effort to foster better relationships with, and provide more value to, physicians—and to the healthcare industry generally—some medtech companies are investing in integrated sales, marketing, and supply-chain management systems that are known as customer relationship management (CRM) systems. Mobile SFA is a primary tool driving this initiative to meet, on demand and in the field, ever-growing customer needs (see sidebar).</span></p>
+<p><span id="victor_an60" class="victor_paragraph">According to a recent report by market analysts Frost &amp; Sullivan (San Antonio, TX), CRM license revenue from mobile SFA applications, for both wired and wireless devices, is expected to grow from a predicted $169 million in 2004 to $293 million by 2008. The fastest-growing segment, wireless SFA, is projected to grow from $20 million to $115 million over that period.
+</span><sup><span id="victor_an61" class="victor_continuation">1</span></sup></p>
+<p><span id="victor_an62" class="victor_paragraph">This article examines ways that mobile SFA can make medtech companies' field-based sales forces more effective in a procurement environment trending toward consolidated purchasing and automatic ordering while also serving the interests of institutional purchasers.</span></p>
+<p>
+<b><span id="victor_an63" class="victor_header">Sales Approaches by Product Category</span></b>
+</p>
+<p><span id="victor_an64" class="victor_paragraph">Three major categories of medical devices—disposable goods, high-margin devices, and capital goods—call for different sales approaches. Handheld sales technology plays a different role in each.</span></p>
+<p><span id="victor_an65" class="victor_paragraph">In the hospital environment, purchasing departments and GPOs tend to control vendor selection, product pricing, and the awarding of contracts. This holds true especially with commodity-based products such as disposables (surgical gloves, swabs, and so on) where price is the primary differentiator and organizations are reordering more often than making first-time purchases. Rather than buying directly from a sales rep, these purchasing groups use electronic purchasing technology such as electronic data interchange (EDI) to maximize ordering efficiency and optimize savings.</span></p>
+<p><span id="victor_an66" class="victor_paragraph">Since the decisionmaking process and the sales cycle for disposable products are both very short, new purchasing and inventory replenishment tend to be conducted on-line. Here, manufacturers need to distinguish their products from competitors' while offering the lowest price and an efficient ordering process. Despite stringent pricing constraints prevalent in this category, sales reps with real-time mobile access to pricing models, product specifications, inventory information, and delivery schedules during the sales call gain advantage for their employers in terms of better CRM functionality, more-efficient document management, and electronic order submission and tracking. Mobile technology gives reps the ability to capture, store, and view account history during the sales call, and to present new products immediately at launch.</span></p>
+<p><span id="victor_an67" class="victor_paragraph">At the other end of the medical device spectrum are capital goods—heavy, expensive, highly sophisticated medical equipment. In this complex segment, product lines are narrow, sales cycles are very long, and purchasing decisions are made by committee.</span></p>
+<p><span id="victor_an68" class="victor_other">&nbsp;</span></p>
+<table width="125" cellpadding="10" align="right">
+<tr>
+<td>
+ 
+<a href="javascript:middle('http://www.devicelink.com/mx/archive/04/11/0411x55b1.jpg','273','420')">
+<img src="/mx/archive/04/11/0411x55b.jpg" align="right" border="0" height="79" width="125" />
+</a></td>
+</tr>
+<tr>
+<td align="right">
+<font size="1" face="verdana, arial, geneva, sans-serif" color="#336699"><span id="victor_an69" class="victor_other">Mobile SFA tools enable sales reps to access detailed technical information about their companies' products.
+</span><br /><span id="victor_an70" class="victor_other">(click to enlarge)</span></font>
+</td>
+</tr>
+</table>
+<p><span id="victor_an71" class="victor_paragraph">Reps typically do not stock such inventory in the field, nor can they demonstrate equipment for each prospect. What is imperative for them is keeping a variety of technical specifications and a detailed account history on hand. They can, of course, benefit from mobile SFA functions that aid in selling, such as interactive presentations, video product demonstrations, side-by-side product comparisons, and display of technical documentation and complex pricing configurations. But the handheld technology enables them also to review and update the account history, check the field service and equipment maintenance history, and manage customer contact information relating to every member of the committee.</span></p>
+<p>
+<b><span id="victor_an72" class="victor_header">Selling Complex, High-Margin Devices</span></b>
+</p>
+<p><span id="victor_an73" class="victor_paragraph">In between commodity disposables and capital goods falls the realm of high-margin implantable and diagnostic medical devices. These electromedical products have become increasingly sophisticated as they have incorporated miniaturized electronics and then embedded microprocessors. New IT-based devices in this category now contribute heavily to the ability of physicians to make reliable therapeutic decisions by means of the vital data they gather and record.</span></p>
+<p><span id="victor_an74" class="victor_paragraph">Owing to the complexity of these products, the surgeon or physician who uses them typically makes or strongly influences the purchasing decision. New product sales (rather than repeat sales) are common in this category because physicians focus on meeting the requirements of individual patients. GPOs are more price driven, but physicians purchasing highly complex devices base their decisions on specific patient needs, insurance reimbursements, product performance, and manufacturer support.</span></p>
+<p><span id="victor_an75" class="victor_paragraph">In this situation, a close, trusting relationship between sales rep and physician is critical. Physicians need to be confident of the rep's recommendations, the product's reliability, and the manufacturer's training support. Mobile SFA tools in the hands of sales reps enable device manufacturers to satisfy these buying criteria. They can help physicians make an educated decision by providing:</span></p>
+<ul>
+<li><span id="victor_an76" class="victor_list">Details of product features, specifications, and benefits.</span></li>
+<li><span id="victor_an77" class="victor_list">Critical data regarding product reliability and accuracy, such as clinical trial results.</span></li>
+<li><span id="victor_an78" class="victor_list">Side-by-side comparisons of competitive products.</span></li>
+<li><span id="victor_an79" class="victor_list">Interactive presentations and video surgical demonstrations.</span></li>
+<li><span id="victor_an80" class="victor_list">Downloadable educational material from the manufacturer.</span></li>
+<li><span id="victor_an81" class="victor_list">Reimbursement guidelines.</span></li>
+</ul>
+<p><span id="victor_an82" class="victor_paragraph">The mobile technology provides efficiency benefits for the wider institutional healthcare system as well (see sidebar).</span></p>
+<p><span id="victor_an83" class="victor_paragraph">Mobile SFA technology facilitates relationship building by providing sales reps with all the information and resources they need at the point of purchase, which might be the physician's office, operating room, or surgeon's lounge. Physicians are often challenged to sift through and process a great deal of technical and clinical information in order to make qualified decisions. Real-time access to corporate systems via mobile technology enables the sales rep to anticipate and respond quickly to technical questions about product performance and customization options, as well as refute competitive claims, track inventory, and fulfill orders on the spot. Well-prepared, well-educated reps armed with a complete set of easily accessible resources during the sales call are likely to be considered more credible by physicians and surgeons than those who are not.</span></p>
+<p><span id="victor_an84" class="victor_paragraph">In addition, SFA technology gives sales reps the tools for introducing new products to customers sooner than traditional methods would allow. They can make a professional and information-rich presentation to educate physicians about each new device immediately upon rollout.</span></p>
+<p>
+<b><span id="victor_an85" class="victor_header">Collateral Benefits</span></b>
+</p>
+<p><span id="victor_an86" class="victor_paragraph">Mobile technology empowers sales reps and makes them more efficient (see sidebar). But by implementing handheld SFA solutions the medical device manufacturing companies that employ them gain in other ways. These benefits include CRM economy, easy field deployment, greater sales force productivity, and enhanced supply-chain visibility.</span></p>
+<p>
+<b><span id="victor_an87" class="victor_paragraph">Alternative to Traditional CRM.</span></b><span id="victor_an88" class="victor_continuation"> Integrated CRM systems are no longer restricted by high cost to enterprises with large sales teams. Advances in system security and data integrity protocols allow companies of all sizes to outsource the SFA function of their CRM system with confidence. Also, the evolution of the application service provider (ASP) model—a hosted, pay-as-you-go arrangement—makes customized sales solutions affordable for smaller organizations. Depending on the functionality and support level required, the cost per user of hosted SFA services is comparable to that of telephone service.</span></p>
+<p>
+<b><span id="victor_an89" class="victor_paragraph">Ease of Deployment.</span></b><span id="victor_an90" class="victor_continuation"> Smaller medical device companies with fewer than 50 sales reps can field-deploy such new technologies as mobile SFA quite rapidly. For reasons of economy, they tend to favor subscription-based services, which can be implemented immediately and independently of legacy systems. And because the IT resources they employ are generally not very extensive, requirements for customization and integration into back-office systems are very manageable.</span></p>
+<p><span id="victor_an91" class="victor_paragraph">Larger organizations—those with, say, 500 reps or more—may require more time to deploy SFA technology effectively because of the need to take into account highly complex legacy systems when implementing integrated field solutions. Also, decisionmaking is naturally a slower process, and large internal IT departments have to take time to learn the new technologies before they are prepared to support the mobile sales force. An SFA pilot program involving the rollout of one business unit at a time is one way for a larger enterprise to accelerate deployment.</span></p>
+<p><span id="victor_an92" class="victor_other">&nbsp;</span></p>
+<table width="125" cellpadding="10" align="right">
+<tr>
+<td>
+ 
+<a href="javascript:middle('http://www.devicelink.com/mx/archive/04/11/0411x55c1.jpg','574','420')">
+<img src="/mx/archive/04/11/0411x55c.jpg" align="right" border="0" height="164" width="125" />
+</a></td>
+</tr>
+<tr>
+<td align="right">
+<font size="1" face="verdana, arial, geneva, sans-serif" color="#336699"><span id="victor_an93" class="victor_other">Using tabbed sections of the mobile SFA system by NoInk Communications, sales reps can recall pricing and other critical account information during sales calls.
+</span><br /><span id="victor_an94" class="victor_other">(click to enlarge)</span></font>
+</td>
+</tr>
+</table>
+<p>
+<b><span id="victor_an95" class="victor_paragraph">Sales Staff Productivity.</span></b><span id="victor_an96" class="victor_continuation"> Such administrative tasks as handling order paperwork and entering call notes for management review can occupy a substantial portion of a sales rep's workday. Medtech organizations seeking ways to minimize these burdens so reps can focus on revenue-generating activities such as prospecting, physician visits, and relationship building may find mobile SFA technology helpful in this regard. A secondary benefit is a clearer window into sales activities.</span></p>
+<p>
+<b><span id="victor_an97" class="victor_paragraph">Supply Chain Visibility.</span></b><span id="victor_an98" class="victor_continuation"> Most supply chain technology is focused on the movement and storage of assets in the back office. By contrast, mobile SFA illuminates every facet of the dynamic supply chain: in the warehouse, on order, and in the field. This approach to supply-chain tracking—which makes trunk inventory, consignment inventory, expired products, and rep-to-rep inventory transfers completely visible—enables medtech organizations to be more responsive to customers' needs and to be more accountable for their own assets in this era of Sarbanes-Oxley. With their sales reps using handheld tracking technology to report on the movement of their personal inventory in the field, corporations can maintain accurate supply-chain data in real time.</span></p>
+<p>
+<b><span id="victor_an99" class="victor_header">Conclusion</span></b>
+</p>
+<p><span id="victor_an100" class="victor_paragraph">Mobile SFA technology promotes streamlined management of the technical and administrative aspects of medical technology sales and provides an attractive vehicle for delivering presentations. Medical device sales reps can use the technology to personalize and automate the sales process for enhanced effectiveness in a progressively competitive market. No matter how complex the environment, the reps have the flexibility to close the sale.</span></p>
+<p><span id="victor_an101" class="victor_paragraph">Relationship- and education-driven sales and those for which profitability depends on efficient, automated ordering are the two poles of modern healthcare equipment procurement. In each scenario, SFA technology arms field reps with detailed, real-time data to satisfy the buyer and organizational tools to function effectively throughout the entire sales process and deliver the competitive edge their employers seek.
+</span><br />
+<br /></p>
+<hr noshade="noshade" align="left" width="50%" />
+<p>
+<font size="2">
+<b><span id="victor_an102" class="victor_other">Reference</span></b>
+</font>
+</p>
+<p>
+<font size="1"><span id="victor_an103" class="victor_other">1. 
+</span><em><span id="victor_an104" class="victor_other">Mobile Sales Force Automation Markets</span></em><span id="victor_an105" class="victor_other"> (San Antonio, TX: Frost &amp; Sullivan, 2004).</span></font>
+</p>
+<p>
+<b>
+<font size="1"><span id="victor_an106" class="victor_paragraph">David Kerr is vice president of Everypath Inc. (Santa Clara, CA), a provider of Web-based handheld applications designed specifically for the medical device and pharmaceutical field sales environment.</span></font>
+</b>
+</p>
+<p>
+<font size="1"><span id="victor_an107" class="victor_other">Photos courtesy NoInk Communications</span></font>
+</p>
+<p>
+<font face="verdana, arial, geneva, sans-serif" size="1"><span id="victor_an108" class="victor_other">Copyright ©2004 
+</span><b><span id="victor_an109" class="victor_other">MX</span></b></font> 
+</p>
+</td>
+<td>
+
+
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+
+
+
+<div class="clear"></div>
+</td>
+</tr>
+<tr>
+<td id="footer">
+<p>
+
+</p>
+<p><span id="victor_an110" class="victor_other">Copyright © 2006 Canon Communications, LLC &nbsp;&nbsp;
+</span><a href="/about.html"><span id="victor_an111" class="victor_other">About Us</span></a><span id="victor_an112" class="victor_other"> | 
+</span><a href="/mdl_mediakit/index.html"><span id="victor_an113" class="victor_other">Advertising Information</span></a><span id="victor_an114" class="victor_other"> | 
+</span><a href="/ccare/siteguide.html"><span id="victor_an115" class="victor_other">Site Guide</span></a></p>
+</td>
+</tr>
+</table>
+</body>
+</html>
