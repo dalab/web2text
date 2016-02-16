@@ -33,7 +33,7 @@ case class Visualization(port: Int) {
 
       println(s"Working on page ${page.id} for server on port $port.")
 
-      val dom = Jsoup.parse(page.origWithoutTextTag,page.url)
+      val dom = Jsoup.parse(page.orig,page.url)
       val cdom = CDOM.fromBody(dom.body)
       DOM.wrapBlocks(dom)
       DOM.removeJavascript(dom)

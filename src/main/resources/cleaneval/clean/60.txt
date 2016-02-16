@@ -1,8 +1,9 @@
-﻿URL: http://flakmag.com/film/sunshine.html
+URL: http://flakmag.com/film/sunshine.html
 
-     <h>Sunshine State
+  
+   <h>Sunshine State
    <h>dir. John Sayles
-   <h>Sony Pictures Classics
+   
 
    <p>The torching of a tacky float during "Buccaneer Days" opens John
    Sayles' Sunshine State. Pirates of all types abound in fictional
@@ -97,5 +98,5 @@
    stay, and the one who had been stuck at home has, like all true
    mermaids, returned to the sea.
 
-   <p>-- Stephen Bracco (sbracco@yahoo.com)
-   
+   -- <p>Stephen Bracco
+  

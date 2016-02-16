@@ -15,10 +15,10 @@ import scala.io.Codec
   */
 object Util {
 
-  /** Codec configured for loading non-UTF8 files */
-  private implicit val codec = Codec("UTF-8")
-  codec.onMalformedInput(CodingErrorAction.REPLACE)
-  codec.onUnmappableCharacter(CodingErrorAction.REPLACE)
+  /** Codec configured for also accepting non-UTF8 files */
+  implicit val codec = Codec("UTF-8")
+  codec.onMalformedInput(CodingErrorAction.IGNORE)
+  codec.onUnmappableCharacter(CodingErrorAction.IGNORE)
 
   /** Find the K-Median of a list of numbers
     *
@@ -94,7 +94,6 @@ object Util {
     * or just at the path provided
     */
   def loadFile(path: String, skipLines: Int = 0, isResource: Boolean = false) = {
-
 
     val source = {
       if (isResource) {

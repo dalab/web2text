@@ -1,6 +1,6 @@
 URL: http://film.guardian.co.uk/features/featurepages/0,4120,863596,00.html
 
-
+  
 
 <h>On a wing and a prayer
 
@@ -8,7 +8,7 @@ URL: http://film.guardian.co.uk/features/featurepages/0,4120,863596,00.html
    the violent truth of life in the slums of Brazil. Here, the
    Oscar-winning director Walter Salles explains why it had to be made
    <h>Saturday December 21, 2002
-
+   
    <p>It begins with a chicken who knows too much. We are in City of God, a
    favela (a Rio de Janeiro slum) in the early 1980s. A gang of young
    drug-dealers is preparing feijoada, the local stew. This chicken knows
@@ -18,7 +18,7 @@ URL: http://film.guardian.co.uk/features/featurepages/0,4120,863596,00.html
    is chased and fired at by the young hoodlums until fate leads her
    under the wheels of a police car.
 
-
+   
    <p>A clash between the young princes of the favela and the police is
    imminent and promises to be bloody. It will, however, be frozen in
    time, as Meirelles takes us to the 1960s and 1970s in the same locale.
@@ -71,7 +71,7 @@ URL: http://film.guardian.co.uk/features/featurepages/0,4120,863596,00.html
 
    <p>City of God follows several real characters, whose lives started and
    ended within the favela's perimeter during these three decades. Bene,
-   the cool marijuana dealer, Ze PequeÃ±o, a merciless killer, and Rocket,
+   the cool marijuana dealer, Ze Pequeño, a merciless killer, and Rocket,
    the innocent eye, Lins's alter ego, a young black kid who manages to
    break the country's social and race barriers - at a price.
 
@@ -106,7 +106,7 @@ URL: http://film.guardian.co.uk/features/featurepages/0,4120,863596,00.html
    is not only a chicken. It is the reflection of so many Brazilians
    trapped in an unjust country.
 
-   <p>· City of God is released on January 3.
+   <p>� City of God is released on January 3.
 
    <p>The following correction was printed in the Guardian's Corrections and
    Clarifications column, Tuesday January 14 2003
@@ -114,3 +114,4 @@ URL: http://film.guardian.co.uk/features/featurepages/0,4120,863596,00.html
    <p>An editing error introduced the claim that the director's earlier
    film, Central Station, was an Oscar winner. It was nominated for best
    foreign film in 1999, but it did not win the Academy Award.
+  

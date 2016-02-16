@@ -3,7 +3,7 @@ package nl.tvogels.boilerplate
 import nl.tvogels.boilerplate.utilities.Util
 import nl.tvogels.boilerplate.utilities.Util._
 import nl.tvogels.boilerplate.alignment.Alignment
-import nl.tvogels.boilerplate.cleaneval.CleanEval
+import nl.tvogels.boilerplate.cleaneval.{CleanEval,Page}
 import nl.tvogels.boilerplate.cdom.{CDOM,DOM}
 import org.jsoup.Jsoup
 import nl.tvogels.boilerplate.features.extractor._
@@ -13,16 +13,7 @@ import nl.tvogels.boilerplate.visualization.Visualization
 
 object Main {
   def main(args: Array[String]): Unit = {
-
-    // Visualization(27017).storeCleanEvalInMongo
-    // Visualization(27018).storeCleanEvalInMongo
-
-    addLabelsToMongo("bte")
-    addLabelsToMongo("unfluff")
-    addLabelsToMongo("default-extractor")
-    addLabelsToMongo("article-extractor")
-    addLabelsToMongo("largestcontent-extractor")
-
+    alignCleanEvalData
   }
 
   def addLabelsToMongo(dir: String) = {
@@ -31,7 +22,7 @@ object Main {
     for (p <- CleanEval.iterator) {
       val location = s"/Users/thijs/dev/boilerplate/other_frameworks/output/$dir/${p.id}-aligned.txt"
       if (Util.fileExists(location)) {
-        val body = Jsoup.parse(p.origWithoutTextTag).body
+        val body = Jsoup.parse(p.orig).body
         val cdom = CDOM.fromBody(body)
         val labels = Alignment.labelsFromAlignedString(cdom, Util.loadFile(location))
         vis.addLabelsToDocument(dir, labels, p.docId)
@@ -101,7 +92,7 @@ object Main {
     // val it = CleanEval.iterator
     // // it.next()
     // val page = it.next()
-    // val dom = Jsoup.parse(page.origWithoutTextTag)
+    // val dom = Jsoup.parse(page.orig)
     // println(s"Looking at page #${page.id}")
 
     val html = Util.loadFile("/Users/thijs/Desktop/test.html")

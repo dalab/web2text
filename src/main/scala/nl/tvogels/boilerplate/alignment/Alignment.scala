@@ -1,10 +1,10 @@
 package nl.tvogels.boilerplate.alignment
 
 import nl.tvogels.boilerplate.utilities.Util
-import jaligner.{Alignment => JAlignment,Sequence,SmithWatermanGotoh}
 import nl.tvogels.boilerplate.cdom.CDOM
-import jaligner.matrix.MatrixLoader
 import scala.util.Random
+import breeze.linalg
+import scala.collection.mutable.ArrayBuffer
 
 /** Alignment of a cleaned page with the original HTML source
   *
@@ -28,184 +28,231 @@ import scala.util.Random
   */
 object Alignment {
 
-  /** Number of times to try to find unique matches in source and cleaned */
-  val splitTries = 1000
-
-  /** Length of the substrings used for finding unique matches */
-  val searchFragmentLength = 10
-
-  /** Character inserted in the aligned text at the position of source
-    * characters that have been deleted in the cleaned text */
-  val GAPCHAR = String.valueOf(JAlignment.GAP)
-
-  /** Alignment a source document with a cleaned document.
-    *
-    * @param source A string containing the source code
-    * @param cleaned A string containing the cleaned text.
-    *   It should not contain extra markup that was not in the
-    *   original HTML document, and any spacing is best
-    *   normalized to one space: ' '. See
-    *   [[nl.tvogels.boilerplate.cleaneval.CleanEval.normalizeCleanFile]]
-    *   as an example.
-    * @return A string containing the cleaned page in the same
-    * length as the input source, with `Alignment.GAPCHAR`
-    * characters inserted where source-content has been removed.
-    */
-  def alignment(source: String, cleaned: String): String = {
-    val mask = maskTags(source)
-    assert(mask.length == source.length)
-    val clean = cleaned.toUpperCase.replaceAll("""[\p{Z}\s]+"""," ").trim
-
-    var open: Vector[OpenSegment] = Vector(OpenSegment(0,clean.length, 0, mask.length))
-    var matches: Vector[MatchSegment] = Vector()
-
-    var i = 0
-    while (i < splitTries) {
-      i = i+1
-
-      val curseg = Util.randomSelectionWeighted(open, open.map { x => (x.length - 10).max(0).toDouble })
-
-      if (curseg.length - searchFragmentLength > 0) {
-        val start = Random.nextInt(curseg.length - searchFragmentLength) + curseg.start
-        val end   = start + searchFragmentLength
-        val subs  = clean.substring(start,end)
-        val res   = Util.allSubstringOccurences(mask,subs,curseg.sourceStart, curseg.sourceEnd - searchFragmentLength - 1)
-        // println(s"For query $subs, I found ${res.length}")
-        if (res.length == 1) {
-          open    = open.filter(x => x != curseg) ++
-                    Vector(
-                      OpenSegment(curseg.start,start, curseg.sourceStart, res(0)),
-                      OpenSegment(end,curseg.end, res(0)+searchFragmentLength, curseg.sourceEnd)
-                     )
-          matches = matches ++
-                    Vector(MatchSegment(start,res(0),searchFragmentLength))
-        }
-      }
-    }
-    // println(matches sortBy { _.sourceStart })
-    // println(open sortBy { _.sourceStart })
-    val combo: Vector[SourceSegment] = open++matches
-    val res = combo.sortBy { _.sourceStart }.map {
-      case MatchSegment(start,sourceStart,length) => clean.substring(start,start+length)
-      case curseg: OpenSegment => {
-        println(s"Current segment: $curseg")
-        // println("Source  : '" + curseg.takeSource(source) + "'")
-        // println("Cleaned : '" + curseg.takeCleaned(clean) + "'")
-        stringify(rawAlignment(curseg.takeSource(mask), curseg.takeCleaned(clean)),curseg.sourceLength)
-      }
-    }.mkString
-    assert(res.length == source.length)
-    res
-  }
+  val GAPCHAR = "空" // `empty' in Mandarin
+  // val GAPCHAR = "□"
 
   /** A segment of source, corresponding to a segment in the cleaned file */
-  private sealed trait SourceSegment {
+  private sealed trait SegmentPair {
+    /** Start position (inclusive), endposition (exclusive) in source
+      * e.g.(0,3) = [0,1,2] */
+    val source: (Int,Int)
+    /** Start position (inclusive), endposition (exclusive) in cleaned text
+      * e.g.(0,3) = [0,1,2] */
+    val clean: (Int,Int)
 
-    /** Start position in the cleaned document */
-    def start: Int
-
-    /** Start position in the source document */
-    def sourceStart: Int
-
-    /** Length of the matching piece (in the cleaned document) */
-    def length: Int
+    val sourceLength = source._2 - source._1
+    val cleanLength = clean._2 - clean._1
   }
 
-  /** An open segment of source that is to be matched
-    *
-    * @param start Start position in the cleaned document
-    * @param end End position in the cleaned document
-    * @param sourceStart Start position in the source document
-    * @param sourceEnd End position in the source document
-    */
-  private case class OpenSegment(val start: Int, end: Int, sourceStart: Int, sourceEnd: Int) extends SourceSegment {
+  /** An open segment of source that is to be matched */
+  private case class OpenSegment(source:(Int,Int),clean:(Int,Int)) extends SegmentPair
 
-    /** Length of the segment in the cleaned version */
-    def length = end - start
-
-    /** Length of the segment in the source */
-    def sourceLength = sourceEnd - sourceStart
-
-    /** Take the corresponding substring from the cleaned document
-      * @param cleaned Cleaned string
-      */
-
-    def takeCleaned(cleaned: String) = cleaned.substring(start,end)
-
-    /** Take the corresponding substring from the source document
-      * @param source Source string
-      */
-    def takeSource(source: String) = source.substring(sourceStart,sourceEnd)
-
+  /** A segment that is already matched among source and cleaned */
+  private case class MatchedSegment(source:(Int,Int),clean:(Int,Int)) extends SegmentPair {
+    assert(sourceLength == cleanLength, s"Source length $sourceLength is not equal to clean length $cleanLength")
   }
 
-  /** A segment that is already matched among source and cleaned
-    *
-    * @param start Start position in the cleaned document
-    * @param sourceStart Start position in the source document
-    * @param length Length in both documents
-    */
-  private case class MatchSegment(val start: Int, sourceStart: Int, length: Int) extends SourceSegment
 
-  /** Format a JAlignment output to a sting of the length of
-    * the source document, containing `GAPCHAR` characters
-    * at the position where characters have been removed in
-    * the cleaned document.
-    *
-    * @param align `JAlignment` output
-    * @param maskLength Length of the source segment to be aligned
-    */
-  private def stringify(align: JAlignment, masklength: Int) = {
-    val a: String = String.valueOf(align.getSequence1)
-    val b: String = String.valueOf(align.getSequence2)
-    val gap = GAPCHAR
-    val c: String = b.zipWithIndex.filter(x => a(x._2) != JAlignment.GAP).unzip._1.mkString
-    val d = gap * align.getStart1 + c
-    d + gap * (masklength - d.length)
-  }
+  private def find1to1mathches(source: String, cleaned: String, k: Int): ArrayBuffer[SegmentPair] = {
 
-  /** Find raw alignment with `JAligner`
-    * @param a Segment in source document
-    * @param b Segment in cleaned document
-    */
-  private def rawAlignment(a: String, b: String) = {
-    val x = new Sequence(removeStrangeSymbols(a))
-    val y = new Sequence(removeStrangeSymbols(b))
-    Util.save("/Users/thijs/Desktop/x.txt",removeStrangeSymbols(a))
-    Util.save("/Users/thijs/Desktop/y.txt",removeStrangeSymbols(b))
-    SmithWatermanGotoh.align(x, y, alignmentMatrix, 0.5f, 0f)
-  }
+    // Define output segment list (mutable)
+    val list: ArrayBuffer[SegmentPair] = ArrayBuffer()
 
-  /** Matrix with matching/replacement costs used by `JAligner` */
-  lazy val alignmentMatrix =
-    MatrixLoader.load(
-      new jaligner.ui.filechooser.NamedInputStream(
-        "ALIGNMENT_MATRIX",
-        getClass().getResourceAsStream("/ALIGNMENT_MATRIX")
+    // Input lenghts
+    val n = source.length
+    val m = cleaned.length
+
+    // construct a map of substrings of length k and their location in the source (source)
+    // sourceMap(substring) = Vector(startloc1,loc2,loc3,...)
+    val sourceMap = (for (i <- 0 until n+1-k;
+                       slice = source.slice(i,i+k);
+                       if !slice.contains(GAPCHAR)) yield (slice,i))
+      .groupBy(_._1)
+      .mapValues(_.map(_._2))
+      .toMap
+
+    // Loop through the cleaned version and construct matches
+    // val buf = new StringBuilder
+    var (prevMatchEndSource, prevMatchEndClean) = (0,0)
+    var i = 0 // current position,
+    while (i < m+1-k) {
+      val subs = cleaned.slice(i,i+k)
+      val matchLocations = sourceMap.getOrElse(subs,Vector())
+      if (matchLocations.length == 1) { // there is a 1-1 match!
+        val sourcePos = matchLocations.head
+        // Figure out how far we can extend the match to the right
+        var extraRight = 0
+        while (i + k + extraRight < m
+               && sourcePos + k + extraRight < n
+               && cleaned(i+k+extraRight) == source(sourcePos+k+extraRight)) {
+          extraRight += 1
+        }
+        // Figure out how far we can extend the match to the left
+        var extraLeft = 0
+        while (i-extraLeft > 0
+               && sourcePos-extraLeft > 0
+               && cleaned(i-1-extraLeft) == source(sourcePos-1-extraLeft)) {
+          extraLeft += 1
+        }
+        // Append a non-matched piece to the list
+        if (sourcePos-extraLeft > prevMatchEndSource || i-extraLeft > prevMatchEndClean)
+          list += OpenSegment(
+            source=(prevMatchEndSource,sourcePos-extraLeft),
+            clean=(prevMatchEndClean,i-extraLeft)
+          )
+        // Append the match segment
+        prevMatchEndClean = i + k + extraRight
+        prevMatchEndSource = sourcePos + k + extraRight
+        list += MatchedSegment(
+          source=(sourcePos-extraLeft,prevMatchEndSource),
+          clean=(i-extraLeft,prevMatchEndClean)
+        )
+        i += k + extraRight
+      } else {
+        // There is no 1-1 match, continue
+        i += 1
+      }
+    }
+    // Append a final non-match at the end
+    val last = list.last
+    if (last.source._2 < source.length) {
+      list += OpenSegment(
+        source=(last.source._2,source.length),
+        clean=(last.clean._2,cleaned.length)
       )
-    )
+    }
 
-  /** Remove symbols that are not supported by `JAligner`
-    * @param x Input string
-    */
-  private def removeStrangeSymbols(x: String) = {
-    // x.replaceAll("""[^A-Za-z0-9\-_;:\?.',#\(\)\*']""","X")
-    x.replaceAll("""[^\x00-\x7F]""","X")
+    list
   }
+
+  def alignment(source: String, cleaned: String): String = {
+    val mask = maskTags(source)
+
+    val segments = find1to1mathches(mask, cleaned, k=20)
+
+    val output = segments map {
+      case OpenSegment(source, clean) =>
+        dpalignment(
+          source = mask.slice(source._1,source._2),
+          cleaned = cleaned.slice(clean._1,clean._2)
+        )
+      case MatchedSegment(source, clean) =>
+        cleaned.slice(clean._1,clean._2)
+    }
+
+    output mkString ""
+  }
+
+  /** Apply dynamic programming for the alignment
+    * A perfect match gets three points, if it is a letter or digit, and 1 point otherwise
+    * Skipping a letter in the clean text has a penalty of -6, or 0 if it is whitespace
+    * Skipping letters in the source is free, but there is a gap-start penalty of -1 */
+  def dpalignment(source: String, cleaned: String): String = {
+
+
+    /** Enum type for a decision in the dynamic programming algorithm */
+    object Decision extends Enumeration {
+      type Decision = Value
+      val Match, SkipSource, SkipClean = Value
+    }
+    import Decision._
+
+    def score(decision: Decision, sourceChar: Char, cleanedChar: Char, isInGap: Boolean) = decision match {
+      case Match => if (Character.isLetterOrDigit(sourceChar) &&
+                        sourceChar == cleanedChar) 3 else 1
+      case SkipClean => if (Character.isWhitespace(cleanedChar)) 0 else -6
+      case SkipSource => if (isInGap) 0 else -1
+    }
+
+    // Convert strings to lists of characters
+
+    // Store lengths
+    val n = source.length
+    val m = cleaned.length
+
+    /** Score matrix */
+    val S = new linalg.DenseMatrix[Int](2,m+1)
+    /** Gap matrix */
+    val G = new linalg.DenseMatrix[Boolean](2,m+1)
+    /** Decisions matrix */
+    val D = new linalg.DenseMatrix[Decision](n+1,m+1)
+
+    // Initialize first row and column
+    for (j <- 0 to m) { S(0,j) = -j; G(0,j)=true; D(0,j)=SkipClean }
+    for (i <- 0 to 1) { G(i,0)=true }
+    for (i <- 0 to n) { D(i,0)=SkipSource }
+    D(0,0) = null
+
+    // Compute costs in matrix and store decision
+    for(i <- 1 to n;
+        j <- 1 to m) {
+      val sourceChar = source(i-1)
+      val cleanedChar = cleaned(j-1)
+
+      val skipCleanScore  =
+        S(i%2,j-1) + score(SkipClean, sourceChar, cleanedChar, G(i%2,j-1))
+      val skipSourceScore =
+        S((i-1)%2,j) + score(SkipSource, sourceChar, cleanedChar, G((i-1)%2,j))
+
+      var bestScore: Int = 0
+      var bestDecision: Decision = null
+
+      if(skipCleanScore > skipSourceScore) {
+        bestScore = skipCleanScore
+        bestDecision = SkipClean
+      } else {
+        bestScore = skipSourceScore
+        bestDecision = SkipSource
+      }
+
+      if (Character.toUpperCase(sourceChar) == Character.toUpperCase(cleanedChar)) {
+        val matchScore = S((i-1)%2,j-1) + score(Match, sourceChar, cleanedChar, isInGap=false)
+        if (matchScore > bestScore) {
+          bestScore = matchScore
+          bestDecision = Match
+        }
+      }
+
+      D(i,j) = bestDecision
+      S(i%2,j) = bestScore
+      G(i%2,j) = bestDecision match {
+        case Match => false
+        case SkipClean => G(i%2,j-1)
+        case SkipSource => true
+      }
+
+    }
+
+    // construct string
+    val ret = new StringBuilder
+    var i = n
+    var j = m
+    while (i != 0 || j != 0)
+      D(i,j) match {
+        case Match => { ret ++= source(i-1).toString; i -= 1; j -= 1 }
+        case SkipClean => { j -= 1 }
+        case SkipSource=> { ret ++= Alignment.GAPCHAR; i -= 1 }
+      }
+
+    val str = ret.reverse.toString
+    assert(str.length == source.length,
+      "Output should be of the same length as the input source.")
+    str
+
+  }
+
 
   /** Mask tags in an HTML document by #-characters, such
     * that they won't match with the cleaned document.
     */
-  private def maskTags(html: String): String = {
-    val htmlTags = """(?s)<(.*?)>"""r
-    val fmTags = """(?s)(<HEAD[^>]*>.*?</HEAD[^>]*>|<SCRIPT[^>]*>.*?</SCRIPT[^>]*>|<STYLE[^>]*>.*?</STYLE[^>]*>|<!--.*?-->|&[A-Z]+;|<[^<>]*?>)"""r
+  def maskTags(html: String): String = {
+    val htmlTags = """(?s)(?i)(<(.*?)>)"""r
+    val fmTags = """(?s)(?i)(<HEAD[^>]*>.*?</HEAD[^>]*>|<SCRIPT[^>]*>.*?</SCRIPT[^>]*>|<STYLE[^>]*>.*?</STYLE[^>]*>|<!--.*?-->|&[A-Z]+;|<[^<>]*?>)"""r
 
-    val html2 = html.toUpperCase.replaceAll("""[\p{Z}\s]"""," ")
-    fmTags.replaceAllIn(html2, m => "#" * m.group(0).length)
-          // .replaceAll("""[^\x00-\x7F]"""," ")
-          //.replaceAll("""\W"""," ")
-          .replaceAllLiterally(String.valueOf(JAlignment.GAP), " ")
+    val html2 = fmTags.replaceAllIn(html, m => Alignment.GAPCHAR * m.group(0).length)
+    htmlTags.replaceAllIn(html2,m => Alignment.GAPCHAR * m.group(0).length)
   }
+
 
   /** Extract 'ground truth' labels from a cleaned file in which the characters are perfectly
     * aligned with the source document */
@@ -221,7 +268,13 @@ object Alignment {
     case (_,-1) =>                       println(Console.RED+s"-1 node.endPosition value"+Console.RESET); 0
     case (s,_) if s < 0 =>               println(Console.RED+s"negative node.startPosition value"+Console.RESET); 0
     case (_,e) if e > aligned.length =>  println(Console.RED+s"node.endPosition $e falls outside document (${aligned.length})"+Console.RESET); 0
-    case (s,e) =>                        (if (aligned.substring(s, e).toString matches ".*[A-Za-z].*") 1 else 0)
+    case (s,e) =>                        {
+      val subs = aligned.substring(s,e)
+      val found = subs.count(x => x.toString != Alignment.GAPCHAR)
+      if (found >= subs.length/2) { // intentional floor
+        1
+      } else 0
+    }
   }
 
 }
