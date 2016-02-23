@@ -18,12 +18,9 @@ object Unfluff {
   def alignPages = {
     val folder = "unfluff"
     for (page <- CleanEval.iterator) {
-      if (page.id != 28 && page.id != 797) {
-        val orig = page.origWithoutTextTag
-        val clean = Util.loadFile(s"output/$folder/${page.id}.html")
-                      .toUpperCase
-                      .replaceAll("""\s+"""," ")
-                      .trim
+      if (true) {
+        val orig = page.source
+        val clean = Util.loadFile(s"output/$folder/${page.id}.html").trim
         if (!Util.fileExists(s"output/$folder/${page.id}-aligned.txt")) {
           val alignment = Alignment.alignment(orig, clean)
           Util.save(s"output/$folder/${page.id}-aligned.txt", alignment)

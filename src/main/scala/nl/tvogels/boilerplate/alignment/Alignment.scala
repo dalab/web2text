@@ -2,6 +2,7 @@ package nl.tvogels.boilerplate.alignment
 
 import nl.tvogels.boilerplate.utilities.Util
 import nl.tvogels.boilerplate.cdom.CDOM
+import nl.tvogels.boilerplate.cdom.NodeProperties
 import scala.util.Random
 import breeze.linalg
 import scala.collection.mutable.ArrayBuffer
@@ -28,8 +29,8 @@ import scala.collection.mutable.ArrayBuffer
   */
 object Alignment {
 
-  val GAPCHAR = "空" // `empty' in Mandarin
-  // val GAPCHAR = "□"
+  // val GAPCHAR = "空" // `empty' in Mandarin
+  val GAPCHAR = "□"
 
   /** A segment of source, corresponding to a segment in the cleaned file */
   private sealed trait SegmentPair {
@@ -71,54 +72,126 @@ object Alignment {
       .mapValues(_.map(_._2))
       .toMap
 
+    // for safety, we also need a document that is stripped of any gap-chars and whitespace
+    val trimFilter = ((c: Char) => !Character.isWhitespace(c) && c.toString != Alignment.GAPCHAR)
+    val trimmedSource = source.filter(trimFilter)
+    val trimmedSourceMaps = (1 to k) map {
+      case k => (for (i <- 0 until trimmedSource.length+1-k) yield (trimmedSource.slice(i,i+k),i))
+                  .groupBy(_._1)
+                  .mapValues(_.length)
+                  .toMap
+    }
+
+    // test whether two characters are equal enough
+    def equalEnough(c1: Char, c2: Char) = {
+      (Character.isWhitespace(c1) && Character.isWhitespace(c2)) ||
+      (Character.toUpperCase(c1) == Character.toUpperCase(c2))
+    }
+
     // Loop through the cleaned version and construct matches
     // val buf = new StringBuilder
-    var (prevMatchEndSource, prevMatchEndClean) = (0,0)
+    var lastMatch: SegmentPair = MatchedSegment((0,0),(0,0))
+    var justPopped = false // have we already removed a potentially suspicious match?
     var i = 0 // current position,
     while (i < m+1-k) {
       val subs = cleaned.slice(i,i+k)
+
+      // compute trimmed substring of length k
+      var trimmedSubs = subs.filter(trimFilter)
+      // var ind = i+k
+      // while(trimmedSubs.length < k && ind < m) {
+      //   val newChar = cleaned(ind)
+      //   if (trimFilter(newChar)) {
+      //     trimmedSubs += newChar
+      //   }
+      //   ind += 1
+      // }
+
       val matchLocations = sourceMap.getOrElse(subs,Vector())
-      if (matchLocations.length == 1) { // there is a 1-1 match!
+      val trimmedMatchCount = if (trimmedSubs.length > 0)
+                                trimmedSourceMaps(trimmedSubs.length-1)
+                                  .getOrElse(trimmedSubs.toString,0)
+                              else 0
+      // println(s"'${subs.replaceAll("\n","X")}' : $matchLocations")
+      if (matchLocations.length == 1 && trimmedMatchCount == 1) { // there is a 1-1 match!
         val sourcePos = matchLocations.head
         // Figure out how far we can extend the match to the right
         var extraRight = 0
         while (i + k + extraRight < m
                && sourcePos + k + extraRight < n
-               && cleaned(i+k+extraRight) == source(sourcePos+k+extraRight)) {
+               && equalEnough(cleaned(i+k+extraRight), source(sourcePos+k+extraRight))) {
           extraRight += 1
         }
         // Figure out how far we can extend the match to the left
         var extraLeft = 0
         while (i-extraLeft > 0
                && sourcePos-extraLeft > 0
-               && cleaned(i-1-extraLeft) == source(sourcePos-1-extraLeft)) {
+               && sourcePos-extraLeft >= lastMatch.source._2+1
+               && equalEnough(cleaned(i-1-extraLeft), source(sourcePos-1-extraLeft))) {
           extraLeft += 1
         }
-        // Append a non-matched piece to the list
-        if (sourcePos-extraLeft > prevMatchEndSource || i-extraLeft > prevMatchEndClean)
-          list += OpenSegment(
-            source=(prevMatchEndSource,sourcePos-extraLeft),
-            clean=(prevMatchEndClean,i-extraLeft)
+        // If the current piece is before the previous piece, discard both
+        // println("Howdy")
+        if (sourcePos <= lastMatch.source._1) {
+          // println ("Have to skip!")
+          // println(s"Prev: '${source.slice(list.last.source._1,list.last.source._2)}'")
+          // println(s"Now:  '$subs' / '${source.slice(sourcePos-extraLeft,sourcePos+k+extraRight)}'")
+          // if (!justPopped) {
+            // remove last two elements from the list
+            val llength = list.length
+            list.remove(llength-2,2)
+            lastMatch = if (llength >= 3) list(llength-3) else MatchedSegment((0,0),(0,0))
+            justPopped=true
+          // }
+          // Don't do anything with the current match
+          i +=1
+        } else if (sourcePos < lastMatch.source._2) {
+          // Skip but its not too bad
+          i += 1
+        } else {
+          justPopped=false
+          // If it extends too far to the left, shorten it
+          while(sourcePos-extraLeft < lastMatch.source._2) {
+            extraLeft -= 1
+          }
+
+          // Append a non-matched piece to the list
+          if (sourcePos-extraLeft > lastMatch.source._2 || i-extraLeft > lastMatch.clean._2) {
+            assert(sourcePos-extraLeft - lastMatch.source._2 >=0, s"Open segment reversed for subs '$subs'")
+            list += OpenSegment(
+              source = (lastMatch.source._2, sourcePos - extraLeft),
+              clean  = (lastMatch.clean._2,  i - extraLeft)
+            )
+          }
+          // Append the match segment
+          // println(list mkString "\n")
+          // println("LM: "+lastMatch)
+          // println(s"Extra left: $extraLeft")
+          assert(sourcePos + k + extraRight - (sourcePos-extraLeft) >=0, s"Matched segment reversed for subs '$subs'")
+          lastMatch = MatchedSegment(
+            source=(sourcePos-extraLeft,sourcePos + k + extraRight),
+            clean=(i-extraLeft,i + k + extraRight)
           )
-        // Append the match segment
-        prevMatchEndClean = i + k + extraRight
-        prevMatchEndSource = sourcePos + k + extraRight
-        list += MatchedSegment(
-          source=(sourcePos-extraLeft,prevMatchEndSource),
-          clean=(i-extraLeft,prevMatchEndClean)
-        )
-        i += k + extraRight
+          list += lastMatch
+          // println(list mkString "\n")
+          i += k + extraRight
+        }
+
       } else {
         // There is no 1-1 match, continue
         i += 1
       }
     }
     // Append a final non-match at the end
-    val last = list.last
-    if (last.source._2 < source.length) {
+    if (list.length > 0 && list.last.source._2 < source.length) {
       list += OpenSegment(
-        source=(last.source._2,source.length),
-        clean=(last.clean._2,cleaned.length)
+        source=(list.last.source._2,source.length),
+        clean=(list.last.clean._2,cleaned.length)
+      )
+    } else if(list.length == 0) {
+      list += OpenSegment(
+        source=(0,source.length),
+        clean=(0,cleaned.length)
       )
     }
 
@@ -128,16 +201,20 @@ object Alignment {
   def alignment(source: String, cleaned: String): String = {
     val mask = maskTags(source)
 
-    val segments = find1to1mathches(mask, cleaned, k=20)
+    val segments = find1to1mathches(mask, cleaned, k=10)
 
     val output = segments map {
-      case OpenSegment(source, clean) =>
+      case OpenSegment(source, clean) => {
+        // println(s"OPEN:  $source '${mask.slice(source._1,source._2).replaceAll("\n","X")}'  /  '${cleaned.slice(clean._1,clean._2).replaceAll("\n","X")}'\n")
         dpalignment(
           source = mask.slice(source._1,source._2),
           cleaned = cleaned.slice(clean._1,clean._2)
         )
-      case MatchedSegment(source, clean) =>
+      }
+      case MatchedSegment(source, clean) => {
+        // println(s"MATCH: $source '${cleaned.slice(clean._1,clean._2).replaceAll("\n","X")}'\n")
         cleaned.slice(clean._1,clean._2)
+      }
     }
 
     output mkString ""
@@ -159,9 +236,11 @@ object Alignment {
 
     def score(decision: Decision, sourceChar: Char, cleanedChar: Char, isInGap: Boolean) = decision match {
       case Match => if (Character.isLetterOrDigit(sourceChar) &&
-                        sourceChar == cleanedChar) 3 else 1
+                        sourceChar == cleanedChar) 3
+                    else if (Character.toUpperCase(sourceChar) == Character.toUpperCase(cleanedChar)) 1
+                    else 0
       case SkipClean => if (Character.isWhitespace(cleanedChar)) 0 else -6
-      case SkipSource => if (isInGap) 0 else -1
+      case SkipSource => if (isInGap) 0 else -2
     }
 
     // Convert strings to lists of characters
@@ -205,7 +284,8 @@ object Alignment {
         bestDecision = SkipSource
       }
 
-      if (Character.toUpperCase(sourceChar) == Character.toUpperCase(cleanedChar)) {
+      if (Character.toUpperCase(sourceChar) == Character.toUpperCase(cleanedChar) ||
+          (Character.isWhitespace(sourceChar) && Character.isWhitespace(cleanedChar))) {
         val matchScore = S((i-1)%2,j-1) + score(Match, sourceChar, cleanedChar, isInGap=false)
         if (matchScore > bestScore) {
           bestScore = matchScore
@@ -246,11 +326,11 @@ object Alignment {
     * that they won't match with the cleaned document.
     */
   def maskTags(html: String): String = {
-    val htmlTags = """(?s)(?i)(<(.*?)>)"""r
-    val fmTags = """(?s)(?i)(<HEAD[^>]*>.*?</HEAD[^>]*>|<SCRIPT[^>]*>.*?</SCRIPT[^>]*>|<STYLE[^>]*>.*?</STYLE[^>]*>|<!--.*?-->|&[A-Z]+;|<[^<>]*?>)"""r
+    // val htmlTags = """(?s)(?i)(<[a-z]+(.*?)>)"""r
+    val fmTags = """(?s)(?i)(<HEAD[^>]*>.*?</HEAD[^>]*>|<SCRIPT[^>]*>.*?</SCRIPT[^>]*>|<STYLE[^>]*>.*?</STYLE[^>]*>|<!--.*?-->|&[A-Z]+;|</?[a-z]+[^<>]*?>)"""r
 
-    val html2 = fmTags.replaceAllIn(html, m => Alignment.GAPCHAR * m.group(0).length)
-    htmlTags.replaceAllIn(html2,m => Alignment.GAPCHAR * m.group(0).length)
+    fmTags.replaceAllIn(html, m => Alignment.GAPCHAR * m.group(0).length)
+    // htmlTags.replaceAllIn(html2,m => Alignment.GAPCHAR * m.group(0).length)
   }
 
 
@@ -258,12 +338,12 @@ object Alignment {
     * aligned with the source document */
   def labelsFromAlignedString(cdom: CDOM, aligned: String): Vector[Int] =
     cdom.leaves map {
-      node => labelFromAlignedString((node.properties.startPosition, node.properties.endPosition), aligned)
+      node => labelFromAlignedString(node.properties, aligned)
     }
 
   /** Get a label from an aligned string
     * @param position start and end position pair */
-  private def labelFromAlignedString(position: (Int,Int), aligned: String) = position match {
+  private def labelFromAlignedString(props: NodeProperties, aligned: String) = (props.startPosition, props.endPosition) match {
     case (-1,_) =>                       println(Console.RED+s"-1 node.startPosition value"+Console.RESET); 0
     case (_,-1) =>                       println(Console.RED+s"-1 node.endPosition value"+Console.RESET); 0
     case (s,_) if s < 0 =>               println(Console.RED+s"negative node.startPosition value"+Console.RESET); 0
@@ -271,7 +351,7 @@ object Alignment {
     case (s,e) =>                        {
       val subs = aligned.substring(s,e)
       val found = subs.count(x => x.toString != Alignment.GAPCHAR)
-      if (found >= subs.length/2) { // intentional floor
+      if (found > 2*props.nCharacters/3) { // intentional floor
         1
       } else 0
     }

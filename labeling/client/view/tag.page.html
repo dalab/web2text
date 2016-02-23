@@ -1,0 +1,33 @@
+<template name="tagPage">
+  <div class="main-container">
+
+    <div class="iframe-wrapper">
+      <iframe id="page" frameborder="0"></iframe>
+    </div>
+
+    <div class="cleaned-gt">
+    <h4>Instructions</h4>
+    <p>Press and hold [alt] to switch to removal mode.</p>
+    <p>Current mode: {{#if isRemoving}}<span class="label label-danger">removing</span>{{else}}<span class="label label-success">adding</span>{{/if}}</p>
+    <p>Zoom level: <input type="range" id="zoom-level" min="50" value="{{zoomLevel}}" max="150" step="1" style="width:30%;display:inline-block;"> {{zoomLevel}}%</p>
+
+    <ul><li>In ac odio vel lorem tincidunt pellentesque. Nam tempor pulvinar turpis. Nunc in leo in libero ultricies interdum.</li>
+        <li>Proin ut urna. Donec ultricies nunc dapibus justo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. </li>
+    </ul>
+
+    <p>
+      <a class="btn btn-default prev-tag-page"><span class="glyphicon glyphicon-chevron-left"></span> Previous</a>
+      <a class="btn btn-success"><span class="glyphicon glyphicon-floppy-disk"></span> Save</a>
+      <a class="btn btn-default next-tag-page">Next <span class="glyphicon glyphicon-chevron-right"></span></a></p>
+    </div>
+
+  </div>
+
+  {{#contentFor "breadcrumbs"}}
+    <li><a>Classify</a></li>
+    <li>
+      {{doc_id}}
+    </li>
+  {{/contentFor}}
+
+</template>

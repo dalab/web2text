@@ -34,7 +34,7 @@ case class Page(id: Integer) {
 
   /** Original file contents, not including the first and last lines,
     * which have <text blabla></text> */
-  lazy val orig: String = CleanEval.loadOrigFile(id)
+  lazy val source: String = CleanEval.loadOrigFile(id)
 
   lazy val clean: String = CleanEval.loadCleanFile(id)
 

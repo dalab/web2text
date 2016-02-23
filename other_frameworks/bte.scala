@@ -8,7 +8,7 @@ import nl.tvogels.boilerplate.utilities._
 object BTE {
 
   def main(args: Array[String]): Unit = {
-
+    alignPages
   }
 
   /** Step 1: Generate the prediction files, which the `bte/bte.py` command line tool.
@@ -18,11 +18,8 @@ object BTE {
   def alignPages = {
     val folder = "bte"
     for (page <- CleanEval.iterator) {
-      val orig = page.origWithoutTextTag
-      val clean = Util.loadFile(s"output/$folder/${page.id}.txt")
-                    .toUpperCase
-                    .replaceAll("""\s+"""," ")
-                    .trim
+      val orig = page.source
+      val clean = Util.loadFile(s"output/$folder/${page.id}.txt").trim
       if (!Util.fileExists(s"output/$folder/${page.id}-aligned.txt")) {
         val alignment = Alignment.alignment(orig, clean)
         Util.save(s"output/$folder/${page.id}-aligned.txt", alignment)

@@ -24,3 +24,5 @@ accounts-facebook
 iron:router
 accounts-github
 sacha:spin
+peppelg:bootstrap-3-modal
+check

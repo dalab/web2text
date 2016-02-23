@@ -33,7 +33,7 @@ case class Visualization(port: Int) {
 
       println(s"Working on page ${page.id} for server on port $port.")
 
-      val dom = Jsoup.parse(page.orig,page.url)
+      val dom = Jsoup.parse(page.source,page.url)
       val cdom = CDOM.fromBody(dom.body)
       DOM.wrapBlocks(dom)
       DOM.removeJavascript(dom)
@@ -41,7 +41,7 @@ case class Visualization(port: Int) {
       DOM.makeUrlsAbsolute(dom)
 
       assert(
-        page.aligned.length == page.orig.length,
+        page.aligned.length == page.source.length,
         s"Lenghts are unequal for page ${page.id}"
       )
       val groundtruth = Alignment.labelsFromAlignedString(cdom, page.aligned)
@@ -55,9 +55,9 @@ case class Visualization(port: Int) {
       val update = MongoDBObject(
         "doc_id" -> page.docId,
         "group" -> "cleaneval",
-        "source_code" -> dom.toString(),
-        "original" -> page.orig,
-        "cleaned" -> page.clean,
+        "source" -> page.source,
+        "source_with_blocks" -> dom.toString,
+        "clean" -> page.clean,
         "aligned" -> page.aligned,
         "url" -> page.url,
         "encoding" -> page.encoding,

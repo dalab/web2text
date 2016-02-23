@@ -13,16 +13,45 @@ import nl.tvogels.boilerplate.visualization.Visualization
 
 object Main {
   def main(args: Array[String]): Unit = {
-    alignCleanEvalData
+    // val p = Page(354)
+    // val source = " Research on Families and Relationships at the University of Edinburgh.□Edinburgh."
+    // val al = Alignment.dpalignment(source,"\nResearch on Families and Relationships at the University of\nEdinburgh.")
+    // println(al)
+    // // Alignment.alignment(p.source, p.clean)
+    //
+    // val p = Page(8) //111
+    // println(Alignment.maskTags(p.source))
+    // val alignment = Alignment.alignment(p.source, p.clean)
+    // println(alignment)
+    // println((p.source.zipWithIndex.map {
+    //   case (c,i) => (if (alignment(i).toString==Alignment.GAPCHAR) Console.RED else Console.BLACK) + c.toString// + Console.GREEN + alignment(i)
+    // }) mkString "")
+    // alignCleanEvalData
+
+    testChainCRF
+
   }
 
-  def addLabelsToMongo(dir: String) = {
-    val vis = Visualization(27018)
+  def storeCleanEvalInMongo(port: Int = 27017) = {
+    val vis = Visualization(port)
+    vis.storeCleanEvalInMongo
+  }
+
+  def addLabelsToMong(port: Int = 27017) = {
+    addLabelsToMongo("bte", port)
+    addLabelsToMongo("default-extractor", port)
+    addLabelsToMongo("largestcontent-extractor", port)
+    addLabelsToMongo("article-extractor", port)
+    addLabelsToMongo("unfluff", port)
+  }
+
+  def addLabelsToMongo(dir: String, port: Int = 27017) = {
+    val vis = Visualization(port)
 
     for (p <- CleanEval.iterator) {
       val location = s"/Users/thijs/dev/boilerplate/other_frameworks/output/$dir/${p.id}-aligned.txt"
       if (Util.fileExists(location)) {
-        val body = Jsoup.parse(p.orig).body
+        val body = Jsoup.parse(p.source).body
         val cdom = CDOM.fromBody(body)
         val labels = Alignment.labelsFromAlignedString(cdom, Util.loadFile(location))
         vis.addLabelsToDocument(dir, labels, p.docId)
@@ -32,19 +61,19 @@ object Main {
   }
 
   def evaluateOtherMethods = {
-    val bte = CleanEval.evaluateOtherCleaner((id: Int) => s"/Users/thijs/Desktop/other_frameworks/output/bte/$id-aligned.txt")
+    val bte = CleanEval.evaluateOtherCleaner((id: Int) => s"other_frameworks/output/bte/$id-aligned.txt")
     println(s"BTE:\n$bte")
 
-    val ae = CleanEval.evaluateOtherCleaner((id: Int) => s"/Users/thijs/Desktop/other_frameworks/output/article-extractor/$id-aligned.txt")
+    val ae = CleanEval.evaluateOtherCleaner((id: Int) => s"other_frameworks/output/article-extractor/$id-aligned.txt")
     println(s"Boilerpipe Article-extractor:\n$ae")
 
-    val de = CleanEval.evaluateOtherCleaner((id: Int) => s"/Users/thijs/Desktop/other_frameworks/output/default-extractor/$id-aligned.txt")
+    val de = CleanEval.evaluateOtherCleaner((id: Int) => s"other_frameworks/output/default-extractor/$id-aligned.txt")
     println(s"Boilerpipe Default-extractor:\n$de")
 
-    val lce = CleanEval.evaluateOtherCleaner((id: Int) => s"/Users/thijs/Desktop/other_frameworks/output/largestcontent-extractor/$id-aligned.txt")
+    val lce = CleanEval.evaluateOtherCleaner((id: Int) => s"other_frameworks/output/largestcontent-extractor/$id-aligned.txt")
     println(s"Boilerpipe Largest-content extractor:\n$lce")
 
-    val unfluff = CleanEval.evaluateOtherCleaner((id: Int) => s"/Users/thijs/Desktop/other_frameworks/output/unfluff/$id-aligned.txt")
+    val unfluff = CleanEval.evaluateOtherCleaner((id: Int) => s"other_frameworks/output/unfluff/$id-aligned.txt")
     println(s"Unfluff:\n$unfluff")
   }
 
@@ -66,7 +95,7 @@ object Main {
     println("Dataset loaded")
     val splits = data.randomSplit(0.5,0.5);
     val (train,test) = (splits(0),splits(1))
-    val classifier = ChainCRF(lambda = 10,debug=false,disablePairwise=false)
+    val classifier = ChainCRF(lambda = 10,debug=false,disablePairwise=true)
     classifier.train(train,test)
     classifier.saveWeights("output/weights.txt")
     println(s"Training statistics: ${classifier.performanceStatistics(train)}")
@@ -111,7 +140,7 @@ object Main {
   }
 
   def alignCleanEvalData = {
-    val projectPath = "/Users/thijs/dev/boilerplate2"
+    val projectPath = "/Users/thijs/dev/boilerplate"
     val dir = s"$projectPath/src/main/resources/cleaneval/aligned"
     CleanEval.generateAlignedFiles(dir)
   }

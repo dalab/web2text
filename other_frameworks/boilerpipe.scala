@@ -8,14 +8,14 @@ import nl.tvogels.boilerplate.utilities._
 object Boilerpipe {
 
   def main(args: Array[String]): Unit = {
-
+    alignPages
   }
 
   /** Step 1: cleans the pages and saves them in the `output` dir */
   def cleanPages = {
 
     for (page <- CleanEval.iterator) {
-      val text = page.origWithoutTextTag
+      val text = page.source
       val cleaned = LargestContentExtractor.INSTANCE.getText(text);
       Util.save(s"output/largestcontent-extractor/${page.id}-clean.txt", cleaned)
       val cleaned2 = ArticleExtractor.INSTANCE.getText(text);
@@ -29,18 +29,20 @@ object Boilerpipe {
 
   /** Step 2: Align the files and save them in the `output` dir as well */
   def alignPages = {
-    val folder = "largestcontent-extractor"
-    for (page <- CleanEval.iterator) {
-      val orig = page.origWithoutTextTag
-      val clean = Util.loadFile(s"output/$folder/${page.id}.txt")
-                    .toUpperCase
-                    .replaceAll("""\s+"""," ")
-                    .trim
-      if (!Util.fileExists(s"output/$folder/${page.id}-aligned.txt")) {
-        val alignment = Alignment.alignment(orig, clean)
-        Util.save(s"output/$folder/${page.id}-aligned.txt", alignment)
+    for(folder <- List("largestcontent-extractor","default-extractor","article-extractor")) {
+      for (page <- CleanEval.iterator) {
+        val filename = s"output/$folder/${page.id}-clean.txt"
+        if (Util.fileExists(filename)) {
+          val orig = page.source
+          val clean = Util.loadFile(filename)
+                        .trim
+          if (!Util.fileExists(s"output/$folder/${page.id}-aligned.txt")) {
+            val alignment = Alignment.alignment(orig, clean)
+            Util.save(s"output/$folder/${page.id}-aligned.txt", alignment)
+          }
+          println(s"Done with ${page.id}")
+        }
       }
-      println(s"Done with ${page.id}")
     }
   }
 

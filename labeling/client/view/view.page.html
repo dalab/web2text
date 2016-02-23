@@ -1,0 +1,39 @@
+<template name="viewPage">
+  <div class="main-container">
+
+    <div class="iframe-wrapper">
+      <iframe id="page" frameborder="0"></iframe>
+    </div>
+
+    <div class="cleaned-gt">
+    <a href="" class="btn btn-primary view-alignment">Alignment</a>
+    </div>
+
+  </div>
+
+  {{#contentFor "breadcrumbs"}}
+    <li><a href="/">View</a></li>
+    <li>
+      <a href="{{pathFor route='view.dataset' id=dataset.id}}">
+        {{dataset.name}}
+      </a>
+    </li>
+    <li>
+      <a href="#" class="prev-page">
+        <span class="glyphicon glyphicon-chevron-left"></span>
+      </a>
+      {{doc_id}}
+      <a href="#" class="next-page">
+        <span class="glyphicon glyphicon-chevron-right"></span>
+      </a>
+    </li>
+    <li>
+      <select class="labeling-selector">
+      {{#each availableLabelings}}
+        <option value="{{this}}" {{labelingSelected this}}>{{this}}</option>
+      {{/each}}
+      </select>
+    </li>
+  {{/contentFor}}
+
+</template>
