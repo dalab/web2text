@@ -88,14 +88,14 @@ object CleanEval {
 
       val outFile = s"$outputDir/${p.id}.txt"
 
-      println("")
-      println(s"###########################")
-      println(s"### Aligning ${p.id} ...")
-      println(s"###########################")
+      println(s"Aligning ${p.id} ...")
 
       if (!Util.fileExists(outFile)) {
         val output = Alignment.alignment(p.source, p.clean)
-        assert(output.length == p.source.length, "Aligned file does not have the same length as the source.")
+        assert(
+          output.length == p.source.length,
+          "Aligned file does not have the same length as the source."
+        )
         Util.save(outFile,output)
       }
 
@@ -106,38 +106,43 @@ object CleanEval {
   def iterator: Iterator[Page] =
     indices.toIterator.map {i => Page(i) }
 
+
   /** Generate a dataset for training / testing a classifier
     * @param take How many documents to use (-1 = all) */
   def dataset(extractor: FeatureExtractor, take: Int = -1): Vector[(PageFeatures,Vector[Int])] = {
-      val it = if (take == -1) iterator
-               else iterator.take(take)
-      (it map { (p: Page) => {
-        val body = Jsoup.parse(p.source).body
-        val cdom = CDOM.fromBody(body)
-        (extractor(cdom),Alignment.labelsFromAlignedString(cdom, p.aligned))
-      }}).toVector
+
+      val it = if (take == -1) iterator else iterator.take(take)
+
+      val result = it map { p =>
+        val cdom = CDOM(p.source)
+        val features = extractor(cdom)
+        val labels = Alignment.extractLabels(cdom, p.aligned)
+        (features,labels)
+      }
+
+      result.toVector
   }
 
-  def evaluateOtherCleaner(alignedLocation: Int=>String): PerformanceStatistics = {
+  /** Evaluate a cleaner by its aligned files.
+    * If a cleaned file for a certain index is missing, it is skipped without penalty.
+    * @param alignedLocation function turning an index to the file location. */
+  def evaluateCleaner(alignedLocation: Int=>String): PerformanceStatistics = {
 
-    val pairs = iterator.flatMap( (p: Page) => {
+    val pairs = iterator flatMap { p =>
 
-      val location = alignedLocation(p.id)
-      if (!Util.fileExists(location)) Vector()
-      else {
-        // Compute CDOM
-        val body = Jsoup.parse(p.source).body
-        val cdom = CDOM.fromBody(body)
+      val path = alignedLocation(p.id)
 
-        val goldLabels = Alignment.labelsFromAlignedString(cdom, p.aligned)
-        val otherLabels = Alignment.labelsFromAlignedString(cdom, Util.loadFile(location))
-
+      if (!Util.fileExists(path)) {
+        Vector()
+      } else {
+        import Alignment.extractLabels
+        val cdom        = CDOM(p.source)
+        val goldLabels  = extractLabels(cdom, p.aligned)
+        val otherLabels = extractLabels(cdom, Util.loadFile(path))
         (otherLabels zip goldLabels)
       }
-    }).toVector
-
-    PerformanceStatistics.fromPairs(pairs)
-
+    }
+    PerformanceStatistics.fromPairs(pairs.toVector)
   }
 
 

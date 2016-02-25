@@ -6,6 +6,7 @@ import nl.tvogels.boilerplate.cdom.NodeProperties
 import scala.util.Random
 import breeze.linalg
 import scala.collection.mutable.ArrayBuffer
+import Console.{RED,RESET}
 
 /** Alignment of a cleaned page with the original HTML source
   *
@@ -73,7 +74,7 @@ object Alignment {
       .toMap
 
     // for safety, we also need a document that is stripped of any gap-chars and whitespace
-    val trimFilter = ((c: Char) => !Character.isWhitespace(c) && c.toString != Alignment.GAPCHAR)
+    val trimFilter = ((c: Char) => !Character.isWhitespace(c) && c.toString != GAPCHAR)
     val trimmedSource = source.filter(trimFilter)
     val trimmedSourceMaps = (1 to k) map {
       case k => (for (i <- 0 until trimmedSource.length+1-k) yield (trimmedSource.slice(i,i+k),i))
@@ -311,7 +312,7 @@ object Alignment {
       D(i,j) match {
         case Match => { ret ++= source(i-1).toString; i -= 1; j -= 1 }
         case SkipClean => { j -= 1 }
-        case SkipSource=> { ret ++= Alignment.GAPCHAR; i -= 1 }
+        case SkipSource=> { ret ++= GAPCHAR; i -= 1 }
       }
 
     val str = ret.reverse.toString
@@ -329,32 +330,31 @@ object Alignment {
     // val htmlTags = """(?s)(?i)(<[a-z]+(.*?)>)"""r
     val fmTags = """(?s)(?i)(<HEAD[^>]*>.*?</HEAD[^>]*>|<SCRIPT[^>]*>.*?</SCRIPT[^>]*>|<STYLE[^>]*>.*?</STYLE[^>]*>|<!--.*?-->|&[A-Z]+;|</?[a-z]+[^<>]*?>)"""r
 
-    fmTags.replaceAllIn(html, m => Alignment.GAPCHAR * m.group(0).length)
-    // htmlTags.replaceAllIn(html2,m => Alignment.GAPCHAR * m.group(0).length)
+    fmTags.replaceAllIn(html, m => GAPCHAR * m.group(0).length)
+    // htmlTags.replaceAllIn(html2,m => GAPCHAR * m.group(0).length)
   }
 
 
   /** Extract 'ground truth' labels from a cleaned file in which the characters are perfectly
     * aligned with the source document */
-  def labelsFromAlignedString(cdom: CDOM, aligned: String): Vector[Int] =
+  def extractLabels(cdom: CDOM, aligned: String): Vector[Int] =
     cdom.leaves map {
       node => labelFromAlignedString(node.properties, aligned)
     }
 
   /** Get a label from an aligned string
     * @param position start and end position pair */
-  private def labelFromAlignedString(props: NodeProperties, aligned: String) = (props.startPosition, props.endPosition) match {
-    case (-1,_) =>                       println(Console.RED+s"-1 node.startPosition value"+Console.RESET); 0
-    case (_,-1) =>                       println(Console.RED+s"-1 node.endPosition value"+Console.RESET); 0
-    case (s,_) if s < 0 =>               println(Console.RED+s"negative node.startPosition value"+Console.RESET); 0
-    case (_,e) if e > aligned.length =>  println(Console.RED+s"node.endPosition $e falls outside document (${aligned.length})"+Console.RESET); 0
-    case (s,e) =>                        {
-      val subs = aligned.substring(s,e)
-      val found = subs.count(x => x.toString != Alignment.GAPCHAR)
-      if (found > 2*props.nCharacters/3) { // intentional floor
-        1
-      } else 0
+  private def labelFromAlignedString(props: NodeProperties, aligned: String): Int =
+    (props.startPosition, props.endPosition) match {
+      case (-1,_)                      => println(s"${RED}-1 startPosition.$RESET");       0
+      case (_,-1)                      => println(s"${RED}-1 endPosition.$RESET");         0
+      case (s,_) if s < 0              => println(s"${RED}negative startPosition.$RESET"); 0
+      case (_,e) if e > aligned.length => println(s"${RED}endPosition too large.$RESET");  0
+      case (s,e) =>                        {
+        val subs  = aligned.substring(s,e)
+        val found = subs.count(x => x.toString != GAPCHAR)
+        if (found > 2*props.nCharacters/3) 1 else 0
+      }
     }
-  }
 
 }

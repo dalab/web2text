@@ -2,6 +2,7 @@ package nl.tvogels.boilerplate.cdom
 
 import scala.collection.JavaConversions._
 import org.jsoup.{nodes => jnodes}
+import org.jsoup.Jsoup
 import nl.tvogels.boilerplate.utilities.Util
 
 /** CDOM
@@ -39,6 +40,15 @@ class CDOM(val root: Node, val leaves: Vector[Node]) {
   * @todo store a list of leave pointers
   */
 object CDOM {
+
+  /** Create a CDOM from body text (by parsing it with Jsoup first) */
+  def fromHTML(html: String): CDOM = fromBody(Jsoup.parse(html).body)
+
+  /** Create a CDOM from body text (by parsing it with Jsoup first) */
+  def apply(html: String): CDOM = fromHTML(html)
+
+  /** Create a CDOM from a DOM node (probably the body of the page) */
+  def apply(body: jnodes.Node): CDOM = fromBody(body)
 
   /** Create a CDOM from a DOM node (probably the body of the page) */
   def fromBody(domnode: jnodes.Node): CDOM = {

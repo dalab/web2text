@@ -126,11 +126,11 @@ for (my $g = 0; $g < $numgroups; $g++) {
 		my ($basename, $dir, $s) = fileparse($ref, qr/\.html?/);
 		my $clean = "$directory/clean/$basename.clean.txt";
 		print "$ref vs. $clean\n";
-		my %score = scorer(clean => $clean, "ref" => $ref, 
+		my %score = scorer(clean => $clean, "ref" => $ref,
 				directory => "$directory/run/$basename$s",
 				maxsize => $maxsize * 1024);
 		print $report "$basename$s";
-		for my $type qw(diff text markup total) {
+		for my $type (qw(diff text markup total)) {
 			if (exists($score{$type})) {
 				printf $report "\t\%.2f", $score{$type};
 				$group_score{$type} += $score{$type};
@@ -148,7 +148,7 @@ for (my $g = 0; $g < $numgroups; $g++) {
 	print $report "\n";
 	print $report "group$g";
 	printf $report "\t\%.2f", $group_score{diff} / scalar(@{$groups[$g]});
-	for my $type qw(text markup total) {
+	for my $type (qw(text markup total)) {
 		if ($group_levenshtein) {
 			printf $report "\t\%.2f",
 				$group_score{$type} / $group_levenshtein;
@@ -162,7 +162,7 @@ for (my $g = 0; $g < $numgroups; $g++) {
 print $report "\n";
 print $report "total";
 printf $report "\t\%.2f", $total_score{diff} / scalar(@ARGV);
-for my $type qw(text markup total) {
+for my $type (qw(text markup total)) {
 	if ($total_levenshtein) {
 		printf $report "\t\%.2f",
 			$total_score{$type} / $total_levenshtein;

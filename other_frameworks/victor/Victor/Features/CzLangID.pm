@@ -14,7 +14,7 @@ use Victor::Features::Util;
 
 sub calculate_features {
 	my ($block, $fv) = @_;
-	foreach my $i qw(1 2) {
+	foreach my $i (qw(1 2)) {
 		no strict 'refs';
 		my $id = &{"recognize$i"}($block->{text});
 		if ($id > 1) {

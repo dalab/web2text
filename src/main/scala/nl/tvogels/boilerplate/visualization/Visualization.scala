@@ -21,7 +21,7 @@ case class Visualization(port: Int) {
   val Pages = db("pages")
   val Groups = db("groups")
 
-  def storeCleanEvalInMongo = {
+  def storeCleanEvalInMongo(): Unit = {
 
     Groups.update(
       MongoDBObject("id"->"cleaneval"),
@@ -44,7 +44,7 @@ case class Visualization(port: Int) {
         page.aligned.length == page.source.length,
         s"Lenghts are unequal for page ${page.id}"
       )
-      val groundtruth = Alignment.labelsFromAlignedString(cdom, page.aligned)
+      val groundtruth = Alignment.extractLabels(cdom, page.aligned)
 
       val nBlocks = dom.getElementsByClass("boilerplate-text-block").size
 
@@ -70,6 +70,7 @@ case class Visualization(port: Int) {
       Pages.update( query, update, upsert=true )
     }
   }
+
 
   def addLabelsToDocument(labelName: String, labels: Seq[Int], docId: String) = {
 
