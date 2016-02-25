@@ -28,24 +28,22 @@ object Main {
       "unfluff"           -> ((id: Int) => s"$dir/unfluff/$id-aligned.txt")
     )
 
-    cleaners foreach {
-      case (id, fileFunc) => {
-        CleanEval.iterator foreach { p =>
-          println(s"Working on page ${p.docId} for cleaner ‘${id.capitalize}’ ...")
-          val filename = fileFunc(p.id)
-          if (Util.fileExists(filename)) {
-            val aligned = Util.loadFile(fileFunc(p.id))
-            val labels = Alignment.extractLabels(CDOM(p.source), aligned)
-            db.insertLabels(
-              docId         = p.docId,
-              dataset       = "cleaneval",
-              labelName     = id,
-              labels        = labels,
-              userGenerated = false,
-              metadata      = Map("aligned"->aligned)
-            )
-          }
-        }
+    for ((id, fileFunc) <- cleaners;
+         p <- CleanEval.iterator) {
+
+      println(s"Working on page ${p.docId} for cleaner ‘${id.capitalize}’ ...")
+      val filename = fileFunc(p.id)
+      if (Util.fileExists(filename)) {
+        val aligned = Util.loadFile(fileFunc(p.id))
+        val labels = Alignment.extractLabels(CDOM(p.source), aligned)
+        db.insertLabels(
+          docId         = p.docId,
+          dataset       = "cleaneval",
+          labelName     = id,
+          labels        = labels,
+          userGenerated = false,
+          metadata      = Map("aligned"->aligned)
+        )
       }
     }
   }
@@ -78,14 +76,12 @@ object Main {
       "unfluff"           -> ((id: Int) => s"$dir/unfluff/$id-aligned.txt")
     )
 
-    cleaners foreach {
-      case (label, filenameGen) => {
-        val title = s"#### Evaluating ‘${label.capitalize}’ "
-        println(s"\n$title${"#"*(82-title.length)}\n")
-        Util.time {
-          val eval = CleanEval.evaluateCleaner(filenameGen)
-          println(s"$eval")
-        }
+    for ((label, filenameGen) <- cleaners) {
+      val title = s"#### Evaluating ‘${label.capitalize}’ "
+      println(s"\n$title${"#"*(82-title.length)}\n")
+      Util.time {
+        val eval = CleanEval.evaluateCleaner(filenameGen)
+        println(s"$eval")
       }
     }
   }

@@ -88,7 +88,8 @@ class Database(
     val things = res map { doc =>
       (
         doc.get("doc_id").asInstanceOf[String],
-        doc.get("labels").asInstanceOf[com.mongodb.BasicDBList].toVector.map(_.asInstanceOf[Int])
+        doc.get("labels").asInstanceOf[com.mongodb.BasicDBList]
+                         .toVector.map(_.asInstanceOf[Int])
       )
     }
     things.toMap
