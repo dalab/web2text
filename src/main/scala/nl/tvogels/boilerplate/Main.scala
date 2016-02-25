@@ -10,10 +10,13 @@ import nl.tvogels.boilerplate.features.extractor._
 import nl.tvogels.boilerplate.classification.{PerformanceStatistics,ChainCRF}
 import nl.tvogels.boilerplate.features.{BlockFeatureExtractor,FeatureExtractor}
 import nl.tvogels.boilerplate.visualization.Visualization
+import nl.tvogels.boilerplate.database.Database
 
 object Main {
   def main(args: Array[String]): Unit = {
-    evaluateOtherMethods
+    val db = new Database()
+    db.createIndices
+    db.insertDataset("cleaneval", "CleanEval 2007")
   }
 
 
