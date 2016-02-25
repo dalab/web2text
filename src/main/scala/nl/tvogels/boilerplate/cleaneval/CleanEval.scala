@@ -6,6 +6,7 @@ import nl.tvogels.boilerplate.features.{FeatureExtractor,PageFeatures}
 import nl.tvogels.boilerplate.cdom.CDOM
 import nl.tvogels.boilerplate.classification.PerformanceStatistics
 import nl.tvogels.boilerplate.utilities.Util.codec
+import nl.tvogels.boilerplate.database.Database
 import scala.io.{Source,Codec}
 import org.jsoup.Jsoup
 
@@ -101,6 +102,38 @@ object CleanEval {
 
     }}
   }
+
+  /** Add CleanEval data to the Mongo database */
+  def addToMongo(db: Database): Unit = {
+    val datasetId = "cleaneval"
+
+    db.createIndices
+    db.insertDataset(datasetId, "CleanEval 2007")
+
+    for (page <- iterator) {
+      println(s"Working on document ${page.id} ...")
+
+      db.insertDocument(
+        dataset  = datasetId,
+        docId    = page.docId,
+        source   = page.source,
+        url      = page.url,
+        encoding = page.encoding
+      )
+
+      val groundtruth = Alignment.extractLabels(CDOM(page.source), page.aligned)
+      val metadata = Map("clean" -> page.clean, "aligned" -> page.aligned)
+      db.insertLabels(
+        docId         = page.docId,
+        dataset       = datasetId,
+        labelName     = "ground_truth",
+        labels        = groundtruth,
+        userGenerated = false,
+        metadata      = metadata
+      )
+    }
+  }
+
 
   /** Create an iterator that produces the cleaneval pages with all available content one by one. */
   def iterator: Iterator[Page] =

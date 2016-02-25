@@ -1,6 +1,8 @@
 package nl.tvogels.boilerplate.database
 
+import nl.tvogels.boilerplate.cdom.DOM
 import com.mongodb.casbah.Imports._
+import org.jsoup.Jsoup
 
 class Database(
     host: String = "localhost",
@@ -15,8 +17,11 @@ class Database(
   private val Labels    = db("labels")
 
   def createIndices(): Database = {
-    Documents.createIndex(MongoDBObject("id"->1), MongoDBObject("unique"->true))
-    Datasets.createIndex(MongoDBObject("id"->1), MongoDBObject("unique"->true))
+    val props = MongoDBObject("unique"->true)
+    Documents.createIndex(MongoDBObject("doc_id"->1), props)
+    Datasets.createIndex(MongoDBObject("id"->1), props)
+    Labels.createIndex(MongoDBObject("doc_id"->1,"label_name"->1), props)
+    Labels.createIndex(MongoDBObject("dataset"->1,"label_name"->1))
     this
   }
 
@@ -28,5 +33,78 @@ class Database(
     )
     this
   }
+
+  def insertDocument(
+    dataset: String,
+    docId: String,
+    source: String,
+    url: String,
+    encoding: String
+  ) = {
+    val dom = makePageBlockedAndSafe(source, url)
+    val query  = MongoDBObject("doc_id" -> docId)
+    val update = MongoDBObject(
+      "doc_id"          -> docId,
+      "dataset"         -> dataset,
+      "source"          -> source,
+      "blocked_source"  -> dom.toString,
+      "url"             -> url,
+      "encoding"        -> encoding,
+      "n_blocks"        -> nBlocks(dom)
+    )
+    Documents.update( query, update, upsert=true )
+  }
+
+  def insertLabels(
+    docId: String,
+    dataset: String,
+    labelName: String,
+    labels: Seq[Int],
+    userGenerated: Boolean = false,
+    metadata: Map[String, AnyRef] = Map()
+  ) = {
+    val update = MongoDBObject(
+      "doc_id"          -> docId,
+      "dataset"         -> dataset,
+      "label_name"      -> labelName,
+      "labels"          -> labels,
+      "user_generated"  -> userGenerated,
+      "metadata"        -> MongoDBObject(metadata.toList : _*)
+    )
+    val query = MongoDBObject(
+      "doc_id"          -> docId,
+      "label_name"      -> labelName
+    )
+    Labels.update( query, update, upsert=true )
+  }
+
+  def getLabels(dataset: String, labelName: String): Map[String, Vector[Int]] = {
+
+    val res = Labels.find(
+      MongoDBObject("dataset" -> dataset, "label_name" -> labelName),
+      MongoDBObject("labels"->1, "doc_id"->1, "_id"->0)
+    )
+
+    val things = res map { doc =>
+      (
+        doc.get("doc_id").asInstanceOf[String],
+        doc.get("labels").asInstanceOf[com.mongodb.BasicDBList].toVector.map(_.asInstanceOf[Int])
+      )
+    }
+    things.toMap
+  }
+
+  private def makePageBlockedAndSafe(source: String, url: String): org.jsoup.nodes.Element = {
+    val dom = Jsoup.parse(source,url)
+    DOM.wrapBlocks(dom)
+    DOM.removeJavascript(dom)
+    DOM.inactivateLinks(dom)
+    DOM.makeUrlsAbsolute(dom)
+    dom
+  }
+
+  private def nBlocks(dom: org.jsoup.nodes.Element) =
+    dom.getElementsByClass(DOM.BLOCK_CLASS).size
+
 
 }

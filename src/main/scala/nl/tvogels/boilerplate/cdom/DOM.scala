@@ -8,6 +8,9 @@ import scala.collection.JavaConversions._
 /** Collection of miscellaneous tools related to the Jsoup DOM */
 object DOM {
 
+  /** Class for text blocks, when inserted by the function wrapBlocks */
+  val BLOCK_CLASS = "boilerplate-text-block"
+
   /** Pattern matching class for empty nodes */
   object EmptyNode {
     def unapply(z: jnodes.Element): Option[jnodes.Element] =
@@ -56,7 +59,7 @@ object DOM {
         case DOM.EmptyTextNode(x) => None
         case DOM.SkipNode(x)  => None
         case leaf: jnodes.TextNode  => {
-          leaf.wrap("<span class=\"boilerplate-text-block\" data-id=\""+id+"\"></span>")
+          leaf.wrap(s"""<span class="$BLOCK_CLASS" data-id="$id"></span>""")
           id += 1
         }
         case branch => branch.childNodes.map(wrapTextNodes)

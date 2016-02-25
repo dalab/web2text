@@ -9,16 +9,46 @@ import org.jsoup.Jsoup
 import nl.tvogels.boilerplate.features.extractor._
 import nl.tvogels.boilerplate.classification.{PerformanceStatistics,ChainCRF}
 import nl.tvogels.boilerplate.features.{BlockFeatureExtractor,FeatureExtractor}
-import nl.tvogels.boilerplate.visualization.Visualization
 import nl.tvogels.boilerplate.database.Database
 
 object Main {
   def main(args: Array[String]): Unit = {
-    val db = new Database()
-    db.createIndices
-    db.insertDataset("cleaneval", "CleanEval 2007")
+    addCleanEvalEvaluationsToMongo
   }
 
+  def addCleanEvalEvaluationsToMongo = {
+    val db = new Database
+    val dir = "other_frameworks/output/"
+    val cleaners = Iterable(
+      "victor"            -> ((id: Int) => s"$dir/victor/$id-aligned.txt"),
+      "bte"               -> ((id: Int) => s"$dir/bte/$id-aligned.txt"),
+      "article-extractor" -> ((id: Int) => s"$dir/article-extractor/$id-aligned.txt"),
+      "default-extractor" -> ((id: Int) => s"$dir/default-extractor/$id-aligned.txt"),
+      "largest-content"   -> ((id: Int) => s"$dir/largestcontent-extractor/$id-aligned.txt"),
+      "unfluff"           -> ((id: Int) => s"$dir/unfluff/$id-aligned.txt")
+    )
+
+    cleaners foreach {
+      case (id, fileFunc) => {
+        CleanEval.iterator foreach { p =>
+          println(s"Working on page ${p.docId} for cleaner ‘${id.capitalize}’ ...")
+          val filename = fileFunc(p.id)
+          if (Util.fileExists(filename)) {
+            val aligned = Util.loadFile(fileFunc(p.id))
+            val labels = Alignment.extractLabels(CDOM(p.source), aligned)
+            db.insertLabels(
+              docId         = p.docId,
+              dataset       = "cleaneval",
+              labelName     = id,
+              labels        = labels,
+              userGenerated = false,
+              metadata      = Map("aligned"->aligned)
+            )
+          }
+        }
+      }
+    }
+  }
 
   def testChainCRF = {
     scala.util.Random.setSeed(14101992)
@@ -46,7 +76,7 @@ object Main {
       "default-extractor" -> ((id: Int) => s"$dir/default-extractor/$id-aligned.txt"),
       "largest-content"   -> ((id: Int) => s"$dir/largestcontent-extractor/$id-aligned.txt"),
       "unfluff"           -> ((id: Int) => s"$dir/unfluff/$id-aligned.txt")
-    );
+    )
 
     cleaners foreach {
       case (label, filenameGen) => {
