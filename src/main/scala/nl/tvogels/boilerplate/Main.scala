@@ -10,10 +10,29 @@ import nl.tvogels.boilerplate.features.extractor._
 import nl.tvogels.boilerplate.classification.{PerformanceStatistics,ChainCRF}
 import nl.tvogels.boilerplate.features.{BlockFeatureExtractor,FeatureExtractor}
 import nl.tvogels.boilerplate.database.Database
-
+import com.mongodb.casbah.Imports._
 object Main {
+
   def main(args: Array[String]): Unit = {
-    addCleanEvalEvaluationsToMongo
+
+  }
+
+  def convertAnnotationsToNewDBFormat = {
+    val remote = (new Database(port=27018)).db
+    val local = new Database
+    local.db("pages").find(MongoDBObject("labels.user-dqLguDwKvoHxXEAKk"->MongoDBObject("$exists"->true))) foreach { p =>
+      val labels = p.get("labels").asInstanceOf[com.mongodb.BasicDBObject]
+      val thijsl = labels.get("user-dqLguDwKvoHxXEAKk").asInstanceOf[com.mongodb.BasicDBList]
+                   .toList.map(_.asInstanceOf[Int])
+      local.insertLabels(
+        docId=p.get("doc_id").asInstanceOf[String],
+        dataset="cleaneval",
+        labelName="user-dqLguDwKvoHxXEAKk",
+        labels=thijsl,
+        userGenerated=true,
+        metadata=Map("finished"->java.lang.Boolean.TRUE)
+      )
+    }
   }
 
   def addCleanEvalEvaluationsToMongo = {

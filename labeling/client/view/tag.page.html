@@ -16,9 +16,9 @@
     </ul>
 
     <p>
-      <a class="btn btn-default prev-tag-page"><span class="glyphicon glyphicon-chevron-left"></span> Previous</a>
-      <a class="btn btn-success"><span class="glyphicon glyphicon-floppy-disk"></span> Save</a>
-      <a class="btn btn-default next-tag-page">Next <span class="glyphicon glyphicon-chevron-right"></span></a></p>
+      <!-- <a class="btn btn-default prev-tag-page"><span class="glyphicon glyphicon-chevron-left"></span> Previous</a> -->
+      <a class="btn btn-default save-button {{#if saved}}btn-success{{/if}}"><input type="checkbox" checked="{{#if saved}}checked{{/if}}"> {{#if saved}}Saved{{else}}Save{{/if}}</a>
+      <a class="btn btn-default next-tag-page" disabled="{{#if saved}}{{else}}disabled{{/if}}">Next <span class="glyphicon glyphicon-chevron-right"></span></a></p>
     </div>
 
   </div>

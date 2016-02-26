@@ -10,7 +10,7 @@ class Database(
     dbname: String = "boilerplate") {
 
   private val client = MongoClient(host, port)
-  private val db     = client(dbname)
+  val db             = client(dbname)
 
   private val Documents = db("documents")
   private val Datasets  = db("datasets")

@@ -15,6 +15,15 @@ Template.tagPage.helpers({
   },
   'zoomLevel': function () {
     return Math.round(Session.get("_zoomLevel")*100);
+  },
+  'labels': function () {
+    const label_name = "user-" + Meteor.userId();
+    return Labels.findOne({label_name, doc_id:this.doc_id})
+  },
+  'saved': function () {
+    const label_name = "user-" + Meteor.userId();
+    const labels = Labels.findOne({label_name, doc_id:this.doc_id});
+    return labels && labels.metadata.finished;
   }
 });
 
@@ -26,8 +35,23 @@ Template.tagPage.events({
       {sort: {'doc_id':1}}
     );
     if (!page) return;
+
+
+    const label_name = "user-" + Meteor.userId();
+    const labels = Labels.findOne({label_name, doc_id:this.doc_id});
+    const done = labels && labels.metadata.finished;
+    if (!done) return;
+
     Router.go('tag.page',
               {dataset_id: dataset, id: doc_id} );
+  },
+
+  'click .save-button'(evt) {
+    evt.preventDefault();
+    const label_name = "user-" + Meteor.userId();
+    const labels = Labels.findOne({label_name, doc_id:this.doc_id});
+    const done = labels && labels.metadata.finished;
+    Meteor.call('markDone', this.doc_id, !done);
   },
 
   'input #zoom-level, change #zoom-level'(evt) {
