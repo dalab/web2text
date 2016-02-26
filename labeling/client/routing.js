@@ -35,14 +35,15 @@ Router.route('/view/:dataset_id/:id/:cur_labeling?', {
   name: 'view.page',
   subscriptions() {
     return [Meteor.subscribe('page',this.params.id),
-            Meteor.subscribe('pages_in_dataset',this.params.dataset_id)];
+            Meteor.subscribe('pages_in_dataset',this.params.dataset_id),
+            Meteor.subscribe('labels_for_page',this.params.id)];
   },
   data() {
-    return Pages.findOne({doc_id: this.params.id});
+    return Documents.findOne({doc_id: this.params.id});
   },
   action() {
     if (this.ready()) {
-      let labs = Object.keys(this.data().labels);
+      let labs = Labels.find({doc_id:this.params.id}).fetch().map(x => x.label_name);
       let pars = this.params;
       let cur_labeling = pars.cur_labeling
       if (!cur_labeling || labs.indexOf(cur_labeling) == -1) {
@@ -72,10 +73,11 @@ Router.route('/tag/:dataset_id/:id', {
   name: 'tag.page',
   subscriptions() {
     return [Meteor.subscribe('page',this.params.id),
-            Meteor.subscribe('pages_in_dataset',this.params.dataset_id)];
+            Meteor.subscribe('pages_in_dataset',this.params.dataset_id),
+            Meteor.subscribe('labels_for_page',this.params.id)];
   },
   data() {
-    return Pages.findOne({doc_id: this.params.id});
+    return Documents.findOne({doc_id: this.params.id});
   },
   action() {
     if (this.ready()) {

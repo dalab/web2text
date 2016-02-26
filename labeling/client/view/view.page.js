@@ -4,10 +4,10 @@ let _state = () => Iron.controller().state;
 
 Template.viewPage.helpers({
   dataset() {
-    return Datasets.findOne({id: this.group});
+    return Datasets.findOne({id: this.dataset});
   },
   availableLabelings() {
-    return Object.keys(this.labels || {});
+    return Labels.find({doc_id:this.doc_id}).fetch().map(x => x.label_name);
   },
   labelingSelected(lab) {
     let curr = _state().get('cur_labeling');
@@ -27,13 +27,13 @@ Template.viewPage.rendered = function() {
 
   let iframe = document.getElementById("page");
   let idoc = iframe.contentDocument;
-  idoc.write(this.data.source_with_blocks);
+  idoc.write(this.data.blocked_source);
 
   this.autorun(() => {
     let data = Router.current().data();
-    let labeling = Iron.controller().state.get('cur_labeling');
-    if (!labeling) return;
-    PageBlocks.markBlocks(idoc, data.labels[labeling]);
+    let label_name = Iron.controller().state.get('cur_labeling');
+    if (!label_name) return;
+    PageBlocks.markBlocks(idoc, Labels.findOne({label_name, doc_id: data.doc_id}).labels);
   });
 
   const _zoomStyleNode = PageBlocks.addStyleString(idoc,PageBlocks.zoomStyle(1));

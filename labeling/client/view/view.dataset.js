@@ -2,7 +2,7 @@
 
 Template.viewDataset.helpers({
   pages() {
-    return Pages.find( {group: this.id}, {sort: {doc_id: 1}} );
+    return Documents.find( {dataset: this.id}, {sort: {doc_id: 1}} );
   },
   hostname(url) {
     var anchor = document.createElement('a');
@@ -13,6 +13,6 @@ Template.viewDataset.helpers({
 
 Template.viewDataset.events({
   'click .go-to-page'() {
-    Router.go('view.page',{dataset_id: this.group, id: this.doc_id});
+    Router.go('view.page',{dataset_id: this.dataset, id: this.doc_id});
   }
 });

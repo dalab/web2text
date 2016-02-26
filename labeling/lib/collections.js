@@ -1,2 +1,3 @@
-Pages = new Mongo.Collection("pages");
-Datasets = new Mongo.Collection("groups");
+Documents = new Mongo.Collection("documents");
+Datasets = new Mongo.Collection("datasets");
+Labels = new Mongo.Collection("labels");

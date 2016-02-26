@@ -21,13 +21,13 @@ Template.tagPage.helpers({
 Template.tagPage.events({
   'click .next-tag-page'(evt) {
     evt.preventDefault();
-    let {group, doc_id} = Pages.findOne(
+    let {dataset, doc_id} = Documents.findOne(
       {'doc_id': {'$gt': this.doc_id}},
       {sort: {'doc_id':1}}
     );
     if (!page) return;
     Router.go('tag.page',
-              {dataset_id: group, id: doc_id} );
+              {dataset_id: dataset, id: doc_id} );
   },
 
   'input #zoom-level, change #zoom-level'(evt) {
@@ -37,13 +37,13 @@ Template.tagPage.events({
 
   'click .prev-tag-page'(evt) {
     evt.preventDefault();
-    let {group, doc_id} = Pages.findOne(
+    let {dataset, doc_id} = Documents.findOne(
       {'doc_id': {'$lt': this.doc_id}},
       {sort: {'doc_id':-1}}
     );
     if (!page) return;
     Router.go('tag.page',
-              {dataset_id: group, id: doc_id});
+              {dataset_id: dataset, id: doc_id});
   }
 });
 
@@ -51,18 +51,19 @@ Template.tagPage.rendered = function() {
 
   const iframe = document.getElementById("page");
   const idoc = iframe.contentDocument;
-  idoc.write(this.data.source_with_blocks);
+  idoc.write(this.data.blocked_source);
 
   const doc_id = this.data.doc_id;
 
   this.autorun(() => {
     const data = Router.current().data();
-    const labeling = "user-" + Meteor.userId();
-    const labels = data.labels[labeling];
-    if (!labels) {
-      Meteor.call('setLabels',doc_id,_initLabels(PageBlocks.getBlocks(idoc)));
+    const label_name = "user-" + Meteor.userId();
+    const labelsEntry = Labels.findOne({label_name, doc_id: data.doc_id});
+    if (!labelsEntry) {
+      Meteor.call('setLabels',data.dataset, doc_id,_initLabels(PageBlocks.getBlocks(idoc)));
       return;
     }
+    const labels = labelsEntry.labels
     PageBlocks.markBlocks(idoc, labels);
   });
 

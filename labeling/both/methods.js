@@ -1,6 +1,6 @@
 Meteor.methods({
 
-  setLabels(doc_id, labels) {
+  setLabels(dataset, doc_id, labels) {
 
     if (!Meteor.userId()) {
       throw new Meteor.Error("not-authorized");
@@ -8,40 +8,22 @@ Meteor.methods({
 
     check(labels, [Match.OneOf(0,1)]);
     check(doc_id, String);
+    check(dataset, String);
 
-    const labeling = `user-${Meteor.userId()}`;
-    const query = {doc_id};
-    const set = {};
-    set[`labels.${labeling}`] = labels;
-    const update = {'$set': set};
+    const label_name = `user-${Meteor.userId()}`;
+    const query = {doc_id, label_name};
 
-    console.log('set labels');
-
-    Pages.update(query, update);
-
-  },
-
-  tagBlock(tag, doc_id, block_id) {
-
-    if (!Meteor.userId()) {
-      throw new Meteor.Error("not-authorized");
+    if (Documents.find(query).length > 0) {
+      // update
+      const update = {'$set': {labels}};
+      update['$set']['metadata.last_edited'] = Date.now();
+      Labels.update(query, update);
+    } else {
+      // insert
+      const metadata = {started: Date.now(), finished: false, last_edited: Date.now()}
+      const data = {doc_id, label_name, labels, dataset, metadata, user_generated: true}
+      Labels.insert(data);
     }
-
-    console.log(`[User ${Meteor.userId()}] Tagging block ${block_id} in ${doc_id} as ${tag}.`);
-
-
-    check(tag, Match.OneOf(0,1));
-    check(doc_id, String);
-    check(block_id, Match.Integer);
-
-    const labeling = `user-${Meteor.userId()}`;
-    const query = {doc_id};
-    const set = {};
-    set[`labels.${labeling}.${block_id}`] = tag;
-    const update = {'$set': set};
-
-    Pages.update(query, update);
-
   },
 
   tagBlocks(doc_id, updates) {
@@ -53,15 +35,18 @@ Meteor.methods({
     check(doc_id, String);
     check(updates, [{block_id: Match.Integer, tag: Match.OneOf(0,1)}]);
 
-    const labeling = `user-${Meteor.userId()}`;
-    const query = {doc_id};
-    const set = {};
+    const label_name = `user-${Meteor.userId()}`;
+    const query = {doc_id, label_name};
 
     [].forEach.call(updates, ({block_id, tag}) => {
+      const set = {}
+      set['metadata.last_edited'] = Date.now();
+      set[`labels.${block_id}`] = tag;
+
       console.log(`[User ${Meteor.userId()}] Tagging block ${block_id} in ${doc_id} as ${tag}.`);
-      set[`labels.${labeling}.${block_id}`] = tag;
+
       const update = {'$set': set};
-      Pages.update(query, update);
+      Labels.update(query, update);
     });
 
   },
@@ -71,6 +56,11 @@ Meteor.methods({
       throw new Meteor.Error("not-authorized");
     }
 
-    const labeling = `user-${Meteor.userId()}`;
+    const label_name = `user-${Meteor.userId()}`;
+    const query = {doc_id, label_name};
+    const update = {'$set': {}};
+    update['$set']['metadata.finished'] = done;
+
+    Labels.update(query, update);
   }
 });
