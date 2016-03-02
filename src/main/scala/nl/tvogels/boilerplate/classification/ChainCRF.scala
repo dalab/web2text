@@ -22,7 +22,7 @@ case class ChainCRF(
 ) extends Classifier {
 
   /** Weights, containing a trained model */
-  var weights: linalg.Vector[Double] = null
+  // var weights: linalg.Vector[Double] = null
 
   // Set up the logger
   Logger.getLogger("ch.ethz.dalab.dissolve.optimization.LAdap$").setLevel(Level.OFF)
@@ -92,7 +92,7 @@ case class ChainCRF(
       // roundLimit=2000
     )
 
-    // Save the  model
+    // Save the model
     classifier.train(d, t, solver)
   }
 
