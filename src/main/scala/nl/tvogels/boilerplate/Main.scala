@@ -22,7 +22,7 @@ object Main {
     scala.util.Random.setSeed(14101992)
     println("Load dataset")
     val fe = FeatureExtractor(
-      AncestorExtractor(BasicBlockExtractor,levels=2)+InterceptBlockExtractor,
+      AncestorExtractor(BasicBlockExtractor,levels=2),
       InterceptEdgeExtractor
     )
     val data = time{CleanEval.dataset(fe)}
@@ -37,6 +37,7 @@ object Main {
     )
     classifier.train(train,test)
     classifier.saveWeights("output/weights.txt")
+    classifier.saveWeightsHuman("output/weights-human.txt")
     println(s"Training statistics: ${classifier.performanceStatistics(train)}")
     println(s"Test statistics:     ${classifier.performanceStatistics(test)}")
 

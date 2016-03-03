@@ -1,7 +1,7 @@
 package nl.tvogels.boilerplate.classification
 
 import nl.tvogels.boilerplate.features.PageFeatures
-
+import nl.tvogels.boilerplate.utilities.Util
 import org.apache.log4j.Logger
 import org.apache.log4j.Level
 import org.apache.spark.{SparkConf,SparkContext}
@@ -84,6 +84,9 @@ case class ChainCRF(
 
   /** Store the model weights to file */
   def saveWeights(filename: String) = classifier.saveWeights(filename)
+
+  /** Store the model weights to file */
+  def saveWeightsHuman(filename: String) = Util.save(filename, (modelConfig.weightNames zip classifier.getWeights.toArray) map { case (name, weight) => s"$name\t$weight"} mkString "\n")
 
   /** Load the model weights from a file */
   def loadWeights(filename: String) = classifier.loadWeights(filename)
