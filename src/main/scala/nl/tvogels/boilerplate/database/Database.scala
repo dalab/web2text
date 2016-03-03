@@ -39,7 +39,8 @@ class Database(
     docId: String,
     source: String,
     url: String,
-    encoding: String
+    encoding: String,
+    metadata: Map[String, AnyRef] = Map()
   ) = {
     val dom = makePageBlockedAndSafe(source, url)
     val query  = MongoDBObject("doc_id" -> docId)
@@ -50,7 +51,8 @@ class Database(
       "blocked_source"  -> dom.toString,
       "url"             -> url,
       "encoding"        -> encoding,
-      "n_blocks"        -> nBlocks(dom)
+      "n_blocks"        -> nBlocks(dom),
+      "metadata"        -> MongoDBObject(metadata.toList : _*)
     )
     Documents.update( query, update, upsert=true )
   }

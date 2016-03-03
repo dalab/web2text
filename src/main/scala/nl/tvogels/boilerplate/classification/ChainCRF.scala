@@ -12,13 +12,11 @@ import ch.ethz.dalab.dissolve.optimization.{LocalSSGD,DistBCFW}
 import ch.ethz.dalab.dissolve.optimization.SSVMClassifier
 
 case class ChainCRF(
-
-  disablePairwise: Boolean = false,
-  useBPDecoding: Boolean = false,
+  blockFeatureLabels: Vector[String],
+  edgeFeatureLabels: Vector[String],
   lambda: Double = 0.00001,
   debug: Boolean = false,
   debugMultiplier: Int = 0
-
 ) extends Classifier {
 
   /** Weights, containing a trained model */
@@ -29,26 +27,15 @@ case class ChainCRF(
   Logger.getLogger("org").setLevel(Level.OFF)
   Logger.getLogger("akka").setLevel(Level.OFF)
 
-  def transformX(features: PageFeatures): linalg.Matrix[Double] = {
-    val blockf = features.blockFeatures
-    val nFeatures = features.blockFeatureLabels.length
-    val nBlocks = blockf.length
-    val fmat = linalg.DenseMatrix.zeros[Double](nFeatures,nBlocks)
-    val lvec = linalg.DenseVector.zeros[Double](nBlocks)
-    for (i <- 0 until nBlocks) {
-      fmat(::,i) := linalg.DenseVector[Double](blockf(i).toArray)
-    }
-    fmat
-  }
 
   def transformY(labels: Seq[Int]): linalg.Vector[Double] =
-    linalg.Vector(labels.toArray.map(_.toDouble))
+    linalg.DenseVector(labels.map(_.toDouble).toArray)
 
 
   /** Transform one data item from input format to a LabeledObject for Dissolve */
   def transformData(data: (PageFeatures,Seq[Int])):
-    LabeledObject[linalg.Matrix[Double], linalg.Vector[Double]] =
-      new LabeledObject(transformY(data._2),transformX(data._1))
+    LabeledObject[PageFeatures, linalg.Vector[Double]] =
+      new LabeledObject(transformY(data._2),data._1)
 
 
   /** The Spark context to be used, lazy so that it will only be loaded when needed */
@@ -60,10 +47,9 @@ case class ChainCRF(
   }
 
   /** Model configuration */
-  val modelConfig = new LinearChainCRF(
-    numStates=2,
-    disablePairwise=disablePairwise,
-    useBPDecoding=useBPDecoding
+  val modelConfig = new ChainCRFModel(
+    blockFeatureLabels=blockFeatureLabels,
+    edgeFeatureLabels=edgeFeatureLabels
   )
 
   /** Classifier */
@@ -103,7 +89,7 @@ case class ChainCRF(
   def loadWeights(filename: String) = classifier.loadWeights(filename)
 
   def predict(features: PageFeatures): Vector[Int] = {
-    classifier.predict(transformX(features)).toArray.map(_.toInt).toVector
+    classifier.predict(features).toArray.map(_.toInt).toVector
   }
 
 

@@ -7,14 +7,58 @@ import nl.tvogels.boilerplate.cleaneval.{CleanEval,Page}
 import nl.tvogels.boilerplate.cdom.{CDOM,DOM}
 import org.jsoup.Jsoup
 import nl.tvogels.boilerplate.features.extractor._
-import nl.tvogels.boilerplate.classification.{PerformanceStatistics,ChainCRF}
+import nl.tvogels.boilerplate.classification.{PerformanceStatistics,ChainCRF,ChainCRFModel}
 import nl.tvogels.boilerplate.features.{BlockFeatureExtractor,FeatureExtractor}
 import nl.tvogels.boilerplate.database.Database
+import nl.tvogels.boilerplate.features.PageFeatures
 import com.mongodb.casbah.Imports._
 object Main {
 
   def main(args: Array[String]): Unit = {
-    addOursToMongo
+    testNewChainCRF
+  }
+
+  def testNewChainCRF = {
+    scala.util.Random.setSeed(14101992)
+    println("Load dataset")
+    val fe = FeatureExtractor(
+      AncestorExtractor(BasicBlockExtractor,levels=2)+InterceptBlockExtractor,
+      InterceptEdgeExtractor
+    )
+    val data = time{CleanEval.dataset(fe)}
+    println("Dataset loaded")
+    val splits = data.randomSplit(0.5,0.5);
+    val (train,test) = (splits(0),splits(1))
+    val classifier = ChainCRF(
+      blockFeatureLabels=fe.blockExtractor.labels,
+      edgeFeatureLabels=fe.edgeExtractor.labels,
+      lambda = 10,
+      debug=false
+    )
+    classifier.train(train,test)
+    classifier.saveWeights("output/weights.txt")
+    println(s"Training statistics: ${classifier.performanceStatistics(train)}")
+    println(s"Test statistics:     ${classifier.performanceStatistics(test)}")
+
+  }
+
+  def testFeatureFn = {
+    import breeze.linalg.DenseVector
+    val nBlocks = 3
+    val blockFeatureLength = 5
+    val edgeFeatureLength = 5
+    val blockFeatures = (0 until blockFeatureLength).map(_.toDouble).toArray
+    val edgeFeatures  = (0 until edgeFeatureLength).map(_.toDouble).toArray
+    val feat = PageFeatures(
+      DenseVector(((0 until nBlocks) flatMap (x=>blockFeatures)).toArray)
+        .toDenseMatrix.reshape(blockFeatureLength, nBlocks) ,
+      ((0 until blockFeatureLength) map (x=>"a")).toVector,
+      DenseVector(((0 until (nBlocks-1)) flatMap (x=>edgeFeatures)).toArray)
+        .toDenseMatrix.reshape(edgeFeatureLength, nBlocks-1) ,
+      ((0 until edgeFeatureLength) map (x=>"ea")).toVector
+    )
+    val labels = DenseVector.ones[Double](nBlocks)
+    println(feat)
   }
 
   def convertAnnotationsToNewDBFormat = {
@@ -35,35 +79,35 @@ object Main {
     }
   }
 
-  def addOursToMongo = {
+  // def addOursToMongo = {
 
-    val labelName = "ours-v1"
+  //   val labelName = "ours-v1"
 
-    val local = new Database
-    scala.util.Random.setSeed(14101992)
-    println("Load dataset")
-    val data = time{CleanEval.dataset(
-      FeatureExtractor(AncestorExtractor(BasicBlockExtractor,levels=2),EmptyEdgeExtractor)
-    )}
-    println("Dataset loaded")
-    val splits = data.randomSplit(0.5,0.5);
-    val (train,test) = (splits(0),splits(1))
-    val classifier = ChainCRF(lambda = 10,debug=false,disablePairwise=false)
-    classifier.train(train)
-    data.iterator zip CleanEval.iterator foreach {
-      case ((features,_), p) => {
-        val prediction = classifier.predict(features)
-        local.insertLabels(
-          docId         = p.docId,
-          dataset       = "cleaneval",
-          labelName     = labelName,
-          labels        = prediction,
-          userGenerated = false,
-          metadata      = Map()
-        )
-      }
-    }
-  }
+  //   val local = new Database
+  //   scala.util.Random.setSeed(14101992)
+  //   println("Load dataset")
+  //   val data = time{CleanEval.dataset(
+  //     FeatureExtractor(AncestorExtractor(BasicBlockExtractor,levels=2),EmptyEdgeExtractor)
+  //   )}
+  //   println("Dataset loaded")
+  //   val splits = data.randomSplit(0.5,0.5);
+  //   val (train,test) = (splits(0),splits(1))
+  //   val classifier = ChainCRF(lambda = 10,debug=false,disablePairwise=false)
+  //   classifier.train(train)
+  //   data.iterator zip CleanEval.iterator foreach {
+  //     case ((features,_), p) => {
+  //       val prediction = classifier.predict(features)
+  //       local.insertLabels(
+  //         docId         = p.docId,
+  //         dataset       = "cleaneval",
+  //         labelName     = labelName,
+  //         labels        = prediction,
+  //         userGenerated = false,
+  //         metadata      = Map()
+  //       )
+  //     }
+  //   }
+  // }
 
   def addCleanEvalEvaluationsToMongo = {
     val db = new Database
@@ -97,22 +141,22 @@ object Main {
     }
   }
 
-  def testChainCRF = {
-    scala.util.Random.setSeed(14101992)
-    println("Load dataset")
-    val data = time{CleanEval.dataset(
-      FeatureExtractor(AncestorExtractor(BasicBlockExtractor,levels=2),EmptyEdgeExtractor)
-    )}
-    println("Dataset loaded")
-    val splits = data.randomSplit(0.5,0.5);
-    val (train,test) = (splits(0),splits(1))
-    val classifier = ChainCRF(lambda = 10,debug=false,disablePairwise=false)
-    classifier.train(train,test)
-    classifier.saveWeights("output/weights.txt")
-    println(s"Training statistics: ${classifier.performanceStatistics(train)}")
-    println(s"Test statistics:     ${classifier.performanceStatistics(test)}")
+  // def testChainCRF = {
+  //   scala.util.Random.setSeed(14101992)
+  //   println("Load dataset")
+  //   val data = time{CleanEval.dataset(
+  //     FeatureExtractor(AncestorExtractor(BasicBlockExtractor,levels=2),EmptyEdgeExtractor)
+  //   )}
+  //   println("Dataset loaded")
+  //   val splits = data.randomSplit(0.5,0.5);
+  //   val (train,test) = (splits(0),splits(1))
+  //   val classifier = ChainCRF(lambda = 10,debug=false,disablePairwise=false)
+  //   classifier.train(train,test)
+  //   classifier.saveWeights("output/weights.txt")
+  //   println(s"Training statistics: ${classifier.performanceStatistics(train)}")
+  //   println(s"Test statistics:     ${classifier.performanceStatistics(test)}")
 
-  }
+  // }
 
   def evaluateOtherMethods = {
     val dir = "other_frameworks/output/"

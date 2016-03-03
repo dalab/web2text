@@ -1,6 +1,7 @@
 package nl.tvogels.boilerplate.features
 
 import nl.tvogels.boilerplate.cdom.{Node,CDOM}
+import breeze.{linalg => la}
 
 /** FeatureExtractor, consisting of a BlockFeatureExtractor and an EdgeFeatureExtractor
   *
@@ -14,10 +15,22 @@ case class FeatureExtractor (
     // Initialize the extractors with the CDOM information
     val (blockEx, edgeEx) = (blockExtractor(cdom), edgeExtractor(cdom))
 
+    val nBlocks = cdom.leaves.length
+    val edgeFeatureLength  = edgeExtractor.labels.length
+    val blockFeatureLength = blockExtractor.labels.length
+
+    val blockFeatures = (cdom.leaves flatMap { blockEx(_) }).toArray
+    val pairs         = (cdom.leaves zip cdom.leaves.tail)
+    val edgeFeatures  = (pairs flatMap { case (a,b) => edgeEx(a,b) }).toArray
+
     PageFeatures(
-      blockFeatures = cdom.leaves map { blockEx(_) },
+      blockFeatures = la.DenseVector(blockFeatures)
+                        .toDenseMatrix
+                        .reshape(blockFeatureLength,nBlocks),
       blockFeatureLabels = blockExtractor.labels,
-      edgeFeatures = (cdom.leaves zip cdom.leaves.tail) map { case (a,b) => edgeEx(a,b) },
+      edgeFeatures = la.DenseVector(edgeFeatures)
+                        .toDenseMatrix
+                        .reshape(edgeFeatureLength,nBlocks-1),
       edgeFeatureLabels = edgeExtractor.labels
     )
   }

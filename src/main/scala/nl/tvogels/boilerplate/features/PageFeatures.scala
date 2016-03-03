@@ -1,31 +1,38 @@
 package nl.tvogels.boilerplate.features
 
+import breeze.{linalg => la}
+
 /** Container for page features
  *
  * @param blockFeatures vector of features related to blocks
  * @param edgeFeatures vector of features related to neighboring pairs of blocks
  */
-case class PageFeatures(blockFeatures: Vector[Vector[Double]],  blockFeatureLabels: Vector[String], edgeFeatures: Vector[Vector[Double]], edgeFeatureLabels: Vector[String]) {
+case class PageFeatures(
+    blockFeatures: la.DenseMatrix[Double],
+    blockFeatureLabels: Vector[String],
+    edgeFeatures: la.DenseMatrix[Double],
+    edgeFeatureLabels: Vector[String]
+) {
 
   assert(
-    blockFeatures.length == edgeFeatures.length + 1,
+    blockFeatures.cols == edgeFeatures.cols + 1,
     "There should be one more block feature than edge features"
   )
 
   /** Number of blocks */
-  val nBlocks = blockFeatures.length
+  val nBlocks = blockFeatures.cols
 
   override def toString = List(
     "\n++++++++++++++++++++",
     "++ Block features ++",
     "++++++++++++++++++++\n",
-    (blockFeatureLabels mkString "\t"),
-    (blockFeatures.map(_ mkString "\t") mkString "\n").trim,
+    (blockFeatureLabels.toIterator zip blockFeatures.toString.lines)
+      map { case (lab, feat) => lab + "  " + feat} mkString "\n",
     "\n++++++++++++++++++++",
     "++ Edge features  ++",
     "++++++++++++++++++++\n",
-    (edgeFeatureLabels mkString "\t"),
-    (edgeFeatures.map(_ mkString "\t") mkString "\n").trim
+    (edgeFeatureLabels.toIterator zip edgeFeatures.toString.lines)
+      map { case (lab, feat) => lab + "  " + feat} mkString "\n"
   ) mkString "\n"
 
 }
