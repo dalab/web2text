@@ -20,9 +20,11 @@ insecure                # Allow all DB writes from clients (for prototyping)
 chhib:selectize-bootstrap-3
 ian:accounts-ui-bootstrap-3
 twbs:bootstrap
-accounts-facebook
 iron:router
-accounts-github
 sacha:spin
 peppelg:bootstrap-3-modal
 check
+liangcc:meteor-accounts-amazon
+accounts-facebook
+accounts-github
+momentjs:moment

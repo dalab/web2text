@@ -43,7 +43,7 @@ Meteor.methods({
       set['metadata.last_edited'] = Date.now();
       set[`labels.${block_id}`] = tag;
 
-      console.log(`[User ${Meteor.userId()}] Tagging block ${block_id} in ${doc_id} as ${tag}.`);
+      // console.log(`[User ${Meteor.userId()}] Tagging block ${block_id} in ${doc_id} as ${tag}.`);
 
       const update = {'$set': set};
       Labels.update(query, update);
@@ -55,12 +55,48 @@ Meteor.methods({
     if (!Meteor.userId()) {
       throw new Meteor.Error("not-authorized");
     }
+    check(doc_id, String);
+    check(done, Boolean);
 
     const label_name = `user-${Meteor.userId()}`;
     const query = {doc_id, label_name};
-    const update = {'$set': {}};
-    update['$set']['metadata.finished'] = done;
+    const update = {'$set':
+      {'metadata.skipped': false,
+       'metadata.skipped_reason': undefined,
+       'metadata.finished': done
+      }
+    };
 
     Labels.update(query, update);
+
+    if (Meteor.isServer) {
+      // update the count for a user
+      const done = Labels.find(
+        {label_name, "metadata.finished": true}
+      ).count();
+      Meteor.users.update(
+        {_id: Meteor.userId()},
+        {$set: {"n_tagged": done}}
+      );
+    }
+  },
+
+  markSkipped(doc_id, reason) {
+    if (!Meteor.userId()) {
+      throw new Meteor.Error("not-authorized");
+    }
+    check(doc_id, String);
+    check(reason, String);
+
+    const label_name = `user-${Meteor.userId()}`;
+    const query = {doc_id, label_name};
+    const update = {'$set':
+      {'metadata.skipped': true,
+       'metadata.skipped_reason': reason,
+       'metadata.finished': false
+      }
+    };
+    Labels.update(query, update);
   }
+
 });

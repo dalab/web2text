@@ -9,6 +9,21 @@ Meteor.startup(() => {
   Session.set("_zoomLevel",1);
 });
 
+let _getLabel = (doc_id) => {
+  const label_name = Tagging.labelName();
+  return Labels.findOne({label_name, doc_id});
+};
+
+let _currentStep = (doc_id) => {
+  const n       = Tagging.PAGES_PER_BATCH;
+  let   plus    = 1;
+  const labels  = _getLabel(doc_id);
+  if (labels && labels.metadata.finished) {
+    plus = 0;
+  }
+  return ((Meteor.user().n_tagged + plus || 0)-1)%n+1;
+};
+
 Template.tagPage.helpers({
   'isRemoving': function () {
     return Session.get("_altPressed");
@@ -17,39 +32,62 @@ Template.tagPage.helpers({
     return Math.round(Session.get("_zoomLevel")*100);
   },
   'labels': function () {
-    const label_name = "user-" + Meteor.userId();
-    return Labels.findOne({label_name, doc_id:this.doc_id})
+    _getLabel(this.doc_id);
   },
   'saved': function () {
-    const label_name = "user-" + Meteor.userId();
-    const labels = Labels.findOne({label_name, doc_id:this.doc_id});
+    const labels = _getLabel(this.doc_id);
     return labels && labels.metadata.finished;
+  },
+  'iframeLoading': function () {
+    return Session.get('iframe-loading')
+  },
+  'status': function () {
+    return _currentStep(this.doc_id);
+  },
+  'tagTotal': function () {
+    return Tagging.PAGES_PER_BATCH;
+  },
+  'nextIsDone': function () {
+    return _currentStep(this.doc_id) == Tagging.PAGES_PER_BATCH;
+  },
+  'isLinux': function () {
+    return navigator.platform.toUpperCase().indexOf('LINUX')!==-1;
   }
 });
 
 Template.tagPage.events({
   'click .next-tag-page'(evt) {
     evt.preventDefault();
-    let {dataset, doc_id} = Documents.findOne(
-      {'doc_id': {'$gt': this.doc_id}},
-      {sort: {'doc_id':1}}
-    );
-    if (!page) return;
 
-
-    const label_name = "user-" + Meteor.userId();
-    const labels = Labels.findOne({label_name, doc_id:this.doc_id});
+    const labels = _getLabel(this.doc_id);
     const done = labels && labels.metadata.finished;
     if (!done) return;
 
-    Router.go('tag.page',
-              {dataset_id: dataset, id: doc_id} );
+    const lastOfSeries = _currentStep(this.doc_id) == Tagging.PAGES_PER_BATCH;
+    if (lastOfSeries) {
+      Router.go("done.tagging");
+    } else {
+      Tagging.goToNextPage();
+    }
+  },
+
+  'click .skip-button'(evt) {
+    evt.preventDefault();
+
+    const labels = _getLabel(this.doc_id);
+    const done = labels && labels.metadata.finished;
+    if (done) return;
+
+    Meteor.call('markSkipped', this.doc_id, $(evt.target).data('reason'), (err,res) => {
+      Tagging.goToNextPage();
+    });
+
   },
 
   'click .save-button'(evt) {
     evt.preventDefault();
-    const label_name = "user-" + Meteor.userId();
-    const labels = Labels.findOne({label_name, doc_id:this.doc_id});
+    if (Session.get('iframe-loading')) return;
+    const labels = _getLabel(this.doc_id);
     const done = labels && labels.metadata.finished;
     Meteor.call('markDone', this.doc_id, !done);
   },
@@ -72,17 +110,21 @@ Template.tagPage.events({
 });
 
 Template.tagPage.rendered = function() {
-
+  Session.set('iframe-loading',true);
   const iframe = document.getElementById("page");
   const idoc = iframe.contentDocument;
+  idoc.open();
   idoc.write(this.data.blocked_source);
+  idoc.close();
+  iframe.onload = () => Session.set('iframe-loading',false);
 
   const doc_id = this.data.doc_id;
 
   this.autorun(() => {
     const data = Router.current().data();
-    const label_name = "user-" + Meteor.userId();
-    const labelsEntry = Labels.findOne({label_name, doc_id: data.doc_id});
+    if (!data) return;
+    const labelsEntry = _getLabel(doc_id);
+    console.log(labelsEntry, doc_id, data);
     if (!labelsEntry) {
       Meteor.call('setLabels',data.dataset, doc_id,_initLabels(PageBlocks.getBlocks(idoc)));
       return;
@@ -109,14 +151,14 @@ Template.tagPage.rendered = function() {
 
 let _attachKeyListener = (to) => {
 
-  const keycode = {alt: 18, A: 65};
+  const keycode = {ctrl: 17, alt: 18, A: 65};
 
   to.onkeyup = function(e) {
-    if (e.keyCode == keycode.alt)
+    if (e.keyCode == keycode.ctrl || e.keyCode == keycode.alt)
       Session.set("_altPressed",false);
   }
   to.onkeydown = function(e) {
-    if (e.keyCode == keycode.alt)
+    if (e.keyCode == keycode.ctrl || e.keyCode == keycode.alt)
       Session.set("_altPressed",true);
     if (e.keyCode == keycode.A) {
       // mark all as ...
@@ -177,7 +219,7 @@ let _attachDragHandlers = (dom, doc_id) => {
           top    = Math.min(_initialH, e.pageY)/zoom;
 
     let style = _selectionBox.style
-    console.log(dom.body,dom.body.offsetLeft, dom.body.offsetTop);
+
     style.width  = `${width}px`;
     style.height = `${height}px`;
     style.left   = `${left-dom.body.offsetLeft}px`;

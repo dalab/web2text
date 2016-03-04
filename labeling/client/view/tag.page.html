@@ -1,37 +1,43 @@
 <template name="tagPage">
   <div class="main-container">
 
-    <div class="iframe-wrapper">
+    <div class="iframe-wrapper {{#if iframeLoading}}iframe-loading{{/if}}">
+      {{#if iframeLoading}}{{> spinner}}{{/if}}
       <iframe id="page" frameborder="0"></iframe>
     </div>
 
     <div class="cleaned-gt">
-    <h4>Instructions</h4>
-    <p>Press and hold [alt] to switch to removal mode.</p>
-    <p>Current mode: {{#if isRemoving}}<span class="label label-danger">removing</span>{{else}}<span class="label label-success">adding</span>{{/if}}</p>
-    <p>Zoom level: <input type="range" id="zoom-level" min="50" value="{{zoomLevel}}" max="150" step="1" style="width:30%;display:inline-block;"> {{zoomLevel}}%</p>
-
-    <ul><li>In ac odio vel lorem tincidunt pellentesque. Nam tempor pulvinar turpis. Nunc in leo in libero ultricies interdum.</li>
-        <li>Proin ut urna. Donec ultricies nunc dapibus justo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. </li>
-    </ul>
-
-    <div class="btn-toolbar">
-      <div class="btn-group">
-      <button type="button" class="btn btn-default save-button {{#if saved}}btn-success{{else}}btn-primary{{/if}}"><input type="checkbox" checked="{{#if saved}}checked{{/if}}"> {{#if saved}}Saved{{else}}Save{{/if}}</button>
-      <div class="btn-group">
-        <button class="btn btn-default dropdown-toggle btn-danger" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" disabled="{{#if saved}}disabled{{/if}}">
-          Skip
-          <span class="caret"></span>
-        </button>
-        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-          <li><a href="#">I don't like this page</a></li>
-          <li><a href="#">Page doesn't load</a></li>
-          <li><a href="#">Can't decide how to tag this page.</a></li>
-        </ul>
+    <div class="panel panel-default panel-main">
+      <div class="panel-heading"><h3 class="panel-title">Page {{status}} / {{tagTotal}}</h3></div>
+      <div class="panel-body panel-body-buttons">
+        <div class="btn-toolbar">
+          <button type="button" class="btn btn-default save-button {{#if saved}}btn-success{{else}}btn-primary{{/if}} {{#if iframeLoading}}disabled{{/if}}">{{#if saved}}<input type="checkbox" checked="{{#if saved}}checked{{/if}}"> Saved{{else}}Save{{/if}}</button>
+          {{#if saved}}<button type="button" class="btn btn-default next-tag-page" disabled="{{#if saved}}{{else}}disabled{{/if}}">{{#if nextIsDone}}Done{{else}}Next{{/if}} <span class="glyphicon glyphicon-chevron-right"></span></button>{{/if}}
+          <div class="btn-group pull-right">
+            <button class="btn btn-default dropdown-toggle btn-danger" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" disabled="{{#if saved}}disabled{{/if}}">Skip <span class="caret"></span></button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+              <li><a href="#" class="skip-button" data-reason="dont-like">I don't like this page</a></li>
+              <li><a href="#" class="skip-button" data-reason="doesnt-load">Page doesn't load</a></li>
+              <li><a href="#" class="skip-button" data-reason="cant-decide">Can't decide how to label this page.</a></li>
+            </ul>
+          </div>
+        </div>
       </div>
-      </div>
-      <button type="button" class="btn btn-default next-tag-page" disabled="{{#if saved}}{{else}}disabled{{/if}}">Next <span class="glyphicon glyphicon-chevron-right"></span></button>
     </div>
+
+    <div class="panel panel-default"><div class="panel-body">
+      <h5>Undo</h5>
+      <p>Want to color text <span class="label label-danger">red</span> again? Press and hold <code>[{{#if isLinux}}ctrl{{else}}alt{{/if}}]</code> while selecting text.</p>
+    </div></div>
+    <div class="panel panel-default"><div class="panel-body">
+      <h5>Guidelines</h5>
+      <p>Remove anything that does not belong to the main content of the page</p>
+    </div></div>
+    <div class="panel panel-default"><div class="panel-body">
+      <h5>Zoom level</h5>
+      <p><input type="range" id="zoom-level" min="50" value="{{zoomLevel}}" max="150" step="1" style="width:30%;display:inline-block;"> {{zoomLevel}}%</p>
+    </div></div>
+
     </div>
 
   </div>

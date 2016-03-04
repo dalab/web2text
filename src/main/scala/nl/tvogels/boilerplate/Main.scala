@@ -15,24 +15,32 @@ import com.mongodb.casbah.Imports._
 object Main {
 
   def main(args: Array[String]): Unit = {
-    testNewChainCRF
+    evaluateOtherMethods
   }
 
-  def testNewChainCRF = {
+  def testCommonAncestorExtractor = {
+    val ex = CommonAncestorExtractor(BasicBlockExtractor)
+    val cdom = CDOM.fromHTML("<body><h1>Header</h1><p>Paragraph with an <i>Italic</i> section.</p></body>");
+    ex(cdom)(cdom.leaves(1),cdom.leaves(2))
+  }
+
+  def testChainCRF(addToMongo: Boolean = true) = {
+    val labelName = "ours-v3"
+
     scala.util.Random.setSeed(14101992)
     println("Load dataset")
     val fe = FeatureExtractor(
-      AncestorExtractor(BasicBlockExtractor,levels=2),
-      InterceptEdgeExtractor
+      AncestorExtractor(BasicBlockExtractor, levels=3)+RootExtractor(BasicBlockExtractor),
+      InterceptEdgeExtractor+BlockBreakExtractor
     )
-    val data = time{CleanEval.dataset(fe)}
+    val data = Util.time{ CleanEval.dataset(fe) }
     println("Dataset loaded")
     val splits = data.randomSplit(0.5,0.5);
     val (train,test) = (splits(0),splits(1))
     val classifier = ChainCRF(
       blockFeatureLabels=fe.blockExtractor.labels,
       edgeFeatureLabels=fe.edgeExtractor.labels,
-      lambda = 10,
+      lambda = 0.0001,
       debug=false
     )
     classifier.train(train,test)
@@ -40,6 +48,24 @@ object Main {
     classifier.saveWeightsHuman("output/weights-human.txt")
     println(s"Training statistics: ${classifier.performanceStatistics(train)}")
     println(s"Test statistics:     ${classifier.performanceStatistics(test)}")
+
+    if (addToMongo) {
+      println("Adding to MongoDB")
+      val local = new Database
+      data.iterator zip CleanEval.iterator foreach {
+        case ((features,_), p) => {
+          val prediction = classifier.predict(features)
+          local.insertLabels(
+            docId         = p.docId,
+            dataset       = "cleaneval",
+            labelName     = labelName,
+            labels        = prediction,
+            userGenerated = false,
+            metadata      = Map()
+          )
+        }
+      }
+    }
 
   }
 
@@ -141,23 +167,6 @@ object Main {
       }
     }
   }
-
-  // def testChainCRF = {
-  //   scala.util.Random.setSeed(14101992)
-  //   println("Load dataset")
-  //   val data = time{CleanEval.dataset(
-  //     FeatureExtractor(AncestorExtractor(BasicBlockExtractor,levels=2),EmptyEdgeExtractor)
-  //   )}
-  //   println("Dataset loaded")
-  //   val splits = data.randomSplit(0.5,0.5);
-  //   val (train,test) = (splits(0),splits(1))
-  //   val classifier = ChainCRF(lambda = 10,debug=false,disablePairwise=false)
-  //   classifier.train(train,test)
-  //   classifier.saveWeights("output/weights.txt")
-  //   println(s"Training statistics: ${classifier.performanceStatistics(train)}")
-  //   println(s"Test statistics:     ${classifier.performanceStatistics(test)}")
-
-  // }
 
   def evaluateOtherMethods = {
     val dir = "other_frameworks/output/"

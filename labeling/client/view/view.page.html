@@ -1,18 +1,44 @@
 <template name="viewPage">
   <div class="main-container">
 
-    <div class="iframe-wrapper">
+    <div class="iframe-wrapper {{#if iframeLoading}}iframe-loading{{/if}}">
+      {{#if iframeLoading}}{{> spinner}}{{/if}}
       <iframe id="page" frameborder="0"></iframe>
     </div>
 
     <div class="cleaned-gt">
-    <!-- <a href="" class="btn btn-primary view-alignment">Alignment</a> -->
+
+
+    <div class="panel panel-default panel-main">
+      <div class="panel-heading"><h3 class="panel-title">{{hostname(url)}}</h3></div>
+      <div class="panel-body">
+        <p>
+          <strong>{{dataset.id}}</strong> / {{doc_id}}
+        </p>
+        {{#if curLabeling.user_generated}}
+          <p>User labeling by {{curLabelUser.profile.name}}<br />
+             on {{formatDate curLabeling.metadata.last_edited}} at {{formatTime curLabeling.metadata.last_edited}}.</p>
+          <p>Time taken: {{formatDuration curLabeling.metadata.started curLabeling.metadata.last_edited}}</p>
+        {{else}}
+          {{#if curLabeling}}
+            <p>Labeling {{curLabeling.label_name}}</p>
+            {{#if curLabeling.metadata.aligned}}
+              <p><a class="view-alignment"><span class="glyphicon glyphicon-chevron-right"></span> View alignment</a></p>
+            {{/if}}
+          {{/if}}
+        {{/if}}
+      </div>
+    </div>
+    <div class="panel panel-default"><div class="panel-body">
+      <h5>Zoom level</h5>
+      <p><input type="range" id="zoom-level" min="50" value="{{zoomLevel}}" max="150" step="1" style="width:30%;display:inline-block;"> {{zoomLevel}}%</p>
+    </div></div>
     </div>
 
   </div>
 
   {{#contentFor "breadcrumbs"}}
-    <li><a href="/">View</a></li>
+    <li><a href="/view">View</a></li>
     <li>
       <a href="{{pathFor route='view.dataset' id=dataset.id}}">
         {{dataset.name}}

@@ -7,27 +7,55 @@ Template.viewPage.helpers({
     return Datasets.findOne({id: this.dataset});
   },
   availableLabelings() {
-    return Labels.find({doc_id:this.doc_id}).fetch().map(x => x.label_name);
+    return Labels.find({doc_id:this.doc_id,$or: [{"metadata.finished": true},{user_generated:false}]}).fetch().map(x => x.label_name);
+  },
+  curLabeling() {
+    const curr = _state().get('cur_labeling');
+    return Labels.findOne({label_name: curr, doc_id: this.doc_id});
+  },
+  curLabelUser() {
+    const curr = _state().get('cur_labeling');
+    const user = curr.substring(5,curr.length);
+    Meteor.subscribe("userName",user);
+    return Meteor.users.findOne({_id:user});
   },
   labelingSelected(lab) {
-    let curr = _state().get('cur_labeling');
+    const curr = _state().get('cur_labeling');
     if(lab == curr) return "selected";
     else return "";
+  },
+  zoomLevel: function () {
+    return Math.round(Session.get("_zoomLevel")*100);
+  },
+  hostname(url) {
+    var anchor = document.createElement('a');
+    anchor.href = url;
+    return anchor.hostname;
   }
 });
 
 Template.viewPage.events({
   'click .view-alignment'() {
-    Modal.show( 'viewAlignmentModal', this, {keyboard: true} )
+    const curr = _state().get('cur_labeling');
+    Modal.show( 'viewAlignmentModal', {doc_id: this.doc_id, label_name: curr}, {keyboard: true} )
+  },
+
+  'input #zoom-level, change #zoom-level'(evt) {
+    console.log('thiny has changed');
+    Session.set('_zoomLevel',$(evt.target).val()/100);
   }
 });
 
 
 Template.viewPage.rendered = function() {
 
+  Session.set('iframe-loading',true);
   let iframe = document.getElementById("page");
   let idoc = iframe.contentDocument;
+  idoc.open();
   idoc.write(this.data.blocked_source);
+  idoc.close();
+  iframe.onload = () => Session.set('iframe-loading',false);
 
   this.autorun(() => {
     let data = Router.current().data();
@@ -38,7 +66,6 @@ Template.viewPage.rendered = function() {
 
   const _zoomStyleNode = PageBlocks.addStyleString(idoc,PageBlocks.zoomStyle(1));
   this.autorun(() => {
-    console.log("set zoom level");
     _zoomStyleNode.innerHTML = PageBlocks.zoomStyle(Session.get('_zoomLevel'));
   });
 

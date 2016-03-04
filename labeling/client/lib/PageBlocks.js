@@ -52,6 +52,11 @@ PageBlocks = {
         e.preventDefault();
       });
     });
+    [].forEach.call(idoc.getElementsByTagName('form'), (el) => {
+      el.addEventListener('submit', (e) => {
+        e.preventDefault();
+      });
+    });
   },
 
  addStyleString( dom, str ) {

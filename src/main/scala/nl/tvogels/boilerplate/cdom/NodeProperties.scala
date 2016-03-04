@@ -8,11 +8,12 @@ import nl.tvogels.boilerplate.utilities.Settings
   *
   * @author Thijs Vogels <t.vogels@me.com>
   */
-case class NodeProperties (
+class NodeProperties (
   var nCharacters: Int,
   var nWords: Int,
   var nSentences: Int,
   var nPunctuation: Int,
+  var nNumeric: Int,
   var nDashes: Int,
   var nStopwords: Int,
   var nWordsWithCapital: Int,
@@ -23,21 +24,29 @@ case class NodeProperties (
   var startPosition: Int,
   var endPosition: Int,
   var nChildrenDeep: Int,
+  var containsCopyright: Boolean,
+  var containsEmail: Boolean,
+  var containsUrl: Boolean,
+  var containsYear: Boolean,
   var blockBreakBefore: Boolean,
   var blockBreakAfter: Boolean,
   var brBefore: Boolean,
   var brAfter: Boolean
 ) {
+
+
   def toHTML: String = s"""
   |<dl>
   |  <dt>nCharacters</dt><dd>$nCharacters</dd>
   |  <dt>nWords</dt><dd>$nWords</dd>
   |  <dt>nSentences</dt><dd>$nSentences</dd>
   |  <dt>nPunctuation</dt><dd>$nPunctuation</dd>
+  |  <dt>nNumeric</dt><dd>$nNumeric</dd>
   |  <dt>nDashes</dt><dd>$nDashes</dd>
   |  <dt>nStopwords</dt><dd>$nStopwords</dd>
   |  <dt>nWordsWithCapital</dt><dd>$nWordsWithCapital</dd>
   |  <dt>nCharsInLink</dt><dd>$nCharsInLink</dd>
+  |  <dt>containsCopyright</dt><dd>$containsCopyright</dd>
   |  <dt>totalWordLength</dt><dd>$totalWordLength</dd>
   |  <dt>endsWithPunctuation</dt><dd>$endsWithPunctuation</dd>
   |  <dt>endsWithQuestionMark</dt><dd>$endsWithQuestionMark</dd>
@@ -71,11 +80,16 @@ object NodeProperties {
         val words = text.split("\\W+").filter(x => x.length > 0)
         val sentences = Util.splitSentences(text)
 
-        NodeProperties(
+        val regexEmail = """\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}\b""".r
+        val regexUrl   = """@^(https?|ftp)://[^\s/$.?#].[^\s]*$@iS""".r
+        val regexYear  = """\b\d{4}\b""".r
+
+        new NodeProperties(
           nCharacters           = scala.math.max(text.length,1),
           nWords                = words.length,
           nSentences            = sentences.length,
           nPunctuation          = text.count { x => s.punctuation.contains(x) },
+          nNumeric              = text.count { _.isDigit },
           nDashes               = text.count { x => s.dashes.contains(x) },
           nStopwords            = words.count { x => s.stopwords.contains(x) },
           nWordsWithCapital     = words.count { _.charAt(0).isUpper },
@@ -88,6 +102,10 @@ object NodeProperties {
           startPosition         = domnode.startPosition,
           endPosition           = domnode.endPosition,
           nChildrenDeep         = 0,
+          containsCopyright     = text.contains("©") || text.contains("©️"),
+          containsEmail         = regexEmail.findFirstIn(text) != null,
+          containsUrl           = regexUrl.findFirstIn(text) != null,
+          containsYear          = regexYear.findFirstIn(text) != null,
           blockBreakBefore      = domnode.previousSibling != null &&
                                   Settings.blockTags.contains
                                    (domnode.previousSibling.nodeName),
@@ -114,18 +132,21 @@ object NodeProperties {
           "We cannot initialize features from a child, if the child doesn't have them"
         )
 
-        if (Settings.blockTags.contains(tag) || Settings.blockTags.contains(prevtag)) {
+        val blockBreakBefore = Settings.blockTags.contains(tag) || Settings.blockTags.contains(prevtag)
+        val blockBreakAfter  = Settings.blockTags.contains(tag) || Settings.blockTags.contains(nexttag)
+        if (blockBreakBefore) {
           propagateDownBlockTagLeft(children)
         }
-        if (Settings.blockTags.contains(tag) || Settings.blockTags.contains(nexttag)) {
+        if (blockBreakAfter) {
           propagateDownBlockTagRight(children)
         }
 
-        NodeProperties(
+        new NodeProperties(
           nCharacters           = cfeat.nCharacters,
           nWords                = cfeat.nWords,
           nSentences            = cfeat.nSentences,
           nPunctuation          = cfeat.nPunctuation,
+          nNumeric              = cfeat.nNumeric,
           nDashes               = cfeat.nDashes,
           nStopwords            = cfeat.nStopwords,
           nWordsWithCapital     = cfeat.nWordsWithCapital,
@@ -136,6 +157,10 @@ object NodeProperties {
           totalWordLength       = cfeat.totalWordLength,
           endsWithPunctuation   = cfeat.endsWithPunctuation,
           endsWithQuestionMark  = cfeat.endsWithQuestionMark,
+          containsCopyright     = cfeat.containsCopyright,
+          containsEmail         = cfeat.containsEmail,
+          containsUrl           = cfeat.containsUrl,
+          containsYear          = cfeat.containsYear,
           startPosition         = if (cfeat.startPosition > -1)
                                     cfeat.startPosition
                                   else
@@ -145,10 +170,8 @@ object NodeProperties {
                                   else
                                     domnode.endPosition,
           nChildrenDeep         = cfeat.nChildrenDeep,
-          blockBreakBefore      = Settings.blockTags.contains(tag) ||
-                                  Settings.blockTags.contains(prevtag),
-          blockBreakAfter       = Settings.blockTags.contains(tag) ||
-                                  Settings.blockTags.contains(nexttag),
+          blockBreakBefore      = blockBreakBefore,
+          blockBreakAfter       = blockBreakAfter,
           brBefore              = cfeat.brBefore ||
                                   (domnode.previousSibling != null &&
                                    domnode.previousSibling.nodeName == "br"),
@@ -166,27 +189,27 @@ object NodeProperties {
         val prevtag = Option(domnode.previousSibling).map(_.nodeName) getOrElse "[none]"
         val nexttag = Option(domnode.nextSibling).map(_.nodeName) getOrElse "[none]"
 
-
-        if (Settings.blockTags.contains(tag) || Settings.blockTags.contains(prevtag)) {
+        val blockBreakBefore = Settings.blockTags.contains(tag) || Settings.blockTags.contains(prevtag)
+        val blockBreakAfter  = Settings.blockTags.contains(tag) || Settings.blockTags.contains(nexttag)
+        if (blockBreakBefore) {
           propagateDownBlockTagLeft(children)
         }
-        if (Settings.blockTags.contains(tag) || Settings.blockTags.contains(nexttag)) {
+        if (blockBreakAfter) {
           propagateDownBlockTagRight(children)
         }
 
         // Initialize the features to their neural values
-        val features = NodeProperties(
-          nCharacters=0, nWords=0, nSentences=0, nPunctuation=0, nDashes=0,
+        val features = new NodeProperties(
+          nCharacters=0, nWords=0, nSentences=0, nPunctuation=0, nNumeric=0, nDashes=0,
+          containsCopyright=false, containsEmail=false, containsUrl=false, containsYear=false,
           nStopwords=0, nWordsWithCapital=0, totalWordLength=0, nChildrenDeep=cfeat.length,
           nCharsInLink          = 0,
           endsWithPunctuation   = cfeat.last.endsWithPunctuation,
           endsWithQuestionMark  = cfeat.last.endsWithQuestionMark,
           startPosition         = cfeat.head.startPosition,
           endPosition           = cfeat.last.endPosition,
-          blockBreakBefore      = Settings.blockTags.contains(tag) ||
-                                  Settings.blockTags.contains(prevtag),
-          blockBreakAfter       = Settings.blockTags.contains(tag) ||
-                                  Settings.blockTags.contains(nexttag),
+          blockBreakBefore      = blockBreakBefore,
+          blockBreakAfter       = blockBreakAfter,
           brBefore              = prevtag == "br",
           brAfter               = nexttag == "br"
         )
@@ -197,6 +220,7 @@ object NodeProperties {
           features.nWords             += x.nWords
           features.nSentences         += x.nSentences
           features.nPunctuation       += x.nPunctuation
+          features.nNumeric           += x.nNumeric
           features.nDashes            += x.nDashes
           features.nStopwords         += x.nStopwords
           features.nWordsWithCapital  += x.nWordsWithCapital
@@ -204,6 +228,10 @@ object NodeProperties {
           features.nChildrenDeep      += x.nChildrenDeep
           features.nCharsInLink       += (if (tag == "a") x.nCharacters
                                           else x.nCharsInLink)
+          features.containsCopyright   = x.containsCopyright || features.containsCopyright
+          features.containsEmail       = x.containsEmail || features.containsEmail
+          features.containsUrl         = x.containsUrl || features.containsUrl
+          features.containsYear        = x.containsYear || features.containsYear
         })
 
         features

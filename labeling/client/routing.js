@@ -3,9 +3,24 @@ Router.configure({
 });
 
 Router.route('/', {
+  name: 'start',
+  action() {
+    Tagging.goToNextPage();
+  }
+});
+
+Router.route('/view', {
   loadingTemplate: 'loading',
   template: 'view',
-  name: 'index',
+  name: 'view.index',
+  action() {
+    this.render();
+  }
+});
+Router.route('/done-tagging', {
+  loadingTemplate: 'loading',
+  template: 'doneTagging',
+  name: 'done.tagging',
   action() {
     this.render();
   }
@@ -43,7 +58,7 @@ Router.route('/view/:dataset_id/:id/:cur_labeling?', {
   },
   action() {
     if (this.ready()) {
-      let labs = Labels.find({doc_id:this.params.id}).fetch().map(x => x.label_name);
+      let labs = Labels.find({doc_id:this.params.id,$or: [{"metadata.finished": true},{user_generated:false}]}).fetch().map(x => x.label_name);
       let pars = this.params;
       let cur_labeling = pars.cur_labeling
       if (!cur_labeling || labs.indexOf(cur_labeling) == -1) {
@@ -53,9 +68,9 @@ Router.route('/view/:dataset_id/:id/:cur_labeling?', {
                              id: pars.id, cur_labeling: labs[0] },
                             {replaceState: true} );
         } else {
-          return Router.go( 'view.dataset',
-                            {id: pars.dataset_id},
-                            {replaceState: true} );
+          // return Router.go( 'view.dataset',
+          //                   {id: pars.dataset_id},
+          //                   {replaceState: true} );
         }
       }
       this.state.set('cur_labeling',cur_labeling);
