@@ -63,7 +63,7 @@ PageBlocks = {
 
   zoomStyle(zoom) {
     return `body { transform: scale(${zoom});
-     transform-origin: 0% 0; margin:0; }`;
+     transform-origin: 0% 0; margin:0; padding:0.1px;}`;
   }
 
 };

@@ -15,10 +15,23 @@
         <li>Proin ut urna. Donec ultricies nunc dapibus justo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. </li>
     </ul>
 
-    <p>
-      <!-- <a class="btn btn-default prev-tag-page"><span class="glyphicon glyphicon-chevron-left"></span> Previous</a> -->
-      <a class="btn btn-default save-button {{#if saved}}btn-success{{/if}}"><input type="checkbox" checked="{{#if saved}}checked{{/if}}"> {{#if saved}}Saved{{else}}Save{{/if}}</a>
-      <a class="btn btn-default next-tag-page" disabled="{{#if saved}}{{else}}disabled{{/if}}">Next <span class="glyphicon glyphicon-chevron-right"></span></a></p>
+    <div class="btn-toolbar">
+      <div class="btn-group">
+      <button type="button" class="btn btn-default save-button {{#if saved}}btn-success{{else}}btn-primary{{/if}}"><input type="checkbox" checked="{{#if saved}}checked{{/if}}"> {{#if saved}}Saved{{else}}Save{{/if}}</button>
+      <div class="btn-group">
+        <button class="btn btn-default dropdown-toggle btn-danger" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" disabled="{{#if saved}}disabled{{/if}}">
+          Skip
+          <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+          <li><a href="#">I don't like this page</a></li>
+          <li><a href="#">Page doesn't load</a></li>
+          <li><a href="#">Can't decide how to tag this page.</a></li>
+        </ul>
+      </div>
+      </div>
+      <button type="button" class="btn btn-default next-tag-page" disabled="{{#if saved}}{{else}}disabled{{/if}}">Next <span class="glyphicon glyphicon-chevron-right"></span></button>
+    </div>
     </div>
 
   </div>
