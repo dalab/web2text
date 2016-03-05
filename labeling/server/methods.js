@@ -35,7 +35,7 @@ Meteor.methods({
     datasets.forEach((dataset) => {
       if (result) return;
       // Fetch documents
-      const docQuery = {dataset}
+      const docQuery = {dataset,removed:{$ne: true}}
       const docProjection = {_id: 0, dataset: 1, doc_id: 1}
       const docs = Documents.find(docQuery, {fields: docProjection}).fetch();
       const mapped = docs.map((doc) => {
@@ -54,5 +54,17 @@ Meteor.methods({
       }
     });
     return result;
+  },
+
+  removeDocument(doc_id, remove) {
+    if (!Meteor.userId() || Meteor.user().services.github.email != 't.vogels@me.com') {
+      throw new Meteor.Error("not-authorized");
+    }
+    check(doc_id, String);
+    check(remove, Boolean);
+
+    const query = {doc_id};
+    const update = {'$set': {'removed': remove}};
+    Documents.update(query, update);
   }
 });

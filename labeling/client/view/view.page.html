@@ -9,7 +9,7 @@
     <div class="cleaned-gt">
 
 
-    <div class="panel panel-default panel-main">
+    <div class="panel panel-default panel-main {{#if removed}}document-removed{{/if}}">
       <div class="panel-heading"><h3 class="panel-title">{{hostname(url)}}</h3></div>
       <div class="panel-body">
         <p>
@@ -33,7 +33,15 @@
       <h5>Zoom level</h5>
       <p><input type="range" id="zoom-level" min="50" value="{{zoomLevel}}" max="150" step="1" style="width:30%;display:inline-block;"> {{zoomLevel}}%</p>
     </div></div>
+
+    {{#if isAdmin}}
+    <div class="panel panel-default"><div class="panel-body">
+      <h5>Admin</h5>
+      <p>{{#if removed}}Removed, <a class="unremove-page"> unremove</a>.{{else}}<button class="btn btn-danger remove-page">Remove page</button>{{/if}}</p>
+    </div></div>
+    {{/if}}
     </div>
+
 
   </div>
 

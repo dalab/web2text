@@ -15,13 +15,15 @@ let _getLabel = (doc_id) => {
 };
 
 let _currentStep = (doc_id) => {
+  if (!Meteor.user()) return 1;
   const n       = Tagging.PAGES_PER_BATCH;
   let   plus    = 1;
   const labels  = _getLabel(doc_id);
   if (labels && labels.metadata.finished) {
     plus = 0;
   }
-  return ((Meteor.user().n_tagged + plus || 0)-1)%n+1;
+  const n_tagged = Meteor.user().n_tagged || 0;
+  return (n_tagged + plus-1)%n+1;
 };
 
 Template.tagPage.helpers({
@@ -109,10 +111,12 @@ Template.tagPage.events({
   }
 });
 
+
 Template.tagPage.rendered = function() {
-  Session.set('iframe-loading',true);
-  const iframe = document.getElementById("page");
-  const idoc = iframe.contentDocument;
+
+  Session.set('iframe-loading',false) // disabled;
+  let iframe = document.getElementById("page");
+  let idoc = iframe.contentDocument;
   idoc.open();
   idoc.write(this.data.blocked_source);
   idoc.close();
@@ -124,7 +128,6 @@ Template.tagPage.rendered = function() {
     const data = Router.current().data();
     if (!data) return;
     const labelsEntry = _getLabel(doc_id);
-    console.log(labelsEntry, doc_id, data);
     if (!labelsEntry) {
       Meteor.call('setLabels',data.dataset, doc_id,_initLabels(PageBlocks.getBlocks(idoc)));
       return;
@@ -135,7 +138,6 @@ Template.tagPage.rendered = function() {
 
   const _zoomStyleNode = PageBlocks.addStyleString(idoc,PageBlocks.zoomStyle(1));
   this.autorun(() => {
-    console.log("set zoom level");
     _zoomStyleNode.innerHTML = PageBlocks.zoomStyle(Session.get('_zoomLevel'));
   });
 

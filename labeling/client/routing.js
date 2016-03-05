@@ -4,8 +4,11 @@ Router.configure({
 
 Router.route('/', {
   name: 'start',
+  loadingTemplate: 'loading',
+  template: 'loading',
   action() {
     Tagging.goToNextPage();
+    this.render();
   }
 });
 
@@ -88,15 +91,14 @@ Router.route('/tag/:dataset_id/:id', {
   name: 'tag.page',
   subscriptions() {
     return [Meteor.subscribe('page',this.params.id),
-            Meteor.subscribe('pages_in_dataset',this.params.dataset_id),
-            Meteor.subscribe('labels_for_page',this.params.id)];
+            Meteor.subscribe('users_labeling',this.params.id)];
   },
   data() {
     return Documents.findOne({doc_id: this.params.id});
   },
   action() {
     if (this.ready()) {
-      let cur_labeling = 'user-'+Meteor.userId();
+      let cur_labeling = Tagging.labelName();
 
       this.state.set('cur_labeling',cur_labeling);
       this.render();

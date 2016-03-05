@@ -3,7 +3,7 @@
     <table class="table">
       <tbody>
       {{#each pages}}
-        <tr>
+        <tr class="dataset-item {{#if removed}} dataset-item-removed{{/if}}">
           <td><a class="go-to-page"><span class="glyphicon glyphicon-chevron-right"></span> <strong>{{doc_id}}</strong></a></td>
           <td>{{hostname(url)}}</td>
           <td>{{countForDocument(doc_id)}} <span class="gray">responses</span></td>

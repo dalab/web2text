@@ -10,9 +10,9 @@
 }
 .iframe-wrapper .spinner-container {
   position: absolute;
-  background-color:rgba(255,255,255,0.9);
+  /*background-color:rgba(255,255,255,0.9);*/
 }
-.iframe-wrapper .spinner-container::after {
+/*.iframe-wrapper .spinner-container::after {
   content: "Please be patient, this might take a while for some pages";
   font-weight: 300;
   color:#777;
@@ -38,7 +38,7 @@
   line-height:25px;
   margin-top:40px;
   text-align:center;
-}
+}*/
 
 #page {
   display:block;
@@ -67,4 +67,9 @@
    -moz-user-select: none;
    -ms-user-select: none;
    user-select: none;
+}
+
+.document-removed * {
+  color:red !important;
+  text-decoration: line-through;
 }

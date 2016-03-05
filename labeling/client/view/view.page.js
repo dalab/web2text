@@ -24,6 +24,9 @@ Template.viewPage.helpers({
     if(lab == curr) return "selected";
     else return "";
   },
+  'iframeLoading': function () {
+    return Session.get('iframe-loading')
+  },
   zoomLevel: function () {
     return Math.round(Session.get("_zoomLevel")*100);
   },
@@ -43,13 +46,22 @@ Template.viewPage.events({
   'input #zoom-level, change #zoom-level'(evt) {
     console.log('thiny has changed');
     Session.set('_zoomLevel',$(evt.target).val()/100);
+  },
+
+  'click .remove-page'(evt) {
+    evt.preventDefault();
+    Meteor.call("removeDocument", this.doc_id, true);
+  },
+  'click .unremove-page'(evt) {
+    evt.preventDefault();
+    Meteor.call("removeDocument", this.doc_id, false);
   }
 });
 
 
 Template.viewPage.rendered = function() {
 
-  Session.set('iframe-loading',true);
+  Session.set('iframe-loading',false) //disabled;
   let iframe = document.getElementById("page");
   let idoc = iframe.contentDocument;
   idoc.open();
@@ -61,7 +73,9 @@ Template.viewPage.rendered = function() {
     let data = Router.current().data();
     let label_name = Iron.controller().state.get('cur_labeling');
     if (!label_name) return;
-    PageBlocks.markBlocks(idoc, Labels.findOne({label_name, doc_id: data.doc_id}).labels);
+    const labeling = Labels.findOne({label_name, doc_id: data.doc_id});
+    if (!labeling) return;
+    PageBlocks.markBlocks(idoc, labeling.labels);
   });
 
   const _zoomStyleNode = PageBlocks.addStyleString(idoc,PageBlocks.zoomStyle(1));

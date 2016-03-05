@@ -70,3 +70,6 @@ a {
   font-size:.8em;
 }
 
+.dataset-item-removed {
+  text-decoration: line-through;
+}

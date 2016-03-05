@@ -7,14 +7,14 @@ Meteor.publish("datasets", function () {
 Meteor.publish("pages_in_dataset", function (id) {
   check(id, String);
   if (this.userId)
-    return Documents.find({dataset: id},{fields:{doc_id:1,url:1,dataset:1}});
+    return Documents.find({dataset: id},{fields:{doc_id:1,url:1,dataset:1,removed:1}});
   else return null
 });
 
 Meteor.publish("page", function (id) {
   check(id, String);
   if (this.userId)
-    return Documents.find({doc_id: id},{fields:{doc_id:1,url:1,dataset:1,blocked_source:1}});
+    return Documents.find({doc_id: id},{fields:{doc_id:1,url:1,dataset:1,blocked_source:1,removed:1}});
   else return null
 });
 
@@ -33,9 +33,16 @@ Meteor.publish("labels_for_page", function (doc_id) {
   else return null
 });
 
+Meteor.publish("users_labeling", function (doc_id) {
+  check(doc_id, String);
+  if (this.userId)
+    return Labels.find({doc_id,label_name:`user-${this.userId}`});
+  else return null
+});
+
 Meteor.publish("userData", function () {
     return Meteor.users.find({_id: this.userId},
-        {fields: {'n_tagged': 1}});
+        {fields: {'n_tagged': 1, 'isAdmin': 1}});
 });
 
 Meteor.publish("userName", function (_id) {
