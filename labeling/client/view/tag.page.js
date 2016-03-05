@@ -91,7 +91,13 @@ Template.tagPage.events({
     if (Session.get('iframe-loading')) return;
     const labels = _getLabel(this.doc_id);
     const done = labels && labels.metadata.finished;
-    Meteor.call('markDone', this.doc_id, !done);
+    let hasOne = false;
+    labels.labels.forEach((lab) => {
+      if (lab===1) hasOne = true
+    });
+    if (done || hasOne || confirm("Are you sure there is no content on this page at all?")) {
+      Meteor.call('markDone', this.doc_id, !done);
+    }
   },
 
   'input #zoom-level, change #zoom-level'(evt) {

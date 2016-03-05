@@ -9,13 +9,14 @@
     <div class="panel panel-default panel-main">
       <div class="panel-heading"><h3 class="panel-title">Page {{status}} / {{tagTotal}}</h3></div>
       <div class="panel-body panel-body-buttons">
+        <p>Please mark all text that belongs to the main content of the page green by clicking/dragging.</p>
         <div class="btn-toolbar">
           <button type="button" class="btn btn-default save-button {{#if saved}}btn-success{{else}}btn-primary{{/if}} {{#if iframeLoading}}disabled{{/if}}">{{#if saved}}<input type="checkbox" checked="{{#if saved}}checked{{/if}}"> Saved{{else}}Save{{/if}}</button>
           {{#if saved}}<button type="button" class="btn btn-default next-tag-page" disabled="{{#if saved}}{{else}}disabled{{/if}}">{{#if nextIsDone}}Done{{else}}Next{{/if}} <span class="glyphicon glyphicon-chevron-right"></span></button>{{/if}}
           <div class="btn-group pull-right">
             <button class="btn btn-default dropdown-toggle btn-danger" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" disabled="{{#if saved}}disabled{{/if}}">Skip <span class="caret"></span></button>
             <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-              <li><a href="#" class="skip-button" data-reason="dont-like">I don't like this page</a></li>
+              <!-- <li><a href="#" class="skip-button" data-reason="dont-like">I don't like this page</a></li> -->
               <li><a href="#" class="skip-button" data-reason="doesnt-load">Page doesn't load</a></li>
               <li><a href="#" class="skip-button" data-reason="cant-decide">Can't decide how to label this page.</a></li>
             </ul>
@@ -28,9 +29,24 @@
       <h5>Undo</h5>
       <p>Want to color text <span class="label label-danger">red</span> again? Press and hold <code>[{{#if isLinux}}ctrl{{else}}alt{{/if}}]</code> while selecting text.</p>
     </div></div>
-    <div class="panel panel-default"><div class="panel-body">
-      <h5>Guidelines</h5>
-      <p>Remove anything that does not belong to the main content of the page</p>
+    <div class="panel panel-default keep-remove"><div class="panel-body">
+      <h5 class="text-success"><span class="glyphicon glyphicon-ok"></span>Keep</h5>
+      <ul>
+        <li>Main story</li>
+        <li>Article title</li>
+        <li>Author</li>
+      </ul>
+      <h5 class="text-danger"><span class="glyphicon glyphicon-remove"></span>Remove</h5>
+      <ul>
+        <li>Comment sections</li>
+        <li>Link lists</li>
+        <li>Table of contents</li>
+        <li>Information that is on every page of the website</li>
+        <li>Short previews of ‘other articles’</li>
+        <li>Image captions</li>
+        <li>Read more... / [edit] / social media links / ...</li>
+        <li>References / bibliography</li>
+      </ul>
     </div></div>
     <div class="panel panel-default"><div class="panel-body">
       <h5>Zoom level</h5>
