@@ -147,6 +147,7 @@ Template.tagPage.rendered = function() {
   _attachDragHandlers(idoc, doc_id);
 
   PageBlocks.deactivateLinks(idoc);
+  PageBlocks.unblockStyles(idoc);
   PageBlocks.addStyleString(idoc, PageBlocks.pageCss);
 
 };

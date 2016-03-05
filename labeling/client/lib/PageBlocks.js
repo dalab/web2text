@@ -42,6 +42,13 @@ PageBlocks = {
     $(dom).find('img').mousedown((e) => e.preventDefault());
   },
 
+  unblockStyles(dom) {
+    [].forEach.call($(dom).find('link[rel=stylesheet]'),(node) => {
+      node.setAttribute("media","none");
+      node.setAttribute('onload',"if(media!='all')media='all'");
+    });
+  },
+
   getBlocks(dom) {
     return dom.getElementsByClassName('boilerplate-text-block')
   },

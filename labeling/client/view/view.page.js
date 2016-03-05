@@ -84,7 +84,7 @@ Template.viewPage.rendered = function() {
   });
 
   PageBlocks.deactivateLinks(idoc);
-
+  PageBlocks.unblockStyles(idoc);
   PageBlocks.addStyleString(idoc, PageBlocks.pageCss);
 
 };
