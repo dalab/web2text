@@ -1,6 +1,8 @@
 Meteor.methods({
   nextPageToTag() {
 
+    const TARGETCOUNT = 5;
+
     if (!Meteor.userId()) {
       throw new Meteor.Error("not-authorized");
     }
@@ -39,7 +41,7 @@ Meteor.methods({
       const mapped = docs.map((doc) => {
         let count = 0
         if (doneMap.has(doc.doc_id))
-          count = Tagging.TARGET_COUNT+1;
+          count = TARGETCOUNT+1;
         else
           count = getCount(doc.doc_id);
         return {count,doc_id: doc.doc_id}
@@ -47,7 +49,7 @@ Meteor.methods({
       mapped.sort(function(a, b) {
         return +(a.count > b.count) || +(a.count === b.count) - 1;
       });
-      if(mapped[0].count < Tagging.TARGET_COUNT) {
+      if(mapped[0].count < TARGETCOUNT) {
         result = {doc_id: mapped[0].doc_id, dataset: dataset};
       }
     });
