@@ -12,6 +12,8 @@ Tagging = {
 
   PAGES_PER_BATCH: 10,
 
+  TARGET_COUNT: 5,
+
   labelName() {
     return `user-${Meteor.userId()}`;
   }

@@ -43,6 +43,7 @@ PageBlocks = {
   },
 
   unblockStyles(dom) {
+    $(dom).find('link[rel=stylesheet][media=print]').remove();
     [].forEach.call($(dom).find('link[rel=stylesheet]'),(node) => {
       node.setAttribute("media","none");
       node.setAttribute('onload',"if(media!='all')media='all'");
