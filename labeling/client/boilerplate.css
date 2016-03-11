@@ -1,6 +1,7 @@
 body {
   padding-top:51px;
   min-width:1024px;
+  background-color:#e0e0e0;
 }
 .main-container {
   overflow:auto;
