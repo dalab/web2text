@@ -10,18 +10,21 @@
       <div class="panel-heading"><h3 class="panel-title">Page {{status}} / {{tagTotal}}</h3></div>
       <div class="panel-body panel-body-buttons">
         <p>Please mark all text that belongs to the main content of the page green by clicking/dragging.</p>
-        <div class="btn-toolbar">
-          <button type="button" class="btn btn-default save-button {{#if saved}}btn-success{{else}}btn-primary{{/if}} {{#if iframeLoading}}disabled{{/if}}">{{#if saved}}<input type="checkbox" checked="{{#if saved}}checked{{/if}}"> Saved{{else}}Save{{/if}}</button>
-          {{#if saved}}<button type="button" class="btn btn-default next-tag-page" disabled="{{#if saved}}{{else}}disabled{{/if}}">{{#if nextIsDone}}Done{{else}}Next{{/if}} <span class="glyphicon glyphicon-chevron-right"></span></button>{{/if}}
-          <div class="btn-group pull-right">
-            <button class="btn btn-default dropdown-toggle btn-danger" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" disabled="{{#if saved}}disabled{{/if}}">Skip <span class="caret"></span></button>
-            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-              <!-- <li><a href="#" class="skip-button" data-reason="dont-like">I don't like this page</a></li> -->
-              <li><a href="#" class="skip-button" data-reason="doesnt-load">Page doesn't load</a></li>
-              <li><a href="#" class="skip-button" data-reason="cant-decide">Can't decide how to label this page.</a></li>
-            </ul>
+        <form class="save-form">
+          <input type="text" class="comments-box form-control" placeholder="Comments (optional)" value="{{comments}}">
+          <div class="save-form-buttons">
+            <button type="button" class="btn btn-default save-button {{#if saved}}btn-success{{else}}btn-primary{{/if}} {{#if iframeLoading}}disabled{{/if}}">{{#if saved}}<input type="checkbox" checked="{{#if saved}}checked{{/if}}"> Saved{{else}}Save{{/if}}</button>
+            {{#if saved}}<button type="button" class="btn btn-default next-tag-page" disabled="{{#if saved}}{{else}}disabled{{/if}}">{{#if nextIsDone}}Done{{else}}Next{{/if}} <span class="glyphicon glyphicon-chevron-right"></span></button>{{/if}}
+            <div class="btn-group">
+              <button class="btn btn-default dropdown-toggle btn-danger" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" disabled="{{#if saved}}disabled{{/if}}">Skip <span class="caret"></span></button>
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                <!-- <li><a href="#" class="skip-button" data-reason="dont-like">I don't like this page</a></li> -->
+                <li><a href="#" class="skip-button" data-reason="doesnt-load">Page doesn't load</a></li>
+                <li><a href="#" class="skip-button" data-reason="cant-decide">Can't decide how to label this page.</a></li>
+              </ul>
+            </div>
           </div>
-        </div>
+        </form>
       </div>
     </div>
 

@@ -2,11 +2,9 @@
 
 let _state = () => Iron.controller().state;
 
-let _altPressed = false;
-
 Meteor.startup(() => {
-  Session.set("_altPressed",false);
-  Session.set("_zoomLevel",1);
+  Session.setDefault("_altPressed",false);
+  Session.setDefault("_zoomLevel",1);
 });
 
 let _getLabel = (doc_id) => {
@@ -54,6 +52,9 @@ Template.tagPage.helpers({
   },
   'isLinux': function () {
     return navigator.platform.toUpperCase().indexOf('LINUX')!==-1;
+  },
+  'comments': function () {
+    return _getLabel(this.doc_id).metadata.comments;
   }
 });
 
@@ -101,7 +102,6 @@ Template.tagPage.events({
   },
 
   'input #zoom-level, change #zoom-level'(evt) {
-    console.log('thiny has changed');
     Session.set('_zoomLevel',$(evt.target).val()/100);
   },
 
@@ -114,6 +114,10 @@ Template.tagPage.events({
     if (!page) return;
     Router.go('tag.page',
               {dataset_id: dataset, id: doc_id});
+  },
+
+  'change .comments-box'(evt, instance) {
+    Meteor.call('setComments',instance.data.doc_id, $(evt.target).val());
   }
 });
 
@@ -163,13 +167,13 @@ let _attachKeyListener = (to) => {
   const keycode = {ctrl: 17, alt: 18, A: 65};
 
   to.onkeyup = function(e) {
-    if (e.keyCode == keycode.ctrl || e.keyCode == keycode.alt)
+    if (e.keyCode === keycode.ctrl || e.keyCode === keycode.alt)
       Session.set("_altPressed",false);
   }
   to.onkeydown = function(e) {
-    if (e.keyCode == keycode.ctrl || e.keyCode == keycode.alt)
+    if (e.keyCode === keycode.ctrl || e.keyCode === keycode.alt)
       Session.set("_altPressed",true);
-    if (e.keyCode == keycode.A) {
+    if (e.keyCode === keycode.A) {
       // mark all as ...
     }
   }

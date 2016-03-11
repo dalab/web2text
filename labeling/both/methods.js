@@ -1,5 +1,19 @@
 Meteor.methods({
 
+  setComments(doc_id, comments) {
+    if (!Meteor.userId()) {
+      throw new Meteor.Error("not-authorized");
+    }
+    check(comments, String);
+    check(doc_id, String);
+
+    const label_name = `user-${Meteor.userId()}`;
+    const query      = {doc_id, label_name};
+    const update     = {'$set': {'metadata.comments': comments}};
+
+    Labels.update(query, update);
+  },
+
   setLabels(dataset, doc_id, labels) {
 
     if (!Meteor.userId()) {
