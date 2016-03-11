@@ -87,7 +87,8 @@
   flex-direction:row;
 }
 .save-form-buttons {
-  width:10em;
+  /*width:10em;*/
+  padding-left:0.5em;
   -webkit-flex-shrink:0;
   -moz-flex-shrink:0;
   -ms-flex-shrink:0;

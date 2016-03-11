@@ -1,5 +1,6 @@
 body {
   padding-top:51px;
+  min-width:1024px;
 }
 .main-container {
   overflow:auto;
@@ -62,12 +63,31 @@ body {
   padding-top:1em;
 }
 .login-container {
-  max-width:40em;
+  max-width:60em;
   margin:0 auto;
 }
 .login-container h3 {
   margin-bottom:1em;
   text-align:center;
+}
+
+.login-container p {
+  font-size:1.1em;
+  line-height:1.5em;
+  margin: 1.5em 0;
+}
+
+.login-container .image-container {
+  margin-top:1em;
+  margin-bottom:1em;
+  position:relative;
+}
+.login-container .container-fluid {
+  padding:0;
+}
+
+.login-container img {
+  width:100%;
 }
 
 a {
