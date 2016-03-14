@@ -1,9 +1,6 @@
 <template name="tagPage">
   <div class="main-container">
-    <div class="iframe-wrapper {{#if iframeLoading}}iframe-loading{{/if}}">
-      {{#if iframeLoading}}{{> spinner}}{{/if}}
-      <iframe id="page" frameborder="0"></iframe>
-    </div>
+     {{> browser labels=labels blockedContent=blocked_source zoom=zoomLevel labelUpdate=labelUpdate }}
 
     <div class="cleaned-gt">
     <div class="panel panel-default panel-main">
@@ -53,7 +50,7 @@
     </div></div>
     <div class="panel panel-default"><div class="panel-body">
       <h5>Zoom level</h5>
-      <p><input type="range" id="zoom-level" min="50" value="{{zoomLevel}}" max="150" step="1" style="width:30%;display:inline-block;"> {{zoomLevel}}%</p>
+      <p><input type="range" id="zoom-level" min="50" value="{{zoomLevelHuman}}" max="150" step="1" style="width:30%;display:inline-block;"> {{zoomLevelHuman}}%</p>
     </div></div>
 
     </div>

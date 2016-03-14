@@ -24,11 +24,11 @@ Template.viewPage.helpers({
     if(lab == curr) return "selected";
     else return "";
   },
-  'iframeLoading': function () {
-    return Session.get('iframe-loading')
+  zoomLevelHuman: function () {
+    return Math.round(Session.get("_zoomLevel")*100);
   },
   zoomLevel: function () {
-    return Math.round(Session.get("_zoomLevel")*100);
+    return Session.get("_zoomLevel");
   },
   hostname(url) {
     var anchor = document.createElement('a');
@@ -44,7 +44,6 @@ Template.viewPage.events({
   },
 
   'input #zoom-level, change #zoom-level'(evt) {
-    console.log('thiny has changed');
     Session.set('_zoomLevel',$(evt.target).val()/100);
   },
 
@@ -57,34 +56,3 @@ Template.viewPage.events({
     Meteor.call("removeDocument", this.doc_id, false);
   }
 });
-
-
-Template.viewPage.rendered = function() {
-
-  Session.set('iframe-loading',false) //disabled;
-  let iframe = document.getElementById("page");
-  let idoc = iframe.contentDocument;
-  idoc.open();
-  idoc.write(this.data.blocked_source);
-  idoc.close();
-  iframe.onload = () => Session.set('iframe-loading',false);
-
-  this.autorun(() => {
-    let data = Router.current().data();
-    let label_name = Iron.controller().state.get('cur_labeling');
-    if (!label_name) return;
-    const labeling = Labels.findOne({label_name, doc_id: data.doc_id});
-    if (!labeling) return;
-    PageBlocks.markBlocks(idoc, labeling.labels);
-  });
-
-  const _zoomStyleNode = PageBlocks.addStyleString(idoc,PageBlocks.zoomStyle(1));
-  this.autorun(() => {
-    _zoomStyleNode.innerHTML = PageBlocks.zoomStyle(Session.get('_zoomLevel'));
-  });
-
-  PageBlocks.deactivateLinks(idoc);
-  PageBlocks.unblockStyles(idoc);
-  PageBlocks.addStyleString(idoc, PageBlocks.pageCss);
-
-};

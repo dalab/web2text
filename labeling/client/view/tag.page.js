@@ -29,17 +29,19 @@ Template.tagPage.helpers({
     return Session.get("_altPressed");
   },
   'zoomLevel': function () {
+    return Session.get("_zoomLevel");
+  },
+  'zoomLevelHuman': function () {
     return Math.round(Session.get("_zoomLevel")*100);
   },
   'labels': function () {
-    _getLabel(this.doc_id);
+    const labeling = _getLabel(this.doc_id);
+    if (!labeling) return [];
+    else return labeling.labels;
   },
   'saved': function () {
     const labels = _getLabel(this.doc_id);
     return labels && labels.metadata.finished;
-  },
-  'iframeLoading': function () {
-    return Session.get('iframe-loading')
   },
   'status': function () {
     return _currentStep(this.doc_id);
@@ -54,8 +56,14 @@ Template.tagPage.helpers({
     return navigator.platform.toUpperCase().indexOf('LINUX')!==-1;
   },
   'comments': function () {
-    return _getLabel(this.doc_id).metadata.comments;
-  }
+    const labeling = _getLabel(this.doc_id);
+    if (!labeling) return "";
+    return labeling.metadata.comments;
+  },
+  'labelUpdate': function () {
+    return (updates) =>
+      Meteor.call('tagBlocks', this.doc_id, updates);
+  },
 });
 
 Template.tagPage.events({
@@ -121,178 +129,14 @@ Template.tagPage.events({
   }
 });
 
-
-Template.tagPage.rendered = function() {
-
-  Session.set('iframe-loading',false) // disabled;
-  let iframe = document.getElementById("page");
-  let idoc = iframe.contentDocument;
-  idoc.open();
-  idoc.write(this.data.blocked_source);
-  idoc.close();
-  iframe.onload = () => Session.set('iframe-loading',false);
-
-  const doc_id = this.data.doc_id;
-
-  this.autorun(() => {
-    const data = Router.current().data();
-    if (!data) return;
-    const labelsEntry = _getLabel(doc_id);
-    if (!labelsEntry) {
-      Meteor.call('setLabels',data.dataset, doc_id,_initLabels(PageBlocks.getBlocks(idoc)));
-      return;
-    }
-    const labels = labelsEntry.labels
-    PageBlocks.markBlocks(idoc, labels);
-  });
-
-  const _zoomStyleNode = PageBlocks.addStyleString(idoc,PageBlocks.zoomStyle(1));
-  this.autorun(() => {
-    _zoomStyleNode.innerHTML = PageBlocks.zoomStyle(Session.get('_zoomLevel'));
-  });
-
-  _attachKeyListener(idoc);
-  _attachKeyListener(window);
-
-  _attachDragHandlers(idoc, doc_id);
-
-  PageBlocks.deactivateLinks(idoc);
-  PageBlocks.unblockStyles(idoc);
-  PageBlocks.addStyleString(idoc, PageBlocks.pageCss);
-
-};
-
-let _attachKeyListener = (to) => {
-
-  const keycode = {ctrl: 17, alt: 18, A: 65};
-
-  to.onkeyup = function(e) {
-    if (e.keyCode === keycode.ctrl || e.keyCode === keycode.alt)
-      Session.set("_altPressed",false);
+Template.tagPage.onRendered(function () {
+  const labelsEntry = _getLabel(this.data.doc_id);
+  if (!labelsEntry) {
+    console.log("There are no labels yet, initialize");
+    Meteor.call('setLabels',
+      this.data.dataset,
+      this.data.doc_id,
+      new Array(this.data.n_blocks).fill(0)
+    );
   }
-  to.onkeydown = function(e) {
-    if (e.keyCode === keycode.ctrl || e.keyCode === keycode.alt)
-      Session.set("_altPressed",true);
-    if (e.keyCode === keycode.A) {
-      // mark all as ...
-    }
-  }
-};
-
-let _initialW = 0, _initialH = 0, _selectionBox = null;
-
-let _attachDragHandlers = (dom, doc_id) => {
-
-  const $ = jQuery;
-
-  $(dom).mousedown(function (e) {
-
-    e.preventDefault();
-
-    if (_selectionBox) dom.body.removeChild(_selectionBox);
-    _selectionBox = dom.createElement('div');
-    _selectionBox.style.position = 'absolute';
-
-    if (!Session.get('_altPressed')) _selectionBox.className = 'selection add';
-    else                             _selectionBox.className = 'selection remove';
-
-    dom.body.appendChild(_selectionBox);
-    dom.body.style.cursor = 'default';
-
-    _initialW = e.pageX; _initialH = e.pageY;
-
-    $(dom).bind('mouseup', selectElements);
-    $(dom).bind('mousemove', openSelector);
-
-  });
-
-  function drawRect(rect) {
-    const tableRectDiv = dom.createElement('div');
-
-    const scrollTop = dom.documentElement.scrollTop || dom.body.scrollTop,
-          scrollLeft = dom.documentElement.scrollLeft || dom.body.scrollLeft;
-    let style = tableRectDiv.style;
-    style.position  = 'absolute';
-    style.border    = '1px solid blue';
-    style.margin    = '0';
-    style.padding   = '0';
-    style.top       = (rect.top + scrollTop) + 'px';
-    style.left      = (rect.left + scrollLeft) + 'px';
-    style.width     = (rect.width - 2) + 'px';
-    style.height    = (rect.height - 2) + 'px';
-
-    dom.body.appendChild(tableRectDiv);
-  }
-
-  function openSelector(e) {
-    const zoom = Session.get('_zoomLevel');
-    const width  = Math.abs(_initialW - e.pageX)/zoom,
-          height = Math.abs(_initialH - e.pageY)/zoom,
-          left   = Math.min(_initialW, e.pageX)/zoom,
-          top    = Math.min(_initialH, e.pageY)/zoom;
-
-    let style = _selectionBox.style
-
-    style.width  = `${width}px`;
-    style.height = `${height}px`;
-    style.left   = `${left-dom.body.offsetLeft}px`;
-    style.top    = `${top-dom.body.offsetTop}px`;
-  }
-
-  function selectElements(e) {
-    $(dom).unbind("mousemove", openSelector);
-    $(dom).unbind("mouseup", selectElements);
-
-    dom.body.removeChild(_selectionBox);
-    _selectionBox = null;
-
-    const width  = Math.abs(_initialW - e.pageX),
-          height = Math.abs(_initialH - e.pageY),
-          left   = Math.min(_initialW, e.pageX),
-          top    = Math.min(_initialH, e.pageY),
-          right  = Math.max(_initialW, e.pageX),
-          bottom = Math.max(_initialH, e.pageY);
-
-    dom.body.style.cursor = "automatic";
-
-    let updates = [];
-    [].filter.call(PageBlocks.getBlocks(dom), b => {
-      const rectCollection = b.getClientRects();
-      let match = false;
-      [].forEach.call(rectCollection, (r) => {
-
-        const rl = r.left   + $(dom).scrollLeft(),
-              rr = r.right  + $(dom).scrollLeft(),
-              rt = r.top    + $(dom).scrollTop(),
-              rb = r.bottom + $(dom).scrollTop();
-
-        const inside = (left <= rr && right >= rl
-                        && top <= rb && bottom >= rt);
-
-        const clickTest = (width == 0 && height == 0 &&
-                           _initialW >= rl && _initialW <= rr &&
-                           _initialH >= rt && _initialH <= rb);
-
-        if (inside || clickTest) match = true;
-      });
-      return match;
-    }).forEach(b => {
-      let tag;
-      if (!Session.get("_altPressed")) tag = 1;
-      else                             tag = 0;
-
-      const block_id = $(b).data('id');
-
-      // Meteor.call('tagBlock', tag, doc_id, block_id);
-      updates.push({block_id,tag});
-    });
-    Meteor.call('tagBlocks', doc_id, updates);
-  }
-
-};
-
-
-
-let _initLabels = (blocks) => {
-  return [].map.call(blocks, x => 0);
-};
+});

@@ -20,6 +20,18 @@ Router.route('/view', {
     this.render();
   }
 });
+Router.route('/review', {
+  loadingTemplate: 'loading',
+  template: 'review',
+  name: 'review.index',
+  subscriptions() {
+    return Meteor.subscribe('users');
+  },
+  action() {
+    this.render();
+  }
+});
+
 Router.route('/done-tagging', {
   loadingTemplate: 'loading',
   template: 'doneTagging',

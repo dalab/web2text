@@ -1,0 +1,13 @@
+<template name="review">
+  <div class="container-fluid main-content">
+  <p>Please choose a user</p>
+  <div class="list-group">
+  {{#each user in users}}
+    <a class="list-group-item"><span class="glyphicon glyphicon-chevron-right"></span> {{user._id}} ({{user.profile.name}}) – {{user.n_tagged}} pages tagged</a>
+  {{/each}}
+  </div>
+  </div>
+  {{#contentFor "breadcrumbs"}}
+    <li class="active">View</li>
+  {{/contentFor}}
+</template>
