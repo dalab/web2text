@@ -13,6 +13,12 @@ Template.viewPage.helpers({
     const curr = _state().get('cur_labeling');
     return Labels.findOne({label_name: curr, doc_id: this.doc_id});
   },
+  labels() {
+    const curr = _state().get('cur_labeling');
+    const labeling = Labels.findOne({label_name: curr, doc_id: this.doc_id});
+    if (!labeling) return [];
+    else return labeling.labels;
+  },
   curLabelUser() {
     const curr = _state().get('cur_labeling');
     const user = curr.substring(5,curr.length);

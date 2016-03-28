@@ -17,7 +17,7 @@ Template.layout.events({
       {'doc_id': {'$gt': this.doc_id}},
       {sort: {'doc_id':1}}
     );
-    if (!page) return;
+    if (!doc_id) return;
     Router.go('view.page',
               {dataset_id: dataset, id: doc_id, cur_labeling: _state().get('cur_labeling')} );
   },
@@ -28,7 +28,7 @@ Template.layout.events({
       {'doc_id': {'$lt': this.doc_id}},
       {sort: {'doc_id':-1}}
     );
-    if (!page) return;
+    if (!doc_id) return;
     Router.go('view.page',
               {dataset_id: dataset, id: doc_id, cur_labeling: _state().get('cur_labeling')});
   }

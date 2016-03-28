@@ -32,13 +32,14 @@ Template.browser.onRendered(function () {
   let _zoomStyleNode = null;
 
   this.autorun(() => {
+    console.log("Main autorun");
     this.state.set({'loading': true});
 
     // Set iframe content
     idoc.open();
     idoc.write(this.blockedContent.get());
     idoc.close();
-    iframe.onload = () => this.state.set('loading',false);
+    this.state.set('loading',false);
 
     // Make iFrame safe for use
     PageBlocks.deactivateLinks(idoc);
@@ -48,9 +49,20 @@ Template.browser.onRendered(function () {
     _zoomStyleNode = PageBlocks.addStyleString(
       idoc,
       PageBlocks.zoomStyle(
-        Tracker.nonreactive(() => Session.get('_zoomLevel'))
+        Tracker.nonreactive(() => this.zoom.get())
       )
     );
+
+    if (this.data.labelUpdate) {
+      _attachKeyListener(idoc);
+      _attachKeyListener(window);
+      this._initialW = 0;
+      this._initialH = 0;
+      this._selectionBox = null;
+      _attachDragHandlers.call(this,idoc);
+    }
+    // Set labels
+    PageBlocks.markBlocks(idoc, Tracker.nonreactive(() => this.labels.get()));
   });
 
   // Attach zoom listener
@@ -67,15 +79,6 @@ Template.browser.onRendered(function () {
   });
 
 
-  if (this.data.labelUpdate) {
-    _attachKeyListener(idoc);
-    _attachKeyListener(window);
-    this._initialW = 0;
-    this._initialH = 0;
-    this._selectionBox = null;
-    _attachDragHandlers.call(this,idoc);
-  }
-
 });
 
 let _attachKeyListener = (to) => {
@@ -91,11 +94,11 @@ let _attachKeyListener = (to) => {
 };
 
 const _attachDragHandlers = function (dom) {
+  console.log("Attach the drag handlers to",dom);
   const labelUpdate = this.data.labelUpdate;
   const $ = jQuery;
 
-  $(dom).mousedown(function (e) {
-
+  dom.addEventListener("mousedown",function (e) {
     e.preventDefault();
 
     if (this._selectionBox) dom.body.removeChild(this._selectionBox);
@@ -113,7 +116,7 @@ const _attachDragHandlers = function (dom) {
     $(dom).bind('mouseup', selectElements);
     $(dom).bind('mousemove', openSelector);
 
-  });
+  }, false);
 
   function drawRect(rect) {
     const tableRectDiv = dom.createElement('div');

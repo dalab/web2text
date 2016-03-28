@@ -1,0 +1,17 @@
+<template name="reviewUser">
+  <div class="container-fluid main-content review-user">
+  <h4>Participant Review ‘{{user._id}}’ <small>{{user.n_tagged}} pages</small></h4>
+  <form class="form-inline">
+    <input class="slider" type="range" min="1" max="{{user.n_tagged}}" value="{{i}}" />
+  </form>
+  {{#each labeling in labelings}}
+    {{> reviewUserSingle labels=labeling.labels doc_id=labeling.doc_id}}
+  {{/each}}
+  </div>
+  {{#contentFor "breadcrumbs"}}
+    <li><a href="{{pathFor 'review.index'}}">Review</a></li>
+    <li class="active">
+      {{user._id}}
+    </li>
+  {{/contentFor}}
+</template>

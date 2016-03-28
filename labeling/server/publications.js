@@ -11,10 +11,10 @@ Meteor.publish("pages_in_dataset", function (id) {
   else return null
 });
 
-Meteor.publish("page", function (id) {
-  check(id, String);
+Meteor.publish("page", function (doc_id) {
+  check(doc_id, String);
   if (this.userId)
-    return Documents.find({doc_id: id},{fields:{doc_id:1,url:1,dataset:1,blocked_source:1,removed:1, n_blocks: 1}});
+    return Documents.find({doc_id},{fields:{doc_id:1,url:1,dataset:1,blocked_source:1,removed:1, n_blocks: 1}});
   else return null
 });
 
@@ -40,9 +40,22 @@ Meteor.publish("users_labeling", function (doc_id) {
   else return null
 });
 
+Meteor.publish("user_labelings", function (user_id) {
+  check(user_id, String);
+  if (this.userId)
+    return Labels.find({label_name:`user-${user_id}`});
+  else return null
+});
+
 Meteor.publish("userData", function () {
     return Meteor.users.find({_id: this.userId},
-        {fields: {'n_tagged': 1, 'isAdmin': 1}});
+        {fields: {'n_tagged': 1, 'isAdmin': 1, n_tagged: 1}});
+});
+
+Meteor.publish("user_data_for_user", function (userId) {
+  check(userId,String);
+  return Meteor.users.find({_id: userId},
+      {fields: {'n_tagged': 1, 'isAdmin': 1, n_tagged: 1}});
 });
 
 Meteor.publish("userName", function (_id) {

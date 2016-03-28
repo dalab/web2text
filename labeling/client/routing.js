@@ -20,12 +20,26 @@ Router.route('/view', {
     this.render();
   }
 });
+
 Router.route('/review', {
   loadingTemplate: 'loading',
   template: 'review',
   name: 'review.index',
   subscriptions() {
     return Meteor.subscribe('users');
+  },
+  action() {
+    this.render();
+  }
+});
+
+Router.route('/review/:userId', {
+  loadingTemplate: 'loading',
+  template: 'reviewUser',
+  name: 'review.user',
+  subscriptions() {
+    return [Meteor.subscribe('user_labelings',this.params.userId),
+            Meteor.subscribe('user_data_for_user',this.params.userId)];
   },
   action() {
     this.render();
