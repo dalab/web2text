@@ -147,11 +147,11 @@ object Util {
 
   /** Split a string into sentences.
     *
-    * @todo Make this more reliable
+    * @todo Got this from StackExchange. Make this more reliable
     * @note Changing the behaviour of this function will change generated features.
     */
   def splitSentences(s: String): Array[String] = {
-    s.split("""\?|\.|!|\||\(|\)| - | – | — """)
+    s.split("""(?<=[.?!;])\s+(?=\p{Lu})""")
   }
 
 

@@ -8,7 +8,7 @@ import org.apache.spark.{SparkConf,SparkContext}
 import breeze.linalg
 import ch.ethz.dalab.dissolve.regression.LabeledObject
 import ch.ethz.dalab.dissolve.models.LinearChainCRF
-import ch.ethz.dalab.dissolve.optimization.{LocalSSGD,DistBCFW}
+import ch.ethz.dalab.dissolve.optimization.{LocalSSGD,LocalBCFW,DistBCFW}
 import ch.ethz.dalab.dissolve.optimization.SSVMClassifier
 
 case class ChainCRF(
@@ -70,12 +70,13 @@ case class ChainCRF(
 
     // Train the model
 
-    val solver = new LocalSSGD(
+    val solver = new LocalBCFW(
       modelConfig,
       debug=debug,
-      // debugMultiplier=debugMultiplier,
-      lambda=lambda
-      // roundLimit=2000
+      lambda=lambda,
+      debugMultiplier=1000
+      // numPasses=500
+      // enableOracleCache=true
     )
 
     // Save the model

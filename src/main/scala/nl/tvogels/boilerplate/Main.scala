@@ -12,60 +12,82 @@ import nl.tvogels.boilerplate.features.{BlockFeatureExtractor,FeatureExtractor}
 import nl.tvogels.boilerplate.database.Database
 import nl.tvogels.boilerplate.features.PageFeatures
 import com.mongodb.casbah.Imports._
+import java.io.File;
+import nl.tvogels.boilerplate.output.CsvDatasetWriter
+
 object Main {
 
   def main(args: Array[String]): Unit = {
-    evaluateOtherMethods
+    exportFeaturesTest
+  }
+
+
+  def exportFeaturesTest = {
+    val fe = FeatureExtractor(
+      TagExtractor,
+      TreeDistanceExtractor + CommonAncestorExtractor(TagExtractor)
+    )
+    val data = Util.time{ CleanEval.dataset(fe) }
+    CsvDatasetWriter.write(data, "/Users/thijs/Desktop/export")
   }
 
   def testCommonAncestorExtractor = {
     val ex = CommonAncestorExtractor(BasicBlockExtractor)
     val cdom = CDOM.fromHTML("<body><h1>Header</h1><p>Paragraph with an <i>Italic</i> section.</p></body>");
-    ex(cdom)(cdom.leaves(1),cdom.leaves(2))
+    ex(cdom)(cdom.leaves(2),cdom.leaves(1))
   }
 
   def testChainCRF(addToMongo: Boolean = true) = {
-    val labelName = "ours-v3"
+    val labelName = "ours-with-tree-distance"
 
     scala.util.Random.setSeed(14101992)
     println("Load dataset")
+    // val fe = FeatureExtractor(
+    //   AncestorExtractor(BasicBlockExtractor+TagExtractor, levels=3)+RootExtractor(BasicBlockExtractor),
+    //   InterceptEdgeExtractor+TreeDistanceExtractor+BlockBreakExtractor+CommonAncestorExtractor(BasicBlockExtractor)
+    // )
     val fe = FeatureExtractor(
-      AncestorExtractor(BasicBlockExtractor, levels=3)+RootExtractor(BasicBlockExtractor),
-      InterceptEdgeExtractor+BlockBreakExtractor
+      DuplicateCountsExtractor,
+      EmptyEdgeExtractor
     )
     val data = Util.time{ CleanEval.dataset(fe) }
     println("Dataset loaded")
-    val splits = data.randomSplit(0.5,0.5);
+    val splits = data.randomSplit(0.2,0.8);
     val (train,test) = (splits(0),splits(1))
-    val classifier = ChainCRF(
-      blockFeatureLabels=fe.blockExtractor.labels,
-      edgeFeatureLabels=fe.edgeExtractor.labels,
-      lambda = 0.0001,
-      debug=false
-    )
-    classifier.train(train,test)
-    classifier.saveWeights("output/weights.txt")
-    classifier.saveWeightsHuman("output/weights-human.txt")
-    println(s"Training statistics: ${classifier.performanceStatistics(train)}")
-    println(s"Test statistics:     ${classifier.performanceStatistics(test)}")
 
-    if (addToMongo) {
-      println("Adding to MongoDB")
-      val local = new Database
-      data.iterator zip CleanEval.iterator foreach {
-        case ((features,_), p) => {
-          val prediction = classifier.predict(features)
-          local.insertLabels(
-            docId         = p.docId,
-            dataset       = "cleaneval",
-            labelName     = labelName,
-            labels        = prediction,
-            userGenerated = false,
-            metadata      = Map()
-          )
-        }
-      }
+    for (power <- -5 to -5 by 2; lambda = math.pow(10,power)) {
+      val classifier = ChainCRF(
+        blockFeatureLabels  = fe.blockExtractor.labels,
+        edgeFeatureLabels   = fe.edgeExtractor.labels,
+        lambda              = lambda,
+        debug               = true
+      )
+      classifier.train(train,test)
+      classifier.saveWeights("output/weights.txt")
+      classifier.saveWeightsHuman("output/weights-human.txt")
+
+      println(s"Lambda: $lambda")
+      println(s"Training statistics: ${classifier.performanceStatistics(train)}")
+      println(s"Test statistics:     ${classifier.performanceStatistics(test)}\n")
     }
+
+    // if (addToMongo) {
+    //   println("Adding to MongoDB")
+    //   val local = new Database
+    //   data.iterator zip CleanEval.iterator foreach {
+    //     case ((features,_), p) => {
+    //       val prediction = classifier.predict(features)
+    //       local.insertLabels(
+    //         docId         = p.docId,
+    //         dataset       = "cleaneval",
+    //         labelName     = labelName,
+    //         labels        = prediction,
+    //         userGenerated = false,
+    //         metadata      = Map()
+    //       )
+    //     }
+    //   }
+    // }
 
   }
 

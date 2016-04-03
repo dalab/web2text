@@ -1,9 +1,11 @@
 package nl.tvogels.boilerplate.cdom
 
 import scala.collection.JavaConversions._
+import scala.collection.JavaConverters._
 import org.jsoup.{nodes => jnodes}
 import org.jsoup.Jsoup
 import nl.tvogels.boilerplate.utilities.Util
+import scala.collection.mutable
 
 /** CDOM
   *
@@ -32,6 +34,17 @@ class CDOM(val root: Node, val leaves: Vector[Node]) {
                   |  </body>
                   |</html>""".stripMargin
     Util.save(path, html)
+  }
+
+  lazy val textCounts: mutable.Map[String,Int] = {
+    val map = new mutable.HashMap[String,Int].withDefaultValue(0)
+    leaves foreach { l => map(l.text) += 1 }
+    map
+  }
+  lazy val classSelectorCounts: mutable.Map[String,Int] = {
+    val map = new mutable.HashMap[String,Int].withDefaultValue(0)
+    leaves foreach { l => map(l.classSelector) += 1 }
+    map
   }
 
 }
@@ -68,6 +81,7 @@ object CDOM {
         var node = new Node
 
         node.tags       = Vector(domnode.nodeName)
+        node.classNames = Vector(Set())
         node.attributes = Vector(domnode.attributes.dataset())
         node.text       = domnode.text
         node.properties   = NodeProperties.fromNode(domnode, children=Vector())
@@ -75,11 +89,12 @@ object CDOM {
         Some(node)
       }
 
-      case _ => {
+      case domnode: jnodes.Element => {
         // Filter the children
         val node = new Node
 
         node.tags       = Vector(domnode.nodeName)
+        node.classNames = Vector(domnode.classNames().asScala.toSet)
         node.attributes = Vector(domnode.attributes.dataset())
         node.children   = domnode.childNodes.toVector
                             .map(createNodeWithChildrenAndFeatures)
@@ -94,6 +109,7 @@ object CDOM {
             val child = node.children.head
             node.children = child.children
             node.tags = node.tags ++ child.tags
+            node.classNames = node.classNames ++ child.classNames
             node.attributes = node.attributes ++ child.attributes
             node.text = child.text
             setPointers(node.children, parent=Some(node))
@@ -108,6 +124,9 @@ object CDOM {
           }
         }
       }
+
+
+      case _  => None
 
     }
 

@@ -31,7 +31,8 @@ class NodeProperties (
   var blockBreakBefore: Boolean,
   var blockBreakAfter: Boolean,
   var brBefore: Boolean,
-  var brAfter: Boolean
+  var brAfter: Boolean,
+  var containsForm: Boolean
 ) {
 
 
@@ -57,6 +58,7 @@ class NodeProperties (
   |  <dt>blockBreakAfter</dt><dd>$blockBreakAfter</dd>
   |  <dt>brBefore</dt><dd>$brBefore</dd>
   |  <dt>brAfter</dt><dd>$brAfter</dd>
+  |  <dt>containsForm</dt><dd>$containsForm</dd>
   |</dl>""".stripMargin
 }
 
@@ -80,8 +82,8 @@ object NodeProperties {
         val words = text.split("\\W+").filter(x => x.length > 0)
         val sentences = Util.splitSentences(text)
 
-        val regexEmail = """\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}\b""".r
-        val regexUrl   = """@^(https?|ftp)://[^\s/$.?#].[^\s]*$@iS""".r
+        val regexEmail = """\b(?=[^\s]+)(?=(\w+)@([\w\.]+))\b""".r
+        val regexUrl   = """\b(https?|ftp)://[^\s/$.?#].[^\s]*\b""".r
         val regexYear  = """\b\d{4}\b""".r
 
         new NodeProperties(
@@ -103,9 +105,9 @@ object NodeProperties {
           endPosition           = domnode.endPosition,
           nChildrenDeep         = 0,
           containsCopyright     = text.contains("©") || text.contains("©️"),
-          containsEmail         = regexEmail.findFirstIn(text) != null,
-          containsUrl           = regexUrl.findFirstIn(text) != null,
-          containsYear          = regexYear.findFirstIn(text) != null,
+          containsEmail         = regexEmail.findFirstIn(text) != None,
+          containsUrl           = regexUrl.findFirstIn(text) != None,
+          containsYear          = regexYear.findFirstIn(text) != None,
           blockBreakBefore      = domnode.previousSibling != null &&
                                   Settings.blockTags.contains
                                    (domnode.previousSibling.nodeName),
@@ -115,7 +117,10 @@ object NodeProperties {
           brBefore              = domnode.previousSibling != null &&
                                   domnode.previousSibling.nodeName == "br",
           brAfter               = domnode.nextSibling != null &&
-                                  domnode.nextSibling.nodeName == "br"
+                                  domnode.nextSibling.nodeName == "br",
+          containsForm          = if (domnode.isInstanceOf[jnodes.Element])
+                                    !domnode.asInstanceOf[jnodes.Element].getElementsByTag("input").isEmpty
+                                  else false
         )
       }
 
@@ -177,7 +182,8 @@ object NodeProperties {
                                    domnode.previousSibling.nodeName == "br"),
           brAfter               = cfeat.brAfter ||
                                   (domnode.nextSibling != null &&
-                                   domnode.nextSibling.nodeName == "br")
+                                   domnode.nextSibling.nodeName == "br"),
+          containsForm          = cfeat.containsForm
         )
       }
 
@@ -211,7 +217,10 @@ object NodeProperties {
           blockBreakBefore      = blockBreakBefore,
           blockBreakAfter       = blockBreakAfter,
           brBefore              = prevtag == "br",
-          brAfter               = nexttag == "br"
+          brAfter               = nexttag == "br",
+          containsForm          = if (domnode.isInstanceOf[jnodes.Element])
+                                    !domnode.asInstanceOf[jnodes.Element].getElementsByTag("input").isEmpty
+                                  else false
         )
 
         // Update the features, by summing up things

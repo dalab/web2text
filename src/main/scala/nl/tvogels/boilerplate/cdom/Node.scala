@@ -1,7 +1,5 @@
 package nl.tvogels.boilerplate.cdom
 
-import org.jsoup.{nodes => jnodes}
-
 /** A CDOM Node, including node level features
   *
   * @author Thijs Vogels <t.vogels@me.com>
@@ -9,7 +7,10 @@ import org.jsoup.{nodes => jnodes}
 class Node {
 
   /** A list of node tags from top to bottom: `["ul","li","a"]` */
-  var tags: Vector[String]    = Vector()
+  var tags: Vector[String]       = Vector()
+
+  /** A list of classNames from top to bottom */
+  var classNames: Vector[Set[String]] = Vector()
 
   /** A list of node attributes from top to bottom */
   var attributes: Vector[java.util.Map[String,String]] = Vector()
@@ -59,4 +60,23 @@ class Node {
     main + "\n" + childStuff
   }
 
+  def ancestors: Stream[Node] = parent match {
+    case None         => Stream.empty
+    case Some(parent) => parent #:: parent.ancestors
+  }
+
+  def tagPlusClass: String = {
+    (tags zip classNames) map {
+      case (tag, cn) => {
+        val classString = (cn map { c => s".$c"}).mkString
+        tag + classString
+      }
+    } mkString ","
+  }
+
+  def classSelector: String = {
+    (s"[${tagPlusClass}]" #:: (ancestors map { a =>
+      s"[${a.tagPlusClass}]"
+    })) mkString " "
+  }
 }
