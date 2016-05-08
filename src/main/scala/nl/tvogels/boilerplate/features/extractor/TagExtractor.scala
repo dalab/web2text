@@ -4,7 +4,7 @@ import nl.tvogels.boilerplate.cdom.{Node,CDOM}
 import nl.tvogels.boilerplate.features.BlockFeatureExtractor
 
 /** Block extractor for tag features */
-object TagExtractor(mode: String = "leaf") extends BlockFeatureExtractor {
+case class TagExtractor(mode: String = "leaf") extends BlockFeatureExtractor {
 
   /** Set of all tags */
   private val allTags = Vector("body","address","article","aside","blockquote","dd","div","dl","fieldset","figcaption","figure","figcaption","footer","form","h1","h2","h3","h4","h5","h6","header","hgroup","li","main","nav","noscript","ol","output","p","pre","section","table","tfoot","ul") ++

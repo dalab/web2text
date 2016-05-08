@@ -8,7 +8,7 @@ import nl.tvogels.boilerplate.features.BlockFeatureExtractor
   * @param levels number of levels of the tree to include (leafs included)
   * @note If an ancestor of level n does not exist, fall back to ancester on level n-1
   */
-case class AncestorExtractor(extractor: BlockFeatureExtractor, level: Int) extends BlockFeatureExtractor {
+case class AncestorsExtractor(extractor: BlockFeatureExtractor, levels: Int) extends BlockFeatureExtractor {
 
   /** Compute the prefix for a certain level */
   def prefix(level: Int) = level match {
@@ -27,16 +27,31 @@ case class AncestorExtractor(extractor: BlockFeatureExtractor, level: Int) exten
   }
 
   /** Return the labels of this extractor, built from the component's labels */
-  val labels = fieldNameHas(level) +: addPrefix(extractor.labels, prefix(level))
+  val labels = (0 until levels).toVector flatMap {
+    case 0 => extractor.labels
+    case l => fieldNameHas(l) +: addPrefix(extractor.labels, prefix(l))
+  }
 
   def apply(cdom: CDOM): (Node) => Vector[Double] = {
     val loadedExtractor = extractor(cdom)
     val zeroFeatures: Vector[Double] = extractor.labels map { x => 0.0 }
     (node: Node) => {
-      if (node.ancestors.length < level)
-        0.0 +: zeroFeatures
-      else
-        1.0 +: loadedExtractor(node.ancestors(level-1))
+      var curNode = node
+
+      var baseFeatures = loadedExtractor(curNode)
+
+      val ancestorFeatures = (1 until levels).toVector flatMap { level => {
+        curNode.parent match {
+          case None => {
+            0.0 +: zeroFeatures
+          }
+          case Some(node) => {
+            curNode = node
+            1.0 +: loadedExtractor(node)
+          }
+        }
+      }}
+      baseFeatures ++ ancestorFeatures
     }
   }
 

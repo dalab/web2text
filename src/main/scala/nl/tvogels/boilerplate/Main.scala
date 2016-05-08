@@ -18,21 +18,26 @@ import nl.tvogels.boilerplate.output.CsvDatasetWriter
 object Main {
 
   def main(args: Array[String]): Unit = {
-    exportFeaturesTest
+    evaluateOtherMethods
   }
 
 
   def exportFeaturesTest = {
     val fe = FeatureExtractor(
-      TagExtractor,
-      TreeDistanceExtractor + CommonAncestorExtractor(TagExtractor)
+      DuplicateCountsExtractor
+      + LeafBlockExtractor
+      + AncestorExtractor(NodeBlockExtractor + TagExtractor(mode="node"),1)
+      + AncestorExtractor(NodeBlockExtractor,2)
+      + RootExtractor(NodeBlockExtractor)
+      + TagExtractor(mode="leaf"),
+      EmptyEdgeExtractor
     )
     val data = Util.time{ CleanEval.dataset(fe) }
     CsvDatasetWriter.write(data, "/Users/thijs/Desktop/export")
   }
 
   def testCommonAncestorExtractor = {
-    val ex = CommonAncestorExtractor(BasicBlockExtractor)
+    val ex = CommonAncestorExtractor(LeafBlockExtractor)
     val cdom = CDOM.fromHTML("<body><h1>Header</h1><p>Paragraph with an <i>Italic</i> section.</p></body>");
     ex(cdom)(cdom.leaves(2),cdom.leaves(1))
   }
@@ -47,20 +52,26 @@ object Main {
     //   InterceptEdgeExtractor+TreeDistanceExtractor+BlockBreakExtractor+CommonAncestorExtractor(BasicBlockExtractor)
     // )
     val fe = FeatureExtractor(
-      DuplicateCountsExtractor,
-      EmptyEdgeExtractor
+      DuplicateCountsExtractor
+      + LeafBlockExtractor
+      + AncestorExtractor(NodeBlockExtractor + TagExtractor(mode="node"),1)
+      + AncestorExtractor(NodeBlockExtractor,2)
+      + RootExtractor(NodeBlockExtractor)
+      + TagExtractor(mode="leaf"),
+      TreeDistanceExtractor
+      + BlockBreakExtractor + CommonAncestorExtractor(NodeBlockExtractor)
     )
     val data = Util.time{ CleanEval.dataset(fe) }
     println("Dataset loaded")
-    val splits = data.randomSplit(0.2,0.8);
+    val splits = data.randomSplit(0.6,0.4);
     val (train,test) = (splits(0),splits(1))
 
-    for (power <- -5 to -5 by 2; lambda = math.pow(10,power)) {
+    for (power <- 2.45 to 2.45 by 0.1; lambda = math.pow(10,power)) {
       val classifier = ChainCRF(
         blockFeatureLabels  = fe.blockExtractor.labels,
         edgeFeatureLabels   = fe.edgeExtractor.labels,
         lambda              = lambda,
-        debug               = true
+        debug               = false
       )
       classifier.train(train,test)
       classifier.saveWeights("output/weights.txt")

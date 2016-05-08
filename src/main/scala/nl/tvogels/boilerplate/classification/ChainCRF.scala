@@ -74,8 +74,8 @@ case class ChainCRF(
       modelConfig,
       debug=debug,
       lambda=lambda,
-      debugMultiplier=1000
-      // numPasses=500
+      debugMultiplier=10000,
+      numPasses=200
       // enableOracleCache=true
     )
 

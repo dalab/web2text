@@ -53,8 +53,7 @@ object LeafBlockExtractor extends BlockFeatureExtractor {
       p.containsYear, // OK
       if (p.nWords > 0) z(capRat,0.4475758,0.4129316) else 0.0, // OK
       if (p.nWords > 0) z(capRat*capRat,0.3708354,0.4334037) else 0.0, // OK
-      if (p.nWords > 0) z(capRat*capRat*capRat,0.340843,0.4404389) else 0.0, // OK
-      p.containsForm
+      if (p.nWords > 0) z(capRat*capRat*capRat,0.340843,0.4404389) else 0.0
     )
     if (v exists {x => x.isNaN}) {
       println(s"There is a nan in $v")
@@ -86,8 +85,7 @@ object LeafBlockExtractor extends BlockFeatureExtractor {
     "contains_year",
     "ratio_words_with_capital",
     "ratio_words_with_capital^2",
-    "ratio_words_with_capital^3",
-    "contains_form_element"
+    "ratio_words_with_capital^3"
   )
 
 
