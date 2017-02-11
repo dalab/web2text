@@ -3,7 +3,7 @@ package nl.tvogels.boilerplate.classification
 /** Class to hold performance statistics from a classifier on a dataset */
 case class PerformanceStatistics(accuracy: Double, precision: Double, recall: Double, f1: Double) {
   override def toString = {
-    f"PerformanceStatistics(accuracy = $accuracy%1.2f, precision = $precision%1.2f, recall = $recall%1.2f, f1 = $f1%1.2f)"
+    f"PerformanceStatistics(accuracy = $accuracy%1.4f, precision = $precision%1.4f, recall = $recall%1.4f, f1 = $f1%1.4f)"
   }
 }
 

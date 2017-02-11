@@ -14,13 +14,74 @@ import nl.tvogels.boilerplate.features.PageFeatures
 import com.mongodb.casbah.Imports._
 import java.io.File;
 import nl.tvogels.boilerplate.output.CsvDatasetWriter
+import nl.tvogels.boilerplate.utilities.Warc
+import nl.tvogels.boilerplate.output.CleanTextOutput
+import scala.util.{Try,Success,Failure}
 
 object Main {
 
   def main(args: Array[String]): Unit = {
-    evaluateOtherMethods
+    // testWarcLoad
+    cleanWarcFile("/Users/thijs/Desktop/0000tw-00.warc.gz","/Users/thijs/Desktop/0000tw-00.clean.warc.gz")
   }
 
+  def testWarcLoad = {
+    import java.io.{File, FileInputStream, DataInputStream, BufferedInputStream, BufferedReader, InputStreamReader}
+    import java.util.zip.GZIPInputStream
+
+    val f   = new File("/Users/thijs/Desktop/0000tw-00.warc")
+    val is  = new FileInputStream(f)
+    val zip = new GZIPInputStream(is)
+    val decoder = new InputStreamReader(zip, "utf8")
+    val reader = new BufferedReader(decoder)
+    (1 to 100).foreach(i => println(reader.readLine()))
+  }
+
+  def cleanWarcFile(file: String, outfile: String) = {
+    println("Loading model ...")
+    val fe = FeatureExtractor(
+      DuplicateCountsExtractor
+      + LeafBlockExtractor
+      + AncestorExtractor(NodeBlockExtractor + TagExtractor(mode="node"),1)
+      + AncestorExtractor(NodeBlockExtractor,2)
+      + RootExtractor(NodeBlockExtractor)
+      + TagExtractor(mode="leaf"),
+      TreeDistanceExtractor + BlockBreakExtractor + CommonAncestorExtractor(NodeBlockExtractor)
+    )
+    val classifier = ChainCRF(
+      blockFeatureLabels  = fe.blockExtractor.labels,
+      edgeFeatureLabels   = fe.edgeExtractor.labels,
+      lambda              = 0.00562,
+      debug               = false
+    )
+    classifier.loadWeights("output/trained-weights.txt")
+    println("Done.")
+
+
+    println("Reading WARC input file ...")
+    val it       = Warc.iteratorForFile(file)
+    print("Done.")
+    println("Extracting DOM ...")
+
+    val cdom  = it.toList.flatten
+                .map(x => Warc.headersAndContent(x))
+                .map(x => x._2)
+                .filter(x => x.trim() != "")
+                .map(x => Try(CDOM.fromHTML(x)))
+
+    println("Done.")
+    println("Extracting features and predictng ...")
+    val cleaned = cdom.map {
+      case Success(cdom) => {
+        val features = fe(cdom)
+        val labels = classifier.predict(features)
+        CleanTextOutput(cdom, labels)
+      }
+      case Failure(cdom) => ""
+    }
+    println("Done.")
+    print(cleaned(0))
+  }
 
   def exportFeaturesTest = {
     val fe = FeatureExtractor(
@@ -30,7 +91,7 @@ object Main {
       + AncestorExtractor(NodeBlockExtractor,2)
       + RootExtractor(NodeBlockExtractor)
       + TagExtractor(mode="leaf"),
-      EmptyEdgeExtractor
+      TreeDistanceExtractor + BlockBreakExtractor + CommonAncestorExtractor(NodeBlockExtractor)
     )
     val data = Util.time{ CleanEval.dataset(fe) }
     CsvDatasetWriter.write(data, "/Users/thijs/Desktop/export")
@@ -42,11 +103,40 @@ object Main {
     ex(cdom)(cdom.leaves(2),cdom.leaves(1))
   }
 
+  def trainModel = {
+    val labelName = "ours-with-tree-distance"
+
+    scala.util.Random.setSeed(14101992)
+
+    val fe = FeatureExtractor(
+      DuplicateCountsExtractor
+      + LeafBlockExtractor
+      + AncestorExtractor(NodeBlockExtractor + TagExtractor(mode="node"),1)
+      + AncestorExtractor(NodeBlockExtractor,2)
+      + RootExtractor(NodeBlockExtractor)
+      + TagExtractor(mode="leaf"),
+      TreeDistanceExtractor + BlockBreakExtractor + CommonAncestorExtractor(NodeBlockExtractor)
+    )
+
+    println("Loading datasets")
+    val train = CleanEval.trainingDataset(fe)
+    val test  = CleanEval.testDataset(fe)
+    println("Datasets (trian+test) loaded")
+
+    val classifier = ChainCRF(
+      blockFeatureLabels  = fe.blockExtractor.labels,
+      edgeFeatureLabels   = fe.edgeExtractor.labels,
+      lambda              = 0.00562,
+      debug               = false
+    )
+    classifier.train(train,test)
+    classifier.saveWeights("output/trained-weights.txt")
+  }
+
   def testChainCRF(addToMongo: Boolean = true) = {
     val labelName = "ours-with-tree-distance"
 
     scala.util.Random.setSeed(14101992)
-    println("Load dataset")
     // val fe = FeatureExtractor(
     //   AncestorExtractor(BasicBlockExtractor+TagExtractor, levels=3)+RootExtractor(BasicBlockExtractor),
     //   InterceptEdgeExtractor+TreeDistanceExtractor+BlockBreakExtractor+CommonAncestorExtractor(BasicBlockExtractor)
@@ -58,15 +148,15 @@ object Main {
       + AncestorExtractor(NodeBlockExtractor,2)
       + RootExtractor(NodeBlockExtractor)
       + TagExtractor(mode="leaf"),
-      TreeDistanceExtractor
-      + BlockBreakExtractor + CommonAncestorExtractor(NodeBlockExtractor)
+      TreeDistanceExtractor + BlockBreakExtractor + CommonAncestorExtractor(NodeBlockExtractor)
     )
-    val data = Util.time{ CleanEval.dataset(fe) }
-    println("Dataset loaded")
-    val splits = data.randomSplit(0.6,0.4);
-    val (train,test) = (splits(0),splits(1))
+    // TreeDistanceExtractor + BlockBreakExtractor + CommonAncestorExtractor(NodeBlockExtractor)
+    println("Loading datasets")
+    val train = CleanEval.trainingDataset(fe)
+    val test  = CleanEval.testDataset(fe)
+    println("Datasets (trian+test) loaded")
 
-    for (power <- 2.45 to 2.45 by 0.1; lambda = math.pow(10,power)) {
+    for (power <- -4.0 to 3.0 by 0.25; lambda = math.pow(10,power)) {
       val classifier = ChainCRF(
         blockFeatureLabels  = fe.blockExtractor.labels,
         edgeFeatureLabels   = fe.edgeExtractor.labels,
@@ -77,7 +167,7 @@ object Main {
       classifier.saveWeights("output/weights.txt")
       classifier.saveWeightsHuman("output/weights-human.txt")
 
-      println(s"Lambda: $lambda")
+      println(f"Lambda: $lambda%1.5f")
       println(s"Training statistics: ${classifier.performanceStatistics(train)}")
       println(s"Test statistics:     ${classifier.performanceStatistics(test)}\n")
     }

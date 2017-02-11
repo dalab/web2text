@@ -1,0 +1,214 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 10.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      7013,        205]
+NotebookOptionsPosition[      6355,        176]
+NotebookOutlinePosition[      6712,        192]
+CellTagsIndexPosition[      6669,        189]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[
+ RowBox[{"SetDirectory", "[", "\"\</Users/thijs/Desktop\>\"", "]"}]], "Input",\
+
+ CellChangeTimes->{{3.670642471786223*^9, 3.670642480920925*^9}}],
+
+Cell[BoxData["\<\"/Users/thijs/Desktop\"\>"], "Output",
+ CellChangeTimes->{3.6706424814091473`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Dynamic", "[", 
+  RowBox[{"Refresh", "[", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"data", "=", 
+      RowBox[{"Import", "[", "\"\<log.csv\>\"", "]"}]}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"ListLinePlot", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"data", "[", 
+          RowBox[{"[", 
+           RowBox[{"All", ",", 
+            RowBox[{"{", 
+             RowBox[{"1", ",", "3"}], "}"}]}], "]"}], "]"}], ",", 
+         RowBox[{"data", "[", 
+          RowBox[{"[", 
+           RowBox[{"All", ",", 
+            RowBox[{"{", 
+             RowBox[{"1", ",", "4"}], "}"}]}], "]"}], "]"}]}], "}"}], ",", 
+       RowBox[{"PlotLegends", "\[Rule]", 
+        RowBox[{"{", 
+         RowBox[{"\"\<Test\>\"", ",", "\"\<Train\>\""}], "}"}]}], ",", 
+       RowBox[{"PlotTheme", "->", "\"\<Detailed\>\""}], ",", 
+       RowBox[{"ImageSize", "\[Rule]", "Large"}], ",", 
+       RowBox[{"PlotLabel", "\[Rule]", "\"\<Accuracy over iterations\>\""}], 
+       ",", 
+       RowBox[{"AxesLabel", "\[Rule]", 
+        RowBox[{"{", 
+         RowBox[{"\"\<Iteration\>\"", ",", "\"\<Accuracy\>\""}], "}"}]}]}], 
+      "]"}]}], ",", 
+    RowBox[{"UpdateInterval", "\[Rule]", "4"}]}], "]"}], "]"}]], "Input",
+ CellChangeTimes->{{3.670642496596843*^9, 3.67064270240864*^9}, {
+   3.670642916133986*^9, 3.670643001484765*^9}, 3.670643163556916*^9}],
+
+Cell[BoxData[
+ DynamicBox[ToBoxes[
+   Refresh[$CellContext`data = Import["log.csv"]; ListLinePlot[{
+       Part[$CellContext`data, All, {1, 3}], 
+       Part[$CellContext`data, All, {1, 4}]}, 
+      PlotLegends -> {"Test", "Train"}, PlotTheme -> "Detailed", ImageSize -> 
+      Large, PlotLabel -> "Accuracy over iterations", 
+      AxesLabel -> {"Iteration", "Accuracy"}], UpdateInterval -> 4], 
+   StandardForm],
+  ImageSizeCache->{652., {185., 190.}}]], "Output",
+ CellChangeTimes->{{3.6706424999642878`*^9, 3.6706425269820547`*^9}, {
+   3.670642587282153*^9, 3.670642666230846*^9}, 3.670642702700405*^9, 
+   3.670642784542391*^9, {3.6706429751472816`*^9, 3.670643002132552*^9}, 
+   3.6706431640952463`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Dynamic", "[", 
+  RowBox[{"Refresh", "[", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"data", "=", 
+      RowBox[{"Import", "[", "\"\<log.csv\>\"", "]"}]}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"ListLinePlot", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"data", "[", 
+          RowBox[{"[", 
+           RowBox[{"All", ",", 
+            RowBox[{"{", 
+             RowBox[{"1", ",", "5"}], "}"}]}], "]"}], "]"}], ",", 
+         RowBox[{"data", "[", 
+          RowBox[{"[", 
+           RowBox[{"All", ",", 
+            RowBox[{"{", 
+             RowBox[{"1", ",", "6"}], "}"}]}], "]"}], "]"}]}], "}"}], ",", 
+       RowBox[{"PlotLegends", "\[Rule]", 
+        RowBox[{"{", 
+         RowBox[{"\"\<Test\>\"", ",", "\"\<Train\>\""}], "}"}]}], ",", 
+       RowBox[{"PlotTheme", "->", "\"\<Detailed\>\""}], ",", 
+       RowBox[{"ImageSize", "\[Rule]", "Large"}], ",", 
+       RowBox[{"PlotLabel", "\[Rule]", "\"\<F1 over iterations\>\""}], ",", 
+       RowBox[{"AxesLabel", "\[Rule]", 
+        RowBox[{"{", 
+         RowBox[{"\"\<Iteration\>\"", ",", "\"\<Accuracy\>\""}], "}"}]}]}], 
+      "]"}]}], ",", 
+    RowBox[{"UpdateInterval", "\[Rule]", "4"}]}], "]"}], "]"}]], "Input",
+ CellChangeTimes->{{3.670643174728899*^9, 3.670643178473374*^9}}],
+
+Cell[BoxData[
+ DynamicBox[ToBoxes[
+   Refresh[$CellContext`data = Import["log.csv"]; ListLinePlot[{
+       Part[$CellContext`data, All, {1, 5}], 
+       Part[$CellContext`data, All, {1, 6}]}, 
+      PlotLegends -> {"Test", "Train"}, PlotTheme -> "Detailed", ImageSize -> 
+      Large, PlotLabel -> "F1 over iterations", 
+      AxesLabel -> {"Iteration", "Accuracy"}], UpdateInterval -> 4], 
+   StandardForm],
+  ImageSizeCache->{652., {184., 189.}}]], "Output",
+ CellChangeTimes->{3.670643178923792*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Dynamic", "[", 
+  RowBox[{"Refresh", "[", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"data", "=", 
+      RowBox[{"Import", "[", "\"\<log.csv\>\"", "]"}]}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"ListLinePlot", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"data", "[", 
+         RowBox[{"[", 
+          RowBox[{"All", ",", 
+           RowBox[{"{", 
+            RowBox[{"1", ",", "2"}], "}"}]}], "]"}], "]"}], "}"}], ",", 
+       RowBox[{"PlotTheme", "->", "\"\<Detailed\>\""}], ",", 
+       RowBox[{"ImageSize", "\[Rule]", "Large"}], ",", 
+       RowBox[{"PlotLabel", "\[Rule]", "\"\<Training loss\>\""}], ",", 
+       RowBox[{"AxesLabel", "\[Rule]", 
+        RowBox[{"{", 
+         RowBox[{"\"\<Iteration\>\"", ",", "\"\<Accuracy\>\""}], "}"}]}]}], 
+      "]"}]}], ",", 
+    RowBox[{"UpdateInterval", "\[Rule]", "4"}]}], "]"}], "]"}]], "Input",
+ CellChangeTimes->{{3.670643190888948*^9, 3.6706431946772127`*^9}, {
+  3.6706432365728807`*^9, 3.670643249358988*^9}}],
+
+Cell[BoxData[
+ DynamicBox[ToBoxes[
+   Refresh[$CellContext`data = Import["log.csv"]; ListLinePlot[{
+       Part[$CellContext`data, All, {1, 2}]}, PlotTheme -> "Detailed", 
+      ImageSize -> Large, PlotLabel -> "Training loss", 
+      AxesLabel -> {"Iteration", "Accuracy"}], UpdateInterval -> 4], 
+   StandardForm],
+  ImageSizeCache->{576., {185., 190.}}]], "Output",
+ CellChangeTimes->{3.67064324983645*^9}]
+}, Open  ]]
+},
+WindowSize->{925, 788},
+WindowMargins->{{Automatic, 10}, {Automatic, 9}},
+FrontEndVersion->"10.0 for Mac OS X x86 (32-bit, 64-bit Kernel) (September 9, \
+2014)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 160, 3, 28, "Input"],
+Cell[743, 27, 99, 1, 28, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[879, 33, 1406, 35, 97, "Input"],
+Cell[2288, 70, 710, 13, 392, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[3035, 88, 1321, 33, 97, "Input"],
+Cell[4359, 123, 502, 10, 390, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[4898, 138, 1029, 25, 80, "Input"],
+Cell[5930, 165, 409, 8, 390, "Output"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)

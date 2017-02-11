@@ -1,0 +1,81 @@
+val fe = FeatureExtractor(
+  DuplicateCountsExtractor
+  + LeafBlockExtractor
+  + AncestorExtractor(NodeBlockExtractor + TagExtractor(mode="node"),1)
+  + AncestorExtractor(NodeBlockExtractor,2)
+  + RootExtractor(NodeBlockExtractor)
+  + TagExtractor(mode="leaf"),
+  EmptyEdgeExtractor
+)
+
+1/5 training data
+
+[info] round,time,iter,primal,dual,gap,train_error,test_error,train_loss
+[info] Lambda: 15.848931924611133
+[info] Training statistics: PerformanceStatistics(accuracy = 0.87, precision = 0.89, recall = 0.89, f1 = 0.89)
+[info] Test statistics:     PerformanceStatistics(accuracy = 0.84, precision = 0.86, recall = 0.87, f1 = 0.87)
+[info]
+[info] round,time,iter,primal,dual,gap,train_error,test_error,train_loss
+[info] Lambda: 25.118864315095795
+[info] Training statistics: PerformanceStatistics(accuracy = 0.87, precision = 0.89, recall = 0.90, f1 = 0.89)
+[info] Test statistics:     PerformanceStatistics(accuracy = 0.85, precision = 0.86, recall = 0.87, f1 = 0.87)
+[info]
+[info] round,time,iter,primal,dual,gap,train_error,test_error,train_loss
+[info] Lambda: 39.81071705534971
+[info] Training statistics: PerformanceStatistics(accuracy = 0.88, precision = 0.89, recall = 0.90, f1 = 0.90)
+[info] Test statistics:     PerformanceStatistics(accuracy = 0.85, precision = 0.86, recall = 0.87, f1 = 0.87)
+[info]
+[info] round,time,iter,primal,dual,gap,train_error,test_error,train_loss
+[info] Lambda: 63.0957344480193
+[info] Training statistics: PerformanceStatistics(accuracy = 0.88, precision = 0.89, recall = 0.91, f1 = 0.90)
+[info] Test statistics:     PerformanceStatistics(accuracy = 0.85, precision = 0.86, recall = 0.88, f1 = 0.87)
+[info]
+[info] round,time,iter,primal,dual,gap,train_error,test_error,train_loss
+[info] Lambda: 99.99999999999994
+[info] Training statistics: PerformanceStatistics(accuracy = 0.88, precision = 0.89, recall = 0.92, f1 = 0.90)
+[info] Test statistics:     PerformanceStatistics(accuracy = 0.85, precision = 0.86, recall = 0.88, f1 = 0.87)
+[info]
+[info] round,time,iter,primal,dual,gap,train_error,test_error,train_loss
+[info] Lambda: 158.48931924611125
+[info] Training statistics: PerformanceStatistics(accuracy = 0.89, precision = 0.90, recall = 0.92, f1 = 0.91)
+[info] Test statistics:     PerformanceStatistics(accuracy = 0.85, precision = 0.86, recall = 0.88, f1 = 0.87)
+[info]
+[info] round,time,iter,primal,dual,gap,train_error,test_error,train_loss
+[info] Lambda: 251.18864315095797
+[info] Training statistics: PerformanceStatistics(accuracy = 0.89, precision = 0.90, recall = 0.92, f1 = 0.91)
+[info] Test statistics:     PerformanceStatistics(accuracy = 0.85, precision = 0.86, recall = 0.89, f1 = 0.87)
+[info]
+[info] round,time,iter,primal,dual,gap,train_error,test_error,train_loss
+[info] Lambda: 398.1071705534973
+[info] Training statistics: PerformanceStatistics(accuracy = 0.89, precision = 0.90, recall = 0.92, f1 = 0.91)
+[info] Test statistics:     PerformanceStatistics(accuracy = 0.85, precision = 0.86, recall = 0.89, f1 = 0.87)
+[info]
+[info] round,time,iter,primal,dual,gap,train_error,test_error,train_loss
+[info] Lambda: 630.9573444801937
+[info] Training statistics: PerformanceStatistics(accuracy = 0.89, precision = 0.90, recall = 0.92, f1 = 0.91)
+[info] Test statistics:     PerformanceStatistics(accuracy = 0.85, precision = 0.86, recall = 0.89, f1 = 0.87)
+[info]
+[info] round,time,iter,primal,dual,gap,train_error,test_error,train_loss
+[info] Lambda: 1000.000000000001
+[info] Training statistics: PerformanceStatistics(accuracy = 0.89, precision = 0.89, recall = 0.92, f1 = 0.91)
+[info] Test statistics:     PerformanceStatistics(accuracy = 0.85, precision = 0.85, recall = 0.89, f1 = 0.87)
+[info]
+[info] round,time,iter,primal,dual,gap,train_error,test_error,train_loss
+[info] Lambda: 1584.8931924611159
+[info] Training statistics: PerformanceStatistics(accuracy = 0.88, precision = 0.89, recall = 0.92, f1 = 0.90)
+[info] Test statistics:     PerformanceStatistics(accuracy = 0.85, precision = 0.85, recall = 0.89, f1 = 0.87)
+[info]
+[info] round,time,iter,primal,dual,gap,train_error,test_error,train_loss
+[info] Lambda: 2511.886431509585
+[info] Training statistics: PerformanceStatistics(accuracy = 0.88, precision = 0.89, recall = 0.91, f1 = 0.90)
+[info] Test statistics:     PerformanceStatistics(accuracy = 0.85, precision = 0.85, recall = 0.89, f1 = 0.87)
+[info]
+[info] round,time,iter,primal,dual,gap,train_error,test_error,train_loss
+[info] Lambda: 3981.0717055349814
+[info] Training statistics: PerformanceStatistics(accuracy = 0.88, precision = 0.89, recall = 0.91, f1 = 0.90)
+[info] Test statistics:     PerformanceStatistics(accuracy = 0.84, precision = 0.85, recall = 0.88, f1 = 0.87)
+[info]
+[info] round,time,iter,primal,dual,gap,train_error,test_error,train_loss
+[info] Lambda: 6309.573444801949
+[info] Training statistics: PerformanceStatistics(accuracy = 0.87, precision = 0.88, recall = 0.91, f1 = 0.89)
+[info] Test statistics:     PerformanceStatistics(accuracy = 0.84, precision = 0.85, recall = 0.88, f1 = 0.87)

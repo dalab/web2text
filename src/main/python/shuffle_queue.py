@@ -1,5 +1,6 @@
 from copy import copy
 import numpy as np
+import random
 
 class ShuffleQueue:
   """Initialize a ShuffleQueue with a list, and from that point onwards you
@@ -15,7 +16,7 @@ class ShuffleQueue:
     self.pos = 0
 
   def reshuffle(self):
-    np.random.shuffle(self.data)
+    random.shuffle(self.data)
 
   def takeOne(self):
     elem = self.data[self.pos]

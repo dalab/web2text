@@ -1,0 +1,29 @@
+val fe = FeatureExtractor(
+  DuplicateCountsExtractor
+  + LeafBlockExtractor
+  + AncestorExtractor(NodeBlockExtractor + TagExtractor(mode="node"),1)
+  + AncestorExtractor(NodeBlockExtractor,2)
+  + RootExtractor(NodeBlockExtractor)
+  + TagExtractor(mode="leaf"),
+  InterceptEdgeExtractor
+)
+
+[info] round,time,iter,primal,dual,gap,train_error,test_error,train_loss
+[info] Lambda: 251.18864315095797
+[info] Training statistics: PerformanceStatistics(accuracy = 0.90, precision = 0.90, recall = 0.93, f1 = 0.91)
+[info] Test statistics:     PerformanceStatistics(accuracy = 0.85, precision = 0.86, recall = 0.89, f1 = 0.88)
+[info]
+[info] round,time,iter,primal,dual,gap,train_error,test_error,train_loss
+[info] Lambda: 398.1071705534973
+[info] Training statistics: PerformanceStatistics(accuracy = 0.90, precision = 0.90, recall = 0.93, f1 = 0.91)
+[info] Test statistics:     PerformanceStatistics(accuracy = 0.86, precision = 0.86, recall = 0.89, f1 = 0.88)
+[info]
+[info] round,time,iter,primal,dual,gap,train_error,test_error,train_loss
+[info] Lambda: 630.9573444801937
+[info] Training statistics: PerformanceStatistics(accuracy = 0.89, precision = 0.90, recall = 0.93, f1 = 0.91)
+[info] Test statistics:     PerformanceStatistics(accuracy = 0.86, precision = 0.86, recall = 0.89, f1 = 0.88)
+[info]
+[info] round,time,iter,primal,dual,gap,train_error,test_error,train_loss
+[info] Lambda: 1000.000000000001
+[info] Training statistics: PerformanceStatistics(accuracy = 0.89, precision = 0.90, recall = 0.92, f1 = 0.91)
+[info] Test statistics:     PerformanceStatistics(accuracy = 0.85, precision = 0.86, recall = 0.89, f1 = 0.88)
