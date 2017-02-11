@@ -1,8 +1,0 @@
-Tree distance + Block break
-
-1/5 training data
-
-[info] round,time,iter,primal,dual,gap,train_error,test_error,train_loss
-[info] Lambda: 501.18723362727405
-[info] Training statistics: PerformanceStatistics(accuracy = 0.90, precision = 0.90, recall = 0.93, f1 = 0.91)
-[info] Test statistics:     PerformanceStatistics(accuracy = 0.85, precision = 0.86, recall = 0.89, f1 = 0.88)
