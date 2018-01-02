@@ -2,9 +2,9 @@ import java.io.FileReader
 import de.l3s.boilerpipe.extractors._
 import org.jsoup.Jsoup
 
-import nl.tvogels.boilerplate.cleaneval._
-import nl.tvogels.boilerplate.alignment._
-import nl.tvogels.boilerplate.utilities._
+import ch.ethz.dalab.web2text.cleaneval._
+import ch.ethz.dalab.web2text.alignment._
+import ch.ethz.dalab.web2text.utilities._
 
 object Victor {
 
