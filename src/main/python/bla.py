@@ -1,12 +1,9 @@
 import tensorflow as tf
 import numpy as np
 import time
-import sys, os
+import sys
 
-# from data import cleaneval_train, cleaneval_validation, cleaneval_test
-from data import cleaneval_train_real as cleaneval_train
-from data import cleaneval_validation_real as cleaneval_validation
-from data import cleaneval_test_real as cleaneval_test
+from data import cleaneval_train, cleaneval_test
 from forward import loss, unary, edge, EDGE_VARIABLES, UNARY_VARIABLES
 from shuffle_queue import ShuffleQueue
 from viterbi import viterbi
@@ -15,19 +12,14 @@ BATCH_SIZE = 128
 PATCH_SIZE = 9
 N_FEATURES = 128
 N_EDGE_FEATURES = 25
-TRAIN_STEPS = 5000
-LEARNING_RATE = 1e-3
-DROPOUT_KEEP_PROB = 0.8
-REGULARIZATION_STRENGTH = 0.000
-EDGE_LAMBDA = 1
-CHECKPOINT_DIR = 'trained_model_6'
+
 
 def evaluate_unary(dataset, prediction_fn):
   fp, fn, tp, tn = 0, 0, 0, 0
   for doc in dataset:
-    predictions = prediction_fn(doc[b'data'], doc[b'edge_data'])
+    predictions = prediction_fn(doc['data'], doc['edge_data'])
 
-    for i, lab in enumerate(doc[b'labels']):
+    for i, lab in enumerate(doc['labels']):
       if predictions[i] == 1 and lab == 1:
         tp += 1
       elif predictions[i] == 1 and lab == 0:
@@ -48,9 +40,9 @@ def evaluate_unary(dataset, prediction_fn):
 def evaluate_edge(dataset, prediction_fn):
   correct, incorrect = 0, 0
   for doc in dataset:
-    predictions = prediction_fn(doc[b'edge_data'])
+    predictions = prediction_fn(doc['edge_data'])
 
-    for i, lab in enumerate(doc[b'edge_labels']):
+    for i, lab in enumerate(doc['edge_labels']):
       if predictions[i] == lab:
         correct += 1
       else:
@@ -59,7 +51,7 @@ def evaluate_edge(dataset, prediction_fn):
   return float(correct) / (correct + incorrect)
 
 
-def train_unary(conv_weight_decay = REGULARIZATION_STRENGTH):
+def train_unary(conv_weight_decay = 0.0001):
 
   training_queue = ShuffleQueue(cleaneval_train)
 
@@ -71,16 +63,16 @@ def train_unary(conv_weight_decay = REGULARIZATION_STRENGTH):
   logits = unary(train_features,
                  is_training=True,
                  conv_weight_decay=conv_weight_decay,
-                 dropout_keep_prob=DROPOUT_KEEP_PROB)
+                 dropout_keep_prob=0.75)
   l = loss(tf.reshape(logits, [-1, 2]), tf.reshape(train_labels, [-1]))
-  train_op = tf.train.AdamOptimizer(LEARNING_RATE).minimize(l)
+  train_op = tf.train.AdamOptimizer().minimize(l)
 
   test_features = tf.placeholder(tf.float32)
   tf.get_variable_scope().reuse_variables()
   test_logits = unary(test_features, is_training=False)
 
   saver = tf.train.Saver(tf.get_collection(UNARY_VARIABLES))
-  init_op = tf.global_variables_initializer()
+  init_op = tf.initialize_all_variables()
 
   with tf.Session() as session:
     # Initialize
@@ -91,8 +83,7 @@ def train_unary(conv_weight_decay = REGULARIZATION_STRENGTH):
       logits = session.run(test_logits, feed_dict={test_features: features})
       return np.argmax(logits, axis=-1).flatten()
 
-    BEST_VAL_SO_FAR = 0
-    for step in range(TRAIN_STEPS+1):
+    for step in xrange(2001):
       # Construct a bs-length numpy array
       features, _, labels, edge_labels = get_batch(training_queue)
       # Run a training step
@@ -101,21 +92,16 @@ def train_unary(conv_weight_decay = REGULARIZATION_STRENGTH):
         feed_dict={train_features: features, train_labels: labels}
       )
 
+
       if step % 100 == 0:
-        _,_,_,f1_validation = evaluate_unary(cleaneval_validation, prediction)
+        _,_,_,f1_test = evaluate_unary(cleaneval_test, prediction)
         _,_,_,f1_train = evaluate_unary(cleaneval_train, prediction)
-        if f1_validation > BEST_VAL_SO_FAR:
-          best = True
-          saver.save(session, os.path.join(CHECKPOINT_DIR, 'unary.ckpt'))
-          BEST_VAL_SO_FAR = f1_validation
-        else:
-          best = False
-        print("%10d: train=%.4f, val=%.4f %s" % (step, f1_train, f1_validation, '*' if best else ''))
-    # saver.save(session, os.path.join(CHECKPOINT_DIR, 'unary.ckpt'))
-    return f1_validation
+        print("%.4f, %.4f" % (f1_train, f1_test))
+    saver.save(session, 'trained_model/unary.ckpt')
+    return f1_test
 
 
-def train_edge(conv_weight_decay = REGULARIZATION_STRENGTH):
+def train_edge(conv_weight_decay = 0.0001):
 
   training_queue = ShuffleQueue(cleaneval_train)
 
@@ -127,16 +113,16 @@ def train_edge(conv_weight_decay = REGULARIZATION_STRENGTH):
   logits = edge(train_features,
                 is_training=True,
                 conv_weight_decay=conv_weight_decay,
-                dropout_keep_prob=DROPOUT_KEEP_PROB)
+                dropout_keep_prob=0.8)
   l = loss(tf.reshape(logits, [-1, 4]), tf.reshape(train_labels, [-1]))
-  train_op = tf.train.AdamOptimizer(LEARNING_RATE).minimize(l)
+  train_op = tf.train.AdamOptimizer().minimize(l)
 
   test_features = tf.placeholder(tf.float32)
   tf.get_variable_scope().reuse_variables()
   test_logits = edge(test_features, is_training=False)
 
   saver = tf.train.Saver(tf.get_collection(EDGE_VARIABLES))
-  init_op = tf.global_variables_initializer()
+  init_op = tf.initialize_all_variables()
 
   with tf.Session() as session:
     # Initialize
@@ -147,8 +133,7 @@ def train_edge(conv_weight_decay = REGULARIZATION_STRENGTH):
       logits = session.run(test_logits, feed_dict={test_features: features})
       return np.argmax(logits, axis=-1).flatten()
 
-    BEST_VAL_SO_FAR = 0
-    for step in range(TRAIN_STEPS+1):
+    for step in xrange(2001):
       # Construct a bs-length numpy array
       _, edge_features, labels, edge_labels = get_batch(training_queue)
       # Run a training step
@@ -159,20 +144,14 @@ def train_edge(conv_weight_decay = REGULARIZATION_STRENGTH):
 
 
       if step % 100 == 0:
-        accuracy_validation = evaluate_edge(cleaneval_validation, prediction)
+        accuracy_test = evaluate_edge(cleaneval_test, prediction)
         accuracy_train = evaluate_edge(cleaneval_train, prediction)
-        if accuracy_validation > BEST_VAL_SO_FAR:
-          best = True
-          saver.save(session, os.path.join(CHECKPOINT_DIR, 'edge.ckpt'))
-          BEST_VAL_SO_FAR = accuracy_validation
-        else:
-          best = False
-        print("%10d: train=%.4f, val=%.4f %s" % (step, accuracy_train, accuracy_validation, '*' if best else ''))
-    # saver.save(session, os.path.join(CHECKPOINT_DIR, 'edge.ckpt'))
-    return accuracy_validation
+        print("%.4f, %.4f" % (accuracy_train, accuracy_test))
+    saver.save(session, 'trained_model/edge.ckpt')
+    return accuracy_test
 
 
-def test_structured(lamb=EDGE_LAMBDA):
+def test_structured(lamb=0.1):
   unary_features = tf.placeholder(tf.float32)
   edge_features  = tf.placeholder(tf.float32)
 
@@ -187,17 +166,16 @@ def test_structured(lamb=EDGE_LAMBDA):
   unary_saver = tf.train.Saver(tf.get_collection(UNARY_VARIABLES))
   edge_saver  = tf.train.Saver(tf.get_collection(EDGE_VARIABLES))
 
-  init_op = tf.global_variables_initializer()
+  init_op = tf.initialize_all_variables()
 
   with tf.Session() as session:
     session.run(init_op)
-    unary_saver.restore(session, os.path.join(CHECKPOINT_DIR, "unary.ckpt"))
-    edge_saver.restore(session, os.path.join(CHECKPOINT_DIR, "edge.ckpt"))
+    unary_saver.restore(session, "trained_model/unary.ckpt")
+    edge_saver.restore(session, "trained_model/edge.ckpt")
 
-    from time import time
+    print(session.run(tf.train.get_or_create_global_step()))
 
-    start = time()
-    def prediction_structured(features, edge_feat):
+    def prediction(features, edge_feat):
       features  = features[np.newaxis, :, np.newaxis, :]
       edge_feat = edge_feat[np.newaxis, :, np.newaxis, :]
 
@@ -206,18 +184,8 @@ def test_structured(lamb=EDGE_LAMBDA):
 
       return viterbi(unary_lgts.reshape([-1,2]), edge_lgts.reshape([-1,4]), lam=lamb)
 
-    def prediction_unary(features, _):
-      features = features[np.newaxis, :, np.newaxis, :]
-      logits = session.run(unary_logits, feed_dict={unary_features: features})
-      return np.argmax(logits, axis=-1).flatten()
-
-    accuracy, precision, recall, f1 = evaluate_unary(cleaneval_test, prediction_structured)
-    accuracy_u, precision_u, recall_u, f1_u = evaluate_unary(cleaneval_test, prediction_unary)
-    end = time()
-    print('duration', end-start)
-    print('size', len(cleaneval_test))
-    print("Structured: Accuracy=%.5f, precision=%.5f, recall=%.5f, F1=%.5f" % (accuracy, precision, recall, f1))
-    print("Just unary: Accuracy=%.5f, precision=%.5f, recall=%.5f, F1=%.5f" % (accuracy_u, precision_u, recall_u, f1_u))
+    accuracy, precision, recall, f1 = evaluate_unary(cleaneval_test, prediction)
+    print("Accuracy=%.5f, precision=%.5f, recall=%.5f, F1=%.5f" % (accuracy, precision, recall, f1))
 
 
 def get_batch(q, batch_size=BATCH_SIZE, patch_size=PATCH_SIZE):
@@ -230,22 +198,22 @@ def get_batch(q, batch_size=BATCH_SIZE, patch_size=PATCH_SIZE):
   edge_labels = np.zeros((BATCH_SIZE, PATCH_SIZE-1, 1, 1), dtype = np.int64)
 
 
-  for entry in range(BATCH_SIZE):
+  for entry in xrange(BATCH_SIZE):
     # Find an entry that is long enough (at least one patch size)
     while True:
       doc = q.takeOne()
-      length = doc[b'data'].shape[0]
+      length = doc['data'].shape[0]
       if length > PATCH_SIZE+1:
-        break
+        break;
 
     # Select a random patch
     i = np.random.random_integers(length-PATCH_SIZE-1)
 
     # Add it to the tensors
-    batch[entry,:,0,:]       = doc[b'data'][i:i+PATCH_SIZE,:]
-    edge_batch[entry,:,0,:]  = doc[b'edge_data'][i:i+PATCH_SIZE-1,:]
-    labels[entry,:,0,0]      = doc[b'labels'][i:i+PATCH_SIZE] # {0,1}
-    edge_labels[entry,:,0,0] = doc[b'edge_labels'][i:i+PATCH_SIZE-1] # {0,1,2,3} = {00,01,10,11}
+    batch[entry,:,0,:]       = doc['data'][i:i+PATCH_SIZE,:]
+    edge_batch[entry,:,0,:]  = doc['edge_data'][i:i+PATCH_SIZE-1,:]
+    labels[entry,:,0,0]      = doc['labels'][i:i+PATCH_SIZE] # {0,1}
+    edge_labels[entry,:,0,0] = doc['edge_labels'][i:i+PATCH_SIZE-1] # {0,1,2,3} = {00,01,10,11}
 
   return batch, edge_batch, labels, edge_labels
 

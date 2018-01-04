@@ -4,6 +4,7 @@ import ch.ethz.dalab.web2text.cdom.DOM
 import com.mongodb.casbah.Imports._
 import org.jsoup.Jsoup
 
+/** MongoDB client for the labeling server */
 class Database(
     host: String = "localhost",
     port: Int = 27017,

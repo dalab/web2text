@@ -25,7 +25,6 @@ object Victor {
         Util.save(s"output/victor/${page.id}.txt",dom.body.text)
       }
     }
-
   }
 
   /** Step 2: Align the files and save them in the `output` dir as well */

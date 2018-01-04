@@ -22,7 +22,9 @@ object Main {
 
   def main(args: Array[String]): Unit = {
     // testWarcLoad
-    cleanWarcFile("/Users/thijs/Desktop/0000tw-00.warc.gz","/Users/thijs/Desktop/0000tw-00.clean.warc.gz")
+    // exportFeaturesTest
+    evaluateOtherMethods
+    // cleanWarcFile("/Users/thijs/Desktop/0000tw-00.warc.gz","/Users/thijs/Desktop/0000tw-00.clean.warc.gz")
   }
 
   def testWarcLoad = {
@@ -87,14 +89,18 @@ object Main {
     val fe = FeatureExtractor(
       DuplicateCountsExtractor
       + LeafBlockExtractor
-      + AncestorExtractor(NodeBlockExtractor + TagExtractor(mode="node"),1)
-      + AncestorExtractor(NodeBlockExtractor,2)
+      + AncestorExtractor(NodeBlockExtractor + TagExtractor(mode="node"), 1)
+      + AncestorExtractor(NodeBlockExtractor, 2)
       + RootExtractor(NodeBlockExtractor)
       + TagExtractor(mode="leaf"),
       TreeDistanceExtractor + BlockBreakExtractor + CommonAncestorExtractor(NodeBlockExtractor)
     )
     val data = Util.time{ CleanEval.dataset(fe) }
     CsvDatasetWriter.write(data, "/Users/thijs/Desktop/export")
+    println("# Block features")
+    fe.blockExtractor.labels.foreach(println)
+    println("# Edge features")
+    fe.edgeExtractor.labels.foreach(println)
   }
 
   def testCommonAncestorExtractor = {
@@ -229,36 +235,6 @@ object Main {
     }
   }
 
-  // def addOursToMongo = {
-
-  //   val labelName = "ours-v1"
-
-  //   val local = new Database
-  //   scala.util.Random.setSeed(14101992)
-  //   println("Load dataset")
-  //   val data = time{CleanEval.dataset(
-  //     FeatureExtractor(AncestorExtractor(BasicBlockExtractor,levels=2),EmptyEdgeExtractor)
-  //   )}
-  //   println("Dataset loaded")
-  //   val splits = data.randomSplit(0.5,0.5);
-  //   val (train,test) = (splits(0),splits(1))
-  //   val classifier = ChainCRF(lambda = 10,debug=false,disablePairwise=false)
-  //   classifier.train(train)
-  //   data.iterator zip CleanEval.iterator foreach {
-  //     case ((features,_), p) => {
-  //       val prediction = classifier.predict(features)
-  //       local.insertLabels(
-  //         docId         = p.docId,
-  //         dataset       = "cleaneval",
-  //         labelName     = labelName,
-  //         labels        = prediction,
-  //         userGenerated = false,
-  //         metadata      = Map()
-  //       )
-  //     }
-  //   }
-  // }
-
   def addCleanEvalEvaluationsToMongo = {
     val db = new Database
     val dir = "other_frameworks/output/"
@@ -311,7 +287,6 @@ object Main {
       }
     }
   }
-
 
   def alignCleanEvalData = {
     val projectPath = "/Users/thijs/dev/boilerplate"

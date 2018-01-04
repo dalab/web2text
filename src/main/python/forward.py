@@ -86,13 +86,13 @@ def edge(x, is_training,
 
 
 def loss(logits, labels):
-  cross_entropy = tf.nn.sparse_softmax_cross_entropy_with_logits(logits, labels)
+  cross_entropy = tf.nn.sparse_softmax_cross_entropy_with_logits(logits=logits, labels=labels)
   cross_entropy_mean = tf.reduce_mean(cross_entropy)
 
   regularization_losses = tf.get_collection(tf.GraphKeys.REGULARIZATION_LOSSES)
 
   loss_ = tf.add_n([cross_entropy_mean] + regularization_losses)
-  tf.scalar_summary('loss', loss_)
+  tf.summary.scalar('loss', loss_)
 
   return loss_
 
@@ -112,9 +112,9 @@ def _get_variable(name,
       regularizer = None
 
   if collection:
-    collections = [tf.GraphKeys.VARIABLES, collection]
+    collections = [tf.GraphKeys.GLOBAL_VARIABLES, collection]
   else:
-    collections = [tf.GraphKeys.VARIABLES]
+    collections = [tf.GraphKeys.GLOBAL_VARIABLES]
 
   return tf.get_variable(name,
                          shape       = shape,

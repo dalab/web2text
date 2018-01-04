@@ -10,7 +10,6 @@ import scala.collection.mutable
 /** CDOM
   *
   * @author Thijs Vogels <t.vogels@me.com>
-  * @todo Should this vals instead of vars? Can I get away with that?
   * @todo Add more documentation.
   */
 class CDOM(val root: Node, val leaves: Vector[Node]) {
@@ -124,7 +123,6 @@ object CDOM {
           }
         }
       }
-
 
       case _  => None
 

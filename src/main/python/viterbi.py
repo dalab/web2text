@@ -27,8 +27,8 @@ def viterbi(unary, pairs, lam=1.0):
     P[i,:] = (p0+np.max(pc0), p1+np.max(pc1)) # log probability
 
   res = np.zeros(n, dtype=np.int32)
-  res[0] = np.argmax(P[i,:])
-  next = C[i,res[0]]
+  res[0] = np.argmax(P[0,:])
+  next = C[0,res[0]]
   for i in range(1,n):
     res[i] = next
     next = C[i,next]

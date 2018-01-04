@@ -2,13 +2,14 @@
 # Source: https://github.com/ry/tensorflow-resnet/blob/master/config.py
 
 import tensorflow as tf
+from future.utils import iteritems
 
 FLAGS = tf.app.flags.FLAGS
 
 class Config:
     def __init__(self):
         root = self.Scope('')
-        for k, v in FLAGS.__dict__['__flags'].iteritems():
+        for k, v in iteritems(FLAGS.__dict__['__flags']):
             root[k] = v
         self.stack = [ root ]
 

@@ -28,4 +28,5 @@ debug-*.csv
 src/main/resources/.sass-cache
 src/main/resources/config.codekit
 logs/
-archive/
+_archive/
+__pycache__/

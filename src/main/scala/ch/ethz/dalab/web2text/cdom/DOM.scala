@@ -17,7 +17,6 @@ object DOM {
       if (z.text.trim matches """^[\p{Z}\s]*$""") Some(z) else None
   }
 
-
   /** Pattern matching class for empty text nodes */
   object EmptyTextNode {
     def unapply(z: jnodes.TextNode): Option[jnodes.TextNode] =
@@ -33,7 +32,6 @@ object DOM {
 
   /** Pattern maching class for block level element that have no block level children */
   object BlockLeaf {
-
     def hasBlockLevelChildren(z: jnodes.Element): Boolean = {
       z.getAllElements.tail.find(x => Settings.blockTags.contains(x.nodeName)) != None
     }

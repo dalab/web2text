@@ -258,6 +258,7 @@ object NodeProperties {
         childs = left.children
       }
     }
+
     /** Set block break to true for a node's children (right), recursively. */
     def propagateDownBlockTagRight(children: Seq[Node]): Unit = {
       // on the left
