@@ -1,13 +1,11 @@
-import tensorflow as tf
-import numpy as np
+import os
+import sys
 import time
-import sys, os
 
-# from data import cleaneval_train, cleaneval_validation, cleaneval_test
-from data import cleaneval_train_real as cleaneval_train
-from data import cleaneval_validation_real as cleaneval_validation
-from data import cleaneval_test_real as cleaneval_test
-from forward import loss, unary, edge, EDGE_VARIABLES, UNARY_VARIABLES
+import numpy as np
+import tensorflow as tf
+from data import cleaneval_test, cleaneval_train, cleaneval_validation
+from forward import EDGE_VARIABLES, UNARY_VARIABLES, edge, loss, unary
 from shuffle_queue import ShuffleQueue
 from viterbi import viterbi
 
@@ -20,7 +18,18 @@ LEARNING_RATE = 1e-3
 DROPOUT_KEEP_PROB = 0.8
 REGULARIZATION_STRENGTH = 0.000
 EDGE_LAMBDA = 1
-CHECKPOINT_DIR = 'trained_model_6'
+CHECKPOINT_DIR = 'trained_model_cleaneval_split'
+
+def main():
+  if len(sys.argv) < 2:
+    print("USAGE: python main.py [command]")
+    sys.exit()
+  if sys.argv[1] == 'train_unary':
+    train_unary()
+  elif sys.argv[1] == 'train_edge':
+    train_edge()
+  elif sys.argv[1] == 'test_structured':
+    test_structured()
 
 def evaluate_unary(dataset, prediction_fn):
   fp, fn, tp, tn = 0, 0, 0, 0
@@ -249,14 +258,5 @@ def get_batch(q, batch_size=BATCH_SIZE, patch_size=PATCH_SIZE):
 
   return batch, edge_batch, labels, edge_labels
 
-
 if __name__ == '__main__':
-  if len(sys.argv) < 2:
-    print("USAGE: python main.py [command]")
-    sys.exit()
-  if sys.argv[1] == 'train_unary':
-    train_unary()
-  elif sys.argv[1] == 'train_edge':
-    train_edge()
-  elif sys.argv[1] == 'test_structured':
-    test_structured()
+  main()
