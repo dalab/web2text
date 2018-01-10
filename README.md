@@ -76,16 +76,55 @@ println(features)
 
 ### Aligning cleaned text with original source
 
-@TODO
-
+```scala
+import ch.ethz.dalab.web2text.alignment.Alignment
+val reference = "keep this"
+val source = "You should keep this text"
+val alignment: String = Alignment.alignment(source, reference) 
+println(alignment) // □□□□□□□□□□□keep this□□□□□
+```
 ### Extracting features for CleanEval
 
-@TODO
+```scala
+import ch.ethz.dalab.web2text.utilities.Util
+import ch.ethz.dalab.web2text.cleaneval.CleanEval
+import ch.ethz.dalab.web2text.output.CsvDatasetWriter
+
+val data = Util.time{ CleanEval.dataset(fe) }
+
+// Write block_features.csv and edge_features.csv
+// Format of a row: page id, groundtruth label (1/0), features ...
+CsvDatasetWriter.write(data, "./src/main/python/data")
+
+// Print the names of the exported features in order
+println("# Block features")
+fe.blockExtractor.labels.foreach(println)
+println("# Edge features")
+fe.edgeExtractor.labels.foreach(println)
+```
 
 ### Training the CNNs
 
-@TODO
+Code related to the CNNs lives in the `src/main/python` directory. 
+
+To train the CNNs:
+
+1. Set the `CHECKPOINT_DIR` variable in `main.py`.
+2. Make sure the files `block_features.csv` and `edge_features.csv` are in the `src/main/python/data` directory. Use the example from the previous section for this.
+3. Convert the CSV files to `.npy` with `data/convert_scala_csv.py`.
+3. Train the unary CNN with `python3 main.py train_unary`.
+4. Train the pairwise CNN with `python3 main.py train_edge`.
 
 ### Evaluating the CNN
 
-@TODO
+To evaluate the CNN:
+
+1. Set the `CHECKPOINT_DIR` variable in `main.py` to point to a directory with trained weights. We provide trained weights based on the cleaneval split and a custom web2text split (with more training data.)
+2. Run `python3 main.py test_structured` to test performance on the CleanEval test set.
+
+The performance of other networks is computed in Scala:
+
+```scala
+import ch.ethz.dalab.web2text.Main
+Main.evaluateOthers()
+```

@@ -2,7 +2,6 @@ package ch.ethz.dalab.web2text
 
 import ch.ethz.dalab.web2text.utilities.Util
 import ch.ethz.dalab.web2text.utilities.Util._
-import ch.ethz.dalab.web2text.alignment.Alignment
 import ch.ethz.dalab.web2text.cleaneval.{CleanEval,Page}
 import ch.ethz.dalab.web2text.cdom.{CDOM,DOM}
 import org.jsoup.Jsoup
@@ -22,7 +21,7 @@ object Main {
   def main(args: Array[String]): Unit = {
     // testWarcLoad
     // exportFeaturesTest
-    evaluateOtherMethods
+    exportFeaturesTest
   }
 
   def exportFeaturesTest = {
