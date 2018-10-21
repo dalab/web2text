@@ -35,7 +35,7 @@ object Main {
       TreeDistanceExtractor + BlockBreakExtractor + CommonAncestorExtractor(NodeBlockExtractor)
     )
     val data = Util.time{ CleanEval.dataset(fe) }
-    CsvDatasetWriter.write(data, "/Users/thijs/Desktop/export")
+    CsvDatasetWriter.write(data, "/Users/tvogels/Desktop/export")
     println("# Block features")
     fe.blockExtractor.labels.foreach(println)
     println("# Edge features")

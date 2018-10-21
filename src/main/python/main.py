@@ -4,7 +4,6 @@ import time
 
 import numpy as np
 import tensorflow as tf
-from data import cleaneval_test, cleaneval_train, cleaneval_validation
 from forward import EDGE_VARIABLES, UNARY_VARIABLES, edge, loss, unary
 from shuffle_queue import ShuffleQueue
 from viterbi import viterbi
@@ -25,11 +24,22 @@ def main():
     print("USAGE: python main.py [command]")
     sys.exit()
   if sys.argv[1] == 'train_unary':
+    # Train the block classification network
     train_unary()
   elif sys.argv[1] == 'train_edge':
+    # Train the edge classification network
     train_edge()
   elif sys.argv[1] == 'test_structured':
+    # Run performance tests based on a trained network
     test_structured()
+  elif sys.argv[1] == 'classify':
+    # Classifies a single page
+    # Takes {base}_edge_features.csv and {base}_block_feature.csv as produced by
+    # ch.ethz.dalab.web2text.ExtractPageFeatures
+    [_, _, file_base, labels_output_file] = sys.argv
+    classify(file_base + '_block_features.csv', file_base + '_edge_features.csv', labels_output_file)
+  else:
+    raise ValueError('Unknown command ' + sys.argv[1])
 
 def evaluate_unary(dataset, prediction_fn):
   fp, fn, tp, tn = 0, 0, 0, 0
@@ -69,7 +79,7 @@ def evaluate_edge(dataset, prediction_fn):
 
 
 def train_unary(conv_weight_decay = REGULARIZATION_STRENGTH):
-
+  from data import cleaneval_test, cleaneval_train, cleaneval_validation
   training_queue = ShuffleQueue(cleaneval_train)
 
   data_shape = [BATCH_SIZE, PATCH_SIZE, 1, N_FEATURES]
@@ -125,7 +135,7 @@ def train_unary(conv_weight_decay = REGULARIZATION_STRENGTH):
 
 
 def train_edge(conv_weight_decay = REGULARIZATION_STRENGTH):
-
+  from data import cleaneval_test, cleaneval_train, cleaneval_validation
   training_queue = ShuffleQueue(cleaneval_train)
 
   data_shape = [BATCH_SIZE, PATCH_SIZE-1, 1, N_EDGE_FEATURES]
@@ -182,6 +192,7 @@ def train_edge(conv_weight_decay = REGULARIZATION_STRENGTH):
 
 
 def test_structured(lamb=EDGE_LAMBDA):
+  from data import cleaneval_test, cleaneval_train, cleaneval_validation
   unary_features = tf.placeholder(tf.float32)
   edge_features  = tf.placeholder(tf.float32)
 
@@ -227,6 +238,46 @@ def test_structured(lamb=EDGE_LAMBDA):
     print('size', len(cleaneval_test))
     print("Structured: Accuracy=%.5f, precision=%.5f, recall=%.5f, F1=%.5f" % (accuracy, precision, recall, f1))
     print("Just unary: Accuracy=%.5f, precision=%.5f, recall=%.5f, F1=%.5f" % (accuracy_u, precision_u, recall_u, f1_u))
+
+
+def classify(block_features_file, edge_features_file, labels_output_file, lamb=EDGE_LAMBDA):
+  block_features = np.genfromtxt(block_features_file, delimiter=',')
+  edge_features = np.genfromtxt(edge_features_file, delimiter=',')
+
+  # Reshape
+  block_features = block_features.T[np.newaxis, :, np.newaxis, :].astype(np.float32)
+  edge_features = edge_features.T[np.newaxis, :, np.newaxis, :].astype(np.float32)
+
+  unary_features = tf.constant(block_features)
+  edge_features  = tf.constant(edge_features)
+
+  unary_logits = unary(unary_features, is_training=False)
+  edge_logits  = edge(edge_features, is_training=False)
+
+  unary_saver = tf.train.Saver(tf.get_collection(UNARY_VARIABLES))
+  edge_saver  = tf.train.Saver(tf.get_collection(EDGE_VARIABLES))
+
+  init_op = tf.global_variables_initializer()
+
+  with tf.Session() as session:
+    session.run(init_op)
+    unary_saver.restore(session, os.path.join(CHECKPOINT_DIR, "unary.ckpt"))
+    edge_saver.restore(session, os.path.join(CHECKPOINT_DIR, "edge.ckpt"))
+
+    from time import time
+    start = time()
+
+    unary_lgts = session.run(unary_logits)
+    edge_lgts = session.run(edge_logits)
+
+    labels = viterbi(unary_lgts.reshape([-1,2]), edge_lgts.reshape([-1,4]), lam=lamb).astype(np.int32)
+
+    duration = time() - start
+    print("Done. Classification took %.2f seconds " % duration)
+    with open(labels_output_file, 'w') as fp:
+      fp.write(",".join('%d' % label for label in labels))
+    print('CSV labels written to %s' % labels_output_file)
+
 
 
 def get_batch(q, batch_size=BATCH_SIZE, patch_size=PATCH_SIZE):
