@@ -32,6 +32,19 @@ This repository contains
 
 ## Usage
 
+### Recipe: extracting text from a web page
+
+1. Run `ch.ethz.dalab.web2text.ExtractPageFeatures` through sbt. The arguments are:
+    * input html file
+    * the desired output base filename (script produces `{filename_base}_edge_feature.csv` and `{filename_base}_block_features.csv`)
+2. Use the python script `src/main/python.py` with the 'classify' option. The arguments are:
+    * `python3 main.py classify {filename_base} {labels_out_filename}`
+2. Use `ch.ethz.dalab.web2text.ApplyLabelsToPage` through sbt to produce clean text. Arguments:
+    * input html file
+    * `{labels_out_filename}` from step 2
+    * output destination text file path
+
+
 ### HTML to CDOM
 
 In Scala:
