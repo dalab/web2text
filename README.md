@@ -25,7 +25,7 @@ This repository contains
 
 ## Installation
 
-1. Install [Scala and SBT](http://www.scala-sbt.org/download.html). The code was tested with SBT 0.31.
+1. Install [Scala and SBT](http://www.scala-sbt.org/download.html). The code was tested with SBT 0.31. You can also use Docker image `hseeberger/scala-sbt:8u222_1.3.3_2.13.1`.
 
 2. Install Python 3 with Tensorflow and NumPy.
 
