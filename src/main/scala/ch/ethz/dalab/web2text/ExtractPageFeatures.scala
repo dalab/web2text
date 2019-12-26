@@ -41,6 +41,7 @@ object ExtractPageFeatures {
     val features = featureExtractor(cdom)
 
     csvwrite(new File(s"${outputBasename}_block_features.csv"), features.blockFeatures)
-    csvwrite(new File(s"${outputBasename}_edge_features.csv"), features.edgeFeatures)
+    // Not needed for Author Extraction task
+    //csvwrite(new File(s"${outputBasename}_edge_features.csv"), features.edgeFeatures)
   }
 }

@@ -1,0 +1,1 @@
+sbt "runMain src/main/scala/ch.ethz.dalab.web2text/ExtractPageFeatures  src/main/resources/all_the_news_dataset/html/fff486af5b2591cc3b71e841459a221aacc97d77.html src/main/resources/all_the_news_dataset/dom/output_6_"

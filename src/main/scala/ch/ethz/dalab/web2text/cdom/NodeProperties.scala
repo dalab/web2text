@@ -16,6 +16,8 @@ class NodeProperties (
   var nNumeric: Int,
   var nDashes: Int,
   var nStopwords: Int,
+  // Author extraction task - contains_popular_name
+  var containsPopularName: Boolean,
   var nWordsWithCapital: Int,
   var nCharsInLink: Int,
   var totalWordLength: Int,
@@ -45,6 +47,7 @@ class NodeProperties (
   |  <dt>nNumeric</dt><dd>$nNumeric</dd>
   |  <dt>nDashes</dt><dd>$nDashes</dd>
   |  <dt>nStopwords</dt><dd>$nStopwords</dd>
+  |  <dt>containsPopularName</dt><dd>$containsPopularName</dd>
   |  <dt>nWordsWithCapital</dt><dd>$nWordsWithCapital</dd>
   |  <dt>nCharsInLink</dt><dd>$nCharsInLink</dd>
   |  <dt>containsCopyright</dt><dd>$containsCopyright</dd>
@@ -94,6 +97,8 @@ object NodeProperties {
           nNumeric              = text.count { _.isDigit },
           nDashes               = text.count { x => s.dashes.contains(x) },
           nStopwords            = words.count { x => s.stopwords.contains(x) },
+          // Author extraction task - contains_popular_name
+          containsPopularName   = words.count { x => s.popularNames.contains(x) } > 0,
           nWordsWithCapital     = words.count { _.charAt(0).isUpper },
           nCharsInLink          = if (domnode.nodeName == "a") text.length else 0,
           totalWordLength       = words.view.map(_.length).sum,
@@ -154,6 +159,7 @@ object NodeProperties {
           nNumeric              = cfeat.nNumeric,
           nDashes               = cfeat.nDashes,
           nStopwords            = cfeat.nStopwords,
+          containsPopularName   = cfeat.containsPopularName,
           nWordsWithCapital     = cfeat.nWordsWithCapital,
           nCharsInLink          = if (domnode.nodeName == "a")
                                     cfeat.nCharacters
@@ -208,7 +214,10 @@ object NodeProperties {
         val features = new NodeProperties(
           nCharacters=0, nWords=0, nSentences=0, nPunctuation=0, nNumeric=0, nDashes=0,
           containsCopyright=false, containsEmail=false, containsUrl=false, containsYear=false,
-          nStopwords=0, nWordsWithCapital=0, totalWordLength=0, nChildrenDeep=cfeat.length,
+          nStopwords=0, 
+          //Author extraction task
+          containsPopularName=false,
+          nWordsWithCapital=0, totalWordLength=0, nChildrenDeep=cfeat.length,
           nCharsInLink          = 0,
           endsWithPunctuation   = cfeat.last.endsWithPunctuation,
           endsWithQuestionMark  = cfeat.last.endsWithQuestionMark,

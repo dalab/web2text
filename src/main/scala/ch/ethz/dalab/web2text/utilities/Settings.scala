@@ -6,8 +6,11 @@ package ch.ethz.dalab.web2text.utilities
   */
 object Settings {
 
-  /** Collection of English stopwords */
-  val stopwords = Set("a","about","above","after","again","against","all","am","an","and","any","are","as","at","be","because","been","before","being","below","between","both","but","by","cannot","could","did","do","does","doing","down","during","each","few","for","from","further","had","has","have","having","he","her","here","hers","herself","him","himself","his","how","i","if","in","into","is","it","its","itself","me","more","most","my","myself","no","nor","not","of","off","on","once","only","or","other","ought","our","ours", "ourselves","out","over","own","same","she","should","so","some","such","than","that","the","their","theirs","them","themselves","then","there","these","they","this","those","through","to","too","under","until","up","very","was","we","were","what","when","where","which","while","who","whom","why","with","would","you","your","yours","yourself","yourselves")
+  /** Collection of English stopwords ("and", "by", and "from" have been removed)*/
+  val stopwords = Set("a","about","above","after","again","against","all","am","an","any","are","as","at","be","because","been","before","being","below","between","both","but","cannot","could","did","do","does","doing","down","during","each","few","for","further","had","has","have","having","he","her","here","hers","herself","him","himself","his","how","i","if","in","into","is","it","its","itself","me","more","most","my","myself","no","nor","not","of","off","on","once","only","or","other","ought","our","ours", "ourselves","out","over","own","same","she","should","so","some","such","than","that","the","their","theirs","them","themselves","then","there","these","they","this","those","through","to","too","under","until","up","very","was","we","were","what","when","where","which","while","who","whom","why","with","would","you","your","yours","yourself","yourselves")
+
+  /** Prepositions often used with an article author */
+  val articlePrepositions = Set("and", "by", "from")
 
   /** List of characters that are considered punctuation */
   val punctuation = Set('.',',','?',';',':','!')
@@ -26,6 +29,9 @@ object Settings {
                         "main", "nav", "noscript", "ol", "ol", "output", "p", "pre", "radio",
                         "section", "select", "table", "tbody", "td", "textarea", "tfoot",
                         "thead", "tr", "ul", "video","br")
+
+    /** TODO Common US names **/
+    val popularNames = Set("John", "Andrew")
 
   /** Collection of interesting regular expressions */
   object regex {

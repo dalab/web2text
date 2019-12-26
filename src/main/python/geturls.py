@@ -3,7 +3,7 @@ import sys
 import hashlib
 import urllib
 
-inputFileName = "./articles3.csv"
+inputFileName = "../resources/all_the_news_dataset/articles3.csv"
 csv.field_size_limit(sys.maxsize)
 with open(inputFileName, 'r') as f:
   reader = csv.reader(f)
@@ -12,5 +12,5 @@ with open(inputFileName, 'r') as f:
     url = row[8]
     if len(url) > 7:
       outputFileName =  hashlib.sha1(url).hexdigest()
-      print("URL:" + url + ", Hash: " + outputFileName)
-      urllib.urlretrieve(url, filename="html/" + outputFileName + ".html")
+      print("URL: " + url + ", Hash: " + outputFileName)
+      urllib.urlretrieve(url, filename="../resources/all_the_news_dataset/html/" + outputFileName + ".html")
