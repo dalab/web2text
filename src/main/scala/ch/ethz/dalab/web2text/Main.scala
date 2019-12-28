@@ -31,15 +31,15 @@ object Main {
       + AncestorExtractor(NodeBlockExtractor + TagExtractor(mode="node"), 1)
       + AncestorExtractor(NodeBlockExtractor, 2)
       + RootExtractor(NodeBlockExtractor)
-      + TagExtractor(mode="leaf"),
-      TreeDistanceExtractor + BlockBreakExtractor + CommonAncestorExtractor(NodeBlockExtractor)
+      + TagExtractor(mode="leaf")//,
+      //TreeDistanceExtractor + BlockBreakExtractor + CommonAncestorExtractor(NodeBlockExtractor)
     )
     val data = Util.time{ CleanEval.dataset(fe) }
-    CsvDatasetWriter.write(data, "/Users/tvogels/Desktop/export")
+    CsvDatasetWriter.write(data, "/Users/cesc/Desktop/export")
     println("# Block features")
     fe.blockExtractor.labels.foreach(println)
     println("# Edge features")
-    fe.edgeExtractor.labels.foreach(println)
+    //fe.edgeExtractor.labels.foreach(println)
   }
 
   def testCommonAncestorExtractor = {

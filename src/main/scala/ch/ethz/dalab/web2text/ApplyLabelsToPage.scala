@@ -8,7 +8,6 @@ import ch.ethz.dalab.web2text.features.FeatureExtractor
 import ch.ethz.dalab.web2text.utilities.Util
 import ch.ethz.dalab.web2text.output.CleanTextOutput
 
-
 /**
  * This is the second step in classifying boilerplate content in a webpage.
  * It takes:
@@ -34,8 +33,8 @@ object ApplyLabelsToPage {
       + AncestorExtractor(NodeBlockExtractor + TagExtractor(mode="node"), 1)
       + AncestorExtractor(NodeBlockExtractor, 2)
       + RootExtractor(NodeBlockExtractor)
-      + TagExtractor(mode="leaf"),
-      TreeDistanceExtractor + BlockBreakExtractor + CommonAncestorExtractor(NodeBlockExtractor)
+      + TagExtractor(mode="leaf")//,
+     // TreeDistanceExtractor + BlockBreakExtractor + CommonAncestorExtractor(NodeBlockExtractor)
     )
 
     val source = Source.fromFile(filename).getLines.mkString

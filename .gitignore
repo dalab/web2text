@@ -30,3 +30,6 @@ src/main/resources/config.codekit
 logs/
 _archive/
 __pycache__/
+*.tar.gz
+src/main/resources/all_the_news_dataset/*
+.idea/*

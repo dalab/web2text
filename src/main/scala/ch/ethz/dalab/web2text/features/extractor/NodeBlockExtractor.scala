@@ -34,6 +34,8 @@ object NodeBlockExtractor extends BlockFeatureExtractor {
       if (p.nWords == 0) -1 else z(clip(p.totalWordLength / p.nWords,3,15),4.910001,1.905709), // OK
       p.nStopwords > 0, // OK
       if (p.nWords == 0) 0 else z(p.nStopwords.toDouble / p.nWords,0.374,0.1529), // OK
+      p.containsPopularName,
+      p.containsAuthorParticle,
       z(clip(log(p.nCharacters),2.5,10),6,2.14),
       if (p.nPunctuation == 0) 0 else z(clip(log(p.nPunctuation.toDouble / p.nCharacters),-4,-2.5),-3.338525,0.6058926), // OK
       z(p.nNumeric > 0, -0.5900983, 0.8073342), // OK
@@ -49,7 +51,8 @@ object NodeBlockExtractor extends BlockFeatureExtractor {
       if (p.nWords > 0) z(capRat,0.4475758,0.4129316) else 0.0, // OK
       if (p.nWords > 0) z(capRat*capRat,0.3708354,0.4334037) else 0.0, // OK
       if (p.nWords > 0) z(capRat*capRat*capRat,0.340843,0.4404389) else 0.0, // OK
-      p.containsForm
+      p.containsForm,
+      p.containsAuthor
     )
     if (v exists {x => x.isNaN}) {
       println(s"There is a nan in $v")
@@ -63,6 +66,8 @@ object NodeBlockExtractor extends BlockFeatureExtractor {
     "avg_word_length [3,15]",
     "has_stopword",
     "stopword_ratio",
+    "contains_popular_name",
+    "contains_author_particle",
     "log(n_characters) [2.5,10]",
     "log(punctuation_ratio)",
     "has_numeric",
@@ -77,7 +82,8 @@ object NodeBlockExtractor extends BlockFeatureExtractor {
     "ratio_words_with_capital",
     "ratio_words_with_capital^2",
     "ratio_words_with_capital^3",
-    "contains_form_element"
+    "contains_form_element",
+    "contains_author"
   )
 
 

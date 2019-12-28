@@ -1,4 +1,4 @@
-name := "Boilerplate"
+name := "AuthorExtractor"
 
 organization := "nl.tvogels"
 

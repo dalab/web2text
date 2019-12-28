@@ -33,6 +33,8 @@ object LeafBlockExtractor extends BlockFeatureExtractor {
       if (p.nWords == 0) 0 else z(clip(log(p.nWords),0,3.5),1.5086,1.205), // OK
       if (p.nWords == 0) -1 else z(clip(p.totalWordLength / p.nWords,3,15),4.910001,1.905709), // OK
       p.nStopwords > 0, // OK
+      p.containsPopularName,
+      p.containsAuthorParticle,
       if (p.nWords == 0) 0 else z(p.nStopwords.toDouble / p.nWords,0.374,0.1529), // OK
       z(clip(log(p.nCharacters),2.5,5.5),3.392,1.06445), // OK
       p.nPunctuation > 0, // OK
@@ -53,7 +55,8 @@ object LeafBlockExtractor extends BlockFeatureExtractor {
       p.containsYear, // OK
       if (p.nWords > 0) z(capRat,0.4475758,0.4129316) else 0.0, // OK
       if (p.nWords > 0) z(capRat*capRat,0.3708354,0.4334037) else 0.0, // OK
-      if (p.nWords > 0) z(capRat*capRat*capRat,0.340843,0.4404389) else 0.0
+      if (p.nWords > 0) z(capRat*capRat*capRat,0.340843,0.4404389) else 0.0,
+      p.containsAuthor
     )
     if (v exists {x => x.isNaN}) {
       println(s"There is a nan in $v")
@@ -66,6 +69,8 @@ object LeafBlockExtractor extends BlockFeatureExtractor {
     "log(n_words)",
     "avg_word_length [3,15]",
     "has_stopword",
+    "contains_popular_name",
+    "contains_author_particle",
     "stopword_ratio",
     "log(n_characters) [2.5,5.5]",
     "contains_punctuation",
@@ -85,7 +90,8 @@ object LeafBlockExtractor extends BlockFeatureExtractor {
     "contains_year",
     "ratio_words_with_capital",
     "ratio_words_with_capital^2",
-    "ratio_words_with_capital^3"
+    "ratio_words_with_capital^3",
+    "contains_author"
   )
 
 

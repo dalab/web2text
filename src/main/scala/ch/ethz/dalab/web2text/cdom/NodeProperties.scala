@@ -16,6 +16,8 @@ class NodeProperties (
   var nNumeric: Int,
   var nDashes: Int,
   var nStopwords: Int,
+  var containsPopularName: Boolean,
+  var containsAuthorParticle: Boolean,
   var nWordsWithCapital: Int,
   var nCharsInLink: Int,
   var totalWordLength: Int,
@@ -32,7 +34,8 @@ class NodeProperties (
   var blockBreakAfter: Boolean,
   var brBefore: Boolean,
   var brAfter: Boolean,
-  var containsForm: Boolean
+  var containsForm: Boolean,
+  var containsAuthor: Boolean
 ) {
 
 
@@ -45,6 +48,8 @@ class NodeProperties (
   |  <dt>nNumeric</dt><dd>$nNumeric</dd>
   |  <dt>nDashes</dt><dd>$nDashes</dd>
   |  <dt>nStopwords</dt><dd>$nStopwords</dd>
+  |  <dt>containsPopularName</dt><dd>$containsPopularName</dd>
+  |  <dt>containsAuthorParticle</dt><dd>$containsAuthorParticle</dd>|
   |  <dt>nWordsWithCapital</dt><dd>$nWordsWithCapital</dd>
   |  <dt>nCharsInLink</dt><dd>$nCharsInLink</dd>
   |  <dt>containsCopyright</dt><dd>$containsCopyright</dd>
@@ -59,6 +64,7 @@ class NodeProperties (
   |  <dt>brBefore</dt><dd>$brBefore</dd>
   |  <dt>brAfter</dt><dd>$brAfter</dd>
   |  <dt>containsForm</dt><dd>$containsForm</dd>
+  |  <dt>containsAuthor</dt><dd>$containsAuthor</dd>
   |</dl>""".stripMargin
 }
 
@@ -86,6 +92,8 @@ object NodeProperties {
         val regexUrl   = """\b(https?|ftp)://[^\s/$.?#].[^\s]*\b""".r
         val regexYear  = """\b\d{4}\b""".r
 
+        System.out.println("NodeProperies - Settings.author=" + s.author)
+
         new NodeProperties(
           nCharacters           = scala.math.max(text.length,1),
           nWords                = words.length,
@@ -94,6 +102,8 @@ object NodeProperties {
           nNumeric              = text.count { _.isDigit },
           nDashes               = text.count { x => s.dashes.contains(x) },
           nStopwords            = words.count { x => s.stopwords.contains(x) },
+          containsPopularName   = if (words.length >=2 && words.length <= 5) words.count { x => s.popularNames.contains(x) } > 0 else false,
+          containsAuthorParticle = if (words.length >=2 && words.length <= 5) words.count { x => s.authorParticle.contains(x) } > 0 else false,
           nWordsWithCapital     = words.count { _.charAt(0).isUpper },
           nCharsInLink          = if (domnode.nodeName == "a") text.length else 0,
           totalWordLength       = words.view.map(_.length).sum,
@@ -120,7 +130,9 @@ object NodeProperties {
                                   domnode.nextSibling.nodeName == "br",
           containsForm          = if (domnode.isInstanceOf[jnodes.Element])
                                     !domnode.asInstanceOf[jnodes.Element].getElementsByTag("input").isEmpty
-                                  else false
+                                  else false,
+          containsAuthor        = words.length >=2 && words.length <= 5 && text.contains(s.author)
+          //containsAuthor        = words.length >=2 && words.length <= 5 && text.contains("Niraj Chokshi")
         )
       }
 
@@ -154,6 +166,8 @@ object NodeProperties {
           nNumeric              = cfeat.nNumeric,
           nDashes               = cfeat.nDashes,
           nStopwords            = cfeat.nStopwords,
+          containsPopularName   = cfeat.containsPopularName,
+          containsAuthorParticle   = cfeat.containsAuthorParticle,
           nWordsWithCapital     = cfeat.nWordsWithCapital,
           nCharsInLink          = if (domnode.nodeName == "a")
                                     cfeat.nCharacters
@@ -183,7 +197,8 @@ object NodeProperties {
           brAfter               = cfeat.brAfter ||
                                   (domnode.nextSibling != null &&
                                    domnode.nextSibling.nodeName == "br"),
-          containsForm          = cfeat.containsForm
+          containsForm          = cfeat.containsForm,
+          containsAuthor        = cfeat.containsAuthor
         )
       }
 
@@ -208,7 +223,10 @@ object NodeProperties {
         val features = new NodeProperties(
           nCharacters=0, nWords=0, nSentences=0, nPunctuation=0, nNumeric=0, nDashes=0,
           containsCopyright=false, containsEmail=false, containsUrl=false, containsYear=false,
-          nStopwords=0, nWordsWithCapital=0, totalWordLength=0, nChildrenDeep=cfeat.length,
+          nStopwords=0,
+          containsPopularName=false,
+          containsAuthorParticle=false,
+          nWordsWithCapital=0, totalWordLength=0, nChildrenDeep=cfeat.length,
           nCharsInLink          = 0,
           endsWithPunctuation   = cfeat.last.endsWithPunctuation,
           endsWithQuestionMark  = cfeat.last.endsWithQuestionMark,
@@ -220,7 +238,8 @@ object NodeProperties {
           brAfter               = nexttag == "br",
           containsForm          = if (domnode.isInstanceOf[jnodes.Element])
                                     !domnode.asInstanceOf[jnodes.Element].getElementsByTag("input").isEmpty
-                                  else false
+                                  else false,
+          containsAuthor        = false
         )
 
         // Update the features, by summing up things
@@ -232,6 +251,8 @@ object NodeProperties {
           features.nNumeric           += x.nNumeric
           features.nDashes            += x.nDashes
           features.nStopwords         += x.nStopwords
+          features.containsPopularName   = x.containsPopularName || features.containsPopularName
+          features.containsAuthorParticle = x.containsAuthorParticle || features.containsAuthorParticle
           features.nWordsWithCapital  += x.nWordsWithCapital
           features.totalWordLength    += x.totalWordLength
           features.nChildrenDeep      += x.nChildrenDeep
@@ -241,6 +262,7 @@ object NodeProperties {
           features.containsEmail       = x.containsEmail || features.containsEmail
           features.containsUrl         = x.containsUrl || features.containsUrl
           features.containsYear        = x.containsYear || features.containsYear
+          features.containsAuthor      = x.containsAuthor || features.containsAuthor
         })
 
         features
