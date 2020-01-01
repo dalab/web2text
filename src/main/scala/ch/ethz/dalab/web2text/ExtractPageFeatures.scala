@@ -65,7 +65,6 @@ object ExtractPageFeatures {
 
     csvwrite(new File(s"${outputBasename}_block_features.csv"), features.blockFeatures)
     cdom.saveHTML("/Users/cesc/Desktop/hypefactors/AuthorExtractor/src/main/resources/all_the_news_dataset/dom/dom.html")
-
     //csvwrite(new File(s"${outputBasename}_edge_features.csv"), features.edgeFeatures)
   }
 }
