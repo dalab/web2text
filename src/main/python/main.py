@@ -4,20 +4,24 @@ import time
 
 import numpy as np
 import tensorflow as tf
-from forward import EDGE_VARIABLES, UNARY_VARIABLES, edge, loss, unary
+#from forward import EDGE_VARIABLES, UNARY_VARIABLES, edge, loss, unary
+from forward import UNARY_VARIABLES, loss, unary
 from shuffle_queue import ShuffleQueue
-from viterbi import viterbi
+#from viterbi import viterbi
 
 BATCH_SIZE = 128
 PATCH_SIZE = 9
-N_FEATURES = 128
-N_EDGE_FEATURES = 25
+#N_FEATURES = 128
+N_FEATURES = 131 // Added 3 extra features
+#N_EDGE_FEATURES = 25
 TRAIN_STEPS = 5000
 LEARNING_RATE = 1e-3
 DROPOUT_KEEP_PROB = 0.8
 REGULARIZATION_STRENGTH = 0.000
 EDGE_LAMBDA = 1
-CHECKPOINT_DIR = 'trained_model_cleaneval_split'
+CHECKPOINT_DIR = 'trained_model_all_the_news_split'
+SKIP_ROWS = [30,54,98] # Data not used for training (containsAuthor at the parent, grandparent and root level)
+LABEL_ROW = 120 # This row mark which node contains the author and is used for training
 
 def main():
   if len(sys.argv) < 2:
@@ -44,7 +48,8 @@ def main():
 def evaluate_unary(dataset, prediction_fn):
   fp, fn, tp, tn = 0, 0, 0, 0
   for doc in dataset:
-    predictions = prediction_fn(doc[b'data'], doc[b'edge_data'])
+    #predictions = prediction_fn(doc[b'data'], doc[b'edge_data'])
+    predictions = prediction_fn(doc[b'data'])
 
     for i, lab in enumerate(doc[b'labels']):
       if predictions[i] == 1 and lab == 1:
@@ -63,7 +68,7 @@ def evaluate_unary(dataset, prediction_fn):
   f1 = 2*precision*recall/(precision+recall)
   return accuracy, precision, recall, f1
 
-
+'''
 def evaluate_edge(dataset, prediction_fn):
   correct, incorrect = 0, 0
   for doc in dataset:
@@ -76,7 +81,7 @@ def evaluate_edge(dataset, prediction_fn):
         incorrect += 1
 
   return float(correct) / (correct + incorrect)
-
+'''
 
 def train_unary(conv_weight_decay = REGULARIZATION_STRENGTH):
   from data import cleaneval_test, cleaneval_train, cleaneval_validation
@@ -242,33 +247,33 @@ def test_structured(lamb=EDGE_LAMBDA):
 
 def classify(block_features_file, edge_features_file, labels_output_file, lamb=EDGE_LAMBDA):
   block_features = np.genfromtxt(block_features_file, delimiter=',')
-  edge_features = np.genfromtxt(edge_features_file, delimiter=',')
+  #edge_features = np.genfromtxt(edge_features_file, delimiter=',')
 
   # Reshape
   block_features = block_features.T[np.newaxis, :, np.newaxis, :].astype(np.float32)
-  edge_features = edge_features.T[np.newaxis, :, np.newaxis, :].astype(np.float32)
+  #edge_features = edge_features.T[np.newaxis, :, np.newaxis, :].astype(np.float32)
 
   unary_features = tf.constant(block_features)
-  edge_features  = tf.constant(edge_features)
+  #edge_features  = tf.constant(edge_features)
 
   unary_logits = unary(unary_features, is_training=False)
-  edge_logits  = edge(edge_features, is_training=False)
+  #edge_logits  = edge(edge_features, is_training=False)
 
   unary_saver = tf.train.Saver(tf.get_collection(UNARY_VARIABLES))
-  edge_saver  = tf.train.Saver(tf.get_collection(EDGE_VARIABLES))
+  #edge_saver  = tf.train.Saver(tf.get_collection(EDGE_VARIABLES))
 
   init_op = tf.global_variables_initializer()
 
   with tf.Session() as session:
     session.run(init_op)
     unary_saver.restore(session, os.path.join(CHECKPOINT_DIR, "unary.ckpt"))
-    edge_saver.restore(session, os.path.join(CHECKPOINT_DIR, "edge.ckpt"))
+    #edge_saver.restore(session, os.path.join(CHECKPOINT_DIR, "edge.ckpt"))
 
     from time import time
     start = time()
 
     unary_lgts = session.run(unary_logits)
-    edge_lgts = session.run(edge_logits)
+    #edge_lgts = session.run(edge_logits)
 
     labels = viterbi(unary_lgts.reshape([-1,2]), edge_lgts.reshape([-1,4]), lam=lamb).astype(np.int32)
 
@@ -286,8 +291,8 @@ def get_batch(q, batch_size=BATCH_SIZE, patch_size=PATCH_SIZE):
 
   batch       = np.zeros((BATCH_SIZE, PATCH_SIZE, 1, N_FEATURES), dtype = np.float32)
   labels      = np.zeros((BATCH_SIZE, PATCH_SIZE, 1, 1), dtype = np.float32)
-  edge_batch  = np.zeros((BATCH_SIZE, PATCH_SIZE-1, 1, N_EDGE_FEATURES), dtype = np.float32)
-  edge_labels = np.zeros((BATCH_SIZE, PATCH_SIZE-1, 1, 1), dtype = np.int64)
+  #edge_batch  = np.zeros((BATCH_SIZE, PATCH_SIZE-1, 1, N_EDGE_FEATURES), dtype = np.float32)
+  #edge_labels = np.zeros((BATCH_SIZE, PATCH_SIZE-1, 1, 1), dtype = np.int64)
 
 
   for entry in range(BATCH_SIZE):
@@ -303,11 +308,13 @@ def get_batch(q, batch_size=BATCH_SIZE, patch_size=PATCH_SIZE):
 
     # Add it to the tensors
     batch[entry,:,0,:]       = doc[b'data'][i:i+PATCH_SIZE,:]
-    edge_batch[entry,:,0,:]  = doc[b'edge_data'][i:i+PATCH_SIZE-1,:]
-    labels[entry,:,0,0]      = doc[b'labels'][i:i+PATCH_SIZE] # {0,1}
-    edge_labels[entry,:,0,0] = doc[b'edge_labels'][i:i+PATCH_SIZE-1] # {0,1,2,3} = {00,01,10,11}
+    #edge_batch[entry,:,0,:]  = doc[b'edge_data'][i:i+PATCH_SIZE-1,:]
+    #labels[entry,:,0,0]      = doc[b'labels'][i:i+PATCH_SIZE] # {0,1}
+    labels[entry,:,0,LABEL_ROW-1]      = doc[b'labels'][i:i+PATCH_SIZE] # {0,1}
+    #edge_labels[entry,:,0,0] = doc[b'edge_labels'][i:i+PATCH_SIZE-1] # {0,1,2,3} = {00,01,10,11}
 
-  return batch, edge_batch, labels, edge_labels
+  #return batch, edge_batch, labels, edge_labels
+  return batch, labels
 
 if __name__ == '__main__':
   main()

@@ -51,7 +51,7 @@ object NodeBlockExtractor extends BlockFeatureExtractor {
       if (p.nWords > 0) z(capRat,0.4475758,0.4129316) else 0.0, // OK
       if (p.nWords > 0) z(capRat*capRat,0.3708354,0.4334037) else 0.0, // OK
       if (p.nWords > 0) z(capRat*capRat*capRat,0.340843,0.4404389) else 0.0, // OK
-      p.containsForm,
+      p.containsForm ,
       p.containsAuthor
     )
     if (v exists {x => x.isNaN}) {

@@ -68,6 +68,7 @@ class NodeProperties (
   |</dl>""".stripMargin
 }
 
+
 /** Factory for the [[ch.ethz.dalab.web2text.cdom.NodeProperties]] class */
 object NodeProperties {
 
@@ -92,7 +93,7 @@ object NodeProperties {
         val regexUrl   = """\b(https?|ftp)://[^\s/$.?#].[^\s]*\b""".r
         val regexYear  = """\b\d{4}\b""".r
 
-        System.out.println("NodeProperies - Settings.author=" + s.author)
+        //System.out.println("NodeProperies - Settings.author=" + s.author)
 
         new NodeProperties(
           nCharacters           = scala.math.max(text.length,1),
@@ -132,7 +133,6 @@ object NodeProperties {
                                     !domnode.asInstanceOf[jnodes.Element].getElementsByTag("input").isEmpty
                                   else false,
           containsAuthor        = words.length >=2 && words.length <= 5 && text.contains(s.author)
-          //containsAuthor        = words.length >=2 && words.length <= 5 && text.contains("Niraj Chokshi")
         )
       }
 

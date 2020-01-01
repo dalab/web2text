@@ -39,7 +39,7 @@ object ExtractPageFeatures {
       }
     }
 
-    System.out.println("Author (labeled): " + author)
+    System.out.println("Author: " + author)
     Settings.author = author
 
     extractPageFeatures(filename, args(1))

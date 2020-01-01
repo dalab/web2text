@@ -3,7 +3,7 @@ from tensorflow import variable_scope, convert_to_tensor
 
 from config import Config
 
-EDGE_VARIABLES  = 'edge_variables'
+#EDGE_VARIABLES  = 'edge_variables'
 UNARY_VARIABLES = 'unary_variables'
 
 relu = tf.nn.relu
@@ -46,6 +46,7 @@ def unary(x, is_training,
 
   return x
 
+'''
 def edge(x, is_training,
          conv_weight_decay  = 0.0004,
          feature_counts     = [50, 50, 50, 10],
@@ -83,7 +84,7 @@ def edge(x, is_training,
       x = conv(x, c)
 
   return x
-
+'''
 
 def loss(logits, labels):
   cross_entropy = tf.nn.sparse_softmax_cross_entropy_with_logits(logits=logits, labels=labels)
