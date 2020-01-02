@@ -4,7 +4,7 @@ organization := "nl.tvogels"
 
 version:= "2.0-SNAPSHOT"
 
-scalaVersion := "2.10.4"
+scalaVersion := "2.11.6"
 
 cancelable in Global := true
 fork in run := true
@@ -16,3 +16,5 @@ libraryDependencies += "org.apache.spark" %% "spark-core" % "1.4.1"
 libraryDependencies += "org.apache.spark" %% "spark-mllib" % "1.4.1"
 
 libraryDependencies += "org.mongodb" %% "casbah" % "3.1.0"
+
+//javaOptions in Universal ++= Seq("-J-Xms512M", "-J-Xmx6g",  "-Xss2M", "-J-XX:MaxMetaspaceSize=1024M")

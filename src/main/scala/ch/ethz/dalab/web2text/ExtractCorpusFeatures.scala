@@ -34,8 +34,8 @@ object ExtractCorpusFeatures {
     for (fileName <- fileNameList)
     {
       i+=1
-      if (i>= 72200)
-        {
+      //if (i>= 72200)
+       // {
           System.out.println("Extracting features from file: " + fileName)
           val articleId = fileName.split("html/")(1).split(".html")(0)
 
@@ -53,7 +53,7 @@ object ExtractCorpusFeatures {
           System.out.println("Author: " + author)
           Settings.author = author
           extractPageFeatures(fileName, args(1), articleId)
-        }
+        //}
     }
   }
   def extractPageFeatures(filename: String, outputBasename: String, articleId: String) = {

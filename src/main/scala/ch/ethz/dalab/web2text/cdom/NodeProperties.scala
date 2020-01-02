@@ -103,8 +103,11 @@ object NodeProperties {
           nNumeric              = text.count { _.isDigit },
           nDashes               = text.count { x => s.dashes.contains(x) },
           nStopwords            = words.count { x => s.stopwords.contains(x) },
-          containsPopularName   = if (words.length >=2 && words.length <= 5) words.count { x => s.popularNames.contains(x) } > 0 else false,
-          containsAuthorParticle = if (words.length >=2 && words.length <= 5) words.count { x => s.authorParticle.contains(x) } > 0 else false,
+          containsPopularName   = (words.length >=2 && words.length <= 5  &&
+                                  words.count { _.charAt(0).isUpper }>0) &&
+                                  words.count { x => s.popularNames.contains(x) } > 0,
+          containsAuthorParticle = (words.length >=2 && words.length <= 5) &&
+                                  words.count { x => s.authorParticle.contains(x) } > 0 ,
           nWordsWithCapital     = words.count { _.charAt(0).isUpper },
           nCharsInLink          = if (domnode.nodeName == "a") text.length else 0,
           totalWordLength       = words.view.map(_.length).sum,

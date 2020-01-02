@@ -159,7 +159,8 @@ object Util {
 
     def randomSplit(splits: Double*): Seq[Seq[T]]  = {
       val n = v.length
-      val running = (splits.scanLeft(0.)(_ + _)).tail
+      //val running = (splits.scanLeft(0.)(_ + _)).tail
+      val running = (splits.scanLeft(0.0)(_ + _)).tail
       val sumSplits = running.last
       val splitIndices = running map { (x: Double) => (x * n / sumSplits).toInt }
       assert(splitIndices.last == n)

@@ -10,6 +10,9 @@ class DataQueue:
     def get_size(self):
         return self.accum
 
+    def get_num_files(self):
+        return len(self.file_sizes_list)
+
     def __init__(self,path, batch_size):
         file_list = [os.path.join(path, f) for f in os.listdir(path) if os.path.isfile(os.path.join(path, f))]
         self.file_sizes_list = []
@@ -69,7 +72,7 @@ class DataQueue:
             else:
                 data_to_return = np.vstack([data_to_return,batch_data])
 
-        train_labels = data_to_return[:,120] # This row mark which node contains the author and is used for training
+        train_labels = data_to_return[:,122] # This row mark which node contains the author and is used for training
         train_labels = train_labels.reshape(train_labels.shape+(1,))
         train_data = np.delete(data_to_return,[29,53,97,120],1) # Data not used for training (containsAuthor at the parent, grandparent and root level)
         return train_data,train_labels

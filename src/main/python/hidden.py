@@ -37,9 +37,11 @@ tf.flags.DEFINE_boolean('plot', False, 'Plot the final decision boundary on the 
 FLAGS = tf.flags.FLAGS
 
 def extract_test_data(filename):
-    dq_test    = DataQueue(TEST_FILE_PATH,1)
+    dq_test    = DataQueue(TEST_FILE_PATH,10)
     test_size = dq_test.get_size()
-    print(f"The test_size:{test_size}")
+    test_num_files = dq_test.get_num_files()
+
+    print(f"The test_size:{test_size}, test_num_files:{test_num_files}")
     for i in range(test_size):
         get_data, get_labels = dq_test.takeOne()
         if i ==0:
@@ -104,9 +106,6 @@ def main(argv=None):
     # Get the file queues
     dq_train  = DataQueue(train_data_filename,BATCH_SIZE)
     dq_test    = DataQueue(test_data_filename,BATCH_SIZE)
-
-    train_size = dq_train.get_size()
-    test_size = dq_test.get_size()
 
     # Extract test data into numpy array.
     test_data, test_labels = extract_test_data(test_data_filename)
