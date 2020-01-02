@@ -74,7 +74,6 @@ object LeafBlockExtractor extends BlockFeatureExtractor {
     "contains_popular_name",
     "contains_author_particle",
     "stopword_ratio",
-    // Author extraction task
     "contains_popular_name",
     "log(n_characters) [2.5,5.5]",
     "contains_punctuation",

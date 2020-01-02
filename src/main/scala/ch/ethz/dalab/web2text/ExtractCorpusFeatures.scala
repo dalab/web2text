@@ -75,8 +75,7 @@ object ExtractCorpusFeatures {
     val features = featureExtractor(cdom)
 
     csvwrite(new File(s"${outputBasename}_${articleId}_block_features.csv"), features.blockFeatures)
-    cdom.saveHTML("/Users/cesc/Desktop/hypefactors/AuthorExtractor/src/main/resources/all_the_news_dataset/dom/dom.html")
-
+    cdom.saveHTML("/Users/cesc/Desktop/hypefactors/AuthorExtractor/public/dom/dom.html")
     //csvwrite(new File(s"${outputBasename}_edge_features.csv"), features.edgeFeatures)
   }
 }

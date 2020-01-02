@@ -17,4 +17,6 @@ libraryDependencies += "org.apache.spark" %% "spark-mllib" % "1.4.1"
 
 libraryDependencies += "org.mongodb" %% "casbah" % "3.1.0"
 
+excludeFilter in Runtime in unmanagedResources := "*.html" || "*.csv"
 //javaOptions in Universal ++= Seq("-J-Xms512M", "-J-Xmx6g",  "-Xss2M", "-J-XX:MaxMetaspaceSize=1024M")
+

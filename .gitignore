@@ -30,14 +30,9 @@ src/main/resources/config.codekit
 logs/
 _archive/
 __pycache__/
-<<<<<<< HEAD
 *.tar.gz
-src/main/resources/all_the_news_dataset/*
 .idea/*
-=======
 .idea/
 *.iml
 *.csv
 *.html
-src/main/resources/all_the_news_dataset/*
->>>>>>> e60ffe74ab9be9ba60321cd5d22fd3b9dbddf67a
