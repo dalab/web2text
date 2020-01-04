@@ -1,9 +1,10 @@
 from data_queue import DataQueue
-BATCH_SIZE = 5
+BATCH_SIZE = 1
+NUM_FEATURES = 138
 
 if __name__ == '__main__':
-    train_path = "./trained_model_all_the_news_split/train"
-    dq = DataQueue(train_path,BATCH_SIZE)
+    train_path = "../../../public/train_and_test"
+    dq = DataQueue(train_path, NUM_FEATURES, BATCH_SIZE, 0, 1)
     size = dq.get_size()
 
     print("acum: " + str(size))
@@ -11,6 +12,7 @@ if __name__ == '__main__':
     arr0_data, arr0_labels = dq.takeOne()
     print(f"arr0_data.shape: {arr0_data.shape}, arr0_labels: {arr0_labels.shape}")
     print("arr0_labels:" + str(arr0_labels))
+    #print(f"arr0(stopword_ratio)={arr0_data[0][dq.get_headers()['stopword_ratio']]}")
 
     arr1_data, arr1_labels = dq.takeOne()
     print(f"arr1_data.shape: {arr1_data.shape}, arr1_labels: {arr1_labels.shape}")

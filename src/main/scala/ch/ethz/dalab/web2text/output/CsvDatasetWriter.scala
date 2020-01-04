@@ -16,6 +16,8 @@ object CsvDatasetWriter {
    */
   def write(data: Seq[(PageFeatures,Vector[Int])], dirPath: String): Unit = {
 
+    data.foreach((U=>System.out.println("test" + U._1.blockFeatureLabels)))
+
     val dir = new File(dirPath)
     dir.mkdirs()
 

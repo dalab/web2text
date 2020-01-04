@@ -1,11 +1,7 @@
 # Code from https://github.com/jasonbaldridge/try-tf
 
-#import tensorflow.python.platform
 import numpy as np
 import tensorflow.compat.v1 as tf
-
-#import plot_boundary_on_data
-import os, sys
 from data_queue import DataQueue
 
 # TODO: Make use of Tensorfow 2 functionality
@@ -15,41 +11,35 @@ tf.disable_v2_behavior()
 NUM_LABELS = 1  # The number of labels.
 BATCH_SIZE = 10 # The number of training examples to use per training step.
 
-TRAIN_FILE_PATH = 'trained_model_all_the_news_split/train/'
-TEST_FILE_PATH = 'trained_model_all_the_news_split/test/'
-TRAIN_SIZE = 100
+TRAIN_AND_TEST_FILE_PATH = '../../../public/train_and_test/'
+TRAIN_PAGES_SIZE = 8 # There are 76,968 files
+TEST_PAGES_SIZE = 2
 NUM_HIDDEN = 10
-NUM_FEATURES = 136
+NUM_FEATURES = 137
 
-#tf.flags.DEFINE_string('train', "\\trained_model_web2text_split\\train\\output_7__0a0a5bddf78b2ef2de13c71fbf737764bbf97449_block_features.csv",
-#                           'File containing the training data (labels & features).')
-#tf.flags.DEFINE_string('test',  "\\trained_model_web2text_split\\test\\output_7__0a0a5bddf78b2ef2de13c71fbf737764bbf97449_block_features.csv",
-#                           'File containing the test data (labels & features).')
-tf.flags.DEFINE_string('train', "trained_model_all_the_news_split/train", 'Path containing the training data (labels & features).')
-tf.flags.DEFINE_string('test',  "trained_model_all_the_news_split/test", 'Path containing the test data (labels & features).')
-tf.flags.DEFINE_integer('num_epochs', 1,
-                            'Number of passes over the training data.')
-tf.flags.DEFINE_integer('num_hidden', NUM_HIDDEN,
-                            'Number of nodes in the hidden layer.')
-tf.flags.DEFINE_boolean('verbose', True, 'Produce verbose output.')
+tf.flags.DEFINE_string('train_and_test', TRAIN_AND_TEST_FILE_PATH, 'Path containing the training data (labels & features).')
+tf.flags.DEFINE_integer('num_epochs', 1, 'Number of passes over the training data.')
+tf.flags.DEFINE_integer('num_hidden', NUM_HIDDEN, 'Number of nodes in the hidden layer.')
+tf.flags.DEFINE_boolean('verbose', False, 'Produce verbose output.')
 tf.flags.DEFINE_boolean('plot', False, 'Plot the final decision boundary on the data.')
 
 FLAGS = tf.flags.FLAGS
 
 def extract_test_data(filename):
-    dq_test    = DataQueue(TEST_FILE_PATH,10)
+    dq_test = DataQueue(TRAIN_AND_TEST_FILE_PATH,NUM_FEATURES, batch_size=1, skip_files=TRAIN_PAGES_SIZE, num_files=TEST_PAGES_SIZE)
     test_size = dq_test.get_size()
     test_num_files = dq_test.get_num_files()
 
     print(f"The test_size:{test_size}, test_num_files:{test_num_files}")
-    for i in range(test_size):
+    for i in range((test_size//BATCH_SIZE)):
+        #print(f"extract_test_data, i={i}")
         get_data, get_labels = dq_test.takeOne()
         if i ==0:
             test_data, test_labels = get_data, get_labels
         else:
-            test_data = np.vstack([test_data,get_data])
-            test_labels = np.hstack([test_labels,get_labels])
-    #test_labels = test_labels.reshape(test_labels.shape+(1,))
+            test_data = np.vstack((test_data,get_data))
+            print(f"concatenating {test_labels.shape} with {get_labels.shape}")
+            test_labels = np.vstack((test_labels,get_labels))
     test_labels = test_labels.reshape((test_size,1))
     return test_data,test_labels
 
@@ -100,19 +90,16 @@ def main(argv=None):
     plot = FLAGS.plot
 
     # Get the data.
-    train_data_filename = FLAGS.train
-    test_data_filename = FLAGS.test
+    train_and_test_data_filename = FLAGS.train_and_test
+    #test_data_filename = FLAGS.test
 
     # Get the file queues
-    dq_train  = DataQueue(train_data_filename,BATCH_SIZE)
-    dq_test    = DataQueue(test_data_filename,BATCH_SIZE)
+    dq_train  = DataQueue(train_and_test_data_filename,NUM_FEATURES,BATCH_SIZE, skip_files=0, num_files=TRAIN_PAGES_SIZE)
 
     # Extract test data into numpy array.
-    test_data, test_labels = extract_test_data(test_data_filename)
+    test_data, test_labels = extract_test_data(train_and_test_data_filename)
 
     print(f"test_data.shape: {test_data.shape}, test_labels.shape= {test_labels.shape}")
-    # Get the shape of the training data.
-    #train_size,num_features = train_data.shape
 
     # Get the number of epochs for training.
     num_epochs = FLAGS.num_epochs
@@ -171,30 +158,20 @@ def main(argv=None):
             print('Training.')
 
         # Iterate and train.
-        valor = num_epochs * TRAIN_SIZE // BATCH_SIZE
-        print(f"El entrenamiento es de steps={valor}, num_epochs={num_epochs}, batch_size={BATCH_SIZE}, TRAIN_SIZE={TRAIN_SIZE}")
-        for step in range(num_epochs * TRAIN_SIZE // BATCH_SIZE):
+        #valor = num_epochs * TRAIN_SIZE // BATCH_SIZE
+        valor = num_epochs * dq_train.get_size() // BATCH_SIZE
+
+        print(f"El entrenamiento es de steps={valor}, num_epochs={num_epochs}, batch_size={BATCH_SIZE}, Training size={dq_train.get_size()}")
+        for step in range(num_epochs * dq_train.get_size() // BATCH_SIZE):
             if verbose:
                 print(step)
 
-            #offset = (step * BATCH_SIZE) % TRAIN_SIZE
-            #batch_data, batch_labels, offset, offset_latest_file = get_next_batch(offset,offset_latest_file,train_file_list)
-            # train_data[offset:(offset + BATCH_SIZE), :]
-            #batch_labels = train_labels[offset:(offset + BATCH_SIZE)]
             batch_data, batch_labels = dq_train.takeOne()
-            #batch_labels_trans = np.transpose(batch_labels) # remove
-            #batch_labels = batch_labels.reshape(())
-            #test_labels = test_labels.reshape((1,test_size))
             train_step.run(feed_dict={x: batch_data, y_: batch_labels})
-            #if verbose and offset >= TRAIN_SIZE-BATCH_SIZE:
-            #    print
+
         print(f"batch_data.shape={batch_data.shape}, batch_labels_trans.shape={batch_labels.shape}")
         print(f"test_data.shape={test_data.shape}, test_labels.shape={test_labels.shape}")
         print("Accuracy:", accuracy.eval(feed_dict={x: test_data, y_: test_labels}))
-
-        if plot:
-            eval_fun = lambda X: predicted_class.eval(feed_dict={x:X});
-            plot_boundary_on_data.plot(test_data, test_labels, eval_fun)
 
 if __name__ == '__main__':
     tf.app.run()

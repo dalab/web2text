@@ -82,8 +82,7 @@ object NodeBlockExtractor extends BlockFeatureExtractor {
     "ratio_words_with_capital",
     "ratio_words_with_capital^2",
     "ratio_words_with_capital^3",
-    "contains_form_element"//,
-    //"contains_author"
+    "contains_form_element"
   )
 
 

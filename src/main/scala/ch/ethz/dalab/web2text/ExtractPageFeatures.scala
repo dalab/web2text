@@ -47,8 +47,6 @@ object ExtractPageFeatures {
 
   def extractPageFeatures(filename: String, outputBasename: String) = {
 
-    // Open the author file and read the real author
-
     val featureExtractor = FeatureExtractor(
       DuplicateCountsExtractor
       + LeafBlockExtractor
@@ -62,6 +60,11 @@ object ExtractPageFeatures {
     val source = Util.loadFile(filename)
     val cdom = CDOM(source)
     val features = featureExtractor(cdom)
+
+    for(feat <- features.blockFeatureLabels)
+      {
+        println("feat: " + feat)
+      }
 
     csvwrite(new File(s"${outputBasename}_block_features.csv"), features.blockFeatures)
     cdom.saveHTML("/Users/cesc/Desktop/hypefactors/AuthorExtractor/public/dom/dom.html")

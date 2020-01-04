@@ -36,8 +36,6 @@ object LeafBlockExtractor extends BlockFeatureExtractor {
       p.containsPopularName,
       p.containsAuthorParticle,
       if (p.nWords == 0) 0 else z(p.nStopwords.toDouble / p.nWords,0.374,0.1529), // OK
-      // Author extraction task - contains_popular_name
-      p.containsPopularName, 
       z(clip(log(p.nCharacters),2.5,5.5),3.392,1.06445), // OK
       p.nPunctuation > 0, // OK
       z(clip(p.nPunctuation,0,10),0.06938,0.4083676), // OK
@@ -74,7 +72,6 @@ object LeafBlockExtractor extends BlockFeatureExtractor {
     "contains_popular_name",
     "contains_author_particle",
     "stopword_ratio",
-    "contains_popular_name",
     "log(n_characters) [2.5,5.5]",
     "contains_punctuation",
     "n_punctuation [0,10]",
