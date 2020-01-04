@@ -1,24 +1,23 @@
-import tensorflow  as tf
-#from data_queue import DataQueue
-import numpy as np
-import pandas as pd
-import os
-import time
 from math import floor, ceil
+import numpy as np
+import os
+import pandas as pd
 import sklearn as sk
 from sklearn.metrics import confusion_matrix
+import tensorflow  as tf
+import time
 
 NUM_LABELS = 1
-BATCH_SIZE = 1000 # The number of training examples to use per training step.
-TRAINING_EPOCHS = 5000
+BATCH_SIZE = 2000           # The number of training examples to use per training step.
+TRAINING_EPOCHS = 3000
 DISPLAY_STEP = 100
 LEARNING_RATE=0.0001
 KEEP_PROB=0.8
-NUM_FEATURES = 137
+NUM_FEATURES = 136
 NUM_HIDDEN = NUM_FEATURES
 TRAIN_AND_TEST_FILE_PATH = '../../../public/train_and_test/'
 TRAIN_SIZE = 0.8
-NUM_FILES_TO_READ = 20 # There are 76,968 files. 100 files take about 20 minutes with 5000 epochs
+NUM_FILES_TO_READ = 2500      # There are 76,968 files. 100 files take about 20 minutes using 5000 epochs
 RANDOM_STATE = 1
 
 def encode(series):
@@ -28,9 +27,7 @@ def read_csvs(path):
     file_list = [os.path.join(path, f) for f in os.listdir(path) if os.path.isfile(os.path.join(path, f))]
     first = True
     for i in range(NUM_FILES_TO_READ):
-        #print(f"i={i}")
         file = file_list[i]
-        #print(f"reading file:{file}")
         page_df = pd.read_csv(file, sep=",").transpose()
         page_df.columns =\
             ["has_duplicate","has_10_duplicates","n_same_class_path",
@@ -110,7 +107,7 @@ if __name__ == '__main__':
     start_time = time.clock()
     n_hidden_1 = NUM_HIDDEN
     n_input = train_x.shape[1]
-    n_classes = 2 # train_y.shape[1]
+    n_classes = train_y.shape[1] # 2
     print(f"n_input={n_input}, n_classes={n_classes}, n_hidden_1={n_hidden_1}")
     weights = {
         'h1': tf.Variable(tf.random_normal([n_input, n_hidden_1])),
@@ -145,25 +142,37 @@ if __name__ == '__main__':
                 avg_cost += c / total_batch
             if epoch % DISPLAY_STEP == 0:
                 print("Epoch:", '%04d' % (epoch+1), "cost=", \
-                      "{:.9f}".format(avg_cost), " time=", "{:.2f}".format(time.clock() - start_time), " sec.")
+                      "{:.9f}".format(avg_cost), "[", "{:.2f}".format(time.clock() - start_time), "sec.]")
 
         print(f"Training time: {time.clock() - start_time} seconds")
         print("Optimization Finished!")
-
         save_path = saver.save(sess, "trained_model_all_the_news_split/model.ckpt")
-
         correct_prediction = tf.equal(tf.argmax(predictions, 1), tf.argmax(y, 1))
         accuracy = tf.reduce_mean(tf.cast(correct_prediction, "float"))
         print("Accuracy:", accuracy.eval({x: test_x, y: test_y, keep_prob: 1.0}))
-
         y_p = tf.argmax(predictions, 1)
-        val_accuracy, y_pred = sess.run([accuracy, y_p], feed_dict={x:test_x, y:test_y, keep_prob: 1.0})
-
+        val_accuracy, y_pred = sess.run([accuracy, correct_prediction],
+                                        feed_dict={x:test_x, y:test_y, keep_prob: 1.0})
         print(f"Test set Accuracy: {val_accuracy}")
-        y_true = np.argmax(test_y,1)
-        print(f"Precision: {sk.metrics.precision_score(y_true, y_pred)}")
-        print(f"Recall: {sk.metrics.recall_score(y_true, y_pred)}")
-        print(f"F1 Score: {sk.metrics.f1_score(y_true, y_pred)}")
-        print("Confusion Matrix")
-        print(sk.metrics.confusion_matrix(y_true, y_pred))
-        fpr, tpr, tresholds = sk.metrics.roc_curve(y_true, y_pred)
+
+        argmax_prediction = tf.argmax(predictions, 1)
+        argmax_y = tf.argmax(y, 1)
+
+        TP = tf.count_nonzero(argmax_prediction * argmax_y, dtype=tf.float32).eval(feed_dict={x:test_x, y:test_y,keep_prob: KEEP_PROB})
+        TN = tf.count_nonzero((argmax_prediction - 1) * (argmax_y - 1), dtype=tf.float32).eval(feed_dict={x:test_x, y:test_y,keep_prob: KEEP_PROB})
+        FP = tf.count_nonzero(argmax_prediction * (argmax_y - 1), dtype=tf.float32).eval(feed_dict={x:test_x, y:test_y,keep_prob: KEEP_PROB})
+        FN = tf.count_nonzero((argmax_prediction - 1) * argmax_y, dtype=tf.float32).eval(feed_dict={x:test_x, y:test_y,keep_prob: KEEP_PROB})
+
+        precision=TP/(TP+FP+0.000001)
+        recall=TP/(TP+FN+0.000001)
+
+        print(f"TP={TP}\n"
+              f"TN={TN}\n"
+              f"FP={FP}\n"
+              f"FN={FN}\n",
+              f"precision={precision}\n",
+              f"recall={recall}\n",
+              f"f1={2*precision*recall/(precision+recall)}\n",
+              f"accuracy={(TP+TN)/(TP+TN+FP+FN)}\n",
+              f"specificity={TN/(TN+FP)}\n"
+              )
