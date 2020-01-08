@@ -11,19 +11,16 @@ from transformers import pipeline
 import time
 
 NUM_CLASSES = 2
-BATCH_SIZE = 100  # The number of training examples to use per training step.
+BATCH_SIZE = 5000  # The number of training examples to use per training step.
 TRAINING_EPOCHS = 50
-DISPLAY_STATISTICS = 100
-LEARNING_RATE = 0.00001
+LEARNING_RATE = 0.0001
 KEEP_PROB = 0.8
 NUM_FEATURES = 136
 NUM_HIDDEN = NUM_FEATURES
-TRAIN_AND_TEST_FILE_PATH = '../../../public/train_and_test/'
 TRAIN_SIZE = 0.8
-NUM_FILES_TO_READ = 4500  # There are 76,968 files. 100 files take about 20 minutes using 5000 epochs
+NUM_FILES_TO_READ = 5000  # There are 76,968 files. 100 files take about 20 minutes using 5000 epochs
 RANDOM_STATE = 1
-MODEL_SAVE_FILE = 'trained_model_all_the_news_split/model.ckpt'
-MODEL_LOAD_FILE = '/Users/cesc/Desktop/Hypefactors/AuthorExtractor/src/main/python/trained_model_all_the_news_split/backup_3000_epochs_2500_files_5_hours/model.ckpt'
+MODEL_SAVE_FILE = '/Users/cesc/Desktop/Hypefactors/AuthorExtractor/public/trained_model_all_the_news/model.ckpt'
 
 
 def load_csv(path, batch_load=True):
@@ -37,6 +34,9 @@ def load_csv(path, batch_load=True):
     for i in range(num_files):
         file = file_list[i]
         page_df = pd.read_csv(file, sep=",").transpose()
+        if len(page_df.columns) != NUM_FEATURES+1:
+            print(f"Error in file:{file}. Ignoring it")
+            continue
         page_df.columns = \
             ["has_duplicate", "has_10_duplicates", "n_same_class_path",
              "has_word", "log(n_words)", "avg_word_length [3,15]runMain 2s",
@@ -102,7 +102,7 @@ def predict_from_csv(csv_file, html_file):
     pred_y_argmax_2 = np.argmax(pred_y_argmax, axis=0)
     print(f"pred_y_argmax_2={pred_y_argmax_2}")
     print(f"pred_y={pred_y}")
-    subprocess.run(['sbt', '"run-main ch.ethz.dalab.web2text.ExtractPageFeatures ' + html_file + ' predict_"'])
+    subprocess.run(['sbt', '"runMain ch.ethz.dalab.web2text.ExtractPageFeatures ' + html_file + ' ../../../public/train_and_test/predict_"'])
     if np.sum(pred_y_argmax) == 0:
         print("No author name predicted")
     else:
@@ -125,14 +125,14 @@ def create_model(n_input):
     return model
 
 
-def train_keras():
-    train_x, train_y, test_x, test_y = load_data()
+def train_keras(csv_folder):
+    train_x, train_y, test_x, test_y = load_data(csv_folder)
     model = create_model(train_x.shape[1])
     model.summary()
     # Create a callback that saves the model's weights
     cp_callback = tf.keras.callbacks.ModelCheckpoint(filepath=MODEL_SAVE_FILE, save_weights_only=False, verbose=1)
     _ = model.fit(train_x, train_y, epochs=TRAINING_EPOCHS,
-                  batch_size=BATCH_SIZE, validation_split=0.2, callbacks=[cp_callback])
+                  batch_size=BATCH_SIZE, validation_split=0.33, callbacks=[cp_callback])
     loss, accuracy = model.evaluate(test_x, test_y, verbose=0)
     print(f"loss={loss}, accuracy={100*accuracy}")
     pred_y = model.predict(test_x)
@@ -147,10 +147,10 @@ def train_keras():
     return
 
 
-def load_data():
+def load_data(csv_folder):
     np.random.seed(RANDOM_STATE)
     start_time = time.process_time()
-    train_and_test_df = load_csv(TRAIN_AND_TEST_FILE_PATH, True)
+    train_and_test_df = load_csv(csv_folder, True)
     train_cnt = floor(train_and_test_df.shape[0] * TRAIN_SIZE)
     train_df = train_and_test_df.iloc[0:train_cnt]
     test_df = train_and_test_df.iloc[train_cnt:]
@@ -172,8 +172,8 @@ def main():
         if sys.argv[1] == '--predict_from_csv':
             predict_from_csv(sys.argv[2], sys.argv[3])
     elif sys.argv[1] == '--train_from_folder':
-        train_keras()
-        exit()
+            train_keras(sys.argv[2])
+            exit()
     elif sys.argv[1] == '--predict_from_url':
         predict_from_url(sys.argv[2])
     elif sys.argv[1] == '--predict_from_html':

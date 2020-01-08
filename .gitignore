@@ -34,6 +34,8 @@ __pycache__/
 .idea/*
 .idea/
 *.iml
-*.csv
 *.html
 venv/*
+public/articles1.csv
+public/articles2.csv
+public/articles3.csv
