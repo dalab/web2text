@@ -23,10 +23,12 @@ object ExtractPageFeatures {
       throw new IllegalArgumentException("Expecting arguments: (1) input html file, (2) output file base name")
     }
     val authorNames = Util.loadFile("/Users/cesc/Desktop/hypefactors/AuthorExtractor/public/authors.csv", skipLines = 1)
-
     val filename = args(0)
-    val articleId = filename.split("html/")(1).split(".html")(0)
-
+    var articleId = ""
+    if (filename.contains("html/"))
+    {
+      articleId = filename.split("html/")(1).split(".html")(0)
+    }
     val lines = authorNames.split("\n")
     var author = "Unknown author"
     for (line <- lines){
@@ -38,15 +40,12 @@ object ExtractPageFeatures {
         }
       }
     }
-
     System.out.println("Author: " + author)
     Settings.author = author
-
     extractPageFeatures(filename, args(1))
   }
 
   def extractPageFeatures(filename: String, outputBasename: String) = {
-
     val featureExtractor = FeatureExtractor(
       DuplicateCountsExtractor
       + LeafBlockExtractor
@@ -56,16 +55,15 @@ object ExtractPageFeatures {
       + TagExtractor(mode="leaf")//,
       //TreeDistanceExtractor + BlockBreakExtractor + CommonAncestorExtractor(NodeBlockExtractor)
     )
-
     val source = Util.loadFile(filename)
     val cdom = CDOM(source)
     val features = featureExtractor(cdom)
-
+    var i = 0
     for(feat <- features.blockFeatureLabels)
       {
-        println("feat: " + feat)
+        println("i=" + i + ", feat: " + feat)
+        i+=1
       }
-
     csvwrite(new File(s"${outputBasename}_block_features.csv"), features.blockFeatures)
     cdom.saveHTML("/Users/cesc/Desktop/hypefactors/AuthorExtractor/public/dom/dom.html")
     //csvwrite(new File(s"${outputBasename}_edge_features.csv"), features.edgeFeatures)

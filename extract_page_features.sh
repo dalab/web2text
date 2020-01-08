@@ -1,1 +1,6 @@
-SBT_OPTS="-Xms512M -Xmx6G -Xss2M -XX:MaxMetaspaceSize=1024M" sbt "runMain ch.ethz.dalab.web2text.ExtractPageFeatures  public/html/0a0f7c002df93c493ec96ae1a72e241aa0b824be.html public/train_and_test/output_7_"
+#!/bin/bash
+if [ "$1" != "" ] && [ "$2" != "" ]; then
+	SBT_OPTS="-Xms512M -Xmx6G -Xss2M -XX:MaxMetaspaceSize=1024M" sbt "runMain ch.ethz.dalab.web2text.ExtractPageFeatures $1 $2"
+else
+	echo "Positional parameter is empty. Usage: ./extract_page_features <full_path_to_file.html> <output_prefix>"
+fi

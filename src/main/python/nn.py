@@ -9,21 +9,24 @@ import tensorflow as tf
 from tensorflow import keras
 from transformers import pipeline
 import time
+import wget
 
 NUM_CLASSES = 2
 BATCH_SIZE = 5000  # The number of training examples to use per training step.
 TRAINING_EPOCHS = 50
 LEARNING_RATE = 0.0001
 KEEP_PROB = 0.8
-NUM_FEATURES = 136
-NUM_HIDDEN = NUM_FEATURES
+NUM_FEATURES = 137
+NUM_HIDDEN = NUM_FEATURES - 1
 TRAIN_SIZE = 0.8
 NUM_FILES_TO_READ = 5000  # There are 76,968 files. 100 files take about 20 minutes using 5000 epochs
 RANDOM_STATE = 1
-MODEL_SAVE_FILE = '/Users/cesc/Desktop/Hypefactors/AuthorExtractor/public/trained_model_all_the_news/model.ckpt'
+SOURCE = "/Users/cesc/Desktop/hypefactors/AuthorExtractor"
+MODEL_SAVE_FILE = '/public/trained_model_all_the_news/model.ckpt'
 
 
 def load_csv(path, batch_load=True):
+    print(f"load_csv(), path={path}, batch_load={batch_load}")
     if batch_load:
         file_list = [os.path.join(path, f) for f in os.listdir(path) if os.path.isfile(os.path.join(path, f))]
         num_files = NUM_FILES_TO_READ
@@ -33,11 +36,16 @@ def load_csv(path, batch_load=True):
     first = True
     for i in range(num_files):
         file = file_list[i]
-        page_df = pd.read_csv(file, sep=",").transpose()
-        if len(page_df.columns) != NUM_FEATURES+1:
-            print(f"Error in file:{file}. Ignoring it")
+        print(f"file={file}")
+        page_df_1 = pd.read_csv(file, sep=",", header=None)
+        page_df_2 = page_df_1.transpose()
+        print(f"rows={len(page_df_1)}, cols={len(page_df_1.columns)}")
+        for j in range(len(page_df_1)):
+            print(f"row={j}, contents={page_df_1.iloc[j]}")
+        if len(page_df_2.columns) != NUM_FEATURES:
+            print(f"Error in file:{file}. Expecting {NUM_FEATURES} columns. Found {len(page_df_2.columns)}. Ignoring it")
             continue
-        page_df.columns = \
+        page_df_2.columns = \
             ["has_duplicate", "has_10_duplicates", "n_same_class_path",
              "has_word", "log(n_words)", "avg_word_length [3,15]runMain 2s",
              "has_stopword", "contains_popular_name", "contains_author_particle",
@@ -84,16 +92,29 @@ def load_csv(path, batch_load=True):
              "tag_h3", "tag_h2", "tag_table", "tag_h4", "tag_small", "tag_sup", "tag_h1",
              "tag_blockquote"]
         if first:
-            full_df = page_df
+            full_df = page_df_2
             first = False
         else:
-            full_df = pd.concat([full_df, page_df])
+            full_df = pd.concat([full_df, page_df_2])
     return full_df
 
 
-def predict_from_csv(csv_file, html_file):
+def predict_from_html(url):
+    path = SOURCE + "/public/inference"
+    # print(f"path={path}")
+    subprocess.run(['rm', path + "/*"])
+    os.system('rm ' + path + '/*')
+    html_file = wget.download(url, out=path)
+    # print(f"\n\nhtml_file={html_file}")
+    subprocess.run([SOURCE + '/extract_page_features.sh', html_file, path + "/test"])
+    predict_from_csv(path+"/test_block_features.csv", html_file, path + "/predict")
+    subprocess.run(['rm', html_file])
+    return
+
+
+def predict_from_csv(csv_file, html_file, predict_suffix):
     pred_df = load_csv(csv_file, False).drop(columns=['contains_author'])
-    model = tf.keras.models.load_model(MODEL_SAVE_FILE)
+    model = tf.keras.models.load_model(SOURCE + MODEL_SAVE_FILE)
     model.summary()
     pred_y = model.predict(pred_df)
     pred_y_argmax = np.argmax(pred_y, axis=1)
@@ -102,7 +123,10 @@ def predict_from_csv(csv_file, html_file):
     pred_y_argmax_2 = np.argmax(pred_y_argmax, axis=0)
     print(f"pred_y_argmax_2={pred_y_argmax_2}")
     print(f"pred_y={pred_y}")
-    subprocess.run(['sbt', '"runMain ch.ethz.dalab.web2text.ExtractPageFeatures ' + html_file + ' ../../../public/train_and_test/predict_"'])
+    print(f"Going to run: {source}/extract_page_features.sh {html_file},"
+          f" {predict_suffix}")
+    subprocess.run([SOURCE + '/extract_page_features.sh',
+                    html_file, predict_suffix])
     if np.sum(pred_y_argmax) == 0:
         print("No author name predicted")
     else:
@@ -130,7 +154,7 @@ def train_keras(csv_folder):
     model = create_model(train_x.shape[1])
     model.summary()
     # Create a callback that saves the model's weights
-    cp_callback = tf.keras.callbacks.ModelCheckpoint(filepath=MODEL_SAVE_FILE, save_weights_only=False, verbose=1)
+    cp_callback = tf.keras.callbacks.ModelCheckpoint(filepath=SOURCE + MODEL_SAVE_FILE, save_weights_only=False, verbose=1)
     _ = model.fit(train_x, train_y, epochs=TRAINING_EPOCHS,
                   batch_size=BATCH_SIZE, validation_split=0.33, callbacks=[cp_callback])
     loss, accuracy = model.evaluate(test_x, test_y, verbose=0)
@@ -143,7 +167,7 @@ def train_keras(csv_folder):
     print(conf)
     prfs = precision_recall_fscore_support(np.argmax(test_y.to_numpy(), axis=1), np.argmax(pred_y, axis=1))
     print(prfs)
-    model.save(MODEL_SAVE_FILE)
+    model.save(SOURCE + MODEL_SAVE_FILE)
     return
 
 
@@ -170,14 +194,17 @@ def main():
         exit(0)
     elif len(sys.argv) == 4:
         if sys.argv[1] == '--predict_from_csv':
-            predict_from_csv(sys.argv[2], sys.argv[3])
+            predict_from_csv(sys.argv[2], sys.argv[3], sys.argv[4])
+            exit()
     elif sys.argv[1] == '--train_from_folder':
             train_keras(sys.argv[2])
             exit()
     elif sys.argv[1] == '--predict_from_url':
         predict_from_url(sys.argv[2])
+        exit()
     elif sys.argv[1] == '--predict_from_html':
         predict_from_html(sys.argv[2])
+        exit()
     return
 
 
