@@ -36,3 +36,4 @@ __pycache__/
 *.iml
 *.csv
 *.html
+venv/*

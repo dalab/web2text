@@ -22,7 +22,7 @@ object ExtractPageFeatures {
     if (args.length < 2) {
       throw new IllegalArgumentException("Expecting arguments: (1) input html file, (2) output file base name")
     }
-    val authorNames = Util.loadFile("/Users/cesc/Desktop/hypefactors/AuthorExtractor/src/main/resources/all_the_news_dataset/authors.csv", skipLines = 1)
+    val authorNames = Util.loadFile("/Users/cesc/Desktop/hypefactors/AuthorExtractor/public/authors.csv", skipLines = 1)
 
     val filename = args(0)
     val articleId = filename.split("html/")(1).split(".html")(0)
