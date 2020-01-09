@@ -16,27 +16,24 @@ import ch.ethz.dalab.web2text.utilities.Settings
  * (2) a basename for output features that should be passed into the neural net in Python
  */
 object ExtractPageFeatures {
-
   def main(args: Array[String]): Unit = {
-    // Command line argument: path to HTML file
     if (args.length < 2) {
       throw new IllegalArgumentException("Expecting arguments: (1) input html file, (2) output file base name")
     }
-    val authorNames = Util.loadFile("/Users/cesc/Desktop/hypefactors/AuthorExtractor/public/authors.csv", skipLines = 1)
+    var author = "Unknown author"
     val filename = args(0)
-    var articleId = ""
     if (filename.contains("html/"))
     {
-      articleId = filename.split("html/")(1).split(".html")(0)
-    }
-    val lines = authorNames.split("\n")
-    var author = "Unknown author"
-    for (line <- lines){
-      val elems = line.split(", ")
-      if (elems.length==2){
-        if (elems(0) == articleId)
-        {
-          author = elems(1)
+      val authorNames = Util.loadFile("/Users/cesc/Desktop/hypefactors/AuthorExtractor/public/authors.csv", skipLines = 1)
+      val articleId = filename.split("html/")(1).split(".html")(0)
+      val lines = authorNames.split("\n")
+      for (line <- lines){
+        val elems = line.split(", ")
+        if (elems.length==2){
+          if (elems(0) == articleId)
+          {
+            author = elems(1)
+          }
         }
       }
     }
@@ -58,13 +55,14 @@ object ExtractPageFeatures {
     val source = Util.loadFile(filename)
     val cdom = CDOM(source)
     val features = featureExtractor(cdom)
-    var i = 0
+    /*
+    var i = 1
     for(feat <- features.blockFeatureLabels)
       {
         println("i=" + i + ", feat: " + feat)
         i+=1
-      }
-    csvwrite(new File(s"${outputBasename}_block_features.csv"), features.blockFeatures)
+      }*/
+    csvwrite(new File(s"${outputBasename}.csv"), features.blockFeatures)
     cdom.saveHTML("/Users/cesc/Desktop/hypefactors/AuthorExtractor/public/dom/dom.html")
     //csvwrite(new File(s"${outputBasename}_edge_features.csv"), features.edgeFeatures)
   }
