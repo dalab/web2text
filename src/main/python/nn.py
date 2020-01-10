@@ -2,6 +2,7 @@ from math import floor, ceil
 import numpy as np
 import os
 import pandas as pd
+import random
 from sklearn.metrics import classification_report, confusion_matrix, precision_recall_fscore_support
 import subprocess
 import sys
@@ -12,12 +13,11 @@ from transformers import pipeline
 import wget
 
 NUM_CLASSES = 2
-BATCH_SIZE = 5000  # The number of training examples to use per training step.
+BATCH_SIZE = 5000  # The number of training examples to use per training step
 TRAINING_EPOCHS = 100
 LEARNING_RATE = 0.0001
 KEEP_PROB = 0.8
 NUM_FEATURES = 137
-NUM_HIDDEN = NUM_FEATURES - 1
 TRAIN_SIZE = 0.8
 NUM_FILES_TO_READ = 5000  # There are 76,968 files. 100 files take about 20 minutes using 5000 epochs
 RANDOM_STATE = 1
@@ -36,16 +36,14 @@ def load_data(csv_folder):
     train_y = pd.get_dummies(train_df['contains_author'])
     test_x = test_df.drop(columns=['contains_author'])
     test_y = pd.get_dummies((test_df['contains_author']))
-    print(f"train_x.shape: {train_x.shape}, train_y.shape={train_y.shape}")
-    print(f"test_x.shape: {test_x.shape}, test_y.shape={test_y.shape}")
     print(f"Read {NUM_FILES_TO_READ} training and test files: {time.process_time() - start_time} seconds")
     return train_x, train_y, test_x, test_y
 
 
 def load_csv(path, batch_load=True):
-    print(f"load_csv(), path={path}, batch_load={batch_load}")
     if batch_load:
-        file_list = [os.path.join(path, f) for f in os.listdir(path) if os.path.isfile(os.path.join(path, f))]
+        file_list = [os.path.join(path, f) for f in os.listdir(path) if (os.path.isfile(os.path.join(path, f))
+                                                                         and os.path.join(path, f).endswith(".csv"))]
         num_files = NUM_FILES_TO_READ
     else:
         file_list = [path]
@@ -53,7 +51,7 @@ def load_csv(path, batch_load=True):
     first = True
     for i in range(num_files):
         file = file_list[i]
-        print(f"importing {file}")
+        print(f"importing {file} [{i+1}/{num_files}]")
         import_df = pd.read_csv(file, sep=",", header=None).transpose()
         import_df.columns = ["has_duplicate", "has_10_duplicates",
                              "n_same_class_path", "has_word", "log(n_words)",
@@ -139,14 +137,10 @@ def load_csv(path, batch_load=True):
 
 def predict_from_html(url):
     path = SOURCE + "/public/inference"
-    # print(f"path={path}")
-    subprocess.run(['rm', path + "/*"])
     os.system('rm ' + path + '/*')
     html_file = wget.download(url, out=path)
-    # print(f"\n\nhtml_file={html_file}")
     subprocess.run([SOURCE + '/extract_page_features.sh', html_file, path + "/test"])
     predict_from_csv(path + "/test.csv", html_file, path + "/predict")
-    # subprocess.run(['rm', html_file])
     return
 
 
@@ -155,47 +149,57 @@ def get_html_chunk(dom_seq, html_file):
         lines = fd.readlines()
         i = 0
         for line in lines:
+            if "<dt>nChildrenDeep</dt><dd>0</dd>" in line:
+                i += 1
             if "startPosition" in line:
                 if i == dom_seq:
-                    start_position = line.split("<dd>")[1].split("</dd>")[0]
-                i += 1
+                    start_position = int(line.split("<dd>")[1].split("</dd>")[0])
             if "endPosition" in line:
-                if i == dom_seq + 1:
-                    end_position = line.split("<dd>")[1].split("</dd>")[0]
+                if i == dom_seq:
+                    end_position = int(line.split("<dd>")[1].split("</dd>")[0])
     print(f"i={i}, start_position={start_position}, end_position={end_position}")
-    return "Here comes the chunk"
+    i = 0
+    chunk = ""
+    with open(html_file) as fd:
+        while True:
+            c = fd.read(1)
+            i += 1
+            if not c:
+                break
+            else:
+                if start_position < i <= end_position:
+                    chunk += c
+    return chunk
 
 
 def predict_from_csv(csv_file, html_file, predict_suffix):
     pred_df = load_csv(csv_file, False)
     pred_df = pred_df.drop(columns=['contains_author'])
     model = tf.keras.models.load_model(SOURCE + MODEL_SAVE_FILE)
-    #model.summary()
     pred_y = model.predict(pred_df)
     pred_y_argmax = np.argmax(pred_y, axis=1)
-    #print(f"pred_y_argmax.shape={pred_y.shape}")
-    #print(f"pred_y_argmax={pred_y_argmax}")
     pred_y_argmax_2 = np.argmax(pred_y_argmax, axis=0)
-    print(f"pred_y_argmax_2={pred_y_argmax_2}") ###
-    #print(f"pred_y={pred_y}")
-    #print(f"Going to run: {SOURCE}/extract_page_features.sh {html_file},"
-     #     f" {predict_suffix}")
+    print(f"pred_y_argmax_2={pred_y_argmax_2}")
     subprocess.run([SOURCE + '/extract_page_features.sh',
                     html_file, predict_suffix])
     if pred_y_argmax_2 == 0:
         print("No author name predicted")
     else:
         html_chunk = get_html_chunk(pred_y_argmax_2, html_file)
-        # ner = pipeline('ner')
-        # y = ner(html_chunk)
+        ner = pipeline('ner')
+        y = ner(html_chunk)
         # print(y)
-        print("Author name:" + html_chunk)
+        # for named_entity in y:
+        #
+        #
+        print(f"The Author Name is: {html_chunk}. NER prediction: {y}")
     return
 
 
 def create_model(n_input):
+
     model = tf.keras.models.Sequential([
-        keras.layers.Dense(n_input, activation='relu', input_shape=(NUM_HIDDEN,)),
+        keras.layers.Dense(n_input, activation='relu', input_shape=(NUM_FEATURES,)),
         keras.layers.Dropout(KEEP_PROB),
         keras.layers.Dense(2, activation='softmax')]
     )
@@ -207,7 +211,6 @@ def train_keras(csv_folder):
     train_x, train_y, test_x, test_y = load_data(csv_folder)
     model = create_model(train_x.shape[1])
     model.summary()
-    # Create a callback that saves the model's weights
     cp_callback = tf.keras.callbacks.ModelCheckpoint(filepath=SOURCE + MODEL_SAVE_FILE, save_weights_only=False,
                                                      verbose=1)
     _ = model.fit(train_x, train_y, epochs=TRAINING_EPOCHS,
@@ -215,7 +218,6 @@ def train_keras(csv_folder):
     loss, accuracy = model.evaluate(test_x, test_y, verbose=0)
     print(f"loss={loss}, accuracy={100 * accuracy}")
     pred_y = model.predict(test_x)
-    print(f"pred_y.shape={pred_y.shape}, test_y.shape={test_y.shape}")
     rep = classification_report(np.argmax(test_y.to_numpy(), axis=1), np.argmax(pred_y, axis=1), digits=4)
     print(rep)
     conf = confusion_matrix(np.argmax(test_y.to_numpy(), axis=1), np.argmax(pred_y, axis=1))
@@ -227,6 +229,10 @@ def train_keras(csv_folder):
 
 
 def main():
+    os.environ['PYTHONHASHSEED'] = str(RANDOM_STATE)
+    random.seed(RANDOM_STATE)
+    np.random.seed(RANDOM_STATE)
+    tf.random.set_seed(RANDOM_STATE)
     if len(sys.argv) < 2:
         exit(0)
     elif len(sys.argv) == 4:
