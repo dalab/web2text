@@ -19,7 +19,7 @@ LEARNING_RATE = 0.0001
 KEEP_PROB = 0.8
 NUM_FEATURES = 137
 TRAIN_SIZE = 0.8
-NUM_FILES_TO_READ = 5000  # There are 76,968 files. 100 files take about 20 minutes using 5000 epochs
+NUM_FILES_TO_READ = 10000  # There are 76,968 files. 100 files take about 20 minutes using 5000 epochs
 RANDOM_STATE = 1
 SOURCE = "/Users/cesc/Desktop/hypefactors/AuthorExtractor"
 MODEL_SAVE_FILE = '/public/trained_model_all_the_news/model.ckpt'
@@ -179,7 +179,7 @@ def predict_from_csv(csv_file, html_file, predict_suffix):
     pred_y = model.predict(pred_df)
     pred_y_argmax = np.argmax(pred_y, axis=1)
     pred_y_argmax_2 = np.argmax(pred_y_argmax, axis=0)
-    print(f"pred_y_argmax_2={pred_y_argmax_2}")
+    print(f"Node predicted: {pred_y_argmax_2}")
     subprocess.run([SOURCE + '/extract_page_features.sh',
                     html_file, predict_suffix])
     if pred_y_argmax_2 == 0:
@@ -199,7 +199,7 @@ def predict_from_csv(csv_file, html_file, predict_suffix):
 def create_model(n_input):
 
     model = tf.keras.models.Sequential([
-        keras.layers.Dense(n_input, activation='relu', input_shape=(NUM_FEATURES,)),
+        keras.layers.Dense(n_input, activation='relu', input_shape=(NUM_FEATURES-1,)),
         keras.layers.Dropout(KEEP_PROB),
         keras.layers.Dense(2, activation='softmax')]
     )
