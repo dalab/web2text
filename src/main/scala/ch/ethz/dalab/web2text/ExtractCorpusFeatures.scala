@@ -35,17 +35,19 @@ object ExtractCorpusFeatures {
       i+=1
       val elems = line.split(";")
       if (elems.length==2){
-        print("i=", i, "elems(0)=", elems(0), "elems(1)", elems(1))
+        //print("i=", i, "elems(0)=", elems(0), "elems(1)", elems(1))
         authorNamesHM += (elems(0)->elems(1))
       }
     }
+    i=0
     for (fileName <- fileNameList)
     {
+          i+=1
           val articleId = fileName.split("html/")(1).split(".html")(0)
-          System.out.println("Extracting features from file: " + fileName + ", articleId=" + articleId)
+          System.out.println("Extracting features from file: " + fileName + ", articleId=" + articleId + " [" + i + " / " + fileNameList.size + "]")
           val lines = authorNames.split("\n")
           var author = authorNamesHM(articleId)
-          System.out.println("Author: " + author)
+          System.out.println("True Label Author: " + author)
           Settings.author = author
           extractPageFeatures(fileName, args(1), articleId)
     }

@@ -14,12 +14,12 @@ import wget
 
 NUM_CLASSES = 2
 BATCH_SIZE = 5000  # The number of training examples to use per training step
-TRAINING_EPOCHS = 100
+TRAINING_EPOCHS = 200
 LEARNING_RATE = 0.0001
 KEEP_PROB = 0.8
-NUM_FEATURES = 137
+NUM_FEATURES = 141
 TRAIN_SIZE = 0.8
-NUM_FILES_TO_READ = 10000  # There are 76,968 files. 100 files take about 20 minutes using 5000 epochs
+NUM_FILES_TO_READ = 5000  # There are 76,968 files. 100 files take about 20 minutes using 5000 epochs
 RANDOM_STATE = 1
 SOURCE = "/Users/cesc/Desktop/hypefactors/AuthorExtractor"
 MODEL_SAVE_FILE = '/public/trained_model_all_the_news/model.ckpt'
@@ -64,7 +64,7 @@ def load_csv(path, batch_load=True):
                              "has_multiple_sentences", "relative_position",
                              "relative_position^2", "ends_with_punctuation",
                              "ends_with_question_mark", "contains_copyright",
-                             "contains_email", "contains_url", "contains_year",
+                             "contains_email", "contains_url", "contains_author_url", "contains_year",
                              "ratio_words_with_capital",
                              "ratio_words_with_capital^2",
                              "ratio_words_with_capital^3",
@@ -80,7 +80,7 @@ def load_csv(path, batch_load=True):
                              "p_ends_with_punctuation",
                              "p_ends_with_question_mark",
                              "p_contains_copyright", "p_contains_email",
-                             "p_contains_url", "p_contains_year",
+                             "p_contains_url", "p_contains_author_url", "p_contains_year",
                              "p_ratio_words_with_capital",
                              "p_ratio_words_with_capital^2",
                              "p_ratio_words_with_capital^3",
@@ -102,7 +102,7 @@ def load_csv(path, batch_load=True):
                              "gp_ends_with_punctuation",
                              "gp_ends_with_question_mark",
                              "gp_contains_copyright",
-                             "gp_contains_email", "gp_contains_url",
+                             "gp_contains_email", "gp_contains_url", "gp_contains_author_url",
                              "gp_contains_year", "gp_ratio_words_with_capital",
                              "gp_ratio_words_with_capital^2",
                              "gp_ratio_words_with_capital^3",
@@ -118,7 +118,7 @@ def load_csv(path, batch_load=True):
                              "root_ends_with_punctuation",
                              "root_ends_with_question_mark",
                              "root_contains_copyright", "root_contains_email",
-                             "root_contains_url", "root_contains_year",
+                             "root_contains_url", "root_contains_author_url", "root_contains_year",
                              "root_ratio_words_with_capital",
                              "root_ratio_words_with_capital^2",
                              "root_ratio_words_with_capital^3",
@@ -135,12 +135,18 @@ def load_csv(path, batch_load=True):
     return full_df
 
 
-def predict_from_html(url):
+def predict_from_html(html_file):
+    path = SOURCE + "/public/inference"
+    subprocess.run([SOURCE + '/extract_page_features.sh', html_file, path + "/test"])
+    predict_from_csv(path + "/test.csv", html_file, path + "/predict")
+    return
+
+
+def predict_from_url(url):
     path = SOURCE + "/public/inference"
     os.system('rm ' + path + '/*')
     html_file = wget.download(url, out=path)
-    subprocess.run([SOURCE + '/extract_page_features.sh', html_file, path + "/test"])
-    predict_from_csv(path + "/test.csv", html_file, path + "/predict")
+    predict_from_html(html_file)
     return
 
 

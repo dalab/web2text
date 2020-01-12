@@ -15,4 +15,4 @@ with open(inputFileName, 'r') as f:
     author = row[4]
     if len(url) > 7 and len(author) > 3: # and i >= 34203:
       outputFileName =  hashlib.sha1(url).hexdigest()
-      print(outputFileName + ", " + author)
+      print(outputFileName + "; " + author)

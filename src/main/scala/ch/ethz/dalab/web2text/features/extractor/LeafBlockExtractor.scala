@@ -52,6 +52,7 @@ object LeafBlockExtractor extends BlockFeatureExtractor {
       p.containsCopyright, // OK, do't want to normalize
       p.containsEmail, // OK
       p.containsUrl, // OK
+      p.containsAuthorUrl,
       p.containsYear, // OK
       if (p.nWords > 0) z(capRat,0.4475758,0.4129316) else 0.0, // OK
       if (p.nWords > 0) z(capRat*capRat,0.3708354,0.4334037) else 0.0, // OK
@@ -87,6 +88,7 @@ object LeafBlockExtractor extends BlockFeatureExtractor {
     "contains_copyright",
     "contains_email",
     "contains_url",
+    "contains_author_url",
     "contains_year",
     "ratio_words_with_capital",
     "ratio_words_with_capital^2",

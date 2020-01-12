@@ -14,9 +14,9 @@ This repository contains
 
 ## Installation
 
-1. Install [Scala and SBT](http://www.scala-sbt.org/download.html). The code was tested with SBT 0.31. You can also use Docker image `hseeberger/scala-sbt:8u222_1.3.3_2.13.1`.
+1. Install [Scala and SBT](http://www.scala-sbt.org/download.html). The code was tested with SBT 1.3.6.
 
-2. Install Python 3 with Tensorflow, Keras, NumPy and HuggingFace Transformers. Running an Anaconda instance is recommended.
+2. Install Python 3 with Tensorflow (tested with 2.1.0), Keras, NumPy, sklearn, HuggingFace Transformers and wget. Running an Anaconda instance is recommended.
 
 ## Usage 
 ### Recipe: Extract Page Features of a single local HTML file
@@ -28,7 +28,7 @@ Extract feature representations of all HTML files located in `public/html`:
 
 `./extract_corpus_features.sh`
 
-(Both single-page and Corpus feature extraction will generate CSV files and store them under `public/train_and_test`)
+Both single-page and Corpus feature extraction will generate CSV files and store them under `public/train_and_test`.
 
 Both the page and the corpus feature extraction generate a file named `/public/DOM/dom.html` which contains a visual DOM tree. This file is used for troubleshooting during implementation and on inference time. 
 
@@ -37,8 +37,7 @@ Train the model with all the feature representations located in `public/train_an
 
 `./train_model.sh`
 
-The true labels are expected to be in `public/authors.csv`. The syntax of this file is (URL Hash, author name).
-For clarity, all URLs of news articles are hashed.
+The true labels are expected to be in `public/authors.csv`. The syntax of this file is `URL Hash; Author name`.
 
 This generates model files located under `public/trained_model_all_the_news`.
 

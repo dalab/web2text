@@ -29,6 +29,7 @@ class NodeProperties (
   var containsCopyright: Boolean,
   var containsEmail: Boolean,
   var containsUrl: Boolean,
+  var containsAuthorUrl: Boolean,
   var containsYear: Boolean,
   var blockBreakBefore: Boolean,
   var blockBreakAfter: Boolean,
@@ -92,6 +93,7 @@ object NodeProperties {
         val regexEmail = """\b(?=[^\s]+)(?=(\w+)@([\w\.]+))\b""".r
         val regexUrl   = """\b(https?|ftp)://[^\s/$.?#].[^\s]*\b""".r
         val regexYear  = """\b\d{4}\b""".r
+        val regexAuthorUrl = """\b(https?|ftp)://.+/author/\b""".r
 
         //System.out.println("NodeProperies - Settings.author=" + s.author)
 
@@ -121,6 +123,7 @@ object NodeProperties {
           containsCopyright     = text.contains("©") || text.contains("©️"),
           containsEmail         = regexEmail.findFirstIn(text) != None,
           containsUrl           = regexUrl.findFirstIn(text) != None,
+          containsAuthorUrl     = regexAuthorUrl.findFirstIn(text) != None,
           containsYear          = regexYear.findFirstIn(text) != None,
           blockBreakBefore      = domnode.previousSibling != null &&
                                   Settings.blockTags.contains
@@ -182,6 +185,7 @@ object NodeProperties {
           containsCopyright     = cfeat.containsCopyright,
           containsEmail         = cfeat.containsEmail,
           containsUrl           = cfeat.containsUrl,
+          containsAuthorUrl     = cfeat.containsAuthorUrl,
           containsYear          = cfeat.containsYear,
           startPosition         = if (cfeat.startPosition > -1)
                                     cfeat.startPosition
@@ -225,7 +229,7 @@ object NodeProperties {
         // Initialize the features to their neural values
         val features = new NodeProperties(
           nCharacters=0, nWords=0, nSentences=0, nPunctuation=0, nNumeric=0, nDashes=0,
-          containsCopyright=false, containsEmail=false, containsUrl=false, containsYear=false,
+          containsCopyright=false, containsEmail=false, containsUrl=false, containsAuthorUrl=false, containsYear=false,
           nStopwords=0,
           containsPopularName=false,
           containsAuthorParticle=false,
@@ -264,6 +268,7 @@ object NodeProperties {
           features.containsCopyright   = x.containsCopyright || features.containsCopyright
           features.containsEmail       = x.containsEmail || features.containsEmail
           features.containsUrl         = x.containsUrl || features.containsUrl
+          features.containsAuthorUrl   = x.containsAuthorUrl || features.containsAuthorUrl
           features.containsYear        = x.containsYear || features.containsYear
           features.containsAuthor      = x.containsAuthor || features.containsAuthor
         })
