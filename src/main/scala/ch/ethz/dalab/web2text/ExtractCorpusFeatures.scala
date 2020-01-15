@@ -2,6 +2,7 @@ package ch.ethz.dalab.web2text
 
 import ch.ethz.dalab.web2text.features.extractor.{AncestorExtractor, DuplicateCountsExtractor, NodeBlockExtractor, RootExtractor, TagExtractor}
 import java.io.File
+import java.util.Arrays
 import scala.collection.mutable
 import breeze.linalg.csvwrite
 import ch.ethz.dalab.web2text.cdom.CDOM
@@ -9,6 +10,8 @@ import ch.ethz.dalab.web2text.features.extractor._
 import ch.ethz.dalab.web2text.features.FeatureExtractor
 import ch.ethz.dalab.web2text.utilities.Util
 import ch.ethz.dalab.web2text.utilities.Settings
+import org.apache.commons.io.comparator.LastModifiedFileComparator._
+
 
 /**
  * This is the first step in classifying boilerplate content in a webpage.
@@ -24,9 +27,9 @@ object ExtractCorpusFeatures {
     }
     val folderName = args(0)
     val file = new File(folderName)
-    val fileNameList = file.listFiles.filter(_.isFile)
-      .filter(_.getName.endsWith("html"))
-      .map(_.getPath).toList
+    val fileNameArray = file.listFiles.filter(_.isFile).filter(_.getName.endsWith("html"))
+    Arrays.sort(fileNameArray, LASTMODIFIED_COMPARATOR)
+    val fileNameList = fileNameArray.map(_.getPath).toList
     val authorNames = Util.loadFile(folderName + "../authors.csv", skipLines = 1)
     var authorNamesHM = mutable.Map[String, String]().withDefaultValue("Unkown Author")
     val lines = authorNames.split("\n")
