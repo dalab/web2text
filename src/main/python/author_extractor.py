@@ -12,12 +12,11 @@ import time
 from transformers import pipeline
 import wget
 
-# BATCH_SIZE = 5000  # The number of training examples to use per training step
 TRAINING_EPOCHS = 50
 LEARNING_RATE = 0.0001
 DROPOUT_RATE = 0.2
 NUM_FEATURES = 141
-NUM_FILES_TO_READ = 3000  # There are 76,968 files. 100 files take about 20 minutes using 5000 epochs
+NUM_FILES_TO_READ = 15000  # There are 76,968 files. 100 files take about 20 minutes using 5000 epochs
 RANDOM_STATE = 1
 SOURCE = "/Users/cesc/Desktop/hypefactors/AuthorExtractor"
 MODEL_SAVE_FILE = '/public/trained_model_all_the_news/model.ckpt'
@@ -101,15 +100,6 @@ FEATURE_COLUMNS = ["has_duplicate", "has_10_duplicates",
                    "tag_small", "tag_sup", "tag_h1", "tag_blockquote"]
 
 
-# def load_data(file_list):
-#    start_time = time.process_time()
-#    df = load_csv(file_list)
-#    df_x = df.drop(columns=['contains_author'])
-#    df_y = pd.get_dummies(df['contains_author'])
-#    print(f"Read {NUM_FILES_TO_READ} training and test files: {time.process_time() - start_time} seconds")
-#    return df_x, df_y
-
-
 def get_files(path, batch_load=True):
     if batch_load:
         file_list = [os.path.join(path, f) for f in os.listdir(path) if (os.path.isfile(os.path.join(path, f))
@@ -121,7 +111,6 @@ def get_files(path, batch_load=True):
 
 
 def load_csv(file):
-    #print(f"importing {file}")
     full_df = pd.read_csv(file, sep=",", header=None).transpose()
     full_df.columns = FEATURE_COLUMNS
     full_df_x = full_df.drop(columns=['contains_author'])
@@ -175,9 +164,7 @@ def get_html_chunk(dom_seq, html_file):
 
 
 def predict_from_csv(csv_file, html_file, predict_suffix):
-    # file_list = get_files(csv_file, True)
     pred_df,_ = load_csv(csv_file)
-    #pred_df = pred_df.drop(columns=['contains_author'])
     model = tf.keras.models.load_model(SOURCE + MODEL_SAVE_FILE)
     pred_y = model.predict(pred_df)
     pred_y_argmax = np.argmax(pred_y, axis=1)
@@ -210,8 +197,6 @@ def create_model():
 
 
 def batch_generator(files_list):
-    pd.set_option('display.max_rows', None)
-    pd.set_option('display.max_columns', None)
     while True:
         for i in range(len(files_list)):
             x, y = load_csv(files_list[i])
@@ -222,7 +207,6 @@ def batch_generator(files_list):
                 df_x = pd.concat([df_x, x])
                 df_y = pd.concat([df_y, y])
             if i % BATCH_SIZE == BATCH_SIZE - 1 or i == len(files_list) - 1:
-                # print(f"Let's see,  df_y={df_y}, columns of y={list(df_y.columns)}")
                 yield df_x, df_y
 
 
@@ -241,12 +225,10 @@ def train_keras(csv_folder):
     file_list = get_files(csv_folder)
     train_cnt = floor(len(file_list) * TRAIN_SIZE)
     valid_cnt = floor(len(file_list) * VALID_SIZE)
-    print(f"train_cnt={train_cnt}, valid_cnt={valid_cnt}")
     file_list_train = file_list[0:train_cnt]
     file_list_valid = file_list[train_cnt:train_cnt + valid_cnt]
     file_list_test = file_list[train_cnt + valid_cnt:len(file_list)]
     model = create_model()
-    # (train_x.shape[1])
     model.summary()
     cp_callback = tf.keras.callbacks.ModelCheckpoint(filepath=SOURCE + MODEL_SAVE_FILE,
                                                      save_weights_only=False,
