@@ -26,6 +26,13 @@ This repository contains
 ## Installation
 
 1. Install [Scala and SBT](http://www.scala-sbt.org/download.html). The code was tested with SBT 1.3.3. You can also use Docker image `hseeberger/scala-sbt:8u222_1.3.3_2.13.1`.
+    * if you struggle installing Scala and SBT, you can run our Scala code in Docker with commands like
+    ```
+    docker run -it --rm \
+        --mount type=bind,source="$(pwd)",target=/root \
+        hseeberger/scala-sbt:8u222_1.3.3_2.13.1 \
+        sbt "runMain ch.ethz.dalab.web2text.ExtractPageFeatures result/input.html result/step_1_extracted_features"
+    ```
 
 2. Install Python 3 with Tensorflow and NumPy.
 
