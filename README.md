@@ -32,6 +32,8 @@ This repository contains
 
 ## Usage
 
+See this [blog post](https://xaviergeerinck.com/post/ai/web2text) by Xavier Geerinck with step-by-step instructions on running this code.
+
 ### Recipe: extracting text from a web page
 
 1. Run `ch.ethz.dalab.web2text.ExtractPageFeatures` through sbt. The arguments are:
