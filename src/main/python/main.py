@@ -17,7 +17,7 @@ LEARNING_RATE = 1e-3
 DROPOUT_KEEP_PROB = 0.8
 REGULARIZATION_STRENGTH = 0.000
 EDGE_LAMBDA = 1
-CHECKPOINT_DIR = 'trained_model_cleaneval_split'
+CHECKPOINT_DIR = os.path.join(os.path.dirname(__file__), 'trained_model_cleaneval_split')
 
 def main():
   if len(sys.argv) < 2:
