@@ -3,8 +3,10 @@
 
 import tensorflow as tf
 from future.utils import iteritems
+import sys
 
 FLAGS = tf.app.flags.FLAGS
+FLAGS(sys.argv)
 
 
 class Config:
