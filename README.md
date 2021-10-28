@@ -34,7 +34,7 @@ This repository contains
         sbt "runMain ch.ethz.dalab.web2text.ExtractPageFeatures result/input.html result/step_1_extracted_features"
     ```
 
-2. Install Python 3 with Tensorflow and NumPy.
+2. Install Python 3.7 with Tensorflow 1.15 and NumPy.
 
 
 ## Usage
